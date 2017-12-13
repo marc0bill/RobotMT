@@ -1,0 +1,10 @@
+
+*.pyc
+*.xml
+*.mk
+firmware/dsPicI2CeCAN.X/nbproject/Package-default.bash
+firmware/dsPicI2CeCAN.X/nbproject/Makefile-genesis.properties
+*.hex
+*.elf
+*.o
+*.d
