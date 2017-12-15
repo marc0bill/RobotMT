@@ -11,3 +11,6 @@ firmware/dsPicI2CeCAN.X/nbproject/Makefile-genesis.properties
 firmware/dsPicI2CeCAN.X/dist/default/production/dsPicI2CeCAN.X.production.map
 firmware/dsPICeCAN.X/nbproject/Package-default.bash
 firmware/dsPICeCAN.X/nbproject/Makefile-genesis.properties
+firmware/PetitRobot.X/nbproject/Package-default.bash
+firmware/PetitRobot.X/nbproject/Makefile-genesis.properties
+firmware/PetitRobot.X/dist/default/production/PetitRobot.X.production.map
