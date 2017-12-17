@@ -14,3 +14,5 @@ firmware/dsPICeCAN.X/nbproject/Makefile-genesis.properties
 firmware/PetitRobot.X/nbproject/Package-default.bash
 firmware/PetitRobot.X/nbproject/Makefile-genesis.properties
 firmware/PetitRobot.X/dist/default/production/PetitRobot.X.production.map
+firmware/MotorDrive.X/nbproject/Makefile-genesis.properties
+firmware/MotorDrive.X/nbproject/Package-default.bash
