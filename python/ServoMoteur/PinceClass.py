@@ -3,6 +3,8 @@ import time
 import RPi.GPIO as GPIO
 # The types of packets.
 
+# Implementation fonctionnelle
+# associe avec ControlJostisk
 
 
 PING       = [0x01]
