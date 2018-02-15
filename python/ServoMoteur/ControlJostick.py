@@ -61,7 +61,7 @@ while(bstate[1]!=1):
             #mon_joystick.get_axis(0)# joystick gauche : gauche/droite
             #mon_joystick.get_axis(1)# joystick gauche : haut/bas
             #mon_joystick.get_axis(2)# gachette arriere
-            Pince.Ascenseur(int(-1000*Seuil(mon_joystick.get_axis(4)))) # joystick droite : haut/bas
+            Pince.ascenseur_move(int(-1000*Seuil(mon_joystick.get_axis(4)))) # joystick droite : haut/bas
             #mon_joystick.get_axis(3)# joystick droite : gauche/droite
             pass
         if event.type is 9: # evenement : croix directionnelle
@@ -71,17 +71,17 @@ while(bstate[1]!=1):
             bstate=map(mon_joystick.get_button,range(nb_boutons))
             bstate_int=sum(map(lambda b:int(bstate[b])*(2**b),range(nb_boutons)))
             if bstate_int == 1:
-                Pince.Open()
+                Pince.open()
             if bstate_int == 4:
-                Pince.Close()
+                Pince.close()
 
 
 
 portMot.write("VtsM 0 0 \n")
 
-#Pince.Up()
-#Pince.Down()
+#Pince.up()
+#Pince.down()
 #time.sleep(1)
-#Pince.Stop()
+#Pince.stop()
 
-#Pince.Led_OFF()
+#Pince.led_off()
