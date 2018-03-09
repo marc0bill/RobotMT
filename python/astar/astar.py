@@ -4,13 +4,13 @@ import numpy as np
 
 
 class AStarNode:
-	def __init__(self,ix0,iy0,delta_x,delta_y,DistanceObstacleMax=2000.0):
+	def __init__(self,ix0,iy0,delta_x,delta_y,DistanceObstacle=1e9):
 		self.G = 1e9 	# G, distance parcourue
 		self.H = 1e9 	# H, distance a vol d'oiseau
 		self.F = 1e9	# F, poids du noeud
 		self.Ang = 0.0	# Angle du robot sur ce point
 		self.TpsTrajet = 1e9
-		self.DistanceObstacle = DistanceObstacleMax
+		self.DistanceObstacle = DistanceObstacle
 		self.ix = ix0
 		self.iy = iy0
 		self.delta_x = delta_x
@@ -21,21 +21,20 @@ class AStarNode:
 		self.ListO_next = None
 		self.parcourus = False
 		self.delta=(self.delta_x+self.delta_y)/4.0
-	#def addObstacle(self,x_obs,y_obs):
-	#	NewDist = sqrt((self.x-x_obs)**2+(self.y-y_obs)**2)
-	#	if NewDist < self.DistanceObstacle:
-	#		self.DistanceObstacle = NewDist
+	def setObstacle(self, NewDist):
+		self.DistanceObstacle = NewDist
+	def addObstacle(self,x_obs,y_obs):
+		NewDist = sqrt((self.x-x_obs)**2+(self.y-y_obs)**2)
+		if NewDist < self.DistanceObstacle:
+			self.DistanceObstacle = NewDist
 	
 	def setDistanceObstacle(self,Dist):
 		self.DistanceObstacle = Dist
 	
-	def clean(self,DistanceObstacleMax=2000.0):
+	def clean(self):
 		self.G = 1e9
 		self.H = 1e9
 		self.F = 1e9
-		self.Ang = 0.0	# Angle du robot sur ce point
-		self.TpsTrajet = 1e9
-		self.DistanceObstacle = DistanceObstacleMax
 		self.Parent = None
 		self.ListO_next = None
 		self.parcourus = False
@@ -143,8 +142,10 @@ class Pathfinder:
 		
 		self.X=np.linspace(0,self.x_max,self.nb_x)
 		self.Y=np.linspace(0,self.y_max,self.nb_y)
-
+		
+		
 #		self.VtsMax = VtsMax
+		
 		self.iObsMax_y = int(DistanceObstacleMax/self.delta_y)
 		self.iObsMax_x = int(DistanceObstacleMax/self.delta_x)
 		for iy in range(self.nb_y):
@@ -152,15 +153,6 @@ class Pathfinder:
 			for ix in range(self.nb_x):
 				node=AStarNode(ix,iy,self.delta_x,self.delta_y,DistanceObstacleMax)
 				self.graph[iy].insert(ix,node)
-
-		self.ObsMapFixe=np.zeros((nb_x,nb_y))+DistanceObstacleMax
-		self.ObsMapMob=np.zeros((nb_x,nb_y))+DistanceObstacleMax
-
-		self.ObsBlocMob=np.zeros((2*self.iObsMax_x+1,2*self.iObsMax_y+1))
-		for ix,ligne in enumerate(self.ObsBlocMob):
-			for iy,colonne in enumerate(self.ObsBlocMob):
-				self.ObsBlocMob[ix,iy] = min(sqrt((ix-self.iObsMax_x)**2*self.delta_x**2+(iy-self.iObsMax_y)**2*self.delta_y**2),DistanceObstacleMax)
-
 		
 		
 	def pathfinding(self,x_start,y_start,ang_start,x_fin,y_fin,VtsMax=1000.0,VtsAng=10.0):
@@ -171,14 +163,7 @@ class Pathfinder:
 		
 		NodeStart=self.graph[iy_start][ix_start]
 		NodeFin=self.graph[iy_fin][ix_fin]
-
-
-		ObsMap=self.ObsMapFixe#np.minimum(self.ObsMapMob,self.ObsMapFixe)
-		for iy in range(self.nb_y):
-			for ix in range(self.nb_x):
-				self.graph[iy][ix].setDistanceObstacle(ObsMap[ix,iy])
-
-
+		
 		NodeStart.G=0.0
 		NodeStart.moveCost(NodeStart, NodeFin,0.0,ang_start,self.DistanceObstacleMin,self.DistanceObstacleMax,VtsMax,VtsAng)
 		HeadListO=NodeStart
@@ -204,37 +189,35 @@ class Pathfinder:
 	def clean(self):
 		for iy in range(self.nb_y):
 			for ix in range(self.nb_x):
-				self.graph[iy][ix].clean(self.DistanceObstacleMax)
-	# def obstacleDellAll(self):
-	# 	for iy in range(self.nb_y):
-	# 		for ix in range(self.nb_x):
-	# 			self.graph[iy][ix].setDistanceObstacle(self.DistanceObstacleMax)
-	# def addObstacle(self,x_obs,y_obs):
-	# 	ix_obs = int (x_obs/self.delta_x)
-	# 	iy_obs = int (y_obs/self.delta_y)
-	# 	for j in range(-self.iObsMax_y,self.iObsMax_y):
-	# 		for i in range(-self.iObsMax_x,self.iObsMax_x):
-	# 			iy=iy_obs+j
-	# 			ix=ix_obs+i
-	# 			if (0<=ix<self.nb_x) & (0<=iy<self.nb_y):
-	# 				self.graph[iy][ix].addObstacle(x_obs,y_obs)
-	def obstacleLoadFixeMap(self,image):
-		for iy_obs in range(self.nb_y):
-			for ix_obs in range(self.nb_x):
-				if image.getpixel((ix_obs, iy_obs)) == (0,0,0):
-					for j in range(-self.iObsMax_y,self.iObsMax_y):
-						for i in range(-self.iObsMax_x,self.iObsMax_x):
-							iy=iy_obs+j
-							ix=ix_obs+i
-							if (0<=ix<self.nb_x) & (0<=iy<self.nb_y):
-								NewDist = sqrt((ix-ix_obs)**2*self.delta_x**2+(iy-iy_obs)**2*self.delta_y**2)
-								if NewDist < self.ObsMapFixe[ix,iy]:
-									self.ObsMapFixe[ix,iy] = NewDist
-				
-	def getObsNode(self):
-		Obs=np.zeros((self.nb_x,self.nb_y))
+				self.graph[iy][ix].clean()
+	def dellObstacle(self):
 		for iy in range(self.nb_y):
 			for ix in range(self.nb_x):
+				self.graph[iy][ix].setDistanceObstacle(self.DistanceObstacleMax)
+	def addObstacle(self,x_obs,y_obs):
+		ix_obs = int (x_obs/self.delta_x)
+		iy_obs = int (y_obs/self.delta_y)
+		for j in range(-self.iObsMax_y,self.iObsMax_y):
+			for i in range(-self.iObsMax_x,self.iObsMax_x):
+				iy=iy_obs+j
+				ix=ix_obs+i
+				if (0<=ix<self.nb_x) & (0<=iy<self.nb_y):
+					self.graph[iy][ix].addObstacle(x_obs,y_obs)
+	def setObstacle(self,ObsMap):
+		for iy in range(self.nb_y):
+			for ix in range(self.nb_x):
+				self.graph[iy][ix].setObstacle(ObsMap[ix,iy])
+				
+	def getTable(self):
+		#X=[]
+		#Y=[]
+		
+		Obs=np.zeros((self.nb_x,self.nb_y))
+		
+		for iy in range(self.nb_y):
+			for ix in range(self.nb_x):
+		#		X.insert(0,self.graph[iy][ix].x)
+		#		Y.insert(0,self.graph[iy][ix].y)
 				Obs[ix][iy]=self.graph[iy][ix].DistanceObstacle
 		return Obs
 				
