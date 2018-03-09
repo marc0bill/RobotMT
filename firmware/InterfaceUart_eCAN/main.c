@@ -127,9 +127,6 @@ int main(void){
 
     
     
-    AD1PCFGL = 0b111111110; //port an1 en mode analogue *****************************
-    
-    
     //timler config
     T2CONbits.T32 = 0b0;//16bits
     T4CONbits.T32 = 0b0;//16 bits
@@ -138,32 +135,13 @@ int main(void){
     T3CONbits.TGATE = 0b0; //gate acccumulation desactiver
     PR3 = 103; //104 en binaire pour comper 1/192K 0b000000001101000
 
-    //adc config
-    //bits.CH0SB0 = 0b00100; //AN4 input chan 0***************************************
-    AD1CON2bits.VCFG = 0b111; //alim avdd et avss (vref plus atrd))
-    AD1CON3bits.ADCS = 0b00000000; //adc clock convertion
-    AD1CON2bits.CHPS = 0b00; //choisis channel CH0***************************************
-    AD1CON1bits.SSRC = 0b010; //stimer 3 trigger adc
-    AD1CON3bits.SAMC = 0b0000; //0b1110 = 14 TAD
-    AD1CON1bits.FORM = 0b00; //format unsign integer
-    AD1CON1bits.AD12B = 0b1; //converyion 12 bits
-    AD1CON1bits.ASAM = 0b1; // adc sample auto
-    AD1CON2bits.SMPI = 0b0000; //incremente adresse apr&s chasue convertion
-    AD1CON1bits.ADDMABM = 0b1;    
-    
-    //enable interupt
-    //IEC0bits.T3IE = 0b1; //timer3 interupt enable
-    IEC0bits.AD1IE = 0b1; // Enable Analog-to-Digital interrupt
 
-    //clear flag interupt
-    //IFS0bits.T3IF = 0b0; 
-    IFS0bits.AD1IF = 0b0;
     
-    //allumage
-    T3CONbits.TON = 0b1;//T3 ON
-    AD1CON1bits.ADON = 0b1; //ADC ON
 
-    TRISBbits.TRISB15 = 0b0; //rb15 en sortit
+
+
+    
+
     
     
     
@@ -284,10 +262,3 @@ void __attribute__((__interrupt__,no_auto_psv)) _C1Interrupt(void){
 }	
 
 
-
-void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt (void) { 
-  	IFS0bits.AD1IF = 0;	// Clear interrupt flag 
-  	dataa = ADC1BUF0; // Read POT value to set Reference Speed 
-    ADC_Flag_VAL = 1;
-    PORTBbits.RB15 = LATBbits.LATB15 ^ 0b1;
-    }  
