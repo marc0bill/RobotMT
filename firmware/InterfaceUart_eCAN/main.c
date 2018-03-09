@@ -48,12 +48,12 @@
 #endif
 
 #include "ECAN1Drv.h"
+//#include "crc16.h"
 #include "init_pic.h"
 #include "node.h"
 
 #include "uart.h"
-#include "moduleI2C.h"
-#include "i2c.h"
+
 _FOSCSEL(FNOSC_PRIPLL); // Primary Oscillator (XT, HS, EC) w/ PLL
 _FOSC(FCKSM_CSECMD & OSCIOFNC_OFF  & POSCMD_XT);
     //FCKSM_CSECMD  Clock switching is enabled, Fail-Safe Clock Monitor is disabled
@@ -100,9 +100,6 @@ void RandomWait(void){
 	}
 }
 
-unsigned int dataa = 0;
-unsigned char ADC_Flag_VAL=0;
-
 int main(void){
     char sizeU1Tx;
     int data[4];
@@ -113,9 +110,7 @@ int main(void){
 	/* Configure the dsPIC */
 	init_pic();
     initUART1(57600);//9600, 19200, 57600
-    #ifdef NODEUS
-    config_I2C();
-    #endif
+    
 	ECAN1DMAConfig(__builtin_dmaoffset(ecanTxMsgBuffer),
 					__builtin_dmaoffset(ecanRxMsgBuffer), 
 					NUM_OF_RX_BUFFERS);
@@ -125,74 +120,7 @@ int main(void){
 	ECAN1TxRxBuffersConfig();
 	ECAN1SetOPMode();
 
-    
-    
-    //timler config
-    T2CONbits.T32 = 0b0;//16bits
-    T4CONbits.T32 = 0b0;//16 bits
-    T3CONbits.TCKPS = 0b00; //prescale à 1
-    T3CONbits.TCS = 0b0; //internal clock
-    T3CONbits.TGATE = 0b0; //gate acccumulation desactiver
-    PR3 = 103; //104 en binaire pour comper 1/192K 0b000000001101000
-
-
-    
-
-
-
-    
-
-    
-    
-    
-    
 	while(1){
-        #ifdef NODEUS
-        if(UltraSon.FlagU1_VAL == 0){
-            mesure_ultrason_1(0xE0);   
-        }
-        //if(UltraSon.FlagU2_VAL == 0)
-        //    mesure_ultrason_2(0xE0);
-        //if(UltraSon.FlagU3_VAL == 0)
-        //    mesure_ultrason_3(0xE0);
-        
-        //if(ADC_Flag_VAL==1){
-        if(UltraSon.FlagU1_VAL==1){
-            //sizeU1Tx=sprintf(strU1Tx, "Tx:%d\n", UltraSon.ValU1);
-            //fctU1Tx_string(strU1Tx,sizeU1Tx);
-            
-            
-            if(transmitNext == 1){
-			/* Send a new packet. Create the packet using
-             * data structure and the SID and EID.*/ 
-                data[0] = UltraSon.ValU1;
-                data[1] = dataa;
-                data[2] = 3;
-                data[3] = 4;
-                ECANCreateEIDPacket(data,TXSID1,TXEID1,ecanTxMsgBuffer);
-                transmitNext = 0;
-                //RandomWait();
-                ECAN1SendPacket();
-            }
-            UltraSon.FlagU1_VAL = 0;
-            ADC_Flag_VAL=0;
-		}
-        #endif
-
-        #ifdef NODE1
-		if(received == 1){
-			received = 0;
-			rxIndex = rxBufferIndex;
-            sizeU1Tx=sprintf(strU1Tx, "%d\t%d\t%d\t%d\t%d%d%d%d\n", rxIndex,
-                    ecanRxMsgBuffer[rxIndex][0],ecanRxMsgBuffer[rxIndex][1],
-                    ecanRxMsgBuffer[rxIndex][2],ecanRxMsgBuffer[rxIndex][3],
-                    ecanRxMsgBuffer[rxIndex][4],ecanRxMsgBuffer[rxIndex][5],ecanRxMsgBuffer[rxIndex][6]);
-            fctU1Tx_string(strU1Tx,sizeU1Tx);
-		}
-        #endif
-        
-        
-        #ifdef NODE2
         if(transmitNext == 1){
 			/* Send a new packet. Create the packet using
              * data structure and the SID and EID.*/ 
@@ -220,7 +148,6 @@ int main(void){
                     ecanRxMsgBuffer[rxIndex][4],ecanRxMsgBuffer[rxIndex][5],ecanRxMsgBuffer[rxIndex][6]);
             fctU1Tx_string(strU1Tx,sizeU1Tx);
 		}
-        #endif
 	}
 }
 
@@ -260,5 +187,3 @@ void __attribute__((__interrupt__,no_auto_psv)) _C1Interrupt(void){
 		LED3 = LED_ON;
 	}
 }	
-
-

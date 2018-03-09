@@ -43,7 +43,7 @@
 #define NUM_OF_TX_NODES (NUM_OF_NODES - 1)
 
 /* Define a set of node addresses. to be used by the node. */
-#define NODEUS
+#define NODE1
 /* Change this #define to NODE1 for node 1, NODE2 for node 2 and so on */
 
 /* The SIDx and EIDx values are the  IDs of the local node. The TXSIDx and 
@@ -58,20 +58,7 @@
 #define RANDOM_SEED	20
 #endif
 
-
-
 #ifdef NODE2
-#define SID1 0x92			/* This is node 2 address */
-#define EID1 0x1C490
-#define SID2 0x90			/* This is node 2 address */
-#define EID2 0x1C490
-#define TXSID1 0x91			/* This is node 1 address */
-#define TXEID1 0x1C490
-#define RANDOM_SEED 30
-#endif
-
-
-#ifdef NODEUS
 #define SID1 0x92			/* This is node 2 address */
 #define EID1 0x1C490
 #define SID2 0x90			/* This is node 2 address */
