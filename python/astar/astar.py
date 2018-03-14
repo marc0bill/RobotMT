@@ -144,7 +144,7 @@ class Pathfinder:
 		self.Y=np.linspace(0,self.y_max,self.nb_y)
 		
 		
-#		self.VtsMax = VtsMax
+		#self.VtsMax = VtsMax
 		
 		self.iObsMax_y = int(DistanceObstacleMax/self.delta_y)
 		self.iObsMax_x = int(DistanceObstacleMax/self.delta_x)
