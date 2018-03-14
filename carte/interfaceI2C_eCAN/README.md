@@ -28,4 +28,4 @@ firmware/dsPICeCAN.X
 
 ## Authors
 
-* **Marc Bocquet** - *Initial work* - [PurpleBooth](https://github.com/marc0bill)
+* **Marc Bocquet** - *Initial work* - [marc0bill](https://github.com/marc0bill)
