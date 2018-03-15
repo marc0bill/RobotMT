@@ -61,8 +61,14 @@ _FOSC(FCKSM_CSECMD & OSCIOFNC_OFF  & POSCMD_XT);
     //POSCMD_XT     XT Oscillator Mode
 _FWDT(FWDTEN_OFF);
     // FWDTEN_OFF   Watchdog timer enabled/disabled by user software
-//Configuration pin I2C
-_FPOR(ALTI2C_ON);
+/* Configuration pin I2C
+ * !! ATTENTION !!
+ * Les cartes d'interface eCAN/I2C/UART/An fonctionnent avec les pin standards
+ * pour IC2.
+ * Le shield I2C pour Ultrason + Boussol + Centrale Inertielle utilise les pin
+ * alternative pour I2C
+ */
+//_FPOR(ALTI2C_ON); 
 
 /* Define the number of ECAN RX buffers. Only one TX buffer is used. This is 
  * explained in the readme file along with this code example. */
@@ -191,10 +197,10 @@ int main(void){
                 data[1] = dataa;
                 data[2] = 3;
                 data[3] = 4;
-                ECANCreateEIDPacket(data,TXSID1,TXEID1,ecanTxMsgBuffer);
+                //ECANCreateEIDPacket(data,TXSID1,TXEID1,ecanTxMsgBuffer);
                 transmitNext = 0;
                 //RandomWait();
-                ECAN1SendPacket();
+                //ECAN1SendPacket();
             }
             UltraSon.FlagU1_VAL = 0;
             ADC_Flag_VAL=0;

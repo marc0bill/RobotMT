@@ -15,3 +15,5 @@ firmware/MotorDrive.X/nbproject/
 python/.ipynb_checkpoints/
 python/exemple/.ipynb_checkpoints/
 python/astar/.ipynb_checkpoints/
+firmware/dsPICeCAN.X/dist/default/debug/dsPICeCAN.X.debug.map
+firmware/dsPICeCAN.X/dist/default/production/dsPICeCAN.X.production.map
