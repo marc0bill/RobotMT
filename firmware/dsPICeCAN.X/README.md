@@ -5,7 +5,7 @@ Firmware des cartes d'interface dsPIC_I2C (carte\interfaceI2C_eCAN\dsPIC_I2C.brd
 
 ## Description
 
-Réalise l'interphase entre :
+Réalise l'interface entre :
 * [US - srf10] Capteurs Ultrason (I2C) 
 * [GP2Y2Y0A02] Capteurs IR SHARP (sortie analogique) 20cm->150cm
 * [Le bus eCAN]
