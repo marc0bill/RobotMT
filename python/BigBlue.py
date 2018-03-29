@@ -7,7 +7,6 @@ import time
 
 
 from astar.astar import *
-from scipy.constants import pi
 
 import numpy as np
 
@@ -66,11 +65,11 @@ if __name__ == '__main__':
 # 
 # 
 # 
-# ## Création de la Map du pathfinding
+# ## Creation de la Map du pathfinding
 # Map=Pathfinder(x_max, y_max, nb_x, nb_y, 150., 500.)
-# # ATTENTION LES TYPES DOIVENT ÊTRE RESPECTER : CORRIGER CELA DANS LE SOURCE astar.py
+# # ATTENTION LES TYPES DOIVENT ETRE RESPECTER : CORRIGER CELA DANS LE SOURCE astar.py
 # 
-# # Ajout de de la carte comme obstacles à la Map astar
+# # Ajout de de la carte comme obstacles a la Map astar
 #         ObsMap=np.zeros((self.nbX,self.nbY))+600.
 #         for ix_obs, obsList in enumerate(self.mapTblNode):
 #             for iy_obs, obs in enumerate(obsList):
@@ -112,12 +111,12 @@ if __name__ == '__main__':
 #             for i in PointAnguleux:
 #                 String="PstCons %s 0 %.4s %s %s %s 4 %s 0.1 10.0 10.0 \n" % (NbPt, TableAng[i], TableX[i], TableY[i],'50','0')
 #                 #String="TuRn %.4s %s %s %s \n" % (j, TableAng[i],Vmax,wait)
-#                 #ser.write(String) # pour un envoie de la chaine de caratères sur par port COM
+#                 #ser.write(String) # pour un envoie de la chaine de carateres sur par port COM
 #                 print(String[:-1])
 #                 j=j+1
 #                 String="PstCons %s 0 %.4s %s %s %s 3 %s 0.05 100.0 100.0 \n" % (NbPt, TableAng[i], TableX[i], TableY[i],'50','0')
 #                 #String="GoTo %s %s %s %s %s \n" % (j, TableX[i], TableY[i],Vmax,wait)
-#                 #ser.write(String) # pour un envoie de la chaine de caratères sur par port COM
+#                 #ser.write(String) # pour un envoie de la chaine de carateres sur par port COM
 #                 print(String[:-1])
 #                 j=j+1
 #         else:

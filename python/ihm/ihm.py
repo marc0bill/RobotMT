@@ -1,11 +1,12 @@
 import tkinter as tk
 import tkinter.ttk as ttk
-import PIL.Image
-import PIL.ImageTk
+#import PIL.Image
+#import PIL.ImageTk
 
-from joystick import Joystick
+from ihm.joystick import Joystick
 
-from scipy.constants import pi
+pi = 3.14159265358979323846
+
 import numpy as np
 
 from multiprocessing import Queue
