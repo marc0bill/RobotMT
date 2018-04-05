@@ -43,7 +43,7 @@
 #define NUM_OF_TX_NODES (NUM_OF_NODES - 1)
 
 /* Define a set of node addresses. to be used by the node. */
-#define NODE1
+#define NODE2
 /* Change this #define to NODE1 for node 1, NODE2 for node 2 and so on */
 
 /* The SIDx and EIDx values are the  IDs of the local node. The TXSIDx and 
