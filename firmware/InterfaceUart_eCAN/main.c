@@ -109,12 +109,12 @@ int main(void){
     
 	/* Configure the dsPIC */
 	init_pic();
-    initUART1(57600);//9600, 19200, 57600
+  //  initUART1(57600);//9600, 19200, 57600 // CONCERNE UART
     
 	ECAN1DMAConfig(__builtin_dmaoffset(ecanTxMsgBuffer),
 					__builtin_dmaoffset(ecanRxMsgBuffer), 
 					NUM_OF_RX_BUFFERS);
-	ECAN1ClockConfig();
+	ECAN1ClockConfig(); //Configuration de la clock
 	ECAN1InterruptConfig();
 	ECAN1RxFiltersConfig();
 	ECAN1TxRxBuffersConfig();
@@ -130,16 +130,16 @@ int main(void){
 			data[3] = 4;
 			ECANCreateEIDPacket(data,TXSID1,TXEID1,ecanTxMsgBuffer);
 			transmitNext = 0;
-		}	
+		}
 
 		/* Wait for a random period of time and then send the message. This code
          * example does not check if the message was aborted but that could be 
          * checked here. Note that if the message was aborted the TBIF flag will
          * not be set and you will not get the associated event interrupt. */
-		RandomWait();
+	
 		ECAN1SendPacket();
 				
-		if(received == 1){
+		/*if(received == 1){
 			received = 0;
 			rxIndex = rxBufferIndex;
             sizeU1Tx=sprintf(strU1Tx, "%d\t%d\t%d\t%d\t%d%d%d%d\n", rxIndex,
@@ -147,7 +147,7 @@ int main(void){
                     ecanRxMsgBuffer[rxIndex][2],ecanRxMsgBuffer[rxIndex][3],
                     ecanRxMsgBuffer[rxIndex][4],ecanRxMsgBuffer[rxIndex][5],ecanRxMsgBuffer[rxIndex][6]);
             fctU1Tx_string(strU1Tx,sizeU1Tx);
-		}
+		}*/
 	}
 }
 

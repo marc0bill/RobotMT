@@ -72,14 +72,14 @@ void ECAN1DMAConfig(int txBufferOffset, int rxBufferOffset, int numOfRxBuffers){
      * message is 7 words. Additionally the Continuous mode with ping pong 
      * disabled is used. For ease of error* handling while using register 
      * indirect mode, only one TX buffer is used. */ 
-	DMA0CON = 0x2000;		
-	DMA0PAD = (int)(&C1TXD);	
- 	DMA0CNT = 6;			
-	DMA0REQ = 0x0046;		
-	DMA0STA = txBufferOffset; 
-   	_DMA0IE	= 0;	
-   	_DMA0IF = 0;
-   	DMA0CONbits.CHEN = 1;		
+	DMA0CON = 0x2000;		//direct memory acess
+	DMA0PAD = (int)(&C1TXD);//transmit data Word
+ 	DMA0CNT = 6;			//Set Number of DMA Transfer per ECAN message to 8 words
+	DMA0REQ = 0x0046;		//Assign ECAN1 Transmit event for DMA Channel
+	DMA0STA = txBufferOffset; //Start Address Offset for ECAN1 Message Buffer 0x0000
+   	_DMA0IE	= 0;	//Channel Interrupt Enable: Enable DMA Channel 0 Interrupt
+   	_DMA0IF = 0;//DMA Channel 0 Data Transfer Complete Interrupt Flag Status bit
+   	DMA0CONbits.CHEN = 1;		//Channel Enable: Enable DMA Channel
 	
 	/* Set up DMA Channel 1 to copy data from ECAN module 1 to DMA RAM. The 
      * Receive memory is treated like a FIFO. The ECAN module cannot 
@@ -102,7 +102,7 @@ void ECAN1ClockConfig(void){
 	/* ECAN_FCY and ECAN_BITRATE are defined in ECAN1Drv.h. The total time time
      * quanta per bit is 8. Refer to ECAN FRM section for more details on 
      * setting the CAN bit rate */
-	C1CTRL1bits.CANCKS = 1; 
+	C1CTRL1bits.CANCKS = 1; //???
 	C1CFG1 = ((ECAN_FCY/16)/ECAN_BITRATE)-1;  
  	C1CFG2 = 0x0290; 	
 } 
