@@ -102,7 +102,7 @@ void ECAN1ClockConfig(void){
 	/* ECAN_FCY and ECAN_BITRATE are defined in ECAN1Drv.h. The total time time
      * quanta per bit is 8. Refer to ECAN FRM section for more details on 
      * setting the CAN bit rate */
-	C1CTRL1bits.CANCKS = 1; //???
+	C1CTRL1bits.CANCKS = 1; // Select the CAN Master Clock
 	C1CFG1 = ((ECAN_FCY/16)/ECAN_BITRATE)-1;  
  	C1CFG2 = 0x0290; 	
 } 
@@ -111,26 +111,26 @@ void ECAN1ClockConfig(void){
 void ECAN1InterruptConfig(void){
 	/* Only the C1 Event Interrupt is used in this code example. All the status 
 	 * flags are cleared before the module is enabled */
-	C1INTF = 0;
-	_C1IF = 0;
-	_C1TXIF = 0;
-	_C1RXIF = 0;
-	_C1IE = 1;
-	_C1TXIE = 0;
-	_C1RXIE = 0;
-	C1INTE = 0x00FF;
-	C1RXFUL1 = 0;
-	C1RXFUL2 = 0;
-	C1RXOVF1 = 0;
-	C1RXOVF2 = 0;
+	C1INTF = 0; // Reset all the CAN Interrupt
+	_C1IF = 0;// Reset the Interrupt Flag Status register
+	_C1TXIF = 0;//Ecan1 Transmit Data Request Interrupt Flag Status bit, 0=> interrupt request has not occured
+	_C1RXIF = 0;//Ecan1 Receive Data Ready interrupt Flag Status bit, 0=> interrupt request has not occured 
+	_C1IE = 1;//Enable the CAN1 Interrupt
+	_C1TXIE = 0;//Ecan1 transmit data Request Interrupt enable bit,0=> Interrupt requestion not occured
+	_C1RXIE = 0;//ECAN1 Receive Data Ready Interrupt Enable bit,0 = Interrupt request not enabled
+	C1INTE = 0x00FF;// Enable all CAN interrupt sources
+	C1RXFUL1 = 0;//Receive Buffer n full Bits, 0=> buffer empty
+	C1RXFUL2 = 0;//Receive Buffer n Full bits, 0=> buffer empty
+	C1RXOVF1 = 0;// Receive buffer n Overflow bits, 0=> no overflow condition
+	C1RXOVF2 = 0;// Receive buffer  n Overflow bits, 0=>no overflow condition
 }
 
 
 void ECAN1TxRxBuffersConfig(void){
 	/* Configure only one TX buffer and enable four DMA buffers. No need to 
      * configure  RX buffers. */
-	C1CTRL1bits.WIN = 0;
-	C1TR01CONbits.TXEN0 = 1;
+	C1CTRL1bits.WIN = 0;//don't Enable window to Access Acceptance Filter Registers
+	C1TR01CONbits.TXEN0 = 1; //Configure Message buffer 0 for transmission
 }
 
 
@@ -141,20 +141,20 @@ void ECAN1RxFiltersConfig(void ){
      * avoid the FIFO interrupts. Just point to an arbitrary RX buffer */
 	
 	/* In this case filters 0 and 4 are used */
-	 C1CTRL1bits.WIN = 1;
-	 C1FEN1 = 0x11;
+	 C1CTRL1bits.WIN = 1;// Enable window to Access Acceptance Filter Registers
+	 C1FEN1 = 0x11;//Filter  enabled for Identifier match with incoming message
 	
-	 C1RXF0SID = ECANFilterSID(SID1,EID1,1);		
-	 C1RXF0EID = ECANFilterEID(EID1);
+	 C1RXF0SID = ECANFilterSID(SID1,EID1,1);//Configure Acceptance Filter 0 to match standard identifier		
+	 C1RXF0EID = ECANFilterEID(EID1);//Configure Acceptance Filter 0 to match standard identifier		
 	 	 
-	 C1RXF4SID = ECANFilterSID(SID2,EID2,1);		
-	 C1RXF4EID =ECANFilterEID(EID2);
+	 C1RXF4SID = ECANFilterSID(SID2,EID2,1);//Configure Acceptance Filter 4 to match standard identifier				
+	 C1RXF4EID =ECANFilterEID(EID2);//Configure Acceptance Filter 4 to match standard identifier		
 	 	 
 	 C1RXM0SID = 0xFFEB;		/* Configure MASK 0 - All bits used in comparison*/
-	 C1RXM0EID = 0xFFFF;
+	 C1RXM0EID = 0xFFFF; /* Configure MASK 0 - All bits used in comparison*/
 	 
 	 C1FMSKSEL1bits.F0MSK = 0x0;	/* User MASK 0 for all filters */
-	 C1FMSKSEL1bits.F4MSK = 0x0;	/* User MASK 0 for all filters */
+	 C1FMSKSEL1bits.F4MSK = 0x0;	/* User MASK 4 for all filters, A VERIFIER */
 	 
 	 C1BUFPNT1bits.F0BP = 0x1;		/* Set the destination buffers to be any thing but */
 	 C1BUFPNT2bits.F4BP = 0x1;		/* configured transmit buffers */
@@ -174,20 +174,20 @@ int ECAN1SendPacket(void){
 	 
 	/* If the message transmission is aborted the function will return a zero.*/
 	 
-	C1TR01CONbits.TXREQ0 = 1;
+	C1TR01CONbits.TXREQ0 = 1;// Request Message Buffer 0 Transmission , message send request bit 1=> = Requests that a message be sent. The bit automatically clears when the message is successfully sent
 	while(C1TR01CONbits.TXREQ0 == 1){
-		if(C1TR01CONbits.TXLARB0 == 1){
+		if(C1TR01CONbits.TXLARB0 == 1){ // Message Lost Arbitration bit , 1=> message lost arbitration while being sent, 0=> message did not lose arbritration while the message was being sent 
 			/* Arbitration lost. Abort the message and reset the transmit buffer
              * DMA */
 	
-			C1TR01CONbits.TXREQ0 = 0;
-			DMA0CONbits.CHEN = 0;
-			DMA0CONbits.CHEN = 1;
-			C1TR01CONbits.TXREQ0 = 1;
+			C1TR01CONbits.TXREQ0 = 0;// Clear when message is abort
+			DMA0CONbits.CHEN = 0;// Channel Enable bit disabled
+			DMA0CONbits.CHEN = 1;// Channel Enable bit enabled
+			C1TR01CONbits.TXREQ0 = 1;// request message buffer 0 Transmission
 		}
 	}
 	
-	if(C1TR01CONbits.TXABT0 == 1){
+	if(C1TR01CONbits.TXABT0 == 1){ //TXABT0 Message Aborted bit, 1=> message was aborted , 0 => message completed transmission successfully
 		return(0);
 	}
 	
@@ -197,8 +197,8 @@ int ECAN1SendPacket(void){
 
 void ECAN1SetOPMode(void){
 	/* Request the normal operational mode and wait  till it is set */
-	C1CTRL1bits.REQOP = 0;
-	while(C1CTRL1bits.OPMODE != 0);
+	C1CTRL1bits.REQOP = 0;// Rquest Operation Mode bits, 000=> Set Normal Operation Mode, utile pour savoir si on est transmission/reception/les 2
+	while(C1CTRL1bits.OPMODE != 0);// Operation Mode bits is 000=> Normal Operation Mode
 }
 
 
