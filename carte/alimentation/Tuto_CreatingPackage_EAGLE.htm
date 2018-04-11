@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" type="text/css" href="Tuto_CreatingPackage_EAGLE_fichiers/frutiger.css">
+		<link rel="stylesheet" type="text/css" href="Tuto_CreatingPackage_EAGLE_fichiers/style_002.css">
+
+				<iframe id="utag_133" style="display:none" src="Tuto_CreatingPackage_EAGLE_fichiers/retargeting.htm" width="1" height="1"></iframe><script src="Tuto_CreatingPackage_EAGLE_fichiers/rules-p-dqcftHpNSBXDz.js" async=""></script><script type="text/javascript" async="" src="Tuto_CreatingPackage_EAGLE_fichiers/ec.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_325" src="Tuto_CreatingPackage_EAGLE_fichiers/roundtrip.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_139" src="Tuto_CreatingPackage_EAGLE_fichiers/btp.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_95" src="Tuto_CreatingPackage_EAGLE_fichiers/quant.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_89" src="Tuto_CreatingPackage_EAGLE_fichiers/abdo.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_96" src="Tuto_CreatingPackage_EAGLE_fichiers/conversion_async.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_79" src="Tuto_CreatingPackage_EAGLE_fichiers/insight.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_92" src="Tuto_CreatingPackage_EAGLE_fichiers/tc.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_29" src="Tuto_CreatingPackage_EAGLE_fichiers/conversion_async.js"></script><script src="Tuto_CreatingPackage_EAGLE_fichiers/1509288272657256.js" async=""></script><script src="Tuto_CreatingPackage_EAGLE_fichiers/1681924802122668.js" async=""></script><script src="Tuto_CreatingPackage_EAGLE_fichiers/274998069370181.js" async=""></script><script src="Tuto_CreatingPackage_EAGLE_fichiers/855720874552521.js" async=""></script><script type="text/javascript" async="" charset="utf-8" id="utag_36" src="Tuto_CreatingPackage_EAGLE_fichiers/fbevents.js"></script><script type="text/javascript" async="" charset="utf-8" id="demandbase_js_lib" src="Tuto_CreatingPackage_EAGLE_fichiers/7mXYERjy.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_34" src="Tuto_CreatingPackage_EAGLE_fichiers/eebgdkk880.js"></script><script type="text/javascript" async="" charset="utf-8" id="tealium-tag-7110" src="Tuto_CreatingPackage_EAGLE_fichiers/analytics.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_26" src="Tuto_CreatingPackage_EAGLE_fichiers/insight.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_21" src="Tuto_CreatingPackage_EAGLE_fichiers/btp.txt"></script><script src="Tuto_CreatingPackage_EAGLE_fichiers/utag_004.js" type="text/javascript" async=""></script><script type="text/javascript">
+				(function(a,b,c,d){
+				a='//tags.tiqcdn.com/utag/autodesk/micro-lite/prod/utag.js',
+				b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;
+				d.async=true;
+				a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+				})();
+		</script>			
+		
+
+		<script type="text/javascript">
+			var baseURL = "https://www.autodesk.com/products/eagle/blog";
+		</script>
+		<style>
+			.wp-social-login-widget {
+				display: none;
+			}
+		</style>
+		<title>Library Basics Part 1: Creating Packages | EAGLE | Blog</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v4.4 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Learn how to create a package for SMD and through-hole components in an Autodesk EAGLE part library.">
+<meta name="robots" content="noodp">
+<link rel="canonical" href="https://www.autodesk.com/products/eagle/blog/library-basics-part-1-creating-first-package-autodesk-eagle/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Library Basics Part 1: Creating Packages | EAGLE | Blog">
+<meta property="og:description" content="Learn how to create a package for SMD and through-hole components in an Autodesk EAGLE part library.">
+<meta property="og:url" content="https://www.autodesk.com/products/eagle/blog/library-basics-part-1-creating-first-package-autodesk-eagle/">
+<meta property="og:site_name" content="Eagle Blog">
+<meta property="article:section" content="EAGLE Academy">
+<meta property="article:published_time" content="2017-04-03T08:00:38-07:00">
+<meta property="article:modified_time" content="2017-03-17T11:55:43-07:00">
+<meta property="og:updated_time" content="2017-03-17T11:55:43-07:00">
+<meta property="og:image" content="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/02/EAGLE-Academy.jpg">
+<meta property="og:image:width" content="1855">
+<meta property="og:image:height" content="1642">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="Learn how to create a package for SMD and through-hole components in an Autodesk EAGLE part library.">
+<meta name="twitter:title" content="Library Basics Part 1: Creating Packages | EAGLE | Blog">
+<meta name="twitter:image" content="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/02/EAGLE-Academy.jpg">
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="https://www.autodesk.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Eagle Blog » Feed" href="https://www.autodesk.com/products/eagle/blog/feed/">
+<link rel="alternate" type="application/rss+xml" title="Eagle Blog » Comments Feed" href="https://www.autodesk.com/products/eagle/blog/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Eagle Blog » Library Basics Part 1: Creating Your First Package in Autodesk EAGLE Comments Feed" href="https://www.autodesk.com/products/eagle/blog/library-basics-part-1-creating-first-package-autodesk-eagle/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.autodesk.com\/products\/eagle\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.5"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="Tuto_CreatingPackage_EAGLE_fichiers/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="wsl-widget-css" href="Tuto_CreatingPackage_EAGLE_fichiers/style.css" type="text/css" media="all">
+<script type="text/javascript" src="Tuto_CreatingPackage_EAGLE_fichiers/jquery.js"></script>
+<script type="text/javascript" src="Tuto_CreatingPackage_EAGLE_fichiers/jquery-migrate.js"></script>
+<script type="text/javascript" src="Tuto_CreatingPackage_EAGLE_fichiers/widget.js"></script>
+<link rel="https://api.w.org/" href="https://www.autodesk.com/products/eagle/blog/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.autodesk.com/products/eagle/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.autodesk.com/products/eagle/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="shortlink" href="https://www.autodesk.com/products/eagle/blog/?p=675">
+<link rel="alternate" type="application/json+oembed" href="https://www.autodesk.com/products/eagle/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.autodesk.com%2Fproducts%2Feagle%2Fblog%2Flibrary-basics-part-1-creating-first-package-autodesk-eagle%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.autodesk.com/products/eagle/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.autodesk.com%2Fproducts%2Feagle%2Fblog%2Flibrary-basics-part-1-creating-first-package-autodesk-eagle%2F&amp;format=xml">
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		
+<!--
+	wsl_render_auth_widget
+	WordPress Social Login 2.3.0.
+	http://wordpress.org/plugins/wordpress-social-login/
+-->
+
+<style type="text/css">
+.wp-social-login-connect-with{}.wp-social-login-provider-list{}.wp-social-login-provider-list a{}.wp-social-login-provider-list img{}.wsl_connect_with_provider{}</style>
+
+<iframe id="waf-wads-win" src="Tuto_CreatingPackage_EAGLE_fichiers/wads.htm" width="0px" height="0px"></iframe><script type="text/javascript" async="" charset="utf-8" id="tiqapp" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_006.js"></script><meta name="adsk-search-crawler-pagename" content="adsk:en:products:eagle:blog:library-basics-part-1-creating-first-package-autodesk-eagle"><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_12" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_003.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_13" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_008.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_21" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_002.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_26" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_007.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_36" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_017.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_29" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_011.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_34" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_019.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_38" src="Tuto_CreatingPackage_EAGLE_fichiers/utag.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_92" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_015.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_79" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_012.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_96" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_020.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_78" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_016.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_89" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_005.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_95" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_014.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_133" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_009.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_139" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_021.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_236" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_018.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_259" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_013.js"></script><script type="text/javascript" async="" charset="utf-8" id="utag_autodesk.micro-lite_325" src="Tuto_CreatingPackage_EAGLE_fichiers/utag_010.js"></script><script src="Tuto_CreatingPackage_EAGLE_fichiers/a_003"></script><script src="Tuto_CreatingPackage_EAGLE_fichiers/a_002"></script><script type="text/javascript" async="" id="AddShoppers"></script><script async="true" type="text/javascript" src="Tuto_CreatingPackage_EAGLE_fichiers/3QKTPXJB4ZH33FK37I3ZSX"></script><div style="width: 1px; height: 1px; display: inline; position: absolute;"><img style="border-style:none;" alt="" src="Tuto_CreatingPackage_EAGLE_fichiers/out_002.txt" width="1" height="1"><img style="border-style:none;" alt="" src="Tuto_CreatingPackage_EAGLE_fichiers/out_002.gif" width="1" height="1"><img style="border-style:none;" alt="" src="Tuto_CreatingPackage_EAGLE_fichiers/out_004.gif" width="1" height="1"><img style="border-style:none;" alt="" src="Tuto_CreatingPackage_EAGLE_fichiers/out.txt" width="1" height="1"><img style="border-style:none;" alt="" src="Tuto_CreatingPackage_EAGLE_fichiers/out.htm" width="1" height="1"><img style="border-style:none;" alt="" src="Tuto_CreatingPackage_EAGLE_fichiers/out_003.txt" width="1" height="1"><img style="border-style:none;" alt="" src="Tuto_CreatingPackage_EAGLE_fichiers/out_003.gif" width="1" height="1"></div><div style="width: 1px; height: 1px; display: inline; position: absolute;"><img style="border-style:none;" alt="" src="Tuto_CreatingPackage_EAGLE_fichiers/out_008.gif" width="1" height="1">
+<img style="border-style:none;" alt="" src="Tuto_CreatingPackage_EAGLE_fichiers/out_007.gif" width="1" height="1">
+<img style="border-style:none;" alt="" src="Tuto_CreatingPackage_EAGLE_fichiers/out_005.gif" width="1" height="1">
+<img style="border-style:none;" alt="" src="Tuto_CreatingPackage_EAGLE_fichiers/out_006.gif" width="1" height="1">
+<img style="border-style:none;" alt="" src="Tuto_CreatingPackage_EAGLE_fichiers/out_002.htm" width="1" height="1">
+<img style="border-style:none;" alt="" src="Tuto_CreatingPackage_EAGLE_fichiers/out.gif" width="1" height="1">
+</div></head><body class="post-template-default single single-post postid-675 single-format-standard"><div class="wp-social-login-widget">
+
+	<div class="wp-social-login-connect-with">Connect with:</div>
+
+	<div class="wp-social-login-provider-list">
+
+		<a rel="nofollow" href="javascript:void(0);" title="Connect with Autodesk" class="wp-social-login-provider wp-social-login-provider-autodesk" data-provider="Autodesk">
+			<img alt="Autodesk" title="Connect with Autodesk" src="Tuto_CreatingPackage_EAGLE_fichiers/autodesk.htm">
+		</a>
+
+	</div>
+
+	<div class="wp-social-login-widget-clearing"></div>
+
+</div>
+
+<input id="wsl_popup_base_url" value="https://www.autodesk.com/products/eagle/blog/wp-login.php?wpe-login=true&amp;action=wordpress_social_authenticate&amp;mode=login&amp;" type="hidden">
+<input id="wsl_login_form_uri" value="https://www.autodesk.com/products/eagle/blog/wp-login.php?wpe-login=true" type="hidden">
+
+<!-- wsl_render_auth_widget -->
+
+		
+	
+	
+	
+		
+		<header class="header">
+			<div class="container content-wrapper">
+				<a class="logo" href="http://autodesk.com/">
+					<img src="Tuto_CreatingPackage_EAGLE_fichiers/logo.png" alt="Autodesk">
+				</a>
+			</div>
+		</header>
+		
+		<div class="eagle-navigation">
+			<ul class="eagle-navigation-menu cf">
+				<li class="no-hover">
+					<h2><a href="http://www.autodesk.com/products/eagle/">EAGLE</a></h2>
+				</li>
+				<li>
+					<a href="http://www.autodesk.com/products/eagle/overview">Overview</a>
+				</li>
+				<li>
+					<a href="http://www.autodesk.com/products/eagle/features">Features</a>
+				</li>
+				<li>
+					<a href="http://www.autodesk.com/products/eagle/free-download">Free download</a>
+				</li>
+				<li>
+					<a href="http://www.autodesk.com/products/eagle/subscribe">Subscribe</a>
+				</li>
+				<li>
+					<a href="https://knowledge.autodesk.com/article/System-requirements-for-Autodesk-EAGLE" class="nav-link">
+		                System requirements
+		            </a>
+				</li>
+				<li class="with-menu selected">
+					<a href="#">Support &amp; learning</a>
+				    <ul class="nav-list">
+				        <li class="selected"><a href="http://www.autodesk.com/products/eagle/blog" class="nav-link nav-link-submenu">Blog</a></li>
+				
+				        <li><a href="http://www.autodesk.com/eagle-product-tour" class="nav-link nav-link-submenu">Product tour</a></li>
+				
+				        <li><a href="http://www.autodesk.com/eagle-documentation" class="nav-link nav-link-submenu">Documentation</a></li>
+				
+				        <li><a href="http://www.autodesk.com/eagle-support" class="nav-link nav-link-submenu">Support</a></li>
+				
+				        <li><a href="http://www.autodesk.com/eagle-forum" class="nav-link nav-link-submenu">Forum</a></li>
+				
+				        <li><a href="http://www.autodesk.com/eagle-reference-designs" class="nav-link nav-link-submenu">Reference designs</a></li>
+				
+				        <li><a href="http://www.autodesk.com/eagle-libraries" class="nav-link nav-link-submenu">Libraries</a></li>
+				
+				        <li><a href="http://www.autodesk.com/eagle-ulps" class="nav-link nav-link-submenu">User Language Programs</a></li>
+				    </ul>
+				</li>
+			</ul>
+		</div><div class="eagle-header article-header ">
+	<div class="eagle-header-inner">
+		<div class="eagle-header-content">			
+						<h1>
+				Library Basics Part 1: Creating Your First Package in Autodesk EAGLE			</h1>
+			<h3>
+				Sam Sattel			</h3>
+		</div>
+	</div>
+</div>
+
+<section class="blog-entry" id="content" role="main">
+	
+		
+	<ul class="category-list">
+								<li>
+				<!-- <a href="/category/eagle-academy"> -->
+					EAGLE Academy 
+				<!-- </a> -->
+			</li>	
+											<li>
+				<!-- <a href="/category/how-to"> -->
+					How To 
+				<!-- </a> -->
+			</li>	
+						</ul>
+	
+	<article id="post-675" class="post-675 post type-post status-publish format-standard has-post-thumbnail hentry category-eagle-academy category-how-to">
+	<img src="Tuto_CreatingPackage_EAGLE_fichiers/EAGLE-Academy.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="eagle-academy" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/02/EAGLE-Academy.jpg 1855w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/02/EAGLE-Academy-300x266.jpg 300w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/02/EAGLE-Academy-768x680.jpg 768w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/02/EAGLE-Academy-1024x906.jpg 1024w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/02/EAGLE-Academy-1320x1168.jpg 1320w" sizes="(max-width: 1855px) 100vw, 1855px" width="1855" height="1642"><section class="entry-content">
+	<h1><span style="font-weight: 400;">Library Basics Part 1: Creating Your First Package in Autodesk EAGLE</span></h1>
+<p><span style="font-weight: 400;">Greetings, Pirates, and welcome to 
+the Library Basics Series! If you’re having trouble finding the parts 
+you need in all of the free libraries that come with Autodesk EAGLE, 
+then you’ve come to the right place. Parts form the foundation of all 
+our electronic designs, and by learning to create your own, you’ll level
+ up your engineering skills significantly. But making your personal 
+parts isn’t easy. It requires plenty of patience to become a datasheet 
+detective, and you’ll need an excellent attention to detail to make sure
+ you’ve placed your pads precisely.</span></p>
+<p><span style="font-weight: 400;">Are you up for the challenge?</span></p>
+<h2>First,&nbsp;The Basics</h2>
+<p><span style="font-weight: 400;">Just what is a library you ask? Great
+ question! In Autodesk EAGLE, all of the parts that you place on your 
+designs are stored in libraries. These provide an easy way to keep parts
+ organized based on their category. For example, you might have a 
+library for a general category like capacitors. Or specific communities 
+like <a href="https://github.com/sparkfun/SparkFun-Eagle-Libraries">Sparkfun</a> have their own dedicated libraries that contain a variety of parts for specific projects.</span></p>
+<p><span style="font-weight: 400;">Libraries and the parts within are 
+connected in a simple hierarchy in Autodesk EAGLE. This makes it easy to
+ understand how everything’s connected. Here’s how it’s organized:</span></p>
+<ul>
+<li><b>Libraries. <span style="font-weight: 400;">All of your parts will
+ be stored in your personal library folder in Autodesk EAGLE. Each part 
+will contain a device, symbol, and package.</span></b></li>
+<li><strong>Devices.</strong> <span style="font-weight: 400;">Within 
+every library, you’ll have one or multiple devices. These devices 
+include both a schematic symbol and a package in one accessible 
+location. </span></li>
+<li><strong>Symbols.</strong> <span style="font-weight: 400;">Within every device, you’ll have a symbol, which provides a visual representation of a part for use on a schematic.</span></li>
+<li><strong>Packages.</strong> <span style="font-weight: 400;">Within every device, you’ll also have a package, which is the physical representation of a part for use in a PCB layout. </span></li>
+</ul>
+<p><b></b><b></b><b></b></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">When you put all of these pieces 
+together, you’ll get a tree structure that shows off how libraries in 
+Autodesk EAGLE are organized. Check it out below. </span></p>
+<div id="attachment_676" style="width: 603px" class="wp-caption aligncenter"><img class="size-full wp-image-676" src="Tuto_CreatingPackage_EAGLE_fichiers/2017-03-08_14-58-22-1.png" alt="eagle-library-stack" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/2017-03-08_14-58-22-1.png 593w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/2017-03-08_14-58-22-1-300x225.png 300w" sizes="(max-width: 593px) 100vw, 593px" width="593" height="444"><p class="wp-caption-text"><em>An easy to follow visual representation of how libraries in Autodesk EAGLE are organized. It all starts at the top!</em></p></div>
+<h3>Creating Your Library</h3>
+<p><span style="font-weight: 400;">Now that you understand how libraries
+ work in Autodesk EAGLE, it’s time to make your own! You can skip this 
+step if you already have your personal library folder, otherwise:</span></p>
+<ol>
+<li><b><span style="font-weight: 400;">Open Autodesk EAGLE, and you’ll be greeted with the </span>Control Panel<span style="font-weight: 400;">.</span></b></li>
+<li><span style="font-weight: 400;">Next, select </span><strong>File » New Library</strong><span style="font-weight: 400;"> to open your </span><strong>Library Window</strong><span style="font-weight: 400;">. </span></li>
+<li><span style="font-weight: 400;">Before creating any new parts, you need to save your library by selecting </span><strong>File » Save</strong><span style="font-weight: 400;"> (or </span><strong>Cmd + S</strong><span style="font-weight: 400;"> on Mac and </span><strong>Ctrl + S</strong><span style="font-weight: 400;"> on Windows)</span></li>
+<li>Now that your library is saved, you just need to activate it. Go back to your <b>Control</b> <b>Panel</b><span style="font-weight: 400;">, right-click your new library, and select </span><b>Use</b><span style="font-weight: 400;">. You’ll know if your library is ready to go if it has a green dot next to it in your </span><b>Control Panel</b><span style="font-weight: 400;">.</span></li>
+</ol>
+<div id="attachment_677" style="width: 682px" class="wp-caption aligncenter"><img class="size-full wp-image-677" src="Tuto_CreatingPackage_EAGLE_fichiers/new-library-1.png" alt="new-library" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/new-library-1.png 672w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/new-library-1-300x173.png 300w" sizes="(max-width: 672px) 100vw, 672px" width="672" height="387"><p class="wp-caption-text"><em>Your
+ newly created library in the EAGLE Control Panel, with a separate 
+directory for Packages and Symbols, which are empty (for now).</em></p></div>
+<h3>Learn to Love Datasheets</h3>
+<p><span style="font-weight: 400;">During part creation, you’ll find 
+that datasheets are your new best friend. Try not to feel overwhelmed 
+when you first open one up. There’s a ton of data, graphs, and 
+specifications within, but you only need to understand one or two pages 
+to get your part creation done.</span></p>
+<p><span style="font-weight: 400;">The component that we’ll be creating in this Library Basics Series is a MOSFET switch from Texas Instruments. </span><a href="http://www.ti.com/lit/ds/slusbq6b/slusbq6b.pdf"><span style="font-weight: 400;">Here’s the TPS92411 datasheet</span></a><span style="font-weight: 400;">
+ that you’ll want to have handy during this guide. When you open this 
+datasheet, you’ll want to go all the way to the bottom and take a look 
+at pages 24 and 25.</span></p>
+<p><span style="font-weight: 400;">Ok, now breathe! </span></p>
+<p><span style="font-weight: 400;">These are the only two pages you need to worry about, ignore everything else! Unless you need some light bedtime reading. </span></p>
+<h3>A Brief Introduction to Packages</h3>
+<p><span style="font-weight: 400;">Packages serve a super important purpose when used on your PCB layout, offering a set of </span><b>pads</b><span style="font-weight: 400;">
+ that provide both electrical connectivity and a way to solder parts 
+onto your board. As you can imagine, making sure these pads are placed 
+exactly where they need to be is a necessary challenge; otherwise, 
+you’ll get a board back from manufacturing that doesn’t work! Check out 
+the image below of the package you’ll be creating today. Here are all of
+ the elements that you will start to work with:</span></p>
+<div id="attachment_678" style="width: 567px" class="wp-caption aligncenter"><img class="size-full wp-image-678" src="Tuto_CreatingPackage_EAGLE_fichiers/package-numbered.png" alt="package-numbered" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/package-numbered.png 557w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/package-numbered-278x300.png 278w" sizes="(max-width: 557px) 100vw, 557px" width="557" height="602"><p class="wp-caption-text"><em>Here’s the completed package we’ll be making today, an SOT23-5.</em></p></div>
+<p>&nbsp;</p>
+<ol>
+<li><b>Pads. <span style="font-weight: 400;">The pads are the red 
+rectangles on this part and are numbered according to your datasheet. 
+When placed on a PCB, each of these pads will be connected to a trace 
+and provide electrical connectivity for a part.</span></b></li>
+<li><strong>Package Dimension</strong>. <span style="font-weight: 400;">The
+ package dimension is the rectangular gray outline that you see 
+connecting all of the pads. This outline represents the actual physical 
+dimensions of your part can help during your PCB layout process to see 
+if you’re placing components too close together.</span></li>
+<li><strong>Silkscreen Outline.</strong> <span style="font-weight: 400;">The
+ silkscreen outline is the rectangular yellow lines lying over the gray 
+package dimension lines. While this piece is optional, it helps to 
+provide a visual indicator for your manufacturer when they are 
+assembling parts on your bare board. </span></li>
+<li><strong>Name and Value</strong><span style="font-weight: 400;"><strong>.</strong>
+ These text elements are placeholders and will come in handy during your
+ PCB layout stage. As the text suggests, Name will be used to identify 
+the unique name of your part when you place it on your PCB layout, and 
+Value can be utilized for things like labeling the resistance of a 
+resistor, capacitance of a capacitor, etc…</span></li>
+</ol>
+<p>&nbsp;</p>
+<p><b></b><b></b></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Just remember, in this step of the 
+process we’re only making a package for our part, nothing else. And keep
+ that datasheet close by, you’re going to need it!</span></p>
+<h2>Step 1 – Creating Your New Package</h2>
+<p><span style="font-weight: 400;">Alright, time to get rolling with the
+ tutorial part of this guide. The very first step you need to complete 
+is creating a new package in your library. Here’s how:</span></p>
+<ol>
+<li><b><span style="font-weight: 400;">Open Autodesk EAGLE, and you’ll be greeted with the </span>Control Panel<span style="font-weight: 400;">.</span></b></li>
+<li><span style="font-weight: 400;">Select the </span><strong>Arrow</strong>&nbsp;<span style="font-weight: 400;">icon to expand the main </span><em><span style="font-weight: 400;">Libraries</span></em><span style="font-weight: 400;"> and </span><em><span style="font-weight: 400;">lbr</span></em><span style="font-weight: 400;">&nbsp;folders, then <strong>right-click</strong> your personal library and select </span><strong>Open</strong><span style="font-weight: 400;">. </span></li>
+<li><span style="font-weight: 400;">This will open your </span><strong>Library Window</strong><span style="font-weight: 400;">. From here, choose the </span><strong>Package</strong>&nbsp;<span style="font-weight: 400;"><img class="alignnone wp-image-679" src="Tuto_CreatingPackage_EAGLE_fichiers/LbrPackage.png" alt="package-icon" width="16" height="16">&nbsp;icon to open the </span><strong>Edit Dialog</strong><span style="font-weight: 400;">. </span></li>
+<li><span style="font-weight: 400;">Next, enter a name for your package in the </span><strong>New</strong>:<span style="font-weight: 400;"> field and select </span><strong>OK</strong><span style="font-weight: 400;">. If you’re following our example, then enter “SOT23-5.”</span></li>
+<li><span style="font-weight: 400;">Select </span><strong>Yes</strong><span style="font-weight: 400;"> to confirm you want to create the new package. </span></li>
+</ol>
+<p><b></b><b></b><b></b><b></b></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Great, so with that complete you now have your first very package added to your personal library and a blank </span><b>Package Editor </b><span style="font-weight: 400;">should be open as shown below.</span></p>
+<div id="attachment_680" style="width: 1157px" class="wp-caption aligncenter"><img class="size-full wp-image-680" src="Tuto_CreatingPackage_EAGLE_fichiers/package-editor-blank.png" alt="package-editor-blank" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/package-editor-blank.png 1147w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/package-editor-blank-300x172.png 300w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/package-editor-blank-768x441.png 768w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/package-editor-blank-1024x587.png 1024w" sizes="(max-width: 1147px) 100vw, 1147px" width="1147" height="658"><p class="wp-caption-text"><em>After adding a package name, you’ll have a new Package Editor ready for you to place pads on.</em></p></div>
+<h2>Step 2 – Changing Your Grid Size</h2>
+<p><span style="font-weight: 400;">Now’s the time to tweak some basic 
+grid settings before you start placing any pads. Changing the grid size 
+will allow you to quickly and precisely place pads according to your 
+datasheet measurements.</span></p>
+<ol>
+<li><b><span style="font-weight: 400;">Select the </span>Grid <img class="alignnone wp-image-681" src="Tuto_CreatingPackage_EAGLE_fichiers/Grid.png" alt="grid-icon" width="16" height="16">&nbsp;<span style="font-weight: 400;">icon in the top-left corner of your interface.</span></b></li>
+<li><span style="font-weight: 400;">In the Grid dialog, change your </span><strong>Display</strong><span style="font-weight: 400;"> from </span><strong>Off</strong><span style="font-weight: 400;"> to </span><strong>On</strong><span style="font-weight: 400;"> if it isn’t already enabled. </span></li>
+<li><span style="font-weight: 400;">Next, change your </span><strong>Size</strong>:<span style="font-weight: 400;"> from </span>inch<span style="font-weight: 400;"> to </span>mm<span style="font-weight: 400;">, and enter “0.05” as the value.</span></li>
+<li><span style="font-weight: 400;">Select </span><strong>OK</strong><span style="font-weight: 400;"> to save your grid settings. </span></li>
+</ol>
+<p><b></b><b></b><b></b></p>
+<p>&nbsp;</p>
+<div id="attachment_682" style="width: 394px" class="wp-caption aligncenter"><img class="size-full wp-image-682" src="Tuto_CreatingPackage_EAGLE_fichiers/grid-settings.png" alt="grid-settings" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/grid-settings.png 384w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/grid-settings-300x228.png 300w" sizes="(max-width: 384px) 100vw, 384px" width="384" height="292"><p class="wp-caption-text"><em>Here are the two grid settings you’ll need to change – Display and Size.</em></p></div>
+<p><span style="font-weight: 400;">After confirming your settings, you 
+might notice that you can’t see your grid in the package editor. It’s 
+not gone! You just need to zoom in a bit with the </span><b>Zoom in <img class="alignnone wp-image-683" src="Tuto_CreatingPackage_EAGLE_fichiers/ZoomIn.png" alt="zoom-in-icon" width="16" height="16">&nbsp;</b><span style="font-weight: 400;">icon until it becomes visible again.</span></p>
+<p><span style="font-weight: 400;">That’s all the setup work you need to
+ get the rest of the job done. Let’s dive into the datasheet now and 
+start placing some pads!</span></p>
+<h2>Step 3 – Deciphering Your Datasheet</h2>
+<p><span style="font-weight: 400;">Alright, time for some datasheet detective work. Open your </span><a href="http://www.ti.com/lit/ds/slusbq6b/slusbq6b.pdf"><span style="font-weight: 400;">TPS92411 datasheet</span></a><span style="font-weight: 400;">
+ and head on down to the Land Pattern Data section on page 25. This page
+ will give you all the information you need to precisely place your 
+pads. Here’s what you need:</span></p>
+<ul>
+<li><b><b><b>Pad Dimension –&nbsp;<span style="font-weight: 400;">This 
+is the length and width of the pads that you’ll need to create in 
+Autodesk EAGLE. Looking at our datasheet, this is clearly labeled in the
+ bottom-left corner of page 25. It looks like our pad dimension is </span>0.6mm x 1.05mm<span style="font-weight: 400;">.<br>
+</span></b></b></b><p></p>
+<div id="attachment_684" style="width: 705px" class="wp-caption aligncenter"><img class="size-full wp-image-684" src="Tuto_CreatingPackage_EAGLE_fichiers/pad-dimensions.png" alt="pad-dimensions" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-dimensions.png 695w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-dimensions-300x159.png 300w" sizes="(max-width: 695px) 100vw, 695px" width="695" height="368"><p class="wp-caption-text"><em>The pad dimension is easy to find in this datasheet. And we know it’s in millimeters by section A in the Notes.</em></p></div>
+<p><b><br>
+</b></p></li>
+<li style="text-align: left;"><b><b>Pad Pitch – </b></b>The pad pitch is
+ the distance between the two of two pads on both the X and Y axis. 
+Again, your datasheet has this clearly labeled in the top-left corner of
+ page 25, under the label Example Board Layout.<br>
+Your pitch:&nbsp;<b><b><span style="font-weight: 400;">An X axis pitch of </span>1.90mm<span style="font-weight: 400;"> and a Y axis pitch of </span>2.7mm.<br>
+</b></b><p></p>
+<div id="attachment_685" style="width: 292px" class="wp-caption aligncenter"><img class="size-full wp-image-685" src="Tuto_CreatingPackage_EAGLE_fichiers/pad-pitch.png" alt="pad-pitch" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-pitch.png 282w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-pitch-244x300.png 244w" sizes="(max-width: 282px) 100vw, 282px" width="282" height="347"><p class="wp-caption-text"><em>The pad pitch is always measured from the center of two pads.</em></p></div>
+<p><b><br>
+<span style="font-weight: 400;">You’ll also notice there’s a smaller X 
+axis pitch of 0.95mm for the bottom pads, but this won’t be needed since
+ you already have your larger 1.90mm pitc.<br>
+</span><br>
+</b></p></li>
+<li><b><b><b>Pad Coordinates –&nbsp;<span style="font-weight: 400;">Now,
+ we will do some basic math to create a kind of coordinate grid system 
+for precise pad placement. Take a look at the image below; we’ve created
+ a basic XY graph with our Example Board Layout image on page 25.<br>
+</span></b></b></b></li>
+</ul>
+<div id="attachment_686" style="width: 292px" class="wp-caption aligncenter"><img class="size-full wp-image-686" src="Tuto_CreatingPackage_EAGLE_fichiers/pad-graph.png" alt="pad-graph" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-graph.png 282w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-graph-245x300.png 245w" sizes="(max-width: 282px) 100vw, 282px" width="282" height="346"><p class="wp-caption-text"><em>You can use the existing pad dimension chart to create an easy to use XY graph for your pad placement.</em></p></div>
+<p><span style="font-weight: 400;">The good news is that you only need 
+to get the coordinate position of one pad and the rest will naturally 
+follow. Let’s start with Pad 4, which is in the top-right corner.</span></p>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Starting from the origin point on your graph, move along the X axis until you line up with the center of Pad 4 and you’ll be at </span><b>0.95mm</b><span style="font-weight: 400;">.
+ How would you get this value? By dividing your X axis pitch of 1.90mm 
+in half, which gives you an even 0.95 spread between both the left and 
+right sides of your X axis. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Next, move up on your Y axis and you’ll get to the center of Pad 4 at </span><b>1.35mm</b><span style="font-weight: 400;">.
+ How would you get this value? Again by dividing your Y axis pitch of 
+2.7mm in half, which gives you another even 1.35 spread between both the
+ top and bottom sides of your Y axis.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Put those two numbers together, and you now have your X and Y coordinates for Pad 4, which is </span><b>(0.95mm, 1.35mm)</b><span style="font-weight: 400;">.</span></li>
+</ol>
+<p><span style="font-weight: 400;">Now that you have the coordinates for Pad 4, the rest are super easy to figure out. Here’s what they are:</span></p>
+<ul>
+<li style="font-weight: 400;"><b>Pin 1</b><span style="font-weight: 400;"> (-.95mm, -1.35mm)</span></li>
+<li style="font-weight: 400;"><b>Pin 2</b><span style="font-weight: 400;"> (0mm, -1.35mm)</span></li>
+<li style="font-weight: 400;"><b>Pin 3</b><span style="font-weight: 400;"> (.95mm, -1.35mm)</span></li>
+<li style="font-weight: 400;"><b>Pin 4</b><span style="font-weight: 400;"> (.95mm, 1.35mm)</span></li>
+<li><b><span style="font-weight: 400;"><strong>Pin 5</strong> (-.95mm, 1.35mm)</span><br>
+</b></li>
+</ul>
+<h2>Step 4 – Placing Your Pads</h2>
+<p><span style="font-weight: 400;">Ok, now you have all of the data that
+ you need to start creating and placing our pads in Autodesk EAGLE. In 
+this step, you’ll just be creating our pads with the Pad Dimension that 
+you found in Step 3. Here’s how:</span></p>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Select the </span><b>Pad <img class="alignnone wp-image-689" src="Tuto_CreatingPackage_EAGLE_fichiers/Smd.png" alt="smd-pad-icon" width="16" height="16">&nbsp;</b><span style="font-weight: 400;">icon on the left-hand side of your interface. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">In the </span><b>Size:</b><span style="font-weight: 400;"> field at the top of your interface, enter “0.6 x 1.05” and press enter on your keyboard to change the pad size. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Lastly, 
+drag your first pad anywhere on your grid, and left-click to place it. 
+Repeat this step 4 times to place five pads in total. </span></li>
+</ol>
+<p><span style="font-weight: 400;">You should now have all five of the pads placed that you’ll need for this part as shown below.</span></p>
+<div id="attachment_688" style="width: 1023px" class="wp-caption aligncenter"><img class="size-full wp-image-688" src="Tuto_CreatingPackage_EAGLE_fichiers/pad-place.png" alt="pad-place" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-place.png 1013w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-place-300x186.png 300w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-place-768x477.png 768w" sizes="(max-width: 1013px) 100vw, 1013px" width="1013" height="629"><p class="wp-caption-text"><em>The five pads you’ll need for your package. Placement doesn’t matter right now, that happens later!</em></p></div>
+<h2>Step 5 – Renaming Your Pads</h2>
+<p><span style="font-weight: 400;">Before you start positioning your pads, now’s a good time rename them to match your datasheet. To do this:</span></p>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Select the </span><b>Name</b> <span style="font-weight: 400;">icon on the left-hand side of your interface. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Left-click a pad to open the </span><b>Name Dialog</b><span style="font-weight: 400;">.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Enter a name in the </span><b>New name:</b><span style="font-weight: 400;"> field and press </span><b>OK</b><span style="font-weight: 400;"> to save your change. </span></li>
+</ol>
+<p><span style="font-weight: 400;">You’ll want to modify the name of 
+each pad from its default P$(1,2,3,4,5) to simply be 1, 2, 3, 4 and 5. 
+Here’s how it should look when you’re done:</span></p>
+<div id="attachment_690" style="width: 1023px" class="wp-caption aligncenter"><img class="size-full wp-image-690" src="Tuto_CreatingPackage_EAGLE_fichiers/pad-naming.png" alt="pad-naming" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-naming.png 1013w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-naming-300x187.png 300w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-naming-768x480.png 768w" sizes="(max-width: 1013px) 100vw, 1013px" width="1013" height="633"><p class="wp-caption-text"><em>Make sure to rename your pads according to your datasheet, the numbers matter!</em></p></div>
+<h2>Step 6 – Positioning Your Pads</h2>
+<p><span style="font-weight: 400;">Placing your pads will be super easy 
+with a 0.05mm grid and the coordinates that you found in Step 3. It’s 
+important that you place your pads in the order the pins are presented 
+in your datasheet, check it out below. </span></p>
+<div id="attachment_691" style="width: 344px" class="wp-caption aligncenter"><img class="wp-image-691 size-full" src="Tuto_CreatingPackage_EAGLE_fichiers/pin-numbers.png" alt="pin-numbers" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pin-numbers.png 334w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pin-numbers-300x221.png 300w" sizes="(max-width: 334px) 100vw, 334px" width="334" height="246"><p class="wp-caption-text"><em>Here you can see the counterclockwise pin numbering from 1-5, which your pad placement needs to match.</em></p></div>
+<p><span style="font-weight: 400;">So we’ve got pins 1, 2 and 3 on the 
+bottom, and pins 4 and 5 on the top. It all flows in a counterclockwise 
+direction. And here again are the coordinates you’ll need for this task:</span></p>
+<ul>
+<li style="font-weight: 400;"><b>Pad 1</b><span style="font-weight: 400;"> (-.95mm, -1.35mm)</span></li>
+<li style="font-weight: 400;"><b>Pad 2</b><span style="font-weight: 400;"> (0mm, -1.35mm)</span></li>
+<li style="font-weight: 400;"><b>Pad 3</b><span style="font-weight: 400;"> (.95mm, -1.35mm)</span></li>
+<li style="font-weight: 400;"><b>Pad 4</b><span style="font-weight: 400;"> (.95mm, 1.35mm)</span></li>
+<li style="font-weight: 400;"><b>Pad 5</b><span style="font-weight: 400;"> (-.95mm, 1.35mm)</span></li>
+</ul>
+<p>Let’s place Pad 4 first, and we’ll leave you to do the rest. Here’s how:</p>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Select the </span><b>Move <img class="alignnone wp-image-465" src="Tuto_CreatingPackage_EAGLE_fichiers/Move.png" alt="move-icon" width="16" height="16">&nbsp;</b><span style="font-weight: 400;">icon, and then </span><b>Cmd</b><span style="font-weight: 400;"> (Mac) or </span><b>Ctrl</b><span style="font-weight: 400;"> (Windows) + left-click Pad 4. This should snap the pad’s center to your cursor regardless of where you move it. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Next, move Pad 4 right along the X axis from the origin point until the coordinates in the top-left of your interface reads </span><b>(0.95 0.00)</b><span style="font-weight: 400;">.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Then move Pad 4 up along the Y axis until the coordinates read </span><b>(0.95 1.35)</b><span style="font-weight: 400;">.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Lastly, left-click to confirm the placement of Pad 4. </span></li>
+</ol>
+<p><span style="font-weight: 400;">You can follow this same process to 
+place all of the pads, following the X and Y coordinates for each that 
+are listed above. When you finish, your pads should be placed similarly 
+to ours below.</span></p>
+<div id="attachment_693" style="width: 1048px" class="wp-caption aligncenter"><img class="size-full wp-image-693" src="Tuto_CreatingPackage_EAGLE_fichiers/pad-placement.png" alt="pad-placement" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-placement.png 1038w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-placement-300x206.png 300w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-placement-768x527.png 768w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-placement-1024x702.png 1024w" sizes="(max-width: 1038px) 100vw, 1038px" width="1038" height="712"><p class="wp-caption-text"><em>Our pads placed in relation to our center origin. Remember to place each pad in relation to the pin on your datasheet.</em></p></div>
+<h2>It’s Half Time</h2>
+<p><span style="font-weight: 400;">Congratulations! You just completed 
+the most important step in creating a new package, the precise placement
+ of your pads. Now that you know your pads are in the right location, 
+you won’t have any trouble soldering parts onto your board. At this 
+point, your job could be considered done, but we need to add a few bits 
+of information to make this package readable not only for machines but 
+for humans as well.</span></p>
+<h2>Step 7 – Adding Your Origin Point</h2>
+<p><span style="font-weight: 400;">You’ll need to add an origin point to
+ Pad 1 so that your manufacturer knows the correct way to orient your 
+part during assembly. Here’s how to do this:</span></p>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Select the </span><b>Circle <img class="alignnone wp-image-694" src="Tuto_CreatingPackage_EAGLE_fichiers/Circle.png" alt="circle-icon" width="16" height="16">&nbsp;</b><span style="font-weight: 400;">icon on the left-hand side of your interface. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Select the </span><b>Width:</b><span style="font-weight: 400;"> dropdown at the top of your interface and select </span><b>0</b><span style="font-weight: 400;">. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Select the </span><b>Layer</b><span style="font-weight: 400;"> dropdown at the top of your interface and select layer </span><b>21 tPlace</b><span style="font-weight: 400;">.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;"><strong>Left-click</strong> in the bottom-left corner of Pad 1 and drag your cursor to the right to adjust the size of your circle. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;"><strong>Left-click</strong> again to confirm the size of your circle and place it. </span></li>
+</ol>
+<p><span style="font-weight: 400;">The size of your origin point is 
+totally up to you. All that’s important is that it’s on Pin 1 so your 
+manufacturer knows how to orient your part. If you need to move your 
+origin point, use the </span><b>Move&nbsp;<img class="alignnone wp-image-465" src="Tuto_CreatingPackage_EAGLE_fichiers/Move.png" alt="move-icon" width="16" height="16">&nbsp;</b><span style="font-weight: 400;">tool. </span></p>
+<div id="attachment_695" style="width: 1097px" class="wp-caption aligncenter"><img class="size-full wp-image-695" src="Tuto_CreatingPackage_EAGLE_fichiers/origin-point.png" alt="origin-point" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/origin-point.png 1087w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/origin-point-300x196.png 300w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/origin-point-768x502.png 768w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/origin-point-1024x670.png 1024w" sizes="(max-width: 1087px) 100vw, 1087px" width="1087" height="711"><p class="wp-caption-text"><em>A quick origin point added to Pad 1; now our manufacturer will know the orientation of our part.</em></p></div>
+<h2>Step 8 – Adding Your Package Dimension</h2>
+<p><span style="font-weight: 400;">You now need to add a package 
+dimension, which will help you to see if your parts are placed too close
+ together on your PCB layout. This process again requires some brief 
+datasheet detective work. Let’s look at the Mechanical Data section on 
+page 24 of your </span><a href="http://www.ti.com/lit/ds/slusbq6b/slusbq6b.pdf"><span style="font-weight: 400;">TPS92411 datasheet</span></a><span style="font-weight: 400;">. There are four images on this page, but all you need to be concerned with is the one in the top-left corner.</span></p>
+<div id="attachment_691" style="width: 344px" class="wp-caption aligncenter"><img class="wp-image-691 size-full" src="Tuto_CreatingPackage_EAGLE_fichiers/pin-numbers.png" alt="pin-numbers" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pin-numbers.png 334w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pin-numbers-300x221.png 300w" sizes="(max-width: 334px) 100vw, 334px" width="334" height="246"><p class="wp-caption-text"><em>The package outline has all the data we need to determine our package dimension.</em></p></div>
+<p><span style="font-weight: 400;">This image shows you the exact 
+physical dimensions of your part as it will appear in physical form. 
+Most package dimensions come with tolerance, which is why there’s a 
+fraction looking number for each dimension measurement. The top number 
+is the maximum value, and the bottom is the minimum value. What value 
+you choose is up to you. In our example we’ll just take the middle value
+ for both, which ends up being:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">A package length of </span><b>2.9mm</b></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">A package width of </span><b>1.6mm</b></li>
+</ul>
+<p>And now that you have your length and width, creating a package dimension in Autodesk EAGLE is easy. Here’s how:</p>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Select the <strong>Line</strong></span><b>&nbsp;<img class="alignnone wp-image-476" src="Tuto_CreatingPackage_EAGLE_fichiers/Wire.png" alt="wire-icon" width="16" height="16">&nbsp;</b><span style="font-weight: 400;">icon on the left-hand side of your interface.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Select the </span><b>Layer</b><span style="font-weight: 400;"> dropdown at the top of your interface and choose layer </span><b>51 tDocu</b><span style="font-weight: 400;">.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Select the </span><b>Width</b><span style="font-weight: 400;"> dropdown and change your width to </span><b>0.127</b><span style="font-weight: 400;"> if it’s set at 0. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Next, Move your cursor on the grid until you find your starting point at </span><b>(1.45 0.8)</b><span style="font-weight: 400;"> and left-click to begin drawing your wire. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Complete the outline of your package dimension following these coordinates:</span>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">(1.45 -0.8)</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">(-1.45 -0.8)</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">(-1.45 0.8)</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">And back to your starting point at (1.45 0.8)</span></li>
+</ol>
+</li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Press </span><b>Esc</b><span style="font-weight: 400;"> on your keyboard to exit wiring mode. </span></li>
+</ol>
+<p><span style="font-weight: 400;">When complete, your package dimension should look like ours below.</span></p>
+<div id="attachment_696" style="width: 1097px" class="wp-caption aligncenter"><img class="size-full wp-image-696" src="Tuto_CreatingPackage_EAGLE_fichiers/package-dimension.png" alt="package-dimension" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/package-dimension.png 1087w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/package-dimension-300x195.png 300w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/package-dimension-768x500.png 768w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/package-dimension-1024x666.png 1024w" sizes="(max-width: 1087px) 100vw, 1087px" width="1087" height="707"><p class="wp-caption-text"><em>A completed package dimension will make it easy to spot overlapping components on your PCB layout.</em></p></div>
+<h2>Step 9 – Adding Your Silkscreen Outline</h2>
+<p><span style="font-weight: 400;">Now you just need to add a silkscreen
+ outline, which is a helpful way to tell your manufacturer where your 
+part will be placed. Here’s how to do it:</span></p>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Select the </span><b>Wire&nbsp;<img class="alignnone wp-image-476" src="Tuto_CreatingPackage_EAGLE_fichiers/Wire.png" alt="wire-icon" width="16" height="16">&nbsp;</b><span style="font-weight: 400;">on the left-hand side of your interface.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Select the </span><b>Layer</b><span style="font-weight: 400;"> dropdown at the top of your interface and choose layer </span><b>21 tPlace</b><span style="font-weight: 400;">. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">You now 
+need to draw three silkscreen wires on top of your package dimensions – 
+one on the left side of your package, one on the right, and one in 
+between pins 4 and 5. To do this, left-click on top of your existing 
+package dimension, drag until you reach your ending point, and 
+left-click again to place the wire.</span></li>
+</ol>
+<div id="attachment_697" style="width: 1097px" class="wp-caption aligncenter"><img class="size-full wp-image-697" src="Tuto_CreatingPackage_EAGLE_fichiers/silkscreen-outline.png" alt="silkscreen-outline" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/silkscreen-outline.png 1087w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/silkscreen-outline-300x195.png 300w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/silkscreen-outline-768x500.png 768w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/silkscreen-outline-1024x666.png 1024w" sizes="(max-width: 1087px) 100vw, 1087px" width="1087" height="707"><p class="wp-caption-text"><em>Silkscreen outline with the grid and Layer 51 turned off so you can see how it will look on your PCB layout.</em></p></div>
+<h2>Step 10 – Adding Your Name and Value Placeholders</h2>
+<p><span style="font-weight: 400;">Alright, time to finish this up! The 
+last thing you need to add is both a name and value placeholder to your 
+package. This will allow EAGLE to create a unique identifier for each 
+and every part on your PCB layout, making it easy to reference specific 
+parts if you need to make changes down the road. Let’s do it:</span></p>
+<ol>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Select the </span><b>Text <img class="alignnone wp-image-698" src="Tuto_CreatingPackage_EAGLE_fichiers/Text.png" alt="text-icon" width="16" height="16">&nbsp;</b><span style="font-weight: 400;">icon on the left-hand side of your interface. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">In the </span><b>Text Dialog</b><span style="font-weight: 400;">, enter “&gt;NAME” in the </span><b>Enter text:</b><span style="font-weight: 400;"> field and select </span><b>OK</b><span style="font-weight: 400;">.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Next, select the </span><b>Layers</b><span style="font-weight: 400;"> dropdown at the top of your interface and choose layer </span><b>25 tNames</b><span style="font-weight: 400;">.</span></li>
+<li style="font-weight: 400;"><b>Optional: <span style="font-weight: 400;">If the text size is too big for your liking, select the </span>Size:<span style="font-weight: 400;"> dropdown at the top of your interface and choose a new size.</span></b></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">And now drag your &gt;NAME text over the top of your package and left-click to place it. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Press </span><b>Esc</b><span style="font-weight: 400;"> to exit text placement mode. </span></li>
+</ol>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">You’ll know that you put your 
+&gt;NAME text on the right layer if it displays in a gray colored font. 
+Go ahead and repeat the steps above, this substituting &gt;NAME for 
+&gt;VALUE on layer </span><b>27 tValues</b><span style="font-weight: 400;"> and place it on the bottom of your package. &nbsp;Here’s how your completed package should look:</span></p>
+<div id="attachment_699" style="width: 1061px" class="wp-caption aligncenter"><img class="size-full wp-image-699" src="Tuto_CreatingPackage_EAGLE_fichiers/pad-name-value.png" alt="pad-name-value" srcset="https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-name-value.png 1051w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-name-value-300x203.png 300w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-name-value-768x520.png 768w, https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/03/pad-name-value-1024x694.png 1024w" sizes="(max-width: 1051px) 100vw, 1051px" width="1051" height="712"><p class="wp-caption-text"><em>At last, you’re done! This is how your completed package should look with its new name and value placeholders.</em></p></div>
+<h2>Nicely Done</h2>
+<p><span style="font-weight: 400;">That X marks the spot, you have 
+successfully created your first package! This process required a ton of 
+steps, and for good reason, it’s the most important process of your 
+entire part creation workflow. The remaining parts in this Libraries 
+Basics Series deal with the final two steps of part creation:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">In </span><b>Library Basics Part 2</b><span style="font-weight: 400;">, you’ll learn how to create your very first symbol, which is used on a schematic.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">In </span><b>Library Basics Part 3</b><span style="font-weight: 400;">, you’ll learn how to bring both your packages and symbols together in a device. </span></li>
+</ul>
+<p><span style="font-weight: 400;">Hopefully you won’t have to do this 
+too part creation journey many times, as you’re bound to find the parts 
+you need in all of the </span><a href="http://eagle.autodesk.com/eagle/libraries"><span style="font-weight: 400;">free libraries that ship with Autodesk EAGLE</span></a><span style="font-weight: 400;">. But if not, then at least you know how! See you next time Library Pirates, and nicely done.</span></p>
+</section>	<div class="share-area">
+	<h3>Share</h3>
+	<a href="https://www.facebook.com/sharer/sharer.php?u=https://www.autodesk.com/products/eagle/blog/library-basics-part-1-creating-first-package-autodesk-eagle/" target="_blank" class="ss-icon"></a>
+	<a href="https://twitter.com/home?status=https://www.autodesk.com/products/eagle/blog/library-basics-part-1-creating-first-package-autodesk-eagle/" target="_blank" class="ss-icon"></a>
+	<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.autodesk.com/products/eagle/blog/library-basics-part-1-creating-first-package-autodesk-eagle/" target="_blank" class="ss-icon"></a>
+	<a href="mailto:?body=https://www.autodesk.com/products/eagle/blog/library-basics-part-1-creating-first-package-autodesk-eagle/" class="ss-icon ss-mail"></a>
+</div>
+
+</article>	
+	<div class="subscribe-banner">
+		<h3>Subscribe to Autodesk EAGLE</h3>
+		<h4>For as low as $15 a month.</h4>
+		<a href="https://www.autodesk.com/products/eagle/subscribe">
+			<div class="subscribe-cta cta-button">Get EAGLE Now</div>
+		</a>
+	</div>
+	
+</section>
+
+
+<section class="comments-section" id="comments">
+    			<div id="respond" class="comment-respond">
+				<div class="comment-form">
+					<h3 id="reply-title" class="comment-reply-title homepage-section-label">POST A COMMENT</h3>
+					<div class="adk-bcomments-add">
+						<div class="adk-comment-form-wrapper adk-comment-disabled">
+							<div class="adk-bcomments-logged-out-overlay">
+								<a rel="nofollow" href="javascript:void(0);" title="Connect with Autodesk" class="wp-social-login-provider wp-social-login-provider-autodesk" data-provider="Autodesk">Log In to leave a comment</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+<div class="related-posts">
+	<div class="content-wrapper cf">
+		<h2 class="homepage-section-label">Related Articles</h2>
+		<div class="post-grid">
+		
+<div class="post" data-id="2245">
+	<a href="https://www.autodesk.com/products/eagle/blog/now-available-new-free-eagle-library-plugin-samacsys/">
+		<div class="post-header" style="background-image: url('https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2018/03/plugin-1024x1024.jpg')"></div>
+		<div class="post-content">
+			<h3>Now Available: New, Free EAGLE Library Plugin from SamacSys</h3>
+			<p>Ready to search and download free symbols, footprints, and 3D 
+models without ever leaving EAGLE? Learn about the new Library Plugin 
+from SamacSys!</p>
+		</div>
+	</a>
+</div>
+<div class="post" data-id="2175">
+	<a href="https://www.autodesk.com/products/eagle/blog/building-ambient-light-control-system/">
+		<div class="post-header" style="background-image: url('https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2018/02/Design-Rewind-1010x1024.png')"></div>
+		<div class="post-content">
+			<h3>Design Rewind: Building an Ambient Light Control System</h3>
+			<p>Let there be light! Learn how to build an ambient light control system in today’s Design Rewind.</p>
+		</div>
+	</a>
+</div>
+<div class="post" data-id="2125">
+	<a href="https://www.autodesk.com/products/eagle/blog/high-speed-design-guidelines-minimize-emi/">
+		<div class="post-header" style="background-image: url('https://www.autodesk.com/products/eagle/blog/wp-content/uploads/2017/11/Everyday-App-Note-Series-1024x503.jpg')"></div>
+		<div class="post-content">
+			<h3>Everyday App Note: Learn Fundamental High Speed Design Guidelines to Minimize EMI</h3>
+			<p>Is electromagnetic interference running wild on your PCB layout? 
+Learn how to keep EMI in control with these high speed layout guidelines
+ from Texas Instruments.</p>
+		</div>
+	</a>
+</div>		</div>
+	</div>
+</div>
+
+
+		<div class="clear"></div>
+		
+	
+	
+	
+	
+	<div class="parsys iparsys legalfooter-content">
+		<div class="decorative-box">
+		    <div class="legal-footer wd-pv-20">
+		        <div class="parsys box-content">
+		            <div class="responsive-grid section">
+		                <div class="row">
+		                    <div class="grid-columns">
+		                        <div class="responsive-column-0 responsive-column">
+		                            <div class="parsys column-content">
+		                                <div class="text section">
+		                                    <p><a href="http://www.autodesk.com/company/legal-notices-trademarks/privacy-statement">Privacy/Cookies (Updated)</a> | <a href="http://www.autodesk.com/company/legal-notices-trademarks">Legal Notices &amp; Trademarks</a> | <a href="http://www.autodesk.com/reportpiracy">Report Noncompliance</a> | <a href="http://www.autodesk.com/sitemap">Site map</a> | © 2016 Autodesk Inc. All rights reserved</p>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	
+	<div class="pop-up">
+		<div class="pop-up-header">
+			<h2>SIGN UP FOR UPDATES</h2>
+			<img src="Tuto_CreatingPackage_EAGLE_fichiers/close-x.png" class="close-x vex-close">
+		</div>
+		<div class="pop-up-content">
+			<div class="pop-up-left">
+				<h2>The Nest</h2>
+				<p>Stay connected with the latest news, knowledge and tutorials for Autodesk EAGLE and electronics design.</p>
+			</div>
+			<div class="pop-up-form">				
+
+				  
+
+    
+  <div id="mailpoet_form_1" class="mailpoet_form mailpoet_form_php">
+    <style type="text/css">.mailpoet_hp_email_label{display:none;}#mailpoet_form_1 .mailpoet_form {  }
+#mailpoet_form_1 .mailpoet_paragraph {  }
+#mailpoet_form_1 .mailpoet_text_label, #mailpoet_form_1 .mailpoet_textarea_label, #mailpoet_form_1 .mailpoet_select_label, #mailpoet_form_1 .mailpoet_radio_label, #mailpoet_form_1 .mailpoet_checkbox_label, #mailpoet_form_1 .mailpoet_list_label, #mailpoet_form_1 .mailpoet_date_label { display: block; }
+#mailpoet_form_1 .mailpoet_text, #mailpoet_form_1 .mailpoet_textarea, #mailpoet_form_1 .mailpoet_select, #mailpoet_form_1 .mailpoet_date { display: block; }
+#mailpoet_form_1 .mailpoet_checkbox {  }
+#mailpoet_form_1 .mailpoet_validate_success { color: #468847; }
+#mailpoet_form_1 .mailpoet_validate_error { color: #b94a48; }</style>
+    <form target="_self" method="post" action="https://www.autodesk.com/products/eagle/blog/wp-admin/admin-post.php?action=mailpoet_subscription_form" class="mailpoet_form mailpoet_form_php" novalidate="">
+      <input name="data[form_id]" value="1" type="hidden">
+      <input name="token" value="7b16598194" type="hidden">
+      <input name="api_version" value="v1" type="hidden">
+      <input name="endpoint" value="subscribers" type="hidden">
+      <input name="mailpoet_method" value="subscribe" type="hidden">
+
+      <label class="mailpoet_hp_email_label">Please leave this field empty<input name="data[email]" type="email"></label><p class="mailpoet_paragraph"><label class="mailpoet_text_label">Email <span class="mailpoet_required">*</span></label><input class="mailpoet_text" name="data[form_field_ZW1haWw=]" title="Email" data-automation-id="form_email" data-parsley-required="true" data-parsley-minlength="6" data-parsley-maxlength="150" data-parsley-error-message="Please specify a valid email address." data-parsley-required-message="This field is required." type="email"></p>
+<p class="mailpoet_paragraph"><label class="mailpoet_segment_label">Frequency:</label><label class="mailpoet_checkbox_label"><input class="mailpoet_checkbox" name="data[form_field_c2VnbWVudHM=][]" value="2" data-parsley-required="true" data-parsley-group="segments" data-parsley-errors-container=".mailpoet_error_segments" data-parsley-required-message="Please select a list" data-parsley-multiple="dataform_field_c2VnbWVudHM=" type="checkbox"> Daily</label><label class="mailpoet_checkbox_label"><input class="mailpoet_checkbox" name="data[form_field_c2VnbWVudHM=][]" value="4" data-parsley-required="true" data-parsley-group="segments" data-parsley-errors-container=".mailpoet_error_segments" data-parsley-required-message="Please select a list" data-parsley-multiple="dataform_field_c2VnbWVudHM=" type="checkbox"> Monthly</label><label class="mailpoet_checkbox_label"><input class="mailpoet_checkbox" name="data[form_field_c2VnbWVudHM=][]" value="3" data-parsley-required="true" data-parsley-group="segments" data-parsley-errors-container=".mailpoet_error_segments" data-parsley-required-message="Please select a list" data-parsley-multiple="dataform_field_c2VnbWVudHM=" type="checkbox"> Weekly</label><span class="mailpoet_error_segments"></span></p>
+<p class="mailpoet_paragraph"><input class="mailpoet_submit" value="SUBSCRIBE NOW" type="submit"></p>
+
+      <div class="mailpoet_message">
+        <p class="mailpoet_validate_success" style="display:none;">All set! Check your email to confirm your subscription. </p>
+        <p class="mailpoet_validate_error" style="display:none;">        </p>
+      </div>
+    </form>
+  </div>
+  
+
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="Tuto_CreatingPackage_EAGLE_fichiers/all.js"></script>
+	<link rel="stylesheet" id="mailpoet_public-css" href="Tuto_CreatingPackage_EAGLE_fichiers/public.css" type="text/css" media="all">
+<script type="text/javascript" src="Tuto_CreatingPackage_EAGLE_fichiers/wp-embed.js"></script><iframe sandbox="allow-scripts allow-same-origin" title="Adobe ID Syncing iFrame" id="destination_publishing_iframe_autodesk_0" style="display: none; width: 0px; height: 0px;" src="Tuto_CreatingPackage_EAGLE_fichiers/dest5.htm" class="aamIframeLoaded"></iframe>
+<script type="text/javascript" src="Tuto_CreatingPackage_EAGLE_fichiers/vendor.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var MailPoetForm = {"ajax_url":"https:\/\/www.autodesk.com\/products\/eagle\/blog\/wp-admin\/admin-ajax.php","is_rtl":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Tuto_CreatingPackage_EAGLE_fichiers/public.js"></script>
+<script type="text/javascript">
+function initMailpoetTranslation() {
+  if(typeof MailPoet !== 'undefined') {
+    MailPoet.I18n.add('ajaxFailedErrorMessage', 'An error has happened while performing a request, please try again later.')
+  } else {
+    setTimeout(initMailpoetTranslation, 250);
+  }
+}
+setTimeout(initMailpoetTranslation, 250);
+</script>
+	
+<script src="Tuto_CreatingPackage_EAGLE_fichiers/a" type="text/javascript"></script><img style="display:none" alt="" aria-hidden="true" id="db_pixel_ad" src="Tuto_CreatingPackage_EAGLE_fichiers/pixel_002"><img style="display:none" alt="" aria-hidden="true" id="db_pixel_rt" src="Tuto_CreatingPackage_EAGLE_fichiers/pixel"><img style="display:none" alt="" aria-hidden="true" id="db_bw_pixel_ad" src="Tuto_CreatingPackage_EAGLE_fichiers/demandbase.gif"><img style="display:none" alt="" aria-hidden="true" id="db_lr_pixel_ad" src="Tuto_CreatingPackage_EAGLE_fichiers/464526.gif"><img style="display:none" alt="" aria-hidden="true" id="db_pixel_ad" src="Tuto_CreatingPackage_EAGLE_fichiers/pixel_002"><img style="display:none" alt="" aria-hidden="true" id="db_pixel_rt" src="Tuto_CreatingPackage_EAGLE_fichiers/pixel"><img style="display:none" alt="" aria-hidden="true" id="db_bw_pixel_ad" src="Tuto_CreatingPackage_EAGLE_fichiers/demandbase.gif"><img style="display:none" alt="" aria-hidden="true" id="db_lr_pixel_ad" src="Tuto_CreatingPackage_EAGLE_fichiers/464526.gif"><iframe src="Tuto_CreatingPackage_EAGLE_fichiers/cs.htm" style="width: 0px; height: 0px; border: 0px none; position: absolute;"></iframe></body></html>
