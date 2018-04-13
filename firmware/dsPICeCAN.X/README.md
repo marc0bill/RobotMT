@@ -29,7 +29,10 @@ Details de chaque module existant dans la programmation du dsPIC_I2C pour creer 
 * Choix de la node 1 (Reception) ,2 (reception et transmission) ou US (pour capteur) avec attribution des adresses
 
 ## Module I2c.h
-A DEFINIR
+
+* Configuration I2CCON
+* SFRs pour I2C1 module
+* Configuration maitre-esclave
 
 ## Module moduleI2c.h
 
@@ -61,6 +64,24 @@ Dans ce module, on déclare principalement les fonctions de Ecan1Drv.c
 * Fonction ECAN1SetOPMode:Choix du mode utilisee (Normal Operation Mode pour recevoir et ecouter en eCAN)
 * Fonction ECANCreateSIDPacket: Creation du Packet SID a envoyer (8bits)
 * Fonction ECANCreateEIDPacket: Creation du Packet EID a envoyer (8bits)
+
+## Module i2c.c
+
+* Fonction I2C_Init: Cette fonction initialise le bus I2c
+* Fonction config_I2C:Configuration de l'i2 (vitesse de fonctionnement,activation i2c)
+* Fonction write_i2c:On ecrit et quand c'est remplit on arrete
+* Fonction write_reg_i2c: Envoie/ecriture adresse/registre/data
+* Fonction Lecture_reg_i2c: Ecriture adresse lecture, lecture de la donnee
+* Fonction write_i2c_EEPROM: Ecriture i2c dans EEPROM (NON UTILISEE)
+* Fonction lecture_I2C_EEPROM: test de lecture (NON UTILISEE)
+* Fonction save_double: lecture d'un double en memoire EEPROM (NON UTILISEE)
+* Fonction load_double: lecture d'un double en memoire EEPROM (NON UTILISEE)
+* Fonction save_int: lecture d'un int en memoire EEPROM (NON UTILISEE)
+* Fonction load_int: lecture d'un int en memoire EEPROM (NON UTILISEE)
+
+## Module moduleI2C.c
+
+* Fonction mesure_boussole
 
 
 # ToDo
