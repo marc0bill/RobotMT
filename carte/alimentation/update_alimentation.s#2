@@ -7277,6 +7277,9 @@ mode, 19.55 kHz for Center-Aligned mode&lt;br&gt;
 <sheets>
 <sheet>
 <plain>
+<text x="83.82" y="25.4" size="1.778" layer="91">RaspberryPi</text>
+<text x="137.16" y="60.96" size="1.778" layer="91">Propulsion</text>
+<text x="99.06" y="139.7" size="1.778" layer="91">dsPIC (gestion batterie)</text>
 </plain>
 <instances>
 <instance part="L1" gate="G$1" x="78.74" y="142.24"/>
@@ -7285,14 +7288,14 @@ mode, 19.55 kHz for Center-Aligned mode&lt;br&gt;
 <instance part="C4" gate="G$1" x="27.94" y="142.24"/>
 <instance part="FRAME2" gate="G$1" x="-66.04" y="-55.88"/>
 <instance part="P+4" gate="1" x="86.357509375" y="153.043534375" rot="MR0"/>
-<instance part="X9" gate="-1" x="129.54" y="149.86"/>
-<instance part="X9" gate="-2" x="129.54" y="147.32"/>
-<instance part="X10" gate="-1" x="129.54" y="142.24"/>
-<instance part="X10" gate="-2" x="129.54" y="139.7"/>
-<instance part="X11" gate="-1" x="129.54" y="134.62"/>
-<instance part="X11" gate="-2" x="129.54" y="132.08"/>
-<instance part="X12" gate="-1" x="132.08" y="121.92" rot="R180"/>
-<instance part="X12" gate="-2" x="132.08" y="127" rot="R180"/>
+<instance part="X9" gate="-1" x="144.78" y="149.86"/>
+<instance part="X9" gate="-2" x="144.78" y="147.32"/>
+<instance part="X10" gate="-1" x="144.78" y="142.24"/>
+<instance part="X10" gate="-2" x="144.78" y="139.7"/>
+<instance part="X11" gate="-1" x="144.78" y="134.62"/>
+<instance part="X11" gate="-2" x="144.78" y="132.08"/>
+<instance part="X12" gate="-1" x="147.32" y="121.92" rot="R180"/>
+<instance part="X12" gate="-2" x="147.32" y="127" rot="R180"/>
 <instance part="C3" gate="G$1" x="104.14" y="58.42" rot="MR180"/>
 <instance part="X13" gate="-1" x="-12.7" y="177.8"/>
 <instance part="X13" gate="-2" x="-12.7" y="172.72"/>
@@ -7307,10 +7310,10 @@ mode, 19.55 kHz for Center-Aligned mode&lt;br&gt;
 <instance part="C1" gate="G$1" x="86.36" y="132.08"/>
 <instance part="SUPPLY2" gate="GND" x="86.36" y="121.92"/>
 <instance part="SUPPLY4" gate="GND" x="114.3" y="50.8" rot="MR0"/>
-<instance part="SUPPLY5" gate="GND" x="121.92" y="147.32" rot="R270"/>
-<instance part="SUPPLY6" gate="GND" x="121.92" y="139.7" rot="R270"/>
-<instance part="SUPPLY7" gate="GND" x="121.92" y="132.08" rot="R270"/>
-<instance part="SUPPLY9" gate="GND" x="121.92" y="121.92" rot="R270"/>
+<instance part="SUPPLY5" gate="GND" x="137.16" y="147.32" rot="R270"/>
+<instance part="SUPPLY6" gate="GND" x="137.16" y="139.7" rot="R270"/>
+<instance part="SUPPLY7" gate="GND" x="137.16" y="132.08" rot="R270"/>
+<instance part="SUPPLY9" gate="GND" x="137.16" y="121.92" rot="R270"/>
 <instance part="SUPPLY11" gate="GND" x="71.12" y="162.56" rot="R180"/>
 <instance part="J1" gate="G$1" x="-12.7" y="137.16" rot="R270"/>
 <instance part="J2" gate="G$1" x="-12.7" y="121.92" rot="R270"/>
@@ -7356,22 +7359,22 @@ mode, 19.55 kHz for Center-Aligned mode&lt;br&gt;
 <segment>
 <pinref part="X9" gate="-2" pin="S"/>
 <pinref part="SUPPLY5" gate="GND" pin="GND"/>
-<wire x1="127" y1="147.32" x2="124.46" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="147.32" x2="139.7" y2="147.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="X10" gate="-2" pin="S"/>
 <pinref part="SUPPLY6" gate="GND" pin="GND"/>
-<wire x1="127" y1="139.7" x2="124.46" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="139.7" x2="139.7" y2="139.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="X11" gate="-2" pin="S"/>
 <pinref part="SUPPLY7" gate="GND" pin="GND"/>
-<wire x1="127" y1="132.08" x2="124.46" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="132.08" x2="139.7" y2="132.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="X12" gate="-1" pin="KL"/>
 <pinref part="SUPPLY9" gate="GND" pin="GND"/>
-<wire x1="127" y1="121.92" x2="124.46" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="121.92" x2="139.7" y2="121.92" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="D1" gate="1" pin="A"/>
@@ -7487,10 +7490,10 @@ mode, 19.55 kHz for Center-Aligned mode&lt;br&gt;
 <wire x1="86.36" y1="137.16" x2="86.36" y2="134.62" width="0.1524" layer="91"/>
 <junction x="86.36" y="137.16"/>
 <label x="86.36" y="142.24" size="1.778" layer="95"/>
-<label x="127" y="149.86" size="1.778" layer="95" rot="MR0"/>
-<label x="127" y="142.24" size="1.778" layer="95" rot="MR0"/>
-<label x="127" y="134.62" size="1.778" layer="95" rot="MR0"/>
-<label x="127" y="127" size="1.778" layer="95" rot="MR0"/>
+<label x="142.24" y="149.86" size="1.778" layer="95" rot="MR0"/>
+<label x="142.24" y="142.24" size="1.778" layer="95" rot="MR0"/>
+<label x="142.24" y="134.62" size="1.778" layer="95" rot="MR0"/>
+<label x="142.24" y="127" size="1.778" layer="95" rot="MR0"/>
 <pinref part="P+4" gate="1" pin="+5V"/>
 <wire x1="86.357509375" y1="150.503534375" x2="86.36" y2="150.503534375" width="0.1524" layer="91"/>
 <wire x1="86.36" y1="150.503534375" x2="86.36" y2="142.24" width="0.1524" layer="91"/>

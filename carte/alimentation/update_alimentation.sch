@@ -23703,6 +23703,7 @@ package type TQ</description>
 <part name="PAD16" library="wirepad" deviceset="1,6/0,9" device=""/>
 <part name="PAD17" library="wirepad" deviceset="1,6/0,9" device=""/>
 <part name="PAD18" library="wirepad" deviceset="1,6/0,9" device=""/>
+<part name="IC3" library="national-semiconductor" deviceset="LM2596" device="T" value="LM2678T-12"/>
 </parts>
 <sheets>
 <sheet>
@@ -23898,6 +23899,7 @@ package type TQ</description>
 <instance part="PAD16" gate="1" x="477.52" y="-20.32"/>
 <instance part="PAD17" gate="1" x="477.52" y="-25.4"/>
 <instance part="PAD18" gate="1" x="477.52" y="-30.48"/>
+<instance part="IC3" gate="G$1" x="160.02" y="20.32"/>
 </instances>
 <busses>
 </busses>

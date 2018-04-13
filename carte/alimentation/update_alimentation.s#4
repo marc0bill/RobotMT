@@ -9551,6 +9551,8 @@ mode, 19.55 kHz for Center-Aligned mode&lt;br&gt;
 <part name="IC3" library="microchip-dspic33fjxxmc" deviceset="DSPIC33FJ128MC804" device="-PT"/>
 <part name="K2" library="relay" deviceset="RP?11*" device="8" technology="005"/>
 <part name="D5" library="diode" deviceset="1N4004" device=""/>
+<part name="LED2" library="eagle-ltspice" deviceset="LED_E" device=""/>
+<part name="R5" library="resistor" deviceset="R-EU_" device="R0805" value="220"/>
 </parts>
 <sheets>
 <sheet>
@@ -9619,10 +9621,12 @@ mode, 19.55 kHz for Center-Aligned mode&lt;br&gt;
 <instance part="D2" gate="1" x="58.42" y="7.62" rot="R270"/>
 <instance part="C5" gate="G$1" x="15.24" y="-7.62"/>
 <instance part="SUPPLY13" gate="GND" x="73.66" y="-30.48"/>
-<instance part="IC3" gate="G$1" x="246.38" y="83.82"/>
+<instance part="IC3" gate="G$1" x="246.38" y="162.56"/>
 <instance part="K2" gate="1" x="43.18" y="58.42" rot="MR180"/>
 <instance part="K2" gate="2" x="27.94" y="60.96" rot="R180"/>
 <instance part="D5" gate="1" x="60.96" y="58.42" rot="R270"/>
+<instance part="LED2" gate="G$1" x="243.84" y="99.06" rot="R90"/>
+<instance part="R5" gate="G$1" x="226.06" y="99.06" rot="MR180"/>
 </instances>
 <busses>
 </busses>
@@ -9757,11 +9761,8 @@ mode, 19.55 kHz for Center-Aligned mode&lt;br&gt;
 <net name="N$21" class="0">
 <segment>
 <pinref part="LED1" gate="G$1" pin="C"/>
-<pinref part="R3" gate="G$1" pin="1"/>
-<wire x1="101.6" y1="162.56" x2="91.44" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="T1" gate="G$1" pin="C"/>
 <wire x1="101.6" y1="152.4" x2="101.6" y2="162.56" width="0.1524" layer="91"/>
-<junction x="101.6" y="162.56"/>
 </segment>
 </net>
 <net name="N$22" class="0">
@@ -9901,11 +9902,8 @@ mode, 19.55 kHz for Center-Aligned mode&lt;br&gt;
 <junction x="38.1" y="162.56"/>
 </segment>
 <segment>
-<pinref part="R7" gate="G$1" pin="2"/>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="91.44" y1="172.72" x2="91.44" y2="185.42" width="0.1524" layer="91"/>
-<wire x1="91.44" y1="185.42" x2="101.6" y2="185.42" width="0.1524" layer="91"/>
-<label x="93.98" y="185.42" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$9" class="0">
@@ -9963,8 +9961,8 @@ mode, 19.55 kHz for Center-Aligned mode&lt;br&gt;
 <net name="RA1" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="AN1/VREF-/CN3/RA1"/>
-<wire x1="195.58" y1="60.96" x2="187.96" y2="60.96" width="0.1524" layer="91"/>
-<label x="187.96" y="60.96" size="1.778" layer="95"/>
+<wire x1="195.58" y1="139.7" x2="185.42" y2="139.7" width="0.1524" layer="91"/>
+<label x="185.42" y="139.7" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="K2" gate="1" pin="2"/>
@@ -9977,10 +9975,28 @@ mode, 19.55 kHz for Center-Aligned mode&lt;br&gt;
 <label x="66.04" y="71.12" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$7" class="0">
+<net name="RB0" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="PGED1/AN2/C2IN-/RP0/CN4/RB0"/>
-<wire x1="195.58" y1="58.42" x2="187.96" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="137.16" x2="185.42" y2="137.16" width="0.1524" layer="91"/>
+<label x="185.42" y="137.16" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="R5" gate="G$1" pin="2"/>
+<pinref part="LED2" gate="G$1" pin="A"/>
+<wire x1="231.14" y1="99.06" x2="241.3" y2="99.06" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$17" class="0">
+<segment>
+<pinref part="LED2" gate="G$1" pin="C"/>
+<wire x1="248.92" y1="99.06" x2="259.08" y2="99.06" width="0.1524" layer="91"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+<wire x1="248.92" y1="99.06" x2="220.98" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="99.06" x2="210.82" y2="99.06" width="0.1524" layer="91"/>
+<junction x="220.98" y="99.06"/>
 </segment>
 </net>
 </nets>
