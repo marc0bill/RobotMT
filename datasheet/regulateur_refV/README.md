@@ -1,6 +1,6 @@
 # Régulateurs de tension
 
-Le robot possède de nombreuses cartes, microcontroleurs, capteurs, moteurs fonctionnants à des niveaux de tension/courant différents. Il est donc essentiel de créer différentes lignes de tension/courant à l'aide des régulateurs de tension.
+<p>Le robot possède de nombreuses cartes, microcontroleurs, capteurs, moteurs fonctionnants à des niveaux de tension/courant différents. Il est donc essentiel de créer différentes lignes de tension/courant à l'aide des régulateurs de tension.</p>
 
 ## 1. Ligne 5V-3A
 <p>Carte contenant un dsPIC33FJ128MC</p>
