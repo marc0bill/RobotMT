@@ -23842,7 +23842,7 @@ package type TQ</description>
 <part name="C17" library="resistor" deviceset="C-EU" device="C0603" value="0.01uF"/>
 <part name="C18" library="resistor" deviceset="C-EU" device="C0603" value="180uF"/>
 <part name="LM2678T-12" library="Robot_MT" deviceset="LM2678" device=""/>
-<part name="L4" library="inductor-coilcraft" library_urn="urn:adsk.eagle:library:240" deviceset="DO3316P" device="" package3d_urn="urn:adsk.eagle:package:14500/1"/>
+<part name="L4" library="inductor-coilcraft" library_urn="urn:adsk.eagle:library:240" deviceset="DO3316P" device="" package3d_urn="urn:adsk.eagle:package:14500/1" value="15uH"/>
 <part name="C21" library="resistor" deviceset="C-EU" device="C0603" value="180uF"/>
 <part name="C22" library="resistor" deviceset="C-EU" device="C0603" value="10uF"/>
 <part name="SUPPLY3" library="supply2" deviceset="GND" device=""/>

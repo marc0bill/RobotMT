@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.05" altunitdist="mm" altunit="mm"/>
+<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.05" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -152,6 +152,13 @@
 <text x="-16.51" y="-45.72" size="6.4516" layer="97">&gt;VALUE</text>
 </symbol>
 <symbol name="LM2678">
+<pin name="NC" x="24" y="5" length="middle" rot="R180"/>
+<pin name="FB" x="24" y="0" length="middle" rot="R180"/>
+<pin name="ON/OFF" x="24" y="-6" length="middle" rot="R180"/>
+<pin name="SWITCH_OUTPUT" x="-22" y="9" length="middle"/>
+<pin name="INPUT" x="-22" y="3" length="middle"/>
+<pin name="CB" x="-22" y="-3" length="middle"/>
+<pin name="GND" x="-22" y="-9" length="middle"/>
 </symbol>
 </symbols>
 <devicesets>

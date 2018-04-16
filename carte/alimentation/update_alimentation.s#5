@@ -23773,7 +23773,7 @@ package type TQ</description>
 <part name="C17" library="resistor" deviceset="C-EU" device="C0603"/>
 <part name="L3" library="inductor-neosid" deviceset="SM-L15" device="A"/>
 <part name="C18" library="resistor" deviceset="C-EU" device="C0603"/>
-<part name="U$2" library="Robot_MT" deviceset="LM2678" device=""/>
+<part name="LM2678T-12" library="Robot_MT" deviceset="LM2678" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -23974,7 +23974,7 @@ package type TQ</description>
 <instance part="C17" gate="G$1" x="78.74" y="-33.02"/>
 <instance part="L3" gate="G$1" x="93.76480625" y="-47.205975"/>
 <instance part="C18" gate="G$1" x="111.76" y="-66.04"/>
-<instance part="U$2" gate="G$1" x="50.8" y="-45.72"/>
+<instance part="LM2678T-12" gate="G$1" x="50.8" y="-45.72"/>
 </instances>
 <busses>
 </busses>
@@ -24061,13 +24061,13 @@ package type TQ</description>
 <wire x1="111.76" y1="-71.12" x2="111.76" y2="-81.28" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="-81.28" x2="78.74" y2="-81.28" width="0.1524" layer="91"/>
 <junction x="78.74" y="-81.28"/>
-<pinref part="U$2" gate="G$1" pin="GND"/>
+<pinref part="LM2678T-12" gate="G$1" pin="GND"/>
 <wire x1="51.1" y1="-60.64" x2="51.1" y2="-81.28" width="0.1524" layer="91"/>
 <pinref part="C16" gate="G$1" pin="2"/>
 <wire x1="27.94" y1="-71.12" x2="27.94" y2="-81.28" width="0.1524" layer="91"/>
 <junction x="27.94" y="-81.28"/>
 <pinref part="C16" gate="G$1" pin="1"/>
-<pinref part="U$2" gate="G$1" pin="INPUT"/>
+<pinref part="LM2678T-12" gate="G$1" pin="INPUT"/>
 <wire x1="27.94" y1="-63.5" x2="27.993796875" y2="-47.18385625" width="0.1524" layer="91"/>
 <wire x1="27.993796875" y1="-47.18385625" x2="27.94" y2="-47.22" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="-47.22" x2="33.96" y2="-47.22" width="0.1524" layer="91"/>
@@ -24866,7 +24866,7 @@ package type TQ</description>
 <junction x="111.8138" y="-47.205975"/>
 <pinref part="C18" gate="G$1" pin="1"/>
 <wire x1="111.8138" y1="-47.205975" x2="111.76" y2="-63.5" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="FB"/>
+<pinref part="LM2678T-12" gate="G$1" pin="FB"/>
 <wire x1="47.88" y1="-27.3" x2="47.88" y2="-17.78" width="0.1524" layer="91"/>
 <wire x1="47.88" y1="-17.78" x2="111.76" y2="-17.78" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="-17.78" x2="111.8138" y2="-47.205975" width="0.1524" layer="91"/>
@@ -24881,14 +24881,14 @@ package type TQ</description>
 <wire x1="78.74" y1="-66.04" x2="78.74" y2="-47.2376625" width="0.1524" layer="91"/>
 <pinref part="L3" gate="G$1" pin="1"/>
 <wire x1="78.74" y1="-47.2376625" x2="88.68480625" y2="-47.205975" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="OUT"/>
+<pinref part="LM2678T-12" gate="G$1" pin="OUT"/>
 <wire x1="67.64" y1="-47.22" x2="67.64" y2="-47.2376625" width="0.1524" layer="91"/>
 <wire x1="67.64" y1="-47.2376625" x2="78.74" y2="-47.2376625" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$15" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="CB"/>
+<pinref part="LM2678T-12" gate="G$1" pin="CB"/>
 <pinref part="C17" gate="G$1" pin="1"/>
 <wire x1="53.72" y1="-27.3" x2="78.74" y2="-27.3" width="0.1524" layer="91"/>
 <wire x1="78.74" y1="-27.3" x2="78.74" y2="-30.48" width="0.1524" layer="91"/>

@@ -152,13 +152,13 @@
 <text x="-16.51" y="-45.72" size="6.4516" layer="97">&gt;VALUE</text>
 </symbol>
 <symbol name="LM2678">
-<pin name="NC" x="24" y="5" length="middle" rot="R180"/>
-<pin name="FB" x="24" y="0" length="middle" rot="R180"/>
-<pin name="ON/OFF" x="24" y="-6" length="middle" rot="R180"/>
-<pin name="SWITCH_OUTPUT" x="-22" y="9" length="middle"/>
-<pin name="INPUT" x="-22" y="3" length="middle"/>
-<pin name="CB" x="-22" y="-3" length="middle"/>
-<pin name="GND" x="-22" y="-9" length="middle"/>
+<pin name="NC" x="27" y="3.5" length="middle" rot="R180"/>
+<pin name="FB" x="-6" y="20.5" length="middle" rot="R270"/>
+<pin name="ON/OFF" x="-6" y="-20.5" length="middle" rot="R90"/>
+<pin name="SWITCH_OUTPUT" x="27" y="-3.5" length="middle" rot="R180"/>
+<pin name="INPUT" x="-27" y="0" length="middle"/>
+<pin name="CB" x="8" y="20.5" length="middle" rot="R270"/>
+<pin name="GND" x="8" y="-20.5" length="middle" rot="R90"/>
 </symbol>
 </symbols>
 <devicesets>

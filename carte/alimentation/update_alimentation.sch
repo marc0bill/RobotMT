@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.5" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -23841,7 +23841,9 @@ package type TQ</description>
 <part name="D3" library="diode" deviceset="1N5624" device=""/>
 <part name="C17" library="resistor" deviceset="C-EU" device="C0603" value="0.01uF"/>
 <part name="C18" library="resistor" deviceset="C-EU" device="C0603" value="180uF"/>
-<part name="LM2678T-12" library="Robot_MT" deviceset="LM2678" device=""/>
+<part name="LM2678T-12" library="Robot_MT" deviceset="LM2678" device="">
+<attribute name="OC_FARNELL" value="9778357"/>
+</part>
 <part name="L4" library="inductor-coilcraft" library_urn="urn:adsk.eagle:library:240" deviceset="DO3316P" device="" package3d_urn="urn:adsk.eagle:package:14500/1" value="15uH"/>
 <part name="C21" library="resistor" deviceset="C-EU" device="C0603" value="180uF"/>
 <part name="C22" library="resistor" deviceset="C-EU" device="C0603" value="10uF"/>
@@ -24049,7 +24051,9 @@ package type TQ</description>
 <instance part="D3" gate="1" x="102.24" y="-68.58" rot="R90"/>
 <instance part="C17" gate="G$1" x="102.24" y="-33.02"/>
 <instance part="C18" gate="G$1" x="135.26" y="-66.04"/>
-<instance part="LM2678T-12" gate="G$1" x="74.3" y="-45.72"/>
+<instance part="LM2678T-12" gate="G$1" x="74.3" y="-45.72">
+<attribute name="OC_FARNELL" x="74.3" y="-45.72" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="L4" gate="G$1" x="114.13863125" y="-47.096678125"/>
 <instance part="C21" gate="G$1" x="123.582846875" y="-66.039996875"/>
 <instance part="C22" gate="G$1" x="26.5486" y="-65.8876"/>

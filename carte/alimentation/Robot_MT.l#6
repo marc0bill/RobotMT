@@ -163,8 +163,8 @@
 <wire x1="22" y1="18.5" x2="22" y2="-21" width="0.254" layer="94"/>
 <wire x1="22" y1="-21" x2="-22" y2="-21" width="0.254" layer="94"/>
 <wire x1="-22" y1="-21" x2="-22" y2="18.5" width="0.254" layer="94"/>
-<text x="-3" y="29.5" size="1.27" layer="95">&gt;NAME</text>
-<text x="-2.5" y="-32" size="1.27" layer="96">&gt;VALUE</text>
+<text x="-21.5" y="27" size="1.27" layer="95">&gt;NAME</text>
+<text x="-21" y="-29" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
