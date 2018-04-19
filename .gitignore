@@ -18,3 +18,7 @@ python/astar/.ipynb_checkpoints/
 firmware/dsPICeCAN.X/dist/default/debug/dsPICeCAN.X.debug.map
 firmware/dsPICeCAN.X/dist/default/production/dsPICeCAN.X.production.map
 .DS_Store
+.DS_Store
+carte/.DS_Store
+carte/.DS_Store
+datasheet/.DS_Store

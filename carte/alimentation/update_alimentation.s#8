@@ -24881,6 +24881,15 @@ package type TQ</description>
 <wire x1="78.74" y1="-27.3" x2="78.74" y2="-38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="N$18" class="0">
+<segment>
+<pinref part="U$2" gate="G$1" pin="FB"/>
+<wire x1="47.88" y1="-27.3" x2="47.88" y2="-21.88093125" width="0.1524" layer="91"/>
+<wire x1="47.88" y1="-21.88093125" x2="47.4431375" y2="-21.88093125" width="0.1524" layer="91"/>
+<wire x1="47.88" y1="-21.88093125" x2="111.0911375" y2="-16.801428125" width="0.1524" layer="91"/>
+<wire x1="111.0911375" y1="-16.801428125" x2="111.0911375" y2="-48.645996875" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
