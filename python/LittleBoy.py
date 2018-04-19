@@ -46,14 +46,15 @@ def find_port(port=None, baudrate = 9600, timeout = 0.1, Requet = "V1R?", portma
             pass
     return ser
 
-def readInfo(ser,Requet,SizeMax=50):
-    StrVal=""
+def readInfo(ser,requet,SizeMax=50):
+    StrVal=b''
     i=0
-    String=Requet+" \n"
-    ser.write(String)
-    actualByte=""
+    string=requet+' \n'
+    ser.write(str.encode(string))
+    actualByte=''
     actualByte=ser.read()
-    while actualByte != "\n" :
+    # remplacer tout ça par ser.readline()
+    while actualByte != b'\n' :
         StrVal = StrVal+actualByte
         i=i+1
         if(i>=SizeMax):
@@ -62,11 +63,11 @@ def readInfo(ser,Requet,SizeMax=50):
         actualByte=ser.read()
     return StrVal
 
-def readFloat(ser,Requet,nbTest=5):
+def readFloat(ser,requet,nbTest=5):
     for j in range(nbTest):
-        String = readInfo(ser,Requet)
-        if(String[0:3]==Requet[0:3]):
-            return float(String[4:])
+        string = readInfo(ser,requet)
+        if(string[0:3]==requet[0:3]):
+            return float(string[4:])
     return float('nan')
 
 
@@ -123,6 +124,7 @@ class Joystick(object):
                         return (val+valMin)*coef
                     else:
                         return 0
+            
             self.LeftAxishorizontal = seuil(self.monJoystick.get_axis(0),self.seuilJoystick)
             self.LeftAxisVertical = seuil(self.monJoystick.get_axis(1),self.seuilJoystick)
             valGacG = self.monJoystick.get_axis(2)

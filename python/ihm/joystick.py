@@ -3,8 +3,8 @@ from pygame.locals import *
 
 
 VTS_ANGULAIRE_MAX=500
-VTS_LINERAIRE_MAX=500
-nbStep = 5
+VTS_LINERAIRE_MAX=700
+NB_GEAR = 7
 
 
 
@@ -44,7 +44,7 @@ class Joystick(object):
         self.gachetteD = 0
         self.gachetteG = 0
 
-    def refresh_vts_mot(self):
+    def refresh_vts_mot(self, q4Com):
         def vts_mot():
             def seuil(val,valMin):
                 """
@@ -78,10 +78,15 @@ class Joystick(object):
             else: # sinon (sur PC)
                 self.gachetteAxis = seuil(valGacG,self.seuilGachette)
             self.rotationRobot = - self.LeftAxishorizontal*VTS_ANGULAIRE_MAX/self.fast
-            self.vtsRobot = - self.gachetteAxis*VTS_LINERAIRE_MAX*self.fast/nbStep
-            self.VtsM1 = int(self.vtsRobot - self.rotationRobot/2)
-            self.VtsM2 = int(self.vtsRobot + self.rotationRobot/2)
-            print("VtsM\t%s\t%s \n" % (self.VtsM1, self.VtsM2))
+            self.vtsRobot = - self.gachetteAxis*VTS_LINERAIRE_MAX*self.fast/NB_GEA7
+            vtsM1New = int(self.vtsRobot - self.rotationRobot/2)
+            vtsM2New = int(self.vtsRobot + self.rotationRobot/2)
+            if (self.VtsM1!=vtsM1New) or (self.VtsM2!=vtsM2New):
+                q4Com.put([{'name':'write_vts','values':[vtsM1New,vtsM2New]}])
+                self.VtsM1 = vtsM1New
+                self.VtsM2 = vtsM2New
+            
+
         if self.monJoystick != None:
             for event in pygame.event.get():    #Attente des événements
                 if event.type is JOYAXISMOTION: # événement : Jostick
@@ -100,7 +105,7 @@ class Joystick(object):
                     self.bstate_int=sum(list(map(lambda b:int(self.bstate[b])*(2**b),range(self.nbBoutons))))
                     
                     if self.bstate_int is 1:
-                        print('SLOW')
+                        #print('SLOW')
                         self.fast = max(self.fast-1,1)
                         vts_mot()
                     if self.bstate_int is 2:
@@ -110,7 +115,8 @@ class Joystick(object):
                         #close
                         pass
                     if self.bstate_int is 4:
-                        print('FAST')
-                        self.fast= min(self.fast+1,nbStep)
+                        #print('FAST')
+                        self.fast= min(self.fast+1,NB_GEAR7
                         vts_mot()
+            #vts_mot()
 

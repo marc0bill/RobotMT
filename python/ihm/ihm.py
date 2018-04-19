@@ -2,8 +2,10 @@ import tkinter as tk
 import tkinter.ttk as ttk
 #import PIL.Image
 #import PIL.ImageTk
-
-from ihm.joystick import Joystick
+try: 
+    from ihm.joystick import Joystick
+except:
+    from joystick import Joystick
 
 pi = 3.14159265358979323846
 
@@ -19,15 +21,21 @@ COLOR_ROBOT = '#42BCFF'
 COLOR_DESTINATION = 'red'
 OBSTACLE = -1
 CERCLE_JOYSTICK = 5
+REFRESH_TIME = 10 # millisecond
 
 class Ihm(tk.Frame):
-    def __init__(self, q2astar, master, mapDxy=20, mapResize=5., robotSize=[300,200], robotStart=[150,100,0], robotStop=[2000,1000,0]):
+    def __init__(self, q4Astar, q4Ihm, q4Com, master, dXY=20, mapResize=5., 
+        robotSize=[300,200], robotStart=[150,100,0], robotStop=[2000,1000,0]):
         super().__init__(master)
+
+        self.q4Astar = q4Astar
+        self.q4Ihm = q4Ihm
+        self.q4Com = q4Com
         self.joystick = Joystick()
-        self.mapDxy = int(mapDxy)
+        self.dXY = int(dXY)
         self.mapResize = mapResize
-        self.nbX = int(CANVAS_WIDTH/mapDxy)
-        self.nbY = int(CANVAS_HEIGHT/mapDxy)
+        self.nbX = int(CANVAS_WIDTH/dXY)
+        self.nbY = int(CANVAS_HEIGHT/dXY)
         self.robotSize = np.array([robotSize[0],robotSize[1],np.sqrt(300**2+200**2),] )/mapResize/2
         self.robotCoor = robotStart
         self.robotStop = robotStop
@@ -98,10 +106,18 @@ class Ihm(tk.Frame):
         # Création d'un widget Button (bouton Quitter)
         ttk.Button(self.master, text ='Quitter', command = self.master.destroy).pack(side=tk.LEFT,padx=5,pady=5)
         
-        self.after(100, self.refresh_joystick)
+        self.after(REFRESH_TIME, self.refresh_joystick)
+
+
+    def path_from_astar(self, table):
+        # table = np.array([TableX,TableY,TableAng,TableTpsTrajet,TableObs])
+        XXX=np.array(table[0][1:-1])/self.mapResize
+        YYY=np.array(table[1][1:-1])/self.mapResize
+        for i, X in enumerate(XXX):
+            self.mapLstPath += [self.canevas.create_rectangle(X,YYY[i] ,X+self.dXY,YYY[i]+self.dXY,fill='blue',width=0)]
 
     def refresh_joystick(self):
-        self.joystick.refresh_vts_mot()
+        self.joystick.refresh_vts_mot(self.q4Com)
         x = self.joystick.LeftAxishorizontal*40+50 # joystick gauche : gauche/droite
         y = self.joystick.LeftAxisVertical*40+50 # joystick gauche : haut/bas
         z = self.joystick.gachetteAxis*40+50
@@ -110,14 +126,18 @@ class Ihm(tk.Frame):
         self.canevasJoystick.coords(self.rectangleJoystick, (100,z-2,110,z+2))
         self.labVtsM.config(text='VtsM {} {}'.format(self.joystick.VtsM1,self.joystick.VtsM2))
         self.labGear.config(text='gear ratio: {}'.format(self.joystick.fast))
-        self.after(100, self.refresh_joystick)
-        
+        self.after(REFRESH_TIME, self.refresh_joystick)
+
+        ASTAR_FUNCTION = {'path_from_astar':self.path_from_astar}
+        if not self.q4Ihm.empty():
+            for dicFromAstar in self.q4Ihm.get():
+                ASTAR_FUNCTION[dicFromAstar['name']](dicFromAstar['values'])
 
     def map_release(self, event):
         if (self.mapIdSquare is not None) and (self.mapIdSquare >1):
             # position du pointeur de la souris
-            X = int(event.x/self.mapDxy)
-            Y = int(event.y/self.mapDxy)
+            X = int(event.x/self.dXY)
+            Y = int(event.y/self.dXY)
             # Ajout d'un element dans la Table des obstacles
             self.mapTblNode[X][Y] = OBSTACLE
     
@@ -126,16 +146,16 @@ class Ihm(tk.Frame):
         self.mapIdSquare = None
 
         # position du pointeur de la souris
-        X = int(event.x/self.mapDxy)
-        Y = int(event.y/self.mapDxy)
+        X = int(event.x/self.dXY)
+        Y = int(event.y/self.dXY)
         # Retrait d'un element dans la Table des obstacles
         # L'ajout se fait lors du release du clic gauche
         self.mapTblNode[X][Y] = 0
-        X *= self.mapDxy
-        Y *= self.mapDxy
+        X *= self.dXY
+        Y *= self.dXY
 
         if not(self.mapLstSquare):
-            self.mapLstSquare += [self.canevas.create_rectangle(X,Y,X+self.mapDxy,Y+self.mapDxy,fill=COLOR_OBS,width=0)]
+            self.mapLstSquare += [self.canevas.create_rectangle(X,Y,X+self.dXY,Y+self.dXY,fill=COLOR_OBS,width=0)]
             self.mapIdSquare = 0
         else:
             canvas = event.widget
@@ -147,13 +167,13 @@ class Ihm(tk.Frame):
                 if xmin<=X<xmax and ymin<=Y<ymax:
                     self.mapIdSquare = iC
                     return
-            self.mapLstSquare += [self.canevas.create_rectangle(X,Y,X+self.mapDxy,Y+self.mapDxy,fill=COLOR_OBS,width=0)]
+            self.mapLstSquare += [self.canevas.create_rectangle(X,Y,X+self.dXY,Y+self.dXY,fill=COLOR_OBS,width=0)]
             self.mapIdSquare = iC+1
 
     def map_drag(self, event):
         """ Gestion de l'événement bouton gauche enfoncé """
-        X = int(event.x/self.mapDxy)*self.mapDxy
-        Y = int(event.y/self.mapDxy)*self.mapDxy
+        X = int(event.x/self.dXY)*self.dXY
+        Y = int(event.y/self.dXY)*self.dXY
 
         if self.mapIdSquare is not None:
             Square = self.mapLstSquare[self.mapIdSquare]
@@ -163,7 +183,7 @@ class Ihm(tk.Frame):
                 self.mapIdSquare = None
             else:
             # mise à jour de la position de l'objet (drag)
-                self.canevas.coords(Square,X,Y,X+self.mapDxy,Y+self.mapDxy)
+                self.canevas.coords(Square,X,Y,X+self.dXY,Y+self.dXY)
                 #self.mapIdSquare = None
     def rob_coord(self, xya):
         phi = np.arccos(self.robotSize[0]/self.robotSize[2])
@@ -184,9 +204,9 @@ class Ihm(tk.Frame):
         self.mapTblNode = np.zeros((self.nbX,self.nbY))
         self.canevas.delete(tk.ALL)
 
-        for i in range(0,self.nbY*self.mapDxy,self.mapDxy):
+        for i in range(0,self.nbY*self.dXY,self.dXY):
             self.canevas.create_line(0,i,CANVAS_WIDTH,i, fill=COLOR_LINE)
-        for i in range(0,self.nbX*self.mapDxy,self.mapDxy):
+        for i in range(0,self.nbX*self.dXY,self.dXY):
             self.canevas.create_line(i,0,i,CANVAS_HEIGHT, fill=COLOR_LINE)
             
     def map_save(self):
@@ -200,43 +220,51 @@ class Ihm(tk.Frame):
             pass
         Node = np.argwhere((self.mapTblNode>0) & (self.mapTblNode<=2*pi))
         if len(Node)>0:
-            X = (Node[0][0]+0.5)*self.mapDxy*self.mapResize
-            Y = (Node[0][1]+0.5)*self.mapDxy*self.mapResize
+            X = (Node[0][0]+0.5)*self.dXY*self.mapResize
+            Y = (Node[0][1]+0.5)*self.dXY*self.mapResize
             ang = self.mapTblNode[Node[0][0],Node[0][1]]%(2*pi)
             self.robotCoor = [X, Y, ang]
         self.mapLstSquare = [self.canevas.create_polygon(self.rob_coord(self.robotCoor), fill=COLOR_ROBOT)]
         # STOP
         Node = np.argwhere(self.mapTblNode>2*pi)
         if len(Node)>0:
-            X = (Node[0][0]+0.5)*self.mapDxy*self.mapResize
-            Y = (Node[0][1]+0.5)*self.mapDxy*self.mapResize
+            X = (Node[0][0]+0.5)*self.dXY*self.mapResize
+            Y = (Node[0][1]+0.5)*self.dXY*self.mapResize
             ang = self.mapTblNode[Node[0][0],Node[0][1]]%(2*pi)
             self.robotStop = [X, Y, ang]
         self.mapLstSquare = [self.canevas.create_polygon(self.rob_coord(self.robotStop), fill=COLOR_DESTINATION)]
 
         for Node in np.argwhere(self.mapTblNode==OBSTACLE):
-            X = Node[0]*self.mapDxy
-            Y = Node[1]*self.mapDxy
-            self.mapLstSquare += [self.canevas.create_rectangle(X,Y,X+self.mapDxy,Y+self.mapDxy,fill=COLOR_OBS,width=0)]
+            X = Node[0]*self.dXY
+            Y = Node[1]*self.dXY
+            self.mapLstSquare += [self.canevas.create_rectangle(X,Y,X+self.dXY,Y+self.dXY,fill=COLOR_OBS,width=0)]
 
         
         
     def map_find(self):    
         for i in range(len(self.mapLstPath)):
             self.canevas.delete(self.canevas.delete(self.mapLstPath[i]))
-        
-        START = self.canevas.coords(self.mapLstSquare[0])[:2]
-        STOP = self.canevas.coords(self.mapLstSquare[1])[:2]
+        # self.robotCoor
+        # self.robotStop
+        #START = self.canevas.coords(self.mapLstSquare[0])[:2]
+        #STOP = self.canevas.coords(self.mapLstSquare[1])[:2]
 
         print("envoie de la map d'obstacle fixe au pathfinding")
-        #q2astar.put([{'name':'mapTblNode','values':self.mapTblNode}])
+        self.q4Astar.put([{'name':'obs_from_ihm','values':self.mapTblNode},
+            {'name':'find_from_ihm','values':[self.robotCoor, self.robotStop]}])
+        
+        #self.q4Com.put([{'name':'write_vts','values':[100,100]}])
+
+
         return
 
 
 
 if __name__ == '__main__':
     root = tk.Tk()
-    q2astar = Queue()
-    Ihm = Ihm(q2astar, master=root)
-    #Ihm = Ihm(q2astar, master=root,mapDxy=10, mapResize=5., robotSize=[300,200], robotStart=[150,150,0], robotStop=[2000,1000,0])
+    q4Astar = Queue()
+    q4Ihm = Queue()
+    q4Com = Queue()
+    Ihm = Ihm(q4Astar, q4Ihm, q4Com, master=root)
+    #Ihm = Ihm(q4Astar, master=root,dXY=10, mapResize=5., robotSize=[300,200], robotStart=[150,150,0], robotStop=[2000,1000,0])
     Ihm.mainloop()
