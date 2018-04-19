@@ -1,24 +1,2 @@
-
-*.pyc
-*.xml
-*.mk
-*.hex
-*.elf
-*.o
-*.d
-firmware/dsPicI2CeCAN.X/nbproject/
-firmware/dsPicI2CeCAN.X/dist/
-firmware/dsPICeCAN.X/nbproject/
-firmware/PetitRobot.X/nbproject/
-firmware/PetitRobot.X/dist/
-firmware/MotorDrive.X/nbproject/
-python/.ipynb_checkpoints/
-python/exemple/.ipynb_checkpoints/
-python/astar/.ipynb_checkpoints/
-firmware/dsPICeCAN.X/dist/default/debug/dsPICeCAN.X.debug.map
-firmware/dsPICeCAN.X/dist/default/production/dsPICeCAN.X.production.map
-.DS_Store
-.DS_Store
-carte/.DS_Store
-carte/.DS_Store
-datasheet/.DS_Store
+git add .gitignore
+git commit -m '.DS_Store banished!'
