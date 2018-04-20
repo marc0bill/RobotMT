@@ -11,7 +11,6 @@ Deux versions de cartes sont proposées :
   <img width="460" height="400" src="https://github.com/marc0bill/RobotMT/blob/master/ressourceWiki/interfaceI2C_eCAN_photo.png/460/300">
 </p>
 
-![](https://github.com/marc0bill/RobotMT/blob/master/ressourceWiki/interfaceI2C_eCAN_photo.png| width=100)
 
 ### dsPIC_I2C
 
