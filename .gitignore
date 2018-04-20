@@ -17,4 +17,6 @@ python/exemple/.ipynb_checkpoints/
 python/astar/.ipynb_checkpoints/
 firmware/dsPICeCAN.X/dist/default/debug/dsPICeCAN.X.debug.map
 firmware/dsPICeCAN.X/dist/default/production/dsPICeCAN.X.production.map
-/projet_node_US_fonctionnement.X/nbproject/private/
+.DS_Store
+*.l#*
+*.b#*
