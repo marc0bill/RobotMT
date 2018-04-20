@@ -46,12 +46,14 @@ Dans ce module, on déclare principalement les fonctions de Ecan1Drv.c
 * Choix débit binaire de l'eCAN
 
 # Module init_pic.c
+Ce module initialise la clock,les ports et assigne les PIN
 
 * Initialisation de la clock
 * Assignation des PIN
 * Initialisation des Ports I/O
 
 ## Module ECAN1Drv.c
+Ce module s'occupe de la configuration de l'eCAN (config DMA, config filtres SID/EID, config clock eCAN...)
 
 * Fonction ECANFilterSID: Cette fonction definit le filtre Standard ID utilisé lors de la tranmission eCAN
 * Fonction ECANFilterEID: Cette fonction definit le filtre Extended ID utilisé lors de la tranmission eCAN
@@ -66,6 +68,7 @@ Dans ce module, on déclare principalement les fonctions de Ecan1Drv.c
 * Fonction ECANCreateEIDPacket: Creation du Packet EID a envoyer (8bits)
 
 ## Module i2c.c
+Ce module s'occupe de la configuration du bus i2c
 
 * Fonction I2C_Init: Cette fonction initialise le bus I2c
 * Fonction config_I2C:Configuration de l'i2 (vitesse de fonctionnement,activation i2c)
@@ -87,20 +90,27 @@ Ce module s'occupe de la gestion des capteurs ultra son
 * Fonction mesure_ultrason_1: mesure de l'ultrason. On a une machine d'etat (cas 1 a 4) 1= debut mesure , 2= fin mesure, 3=mesure en LSB, 4= mesure en MSB. A la fin de chaque case, il y'a une verification d'erreur.
 
 ## Module uart.c
+Ce module s'occupe de la configuration propre a l'uart (priorites d'interruption en transmission reception, registre de mode,calcul baud rate, registre statuts et controle...)
 
 * Fonction initUART1: 
 Initialise l'UART:
-- Calcul du baud rate. 
-- Configure Uxmode: Registre de mode.  
-- Configure UxSTA : Registre status et controle.
-- Configuration des priorites interrupts en transmission et reception. 
+Calcul du baud rate. 
+Configure Uxmode: Registre de mode.  
+Configure UxSTA : Registre status et controle.
+Configuration des priorites interrupts en transmission et reception. 
 * Fonction _U1RXInterrupt: Routine d'interruption sur reception UART1
 * Fonction _U1TXInterrupt: Routine d'interruption transmission UART1 (buffer vide)
 * Fonction fctU1Tx_int: Fonction d'envoie en UART
 * Fonction fctU1Tx_string: Fonction d'envoie en UART
 
 ## Module main.c
+C'est le module principale du code
 
+Definit le nombre de buffer RX(=8)
+Creation du tableau de message
+
+* Fonction RandomWait: genere nombre aleatoire 
+* Fonction Main: timer config, adc config, nettoyer flag, autoriser flag, description de chaque node,routine d'interruption ADC
 
 # ToDo
 * Définir les adresses eCAN des messages envoyés
