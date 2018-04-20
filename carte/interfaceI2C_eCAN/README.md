@@ -2,11 +2,12 @@
 
 ## Présentation
 
-La carte proposé ici, permet l'interface entre le bus eCAN et d'autre prériférique (comme par exemple les modules ultrason en I2C ou capteur de distance SHARP analogique)
+La carte proposé ici, permet l'interface entre le bus eCAN et d'autre périférique (comme par exemple les modules ultrason en I2C ou capteur de distance SHARP analogique)
 
 ## Détail
 
 Deux versions de cartes sont proposées : 
+![](https://github.com/marc0bill/RobotMT/blob/master/ressourceWiki/interfaceI2C_eCAN_photo.png| width=100)
 
 ### dsPIC_I2C
 
