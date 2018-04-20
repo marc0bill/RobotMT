@@ -80,8 +80,26 @@ Dans ce module, on déclare principalement les fonctions de Ecan1Drv.c
 * Fonction load_int: lecture d'un int en memoire EEPROM (NON UTILISEE)
 
 ## Module moduleI2C.c
+Ce module s'occupe de la gestion des capteurs ultra son
 
-* Fonction mesure_boussole
+* Fonction mesure_boussole: Configuration de la boussole
+* Fonction init_ultrason: Initiation de l'ultrason
+* Fonction mesure_ultrason_1: mesure de l'ultrason. On a une machine d'etat (cas 1 a 4) 1= debut mesure , 2= fin mesure, 3=mesure en LSB, 4= mesure en MSB. A la fin de chaque case, il y'a une verification d'erreur.
+
+## Module uart.c
+
+* Fonction initUART1: 
+Initialise l'UART:
+- Calcul du baud rate. 
+- Configure Uxmode: Registre de mode.  
+- Configure UxSTA : Registre status et controle.
+- Configuration des priorites interrupts en transmission et reception. 
+* Fonction _U1RXInterrupt: Routine d'interruption sur reception UART1
+* Fonction _U1TXInterrupt: Routine d'interruption transmission UART1 (buffer vide)
+* Fonction fctU1Tx_int: Fonction d'envoie en UART
+* Fonction fctU1Tx_string: Fonction d'envoie en UART
+
+## Module main.c
 
 
 # ToDo
