@@ -116,7 +116,7 @@ class Joystick(object):
                         pass
                     if self.bstate_int is 4:
                         #print('FAST')
-                        self.fast= min(self.fast+1,NB_GEAR7
+                        self.fast= min(self.fast+1,NB_GEAR)
                         vts_mot()
             #vts_mot()
 
