@@ -10,7 +10,7 @@ La carte proposée ici, permet de réaliser une passerelle eCAN <=> UART.
 </p>
 
 ## Détail
-On utlise cette carte comme platforme de monitoring et commande de l'ensemble des nodes connectés sur le bus CAN. Elle écoute les messages transmis sur le bus CAN et les envoient par le bus UART à un PC par exemple pour afficher les résultat sur un terminal(Termite, CoolTerm, etc).
+On utlise cette carte comme platforme de monitoring et commande de l'ensemble des nodes connectés sur le bus CAN. Elle écoute les messages transmis sur le bus CAN et les envoient par le bus UART à un PC par exemple pour ces messages en format char sur un terminal(Termite, CoolTerm, etc).
 
 
 
