@@ -1,25 +1,17 @@
-# Carte interface eCAN/I2C/UART/entrée Analog
+# Carte platform dsPIC (eCAN <=> UART)
 
 ## Présentation
 
-La carte proposé ici, permet l'interface entre le bus eCAN et d'autre périférique (comme par exemple les modules ultrason en I2C ou capteur de distance SHARP analogique)
+La carte proposée ici, permet de réaliser une passerelle eCAN <=> UART.
 
-## Détail
 
-Deux versions de cartes sont proposées : 
 <p align="center">
   <img width="598" height="403" src="https://github.com/marc0bill/RobotMT/blob/master/ressourceWikiReadme/IMG_3110.jpg">
 </p>
 
+## Détail
+On utlise cette carte comme platforme de monitoring et commande de l'ensemble des nodes connectés sur le bus CAN. Elle écoute les messages transmis sur le bus CAN et les envoient par le bus UART à un PC par exemple pour afficher les résultat sur un terminal(Termite, CoolTerm, etc).
 
-### dsPIC_I2C
-
-Il s'agit de celle actuellement utilisé et fonctionnelle
-
-### dsPIC_I2CMini
-
-Il s'agit d'une version plus compact à finaliser si nécessaire.
-Un travail sur les connecteurs pourrait aussi être effectuer pour amélioré la robustesse d'assemblage et la taille de la carte.
 
 
 ### firmware
@@ -29,6 +21,7 @@ Le firmware associé a cette carte est :
 ```
 firmware/dsPICeCAN.X
 ```
+
 
 ## Authors
 
