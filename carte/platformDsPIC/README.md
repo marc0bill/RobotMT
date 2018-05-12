@@ -1,4 +1,4 @@
-# Carte platform dsPIC (eCAN <=> UART)
+# Carte platforme dsPIC (eCAN <=> UART)
 
 ## Présentation
 
