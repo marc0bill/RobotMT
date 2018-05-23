@@ -1,1 +1,24 @@
-# Robot-PolytechMT
+# Régulateurs de tension
+
+<p>Le robot possède de nombreuses cartes, microcontroleurs, capteurs, moteurs fonctionnants à des niveaux de tension/courant différents. Il est donc essentiel de créer différentes lignes de tension/courant à l'aide de régulateurs de tension.</p>
+
+## 1. Ligne 5V-3A
+<p>Carte contenant un dsPIC33FJ128MC</p>
+<p>Consommation = ?</p>
+<p>Composant = <b>LM2596T</b></p>
+<p>Remarque : Cette carte possède donc un régulateur de tension 5V vers 3.3V car le dsPIC d'alimente en 3.3V.</p>
+
+## 2.Ligne 5V-3A
+<p>RaspberryPi model 3</p>
+<p>Consommation = 2.5A</p>
+<p>Composant = <b>LM2596T</b></p>
+
+## 3.Ligne 12V-5A
+<p>3 cerveaux moteurs MX28</p>
+<p>Consommation = 3x1.5A = 4.5A</p>
+<p>Composant = <b>LM2678</b></p>
+
+## 4.Ligne de tension ajustable (6 à 16V)-5A
+<p>1 cerveau moteur</p>
+<p>Consommation = ?</p>
+<p>Composant = ?</p>
