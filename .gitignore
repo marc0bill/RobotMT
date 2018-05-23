@@ -1,4 +1,3 @@
-
 *.pyc
 *.xml
 *.mk
@@ -18,8 +17,5 @@ python/astar/.ipynb_checkpoints/
 firmware/dsPICeCAN.X/dist/default/debug/dsPICeCAN.X.debug.map
 firmware/dsPICeCAN.X/dist/default/production/dsPICeCAN.X.production.map
 .DS_Store
-<<<<<<< HEAD
-=======
 *.l#*
 *.b#*
->>>>>>> c270dac47ad27abe55b5a8c10e748ccc27e943ab
