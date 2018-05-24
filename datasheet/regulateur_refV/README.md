@@ -27,7 +27,7 @@
 ### Ligne4 : tension ajustable (6.25 à 7.5V)-4.5A
 <p>1 cerveau moteur + espace libre</p>
 <p>Consommation max du régulateur = 1.53A</p>
-<p>Composant = LM2678_ADJ</p>
+<p>Composant = <b>LM2678_ADJ</b></p>
 
 ### Consommation max en aval du relais de protection des batteries
 <p>Equivalent à la somme des consommations max des régulateur 2,3,4 + consommation de la propulsion (22V-1A) = 5.942A</p>
