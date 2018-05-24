@@ -4,7 +4,7 @@
 
 ## En amont du relais de protection des batteries :
 
-### 1. Ligne 5V-3A
+### Ligne1 : 5V-3A
 <p>dsPIC33FJ128MC + espace libre</p>
 <p>Consommation max du régulateur = 682mA</p>
 <p>Composant = <b>LM2596T</b></p>
@@ -14,17 +14,17 @@
 
 ## En aval du relais de protection des batteries :
 
-### 2.Ligne 5V-3A 
+### Ligne2 : 5V-3A 
 <p>RaspberryPi model 3 (2.5A) + espace libre de 0.5A</p>
 <p>Consommation max du régulateur = 682mA</p>
 <p>Composant = <b>LM2596T</b></p>
 
-### 3.Ligne 12V-5A 
+### Ligne3 : 12V-5A 
 <p>3 cerveaux moteurs MX28 (3*1.5A = 4.5A) + espace libre de 0.5A</p>
 <p>Consommation max du régulateur = 2.73A</p>
 <p>Composant = <b>LM2678</b></p>
 
-### 4.Ligne de tension ajustable (6.25 à 7.5V)-4.5A
+### Ligne4 : tension ajustable (6.25 à 7.5V)-4.5A
 <p>1 cerveau moteur + espace libre</p>
 <p>Consommation max du régulateur = 1.53A</p>
 <p>Composant = LM2678_ADJ</p>
