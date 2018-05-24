@@ -1,6 +1,6 @@
-# Project Robot Polytech département MT
+# Projet Robot Polytech département MT
 
-One Paragraph of project description goes here
+Le département Microélectronique et Télécommunications de Polytech Marseille développe son propre robot de A à Z. Chaque année le projet s'améliore grâce aux élèves de 4ème année. Ce robot, de type coupe de France de robotique, peut se déplacer de façon autonome dans son environnement, déplacer des objets, et ramasser des balles (tennis ou ping-pong).
 
 ## Getting Started
 
