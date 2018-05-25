@@ -22,3 +22,10 @@ firmware/dsPICeCAN.X/dist/default/production/dsPICeCAN.X.production.map
 .DS_Store
 *.l#*
 *.b#*
+*.map
+firmware/InterfaceNode_eCAN/18052018.X/Makefile
+firmware/InterfaceNode_eCAN/24052018.X/Makefile
+firmware/InterfaceNode_eCAN/Makefile
+firmware/InterfaceNode_eCAN/Marc.X/Makefile
+firmware/InterfaceNode_eCAN/projet_node2_transmission_ecan.X/Makefile
+firmware/InterfaceNode_eCAN/projet_nodeus.X/Makefile
