@@ -1,4 +1,4 @@
-# Régulateurs de tension
+# Régulateurs de tension nécessaires
 
 <p>Le robot possède de nombreuses cartes, microcontroleurs, capteurs, moteurs fonctionnants à des niveaux de tension/courant différents. Il est donc essentiel de créer différentes lignes de tension/courant à l'aide de régulateurs de tension.</p>
 
@@ -31,3 +31,6 @@
 
 ### Consommation max en aval du relais de protection des batteries
 <p>Equivalent à la somme des consommations max des régulateur 2,3,4 + consommation de la propulsion (22V-1A) = 5.942A</p>
+
+
+# Dimmensionnement des régulateurs de tension
