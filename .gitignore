@@ -6,6 +6,8 @@
 *.elf
 *.o
 *.d
+firmware/*/nbproject/
+firmware/*/*/nbproject/
 firmware/dsPicI2CeCAN.X/nbproject/
 firmware/dsPicI2CeCAN.X/dist/
 firmware/dsPICeCAN.X/nbproject/
