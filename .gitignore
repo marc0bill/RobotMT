@@ -29,3 +29,5 @@ firmware/InterfaceNode_eCAN/Makefile
 firmware/InterfaceNode_eCAN/Marc.X/Makefile
 firmware/InterfaceNode_eCAN/projet_node2_transmission_ecan.X/Makefile
 firmware/InterfaceNode_eCAN/projet_nodeus.X/Makefile
+*.map
+firmware/Etude du bus eCan MT4A 2018/18052018.X/dist/default/debug/23042018.X.debug.map
