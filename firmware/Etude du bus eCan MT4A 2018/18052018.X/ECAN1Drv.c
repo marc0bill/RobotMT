@@ -144,7 +144,7 @@ void ECAN1RxFiltersConfig(void ){// à voir
 	
 	/* In this case filters 0 and 4 are used */
 	 C1CTRL1bits.WIN = 1;
-	 C1FEN1 = 0x11;
+	 C1FEN1 = 0x111;
 	
 	 C1RXF0SID = ECANFilterSID(SID1,EID1,1);		
 	 C1RXF0EID = ECANFilterEID(EID1);
