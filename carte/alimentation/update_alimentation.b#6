@@ -929,6 +929,23 @@ Source: http://www.osram.convergy.de/ ... lb_r99a.pdf</description>
 <rectangle x1="-0.675" y1="0.45" x2="0.675" y2="1.05" layer="51"/>
 <rectangle x1="-0.675" y1="-1.05" x2="0.675" y2="-0.45" layer="51"/>
 </package>
+<package name="LED5MM" urn="urn:adsk.eagle:footprint:15655/1" library_version="2">
+<description>&lt;B&gt;LED&lt;/B&gt;&lt;p&gt;
+5 mm, round</description>
+<wire x1="2.54" y1="-1.905" x2="2.54" y2="1.905" width="0.2032" layer="21"/>
+<wire x1="2.54" y1="-1.905" x2="2.54" y2="1.905" width="0.254" layer="21" curve="-286.260205"/>
+<wire x1="-1.143" y1="0" x2="0" y2="1.143" width="0.1524" layer="51" curve="-90"/>
+<wire x1="0" y1="-1.143" x2="1.143" y2="0" width="0.1524" layer="51" curve="90"/>
+<wire x1="-1.651" y1="0" x2="0" y2="1.651" width="0.1524" layer="51" curve="-90"/>
+<wire x1="0" y1="-1.651" x2="1.651" y2="0" width="0.1524" layer="51" curve="90"/>
+<wire x1="-2.159" y1="0" x2="0" y2="2.159" width="0.1524" layer="51" curve="-90"/>
+<wire x1="0" y1="-2.159" x2="2.159" y2="0" width="0.1524" layer="51" curve="90"/>
+<circle x="0" y="0" radius="2.54" width="0.1524" layer="21"/>
+<pad name="A" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="K" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<text x="3.175" y="0.5334" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="3.2004" y="-1.8034" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
 </packages>
 <packages3d>
 <package3d name="CHIP-LED0805" urn="urn:adsk.eagle:package:15818/2" type="model" library_version="2">
@@ -937,6 +954,13 @@ LB R99A
 Source: http://www.osram.convergy.de/ ... lb_r99a.pdf</description>
 <packageinstances>
 <packageinstance name="CHIP-LED0805"/>
+</packageinstances>
+</package3d>
+<package3d name="LED5MM" urn="urn:adsk.eagle:package:15799/2" type="model" library_version="2">
+<description>LED
+5 mm, round</description>
+<packageinstances>
+<packageinstance name="LED5MM"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -2733,9 +2757,6 @@ design rules under a new name.</description>
 <element name="ON" library="led" library_urn="urn:adsk.eagle:library:259" package="CHIP-LED0805" package3d_urn="urn:adsk.eagle:package:15818/2" value="GREEN" x="120.65" y="19.05">
 <attribute name="OC_FARNELL" value="8529906" x="120.65" y="19.05" size="1.778" layer="27" display="off"/>
 </element>
-<element name="ON1" library="led" library_urn="urn:adsk.eagle:library:259" package="CHIP-LED0805" package3d_urn="urn:adsk.eagle:package:15818/2" value="GREEN" x="113.03" y="19.05">
-<attribute name="OC_FARNELL" value="8529906" x="113.03" y="19.05" size="1.778" layer="27" display="off"/>
-</element>
 <element name="PAD1" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="1,6/0,9" package3d_urn="urn:adsk.eagle:package:30840/1" value="" x="113.03" y="83.82"/>
 <element name="PAD10" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="1,6/0,9" package3d_urn="urn:adsk.eagle:package:30840/1" value="" x="128.27" y="83.82"/>
 <element name="PAD11" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="1,6/0,9" package3d_urn="urn:adsk.eagle:package:30840/1" value="" x="146.05" y="83.82"/>
@@ -2874,6 +2895,9 @@ design rules under a new name.</description>
 <element name="R7" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R0805" package3d_urn="urn:adsk.eagle:package:26059/1" value="4.12k" x="72.39" y="3.81"/>
 <element name="R8" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R0805" package3d_urn="urn:adsk.eagle:package:26059/1" value="1k" x="66.04" y="3.81"/>
 <element name="U$12" library="Robot_MT" package="RJ6S" value="RJ26FX102" x="72.39" y="12.7"/>
+<element name="LED1" library="led" library_urn="urn:adsk.eagle:library:259" package="LED5MM" package3d_urn="urn:adsk.eagle:package:15799/2" value="RED" x="3.81" y="-22.86">
+<attribute name="OC_FARNELL" value="1003211" x="3.81" y="-22.86" size="1.778" layer="27" display="off"/>
+</element>
 </elements>
 <signals>
 <signal name="5-GND">
@@ -3359,10 +3383,10 @@ design rules under a new name.</description>
 </signal>
 <signal name="RA7">
 <contactref element="IC4" pad="13"/>
-<contactref element="ON1" pad="C"/>
 <contactref element="U$7" pad="1"/>
-<wire x1="113.03" y1="20.1" x2="104.75" y2="42.46" width="0" layer="19" extent="1-1"/>
-<wire x1="112.08" y1="7.79" x2="113.03" y2="20.1" width="0" layer="19" extent="1-1"/>
+<contactref element="LED1" pad="K"/>
+<wire x1="112.08" y1="7.79" x2="104.75" y2="42.46" width="0" layer="19" extent="1-1"/>
+<wire x1="5.08" y1="-22.86" x2="112.08" y2="7.79" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="RA8">
 <contactref element="IC4" pad="32"/>
@@ -3401,11 +3425,6 @@ design rules under a new name.</description>
 <wire x1="113.03" y1="9.99" x2="113.03" y2="31.75" width="0" layer="19" extent="1-1"/>
 <wire x1="38.1" y1="26.73" x2="113.03" y2="31.75" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$1">
-<contactref element="R5" pad="2"/>
-<contactref element="ON1" pad="A"/>
-<wire x1="113.03" y1="18" x2="121.6" y2="35.56" width="0" layer="19" extent="1-1"/>
-</signal>
 <signal name="N$7">
 <contactref element="R8" pad="2"/>
 <contactref element="R7" pad="1"/>
@@ -3417,6 +3436,11 @@ design rules under a new name.</description>
 <contactref element="U$12" pad="S"/>
 <contactref element="R7" pad="2"/>
 <wire x1="73.34" y1="3.81" x2="72.39" y2="10.16" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$1">
+<contactref element="R5" pad="2"/>
+<contactref element="LED1" pad="A"/>
+<wire x1="2.54" y1="-22.86" x2="121.6" y2="35.56" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>
