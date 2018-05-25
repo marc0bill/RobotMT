@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.01" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -29156,6 +29156,46 @@ Copal</description>
 <segment>
 <wire x1="93.977509375" y1="153.043534375" x2="93.98" y2="153.043534375" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<wire x1="518.16" y1="198.12" x2="520.7" y2="198.12" width="0.1524" layer="91"/>
+<wire x1="520.7" y1="193.04" x2="518.16" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="518.16" y1="193.04" x2="518.16" y2="198.12" width="0.1524" layer="91"/>
+<wire x1="518.16" y1="198.12" x2="518.16" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="510.54" y1="198.12" x2="518.16" y2="198.12" width="0.1524" layer="91"/>
+<junction x="518.16" y="198.12"/>
+<junction x="518.16" y="198.12"/>
+<label x="510.54" y="198.12" size="1.778" layer="95"/>
+<pinref part="P+10" gate="1" pin="+5V"/>
+<pinref part="U2" gate="G$1" pin="IN"/>
+<pinref part="U2" gate="G$1" pin="ON/!OFF"/>
+</segment>
+<segment>
+<wire x1="436.88" y1="200.66" x2="436.88" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="429.26" y1="193.04" x2="429.26" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="429.26" y1="195.58" x2="436.88" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="436.88" y1="195.58" x2="444.5" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="444.5" y1="195.58" x2="444.5" y2="193.04" width="0.1524" layer="91"/>
+<junction x="436.88" y="195.58"/>
+<label x="436.88" y="199.39" size="1.778" layer="95"/>
+<pinref part="P+8" gate="1" pin="+5V"/>
+<pinref part="PC2" gate="G$1" pin="+"/>
+<pinref part="C6" gate="G$1" pin="2"/>
+<pinref part="SL1" gate="G$1" pin="2"/>
+<wire x1="429.26" y1="195.58" x2="414.02" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="414.02" y1="195.58" x2="414.02" y2="190.5" width="0.1524" layer="91"/>
+<junction x="429.26" y="195.58"/>
+</segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="1"/>
+<wire x1="25.4" y1="83.82" x2="25.4" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="93.98" x2="35.56" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="D5" gate="1" pin="C"/>
+<wire x1="35.56" y1="93.98" x2="45.72" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="93.98" x2="45.72" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="93.98" x2="35.56" y2="99.06" width="0.1524" layer="91"/>
+<junction x="35.56" y="93.98"/>
+<label x="35.56" y="99.06" size="1.778" layer="95" xref="yes"/>
+</segment>
 </net>
 <net name="N$9" class="0">
 <segment>
@@ -29199,35 +29239,6 @@ Copal</description>
 <junction x="482.6" y="198.12"/>
 <pinref part="P+9" gate="1" pin="+5V"/>
 <pinref part="C8" gate="G$1" pin="2"/>
-</segment>
-<segment>
-<wire x1="436.88" y1="200.66" x2="436.88" y2="195.58" width="0.1524" layer="91"/>
-<wire x1="429.26" y1="193.04" x2="429.26" y2="195.58" width="0.1524" layer="91"/>
-<wire x1="429.26" y1="195.58" x2="436.88" y2="195.58" width="0.1524" layer="91"/>
-<wire x1="436.88" y1="195.58" x2="444.5" y2="195.58" width="0.1524" layer="91"/>
-<wire x1="444.5" y1="195.58" x2="444.5" y2="193.04" width="0.1524" layer="91"/>
-<junction x="436.88" y="195.58"/>
-<label x="436.88" y="199.39" size="1.778" layer="95"/>
-<pinref part="P+8" gate="1" pin="+5V"/>
-<pinref part="PC2" gate="G$1" pin="+"/>
-<pinref part="C6" gate="G$1" pin="2"/>
-<pinref part="SL1" gate="G$1" pin="2"/>
-<wire x1="429.26" y1="195.58" x2="414.02" y2="195.58" width="0.1524" layer="91"/>
-<wire x1="414.02" y1="195.58" x2="414.02" y2="190.5" width="0.1524" layer="91"/>
-<junction x="429.26" y="195.58"/>
-</segment>
-<segment>
-<wire x1="518.16" y1="198.12" x2="520.7" y2="198.12" width="0.1524" layer="91"/>
-<wire x1="520.7" y1="193.04" x2="518.16" y2="193.04" width="0.1524" layer="91"/>
-<wire x1="518.16" y1="193.04" x2="518.16" y2="198.12" width="0.1524" layer="91"/>
-<wire x1="518.16" y1="198.12" x2="518.16" y2="200.66" width="0.1524" layer="91"/>
-<wire x1="510.54" y1="198.12" x2="518.16" y2="198.12" width="0.1524" layer="91"/>
-<junction x="518.16" y="198.12"/>
-<junction x="518.16" y="198.12"/>
-<label x="510.54" y="198.12" size="1.778" layer="95"/>
-<pinref part="P+10" gate="1" pin="+5V"/>
-<pinref part="U2" gate="G$1" pin="IN"/>
-<pinref part="U2" gate="G$1" pin="ON/!OFF"/>
 </segment>
 <segment>
 <pinref part="C9" gate="G$1" pin="2"/>
@@ -29274,17 +29285,6 @@ Copal</description>
 <wire x1="563.88" y1="-48.26" x2="579.12" y2="-48.26" width="0.1524" layer="91"/>
 <junction x="563.88" y="-48.26"/>
 <label x="571.5" y="-48.26" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$6" gate="G$1" pin="1"/>
-<wire x1="25.4" y1="83.82" x2="25.4" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="93.98" x2="35.56" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="D5" gate="1" pin="C"/>
-<wire x1="35.56" y1="93.98" x2="45.72" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="93.98" x2="45.72" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="93.98" x2="35.56" y2="99.06" width="0.1524" layer="91"/>
-<junction x="35.56" y="93.98"/>
-<label x="35.56" y="99.06" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="RESET" class="0">

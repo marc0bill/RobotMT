@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.01" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -29787,14 +29787,6 @@ Copal</description>
 <wire x1="-10.16" y1="124.46" x2="-5.08" y2="124.46" width="0.1524" layer="91"/>
 <junction x="-10.16" y="124.46"/>
 </segment>
-<segment>
-<pinref part="J3" gate="G$1" pin="1"/>
-<wire x1="-10.16" y1="182.88" x2="5.08" y2="182.88" width="0.1524" layer="91"/>
-<label x="-5.08" y="182.88" size="1.778" layer="95"/>
-<pinref part="J2" gate="G$1" pin="4"/>
-<wire x1="-10.16" y1="193.04" x2="5.08" y2="193.04" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="193.04" x2="5.08" y2="182.88" width="0.1524" layer="91"/>
-</segment>
 </net>
 <net name="RA7" class="0">
 <segment>
@@ -29959,14 +29951,6 @@ Copal</description>
 </net>
 <net name="BAT2+" class="0">
 <segment>
-<pinref part="J2" gate="G$1" pin="1"/>
-<wire x1="-10.16" y1="200.66" x2="5.08" y2="200.66" width="0.1524" layer="91"/>
-<pinref part="J1" gate="G$1" pin="4"/>
-<wire x1="5.08" y1="200.66" x2="5.08" y2="210.82" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="210.82" x2="-10.16" y2="210.82" width="0.1524" layer="91"/>
-<label x="-5.08" y="200.66" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="X13" gate="-2" pin="KL"/>
 <pinref part="X14" gate="-1" pin="KL"/>
 <wire x1="-10.16" y1="139.7" x2="-10.16" y2="134.62" width="0.1524" layer="91"/>
@@ -29976,11 +29960,6 @@ Copal</description>
 </segment>
 </net>
 <net name="BAT3+" class="0">
-<segment>
-<pinref part="J1" gate="G$1" pin="1"/>
-<wire x1="-10.16" y1="218.44" x2="5.08" y2="218.44" width="0.1524" layer="91"/>
-<label x="-5.08" y="218.44" size="1.778" layer="95"/>
-</segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="VIN"/>
 <pinref part="X13" gate="-1" pin="KL"/>
@@ -29995,40 +29974,103 @@ Copal</description>
 <junction x="27.94" y="144.78"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="BAT3_29.6V" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="2"/>
 <wire x1="-10.16" y1="215.9" x2="5.08" y2="215.9" width="0.1524" layer="91"/>
+<label x="5.08" y="215.9" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="BAT3_25.9V" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="3"/>
 <wire x1="-10.16" y1="213.36" x2="5.08" y2="213.36" width="0.1524" layer="91"/>
+<label x="5.08" y="213.36" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$6" class="0">
+<net name="BAT2_18.5V" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="2"/>
 <wire x1="-10.16" y1="198.12" x2="5.08" y2="198.12" width="0.1524" layer="91"/>
+<label x="5.08" y="198.12" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R20" gate="G$1" pin="1"/>
+<wire x1="233.68" y1="147.32" x2="223.52" y2="147.32" width="0.1524" layer="91"/>
+<label x="219.700628125" y="147.3800375" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$26" class="0">
+<net name="BAT2_14.8V" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="3"/>
 <wire x1="-10.16" y1="195.58" x2="5.08" y2="195.58" width="0.1524" layer="91"/>
+<label x="5.08" y="195.58" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R18" gate="G$1" pin="1"/>
+<wire x1="233.68" y1="172.72" x2="223.52" y2="172.72" width="0.1524" layer="91"/>
+<label x="219.400478125" y="172.659965625" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$27" class="0">
+<net name="BAT1_7.4V" class="0">
 <segment>
 <pinref part="J3" gate="G$1" pin="2"/>
 <wire x1="-10.16" y1="180.34" x2="5.08" y2="180.34" width="0.1524" layer="91"/>
+<label x="5.08" y="180.34" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R11" gate="G$1" pin="1"/>
+<wire x1="233.68" y1="218.44" x2="223.52" y2="218.44" width="0.1524" layer="91"/>
+<label x="220.98" y="218.44" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$28" class="0">
+<net name="BAT1_3.7V" class="0">
 <segment>
 <pinref part="J3" gate="G$1" pin="3"/>
 <wire x1="-10.16" y1="177.8" x2="5.08" y2="177.8" width="0.1524" layer="91"/>
+<label x="5.08" y="177.8" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R9" gate="G$1" pin="1"/>
+<wire x1="233.68" y1="243.84" x2="223.52" y2="243.84" width="0.1524" layer="91"/>
+<label x="220.98" y="243.84" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="BAT12_11.1V" class="0">
+<segment>
+<pinref part="J3" gate="G$1" pin="1"/>
+<wire x1="-10.16" y1="182.88" x2="5.08" y2="182.88" width="0.1524" layer="91"/>
+<label x="5.08" y="187.96" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="4"/>
+<wire x1="-10.16" y1="193.04" x2="5.08" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="193.04" x2="5.08" y2="182.88" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R13" gate="G$1" pin="1"/>
+<wire x1="233.68" y1="195.58" x2="223.52" y2="195.58" width="0.1524" layer="91"/>
+<label x="218.44" y="195.58" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="BAT23_22.2V" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="1"/>
+<wire x1="-10.16" y1="200.66" x2="5.08" y2="200.66" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="4"/>
+<wire x1="5.08" y1="200.66" x2="5.08" y2="210.82" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="210.82" x2="-10.16" y2="210.82" width="0.1524" layer="91"/>
+<label x="5.08" y="205.74" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R17" gate="G$1" pin="1"/>
+<wire x1="233.68" y1="121.92" x2="223.52" y2="121.92" width="0.1524" layer="91"/>
+<label x="218.44" y="121.92" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="BAT3_33.3V" class="0">
+<segment>
+<pinref part="J1" gate="G$1" pin="1"/>
+<wire x1="-10.16" y1="218.44" x2="5.08" y2="218.44" width="0.1524" layer="91"/>
+<label x="5.08" y="218.44" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
