@@ -5,9 +5,10 @@
 ## En amont du relais de protection des batteries :
 
 ### Ligne1 : 5V-3A
-<p>dsPIC33FJ128MC + espace libre</p>
+<p>dsPIC33FJ128MC + bobine + espace libre</p>
 <p>Consommation max du régulateur = 682mA</p>
 <p>Composant = <b>LM2596T</b></p>
+<p>Remarque : le dsPIC s'alimente en 3,3V ainsi nous avons utilisé un régulateur de tension supplémentaire 5V vers 3,3V. C'est un LP2985-33DBVR</p>
 
 ### Consommation max en amont du relais de protection des batteries
 <p>Equivalent à la consommation max du régulateur 1 = 682mA</p>
