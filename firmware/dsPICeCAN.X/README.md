@@ -26,7 +26,11 @@ Details de chaque module existant dans la programmation du dsPIC_I2C pour creer 
 
 ## Module node.h
 
-* Choix de la node 1 (Reception) ,2 (reception et transmission) ou US (pour capteur) avec attribution des adresses
+* Choix de la node 1 (Reception) ,IR (capteur) ou US (pour capteur), n[a partir de 3] (reception et envoie) avec attribution des adresses
+
+## Module uart.h
+
+* Gestion du nombre de mots maximum que peut envoyer le stringTX en UART. 
 
 ## Module I2c.h
 
@@ -61,11 +65,11 @@ Ce module s'occupe de la configuration de l'eCAN (config DMA, config filtres SID
 * Fonction ECAN1ClockConfig: Configuration de la Clock de l'eCAN
 * Fonction ECAN1InterruptConfig: Fonction qui Reset de tout les flags avant le Run. Il configure egalement tout les interruptions de l'eCAN
 * (Fonction ECAN1TxRxBuffersConfig: Fonction qui configure un TX Buffer et active 4 DMA buffers)
-* Fonction ECAN1RxFiltersConfig: Configuration des Filtres et des des Masques
+* Fonction ECAN1RxFiltersConfig: Configuration des Filtres et des des Masques. Cette fonction est indispensable pour savoir les messages que la node veut ecouter (=> C1FEN1), pour parametrer Registres d'identification standard du filtre d'acceptation  ( CiRXFnSID et C1RXFnEID), pour configurer le registre de selection du masque pour le filtre (=>C1FMSKSEL2bits.FnMSK ) et pour configurer le RXbuffer qui recevra le filtre (=>C1BUFPNT3bits.FnBP) 
 * Fonction ECAN1SendPacket: L'eCAN envoie une requete au DMA pour transmettre le message et le DMA envoie le TxBuffer a transmettre
 * Fonction ECAN1SetOPMode:Choix du mode utilisee (Normal Operation Mode pour recevoir et ecouter en eCAN)
 * Fonction ECANCreateSIDPacket: Creation du Packet SID a envoyer (8bits)
-* Fonction ECANCreateEIDPacket: Creation du Packet EID a envoyer (8bits)
+* Fonction ECANCreateEIDPacket: Creation du Packet EID a envoyer (8bits). Autrement dit c'est le message qui va etre envoye
 
 ## Module i2c.c
 Ce module s'occupe de la configuration du bus i2c
@@ -108,6 +112,8 @@ C'est le module principale du code
 
 Definit le nombre de buffer RX(=8)
 Creation du tableau de message
+Decrit le contenue du message de chaque node qui sont susceptible de parler
+
 
 * Fonction RandomWait: genere nombre aleatoire 
 * Fonction Main: timer config, adc config, nettoyer flag, autoriser flag, description de chaque node,routine d'interruption ADC
