@@ -22,7 +22,7 @@ Choisissez le système d’exploitation cible (Windows, Mac, etc…)
 Sélectionnez la version 3.X (à l’heure de l’écriture de ces lignes, c’est la version 3.6 qui est proposée)
 Si possible, privilégiez la version 64 bits
 
-## lancer une simulation
+## Simuler et/ou compiler votre programme
 
 Lors du téléchargement un terminal lié à Anaconda sera également téléchargé. Ça sera sur celui-ci qu'il faudra taper vos commandes pour simuler votre code.
 Premièrement faites en sorte de vous retrouver dans la même branche que votre fichier à simuler grâce aux commandes ci-dessous:
@@ -59,4 +59,6 @@ Et voici un autre lien qui pourrait également beaucoup vous aider pour vos prem
 https://openclassrooms.com/courses/apprenez-a-programmer-en-python
 ```
 ## A quoi correspondent les codes déjà écris
+
+Bigblue, littleboy etc.. Sont du code python qui a pour rôle de récupérer les valeurs envoyées en Uart sur un port USB. Une fois exécuté BigBlue vous affiche une interface graphique avec la base de départ et d'arrivé du robot, le code a pour rôle de calculer le chemin le plus cours pour parvenir à l'arriver en évitant les obstacles.
 
