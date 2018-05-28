@@ -29905,8 +29905,11 @@ Copal</description>
 <segment>
 <pinref part="R9" gate="G$1" pin="2"/>
 <pinref part="R10" gate="G$1" pin="2"/>
-<wire x1="243.84" y1="243.84" x2="251.46" y2="243.84" width="0.1524" layer="91"/>
+<wire x1="243.84" y1="243.84" x2="250.698" y2="243.84" width="0.1524" layer="91"/>
+<wire x1="250.698" y1="243.84" x2="251.46" y2="243.84" width="0.1524" layer="91"/>
 <wire x1="251.46" y1="243.84" x2="251.46" y2="238.76" width="0.1524" layer="91"/>
+<wire x1="251.46" y1="243.84" x2="274.066" y2="243.84" width="0.1524" layer="91"/>
+<junction x="251.46" y="243.84"/>
 </segment>
 </net>
 <net name="N$21" class="0">
@@ -29915,6 +29918,8 @@ Copal</description>
 <pinref part="R12" gate="G$1" pin="2"/>
 <wire x1="243.84" y1="218.44" x2="251.46" y2="218.44" width="0.1524" layer="91"/>
 <wire x1="251.46" y1="218.44" x2="251.46" y2="213.36" width="0.1524" layer="91"/>
+<wire x1="251.46" y1="218.44" x2="275.336" y2="218.44" width="0.1524" layer="91"/>
+<junction x="251.46" y="218.44"/>
 </segment>
 </net>
 <net name="N$22" class="0">
@@ -29923,6 +29928,7 @@ Copal</description>
 <pinref part="R14" gate="G$1" pin="2"/>
 <wire x1="243.84" y1="195.58" x2="251.46" y2="195.58" width="0.1524" layer="91"/>
 <wire x1="251.46" y1="195.58" x2="251.46" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="251.46" y1="195.58" x2="275.082" y2="195.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$23" class="0">
@@ -29931,6 +29937,8 @@ Copal</description>
 <pinref part="R19" gate="G$1" pin="2"/>
 <wire x1="243.84" y1="172.72" x2="251.46" y2="172.72" width="0.1524" layer="91"/>
 <wire x1="251.46" y1="172.72" x2="251.46" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="251.46" y1="172.72" x2="274.828" y2="172.72" width="0.1524" layer="91"/>
+<junction x="251.46" y="172.72"/>
 </segment>
 </net>
 <net name="N$24" class="0">
@@ -29939,6 +29947,8 @@ Copal</description>
 <pinref part="R15" gate="G$1" pin="2"/>
 <wire x1="243.84" y1="147.32" x2="251.46" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="251.46" y1="147.32" x2="251.46" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="251.46" y1="147.32" x2="274.828" y2="147.32" width="0.1524" layer="91"/>
+<junction x="251.46" y="147.32"/>
 </segment>
 </net>
 <net name="N$25" class="0">
@@ -29947,6 +29957,8 @@ Copal</description>
 <pinref part="R16" gate="G$1" pin="2"/>
 <wire x1="243.84" y1="121.92" x2="251.46" y2="121.92" width="0.1524" layer="91"/>
 <wire x1="251.46" y1="121.92" x2="251.46" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="251.46" y1="121.92" x2="274.574" y2="121.92" width="0.1524" layer="91"/>
+<junction x="251.46" y="121.92"/>
 </segment>
 </net>
 <net name="BAT2+" class="0">
