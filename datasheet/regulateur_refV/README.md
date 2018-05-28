@@ -31,7 +31,8 @@
 <p>Composant = <b>LM2678_ADJ</b></p>
 
 ### Consommation max en aval du relais de protection des batteries
-<p>Equivalent à la somme des consommations max des régulateur 2,3,4 + consommation de la propulsion (22V-1A) = 5.942A</p>
+<p>Equivalent à la somme des consommations max des régulateur 2,3,4 
+     + consommation de la propulsion (2 motoréducteurs amax32g alimentés en 22V-1A chacun) = 6.942A</p>
 
 
 # Dimmensionnement des régulateurs de tension
