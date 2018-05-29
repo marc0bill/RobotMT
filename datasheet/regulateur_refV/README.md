@@ -3,7 +3,7 @@
 <p>Le robot possède de nombreuses cartes, microcontroleurs, capteurs, moteurs fonctionnants à des niveaux de tension/courant différents. Il est donc essentiel de créer différentes lignes de tension/courant à l'aide de régulateurs de tension.</p>
 
 
-![capture d ecran 2018-05-29 a 21 25 09](https://user-images.githubusercontent.com/37216551/40680642-22a6ed7e-6387-11e8-8c6e-b4ad841fb7cb.png)
+![capture d ecran 2018-05-29 a 21 29 29](https://user-images.githubusercontent.com/37216551/40680740-69be8190-6387-11e8-95e1-87cd25c6beab.png)
 
 
 ## En amont du relais de protection des batteries :
