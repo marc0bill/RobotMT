@@ -4,7 +4,6 @@
 
 This file contains the following sections:
 1. Code Description
-2. Folder Contents
 3. Suggested imporovements
 
 
@@ -30,18 +29,8 @@ We select from AN0 through AN5 for CH0 by incrementing the value of idAN which d
 void _ADC1Interrupt();
 After that ADC conversion cycle is completed we get the conversion result and clear ADC Interrupt Flag.
 
-2. Folder Contents:
--------------------
-This folder contains the following sub-folders:
-a. src
-        This folder contains all the C and Assembler source files (*.c,
-        *.asm) used in demonstrating the described code. 
 
-b." build"
-	stores compiled
-        object files generated when the project is built.
-
-3. Suggested imporovements:
+2. Suggested imporovements:
 -------------------------
 ADC Conversion in Sleep mode: 
 Start of conversion is issued in the background loop and device enters sleep mode immediately after that. 
