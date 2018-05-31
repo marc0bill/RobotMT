@@ -1,4 +1,3 @@
-
 *.pyc
 *.xml
 *.mk
@@ -20,3 +19,4 @@ firmware/dsPICeCAN.X/dist/default/production/dsPICeCAN.X.production.map
 .DS_Store
 *.l#*
 *.b#*
+*.s#*
