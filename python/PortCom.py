@@ -13,9 +13,9 @@ def whatTime():
 def findPort(port=None, baudrate = 9600, timeout = 0.1, Requet = "V1R?", portmax = 30,Com_Off=True):
 	ser = serial.Serial()
 	ser.baudrate = baudrate
-	ser.setWriteTimeout(timeout)
-	ser.setTimeout(timeout)
-	ser.port = 0
+	#ser.setWriteTimeout(timeout)
+	#ser.setTimeout(timeout)
+	#ser.port = 0
 
 	if port==None:
 		while True:
@@ -23,22 +23,22 @@ def findPort(port=None, baudrate = 9600, timeout = 0.1, Requet = "V1R?", portmax
 				ser.open()
 				String = readInfo(ser,Requet,SizeMax=10)
 				if(String[0:3]==Requet[0:3]):
-					print "Connected to %s with Good motor card answer" % ser.port
+					print("Connected to %s with Good motor card answer" % ser.port)
 					break
 			except:
 				pass		    
 			ser.close()    
 			ser.port+=1
 			if ser.port > portmax:
-				print "No port found"
+				print("No port found")
 				break
 	else:
 		ser.port = port
 		try:
 			ser.open()
-			print "Connected to %s with " % ser.port
+			print("Connected to %s with " % ser.port)
 		except:
-			print "No port found"
+			print("No port found")
 			pass
 		if Com_Off:
 			ser.write("Com_Off\n")
@@ -57,7 +57,7 @@ def readInfo(ser,Requet,SizeMax=50):
 		StrVal = StrVal+actualByte
 		i=i+1
 		if(i>=SizeMax):
-			print "erreur port com : fin de mot introuvable"
+			print("erreur port com : fin de mot introuvable")
 			break
 		actualByte=ser.read()
 	return StrVal

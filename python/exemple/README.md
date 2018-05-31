@@ -1,6 +1,6 @@
-# Projet Robot Polytech département MT
+# Project Title
 
-Le département Microélectronique et Télécommunications de Polytech Marseille développe son propre robot de A à Z. Chaque année le projet s'améliore grâce aux élèves de 4ème année. Ce robot, de type coupe de France de robotique, peut se déplacer de façon autonome dans son environnement, déplacer des objets, et ramasser des balles (tennis ou ping-pong).
+One Paragraph of project description goes here
 
 ## Getting Started
 
@@ -72,7 +72,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Marc Bocquet** - *Initial work* - [marc0bill](https://github.com/marc0bill)
+* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 

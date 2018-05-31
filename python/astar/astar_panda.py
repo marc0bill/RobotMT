@@ -15,7 +15,7 @@ def astar_dis(carte,id_current):
 	carte.set_value(id_current, 'Noeud', 'close')
 	#liste=(carte.X<=X_current+1)&(carte.X>=X_current-1)&(carte.Y<=Y_current+1)&(carte.Y>=Y_current-1) & (carte.Noeud!='close')
 	voisin=carte[(carte.X<=X_current+1)&(carte.X>=X_current-1)&(carte.Y<=Y_current+1)&(carte.Y>=Y_current-1) & (carte.Noeud!='close')]
-	voisin['G']=G_current+sqrt((voisin.X-voisin.X_current)**2+(voisin.Y-voisin.Y_current)**2)
+	voisin['G']=G_current+sqrt((voisin.X-X_current)**2+(voisin.Y-Y_current)**2)
 	voisin['H']=sqrt((voisin.X-voisin.X_fin)**2+(voisin.Y-voisin.Y_fin)**2)
 	voisin['Fnew']=voisin['H']+voisin['G']
 	carte['Noeud'].ix[voisin.index]='open'

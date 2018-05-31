@@ -20,6 +20,3 @@ firmware/dsPICeCAN.X/dist/default/production/dsPICeCAN.X.production.map
 *.l#*
 *.b#*
 *.s#*
-.DS_Store
-carte/.DS_Store
-carte/alimentation/.DS_Store

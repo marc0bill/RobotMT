@@ -42,7 +42,12 @@ char mesure_boussole(void){
  * */
 
 void init_ultrason(unsigned char adresse){
-	while(write_reg_i2c(adresse,0X02,0x22));
+	while(
+            write_reg_i2c(adresse,2,0xFF)
+            );
+    while(
+            write_reg_i2c(adresse,1,16)
+            );
 }
 
 /******************************************************************************/
