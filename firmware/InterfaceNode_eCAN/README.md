@@ -31,9 +31,6 @@ Details de chaque module existant dans la programmation du dsPIC_I2C pour creer 
 ## Module uart.h
 
 * Gestion du nombre de mots maximum que peut envoyer le stringTX en UART. 
-=======
-* Choix de la node 1 (Reception) ,2 (reception et transmission) ou US (pour capteur) avec attribution des adresses
-
 
 ## Module I2c.h
 
@@ -73,12 +70,6 @@ Ce module s'occupe de la configuration de l'eCAN (config DMA, config filtres SID
 * Fonction ECAN1SetOPMode:Choix du mode utilisee (Normal Operation Mode pour recevoir et ecouter en eCAN)
 * Fonction ECANCreateSIDPacket: Creation du Packet SID a envoyer (8bits)
 * Fonction ECANCreateEIDPacket: Creation du Packet EID a envoyer (8bits). Autrement dit c'est le message qui va etre envoye
-=======
-* Fonction ECAN1RxFiltersConfig: Configuration des Filtres et des des Masques
-* Fonction ECAN1SendPacket: L'eCAN envoie une requete au DMA pour transmettre le message et le DMA envoie le TxBuffer a transmettre
-* Fonction ECAN1SetOPMode:Choix du mode utilisee (Normal Operation Mode pour recevoir et ecouter en eCAN)
-* Fonction ECANCreateSIDPacket: Creation du Packet SID a envoyer (8bits)
-* Fonction ECANCreateEIDPacket: Creation du Packet EID a envoyer (8bits)
 
 ## Module i2c.c
 Ce module s'occupe de la configuration du bus i2c
@@ -123,7 +114,6 @@ Definit le nombre de buffer RX(=8)
 Creation du tableau de message
 Decrit le contenue du message de chaque node qui sont susceptible de parler
 
-=======
 
 * Fonction RandomWait: genere nombre aleatoire 
 * Fonction Main: timer config, adc config, nettoyer flag, autoriser flag, description de chaque node,routine d'interruption ADC

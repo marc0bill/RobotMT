@@ -1,7 +1,7 @@
 /**********************************************************************
 * © 2008 Microchip Technology Inc.
 *
-* FileName:        node.h
+* FileName:        ecan.h
 * Dependencies:    Header (.h) files if applicable, see below
 * Processor:       dsPIC33Fxxxx
 * Compiler:        MPLAB® C30 v3.00 or higher
@@ -34,39 +34,24 @@
 * determining its suitability.  Microchip has no obligation to modify, test, 
 * certify, or support the code.
 ************************************************************************/
+#ifndef _ECAN_H_
+#define _ECAN_H_
 
-#ifndef _NODE_H_
-#define _NODE_H_
-
-/* Set the number of total nodes in the system */
-#define NUM_OF_NODES 2
-#define NUM_OF_TX_NODES (NUM_OF_NODES - 1)
-
-/* Define a set of node addresses. to be used by the node. */
-#define NODE2
-/* Change this #define to NODE1 for node 1, NODE2 for node 2 and so on */
-
-/* The SIDx and EIDx values are the  IDs of the local node. The TXSIDx and 
- * TXEIDx value are the ID of nodes to which messages will be sent */
-#ifdef NODE1
-#define SID1 0x91			/* This is node 1 address */
-#define EID1 0x1C490
-#define SID2 0x90			/* This is node 1 address */
-#define EID2 0x1C490
-#define TXSID1 0x92			/* This is node 2 address */
-#define TXEID1 0x1C490
-#define RANDOM_SEED	20
+#ifdef __dsPIC33FJ128MC804__
+#include <p33fj128mc804.h>
 #endif
 
-#ifdef NODE2
-#define SID1 0x92			/* This is node 2 address */
-#define EID1 0x1C490
-#define SID2 0x90			/* This is node 2 address */
-#define EID2 0x1C490
-#define TXSID1 0x91			/* This is node 1 address */
-#define TXEID1 0x1C490
-#define RANDOM_SEED 30
-#endif
+#define ECAN_BITRATE 1000000
+#define ECAN_FCY	40000000
+
+void ECAN1DMAConfig(int txBuffer,int rxBuffer, int numOfRxBuffers);
+void ECAN1ClockConfig(void);
+void ECAN1InterruptConfig(void);
+void ECAN1TxRxBuffersConfig(void);
+void ECAN1SetOPMode(void);
+void ECAN1RxFiltersConfig(void);
+void ECANCreateSIDPacket(int * data, int SID,int * output);
+int ECAN1SendPacket(void);
+void ECANCreateEIDPacket(int * data,int sid, long EID,int * output);
 
 #endif
-

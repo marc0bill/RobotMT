@@ -72,28 +72,30 @@ void ECAN1DMAConfig(int txBufferOffset, int rxBufferOffset, int numOfRxBuffers){
      * message is 7 words. Additionally the Continuous mode with ping pong 
      * disabled is used. For ease of error* handling while using register 
      * indirect mode, only one TX buffer is used. */ 
-	DMA0CON = 0x2000;		//direct memory acess
-	DMA0PAD = (int)(&C1TXD);//transmit data Word
- 	DMA0CNT = 6;			//Set Number of DMA Transfer per ECAN message to 8 words
-	DMA0REQ = 0x0046;		//Assign ECAN1 Transmit event for DMA Channel
-	DMA0STA = txBufferOffset; //Start Address Offset for ECAN1 Message Buffer 0x0000
-   	_DMA0IE	= 0;	//Channel Interrupt Enable: Enable DMA Channel 0 Interrupt
-   	_DMA0IF = 0;//DMA Channel 0 Data Transfer Complete Interrupt Flag Status bit
-   	DMA0CONbits.CHEN = 1;		//Channel Enable: Enable DMA Channel
+	DMA0CON = 0x2000;		//chanel is disabled to write on other dma reg, the  bit set for Read from DMA RAM address, write to peripheral address
+	DMA0PAD = (int)(&C1TXD);	// 0x0442   PERIPHERAL ADDRESS REGISTER ,C1TXD register temporarily holds every transmission. This is the register to which the DMA Controller writes data from the DMA buffer. we write on it when the chanel is disabled 
+ 	DMA0CNT = 6;			// Number of dma0 transfers is DMA0CNT + 1=7;
+	DMA0REQ = 0x0046;		// = 70, ECAN1 ? TX Data Request
+	DMA0STA = txBufferOffset; //defines the start of the CAN buffer area in the DMA0.  A read of this address register returns the current contents of the DMA RAM Address register, a write will write on the register itself
+   	_DMA0IE	= 0;	//
+   	_DMA0IF = 0;
+   	DMA0CONbits.CHEN = 1;	// enable the chanel after configuration of its regs.	
 	
 	/* Set up DMA Channel 1 to copy data from ECAN module 1 to DMA RAM. The 
      * Receive memory is treated like a FIFO. The ECAN module cannot 
      * differentiate between buffers when the DMA is in register indirect mode.
-	 * Note the size of each recevied message is eight words. Continuous with 
-     * pin pong disabled is used.*/
-	DMA1CON = 0x0000;		
-	DMA1PAD = (int)(&C1RXD);	
- 	DMA1CNT = (numOfRxBuffers * 8) - 1;				
-	DMA1REQ = 0x0022;	
-	DMA1STA = rxBufferOffset; 
+	 * Note the size of each received message is eight words. Continuous with 
+     * pin pong disabled is used. */
+	DMA1CON = 0x0000;		//Read from peripheral address, write to DMA RAM address
+	DMA1PAD = (int)(&C1RXD);	//PERIPHERAL ADDRESS REGISTER. C1RXD register temporarily holds every received word. This is the register from which the DMA controller reads data into the DMA buffer.
+
+
+ 	DMA1CNT = (numOfRxBuffers * 8) - 1; // each received message is eight words
+	DMA1REQ = 0x0022;	// ECAN1 ? RX Data Request
+	DMA1STA = rxBufferOffset; //defines the start of the CAN buffer area in the DMA1
     _DMA1IE	= 0;	
    	_DMA1IF = 0;
-   	DMA1CONbits.CHEN = 1;		
+   	DMA1CONbits.CHEN = 1; // enable the chanel after configuration of its regs.
 }    	
 
 
@@ -102,7 +104,7 @@ void ECAN1ClockConfig(void){
 	/* ECAN_FCY and ECAN_BITRATE are defined in ECAN1Drv.h. The total time time
      * quanta per bit is 8. Refer to ECAN FRM section for more details on 
      * setting the CAN bit rate */
-	C1CTRL1bits.CANCKS = 1; // Select the CAN Master Clock
+	C1CTRL1bits.CANCKS = 1; 
 	C1CFG1 = ((ECAN_FCY/16)/ECAN_BITRATE)-1;  
  	C1CFG2 = 0x0290; 	
 } 
@@ -111,53 +113,57 @@ void ECAN1ClockConfig(void){
 void ECAN1InterruptConfig(void){
 	/* Only the C1 Event Interrupt is used in this code example. All the status 
 	 * flags are cleared before the module is enabled */
-	C1INTF = 0; // Reset all the CAN Interrupt
-	_C1IF = 0;// Reset the Interrupt Flag Status register
-	_C1TXIF = 0;//Ecan1 Transmit Data Request Interrupt Flag Status bit, 0=> interrupt request has not occured
-	_C1RXIF = 0;//Ecan1 Receive Data Ready interrupt Flag Status bit, 0=> interrupt request has not occured 
-	_C1IE = 1;//Enable the CAN1 Interrupt
-	_C1TXIE = 0;//Ecan1 transmit data Request Interrupt enable bit,0=> Interrupt requestion not occured
-	_C1RXIE = 0;//ECAN1 Receive Data Ready Interrupt Enable bit,0 = Interrupt request not enabled
-	C1INTE = 0x00FF;// Enable all CAN interrupt sources
-	C1RXFUL1 = 0;//Receive Buffer n full Bits, 0=> buffer empty
-	C1RXFUL2 = 0;//Receive Buffer n Full bits, 0=> buffer empty
-	C1RXOVF1 = 0;// Receive buffer n Overflow bits, 0=> no overflow condition
-	C1RXOVF2 = 0;// Receive buffer  n Overflow bits, 0=>no overflow condition
+	C1INTF = 0;
+	_C1IF = 0;
+	_C1TXIF = 0;
+	_C1RXIF = 0;
+	_C1IE = 1;
+	_C1TXIE = 0;
+	_C1RXIE = 0;
+	C1INTE = 0x00FF;// interrupts of the eCAN are enabled
+	C1RXFUL1 = 0;
+	C1RXFUL2 = 0;
+	C1RXOVF1 = 0;
+	C1RXOVF2 = 0;
 }
 
 
 void ECAN1TxRxBuffersConfig(void){
 	/* Configure only one TX buffer and enable four DMA buffers. No need to 
      * configure  RX buffers. */
-	C1CTRL1bits.WIN = 0;//don't Enable window to Access Acceptance Filter Registers
-	C1TR01CONbits.TXEN0 = 1; //Configure Message buffer 0 for transmission
+	C1CTRL1bits.WIN = 0;
+	C1TR01CONbits.TXEN0 = 1;
 }
 
 
-void ECAN1RxFiltersConfig(void ){
+void ECAN1RxFiltersConfig(void ){// à voir 
 	/* Enable 2 filters. The ID are defined in node.h Note that using Register 
      * Indirect mode does not  affect the filter and masking capability. You may 
 	 * not want to set up the CxBUFPNTn bits to point to FIFO. This way you can 
      * avoid the FIFO interrupts. Just point to an arbitrary RX buffer */
 	
 	/* In this case filters 0 and 4 are used */
-	 C1CTRL1bits.WIN = 1;// Enable window to Access Acceptance Filter Registers
-	 C1FEN1 = 0x11;//Filter  enabled for Identifier match with incoming message
+	 C1CTRL1bits.WIN = 1;
+	 C1FEN1 = 0x111;
 	
-	 C1RXF0SID = ECANFilterSID(SID1,EID1,1);//Configure Acceptance Filter 0 to match standard identifier		
-	 C1RXF0EID = ECANFilterEID(EID1);//Configure Acceptance Filter 0 to match standard identifier		
+	 C1RXF0SID = ECANFilterSID(SID1,EID1,1);		
+	 C1RXF0EID = ECANFilterEID(EID1);
 	 	 
-	 C1RXF4SID = ECANFilterSID(SID2,EID2,1);//Configure Acceptance Filter 4 to match standard identifier				
-	 C1RXF4EID =ECANFilterEID(EID2);//Configure Acceptance Filter 4 to match standard identifier		
+	 C1RXF4SID = ECANFilterSID(SID2,EID2,1);		
+	 C1RXF4EID = ECANFilterEID(EID2);
+     
+     C1RXF8SID = ECANFilterSID(SID3,EID3,1);		
+	 C1RXF8EID = ECANFilterEID(EID3);
 	 	 
 	 C1RXM0SID = 0xFFEB;		/* Configure MASK 0 - All bits used in comparison*/
-	 C1RXM0EID = 0xFFFF; /* Configure MASK 0 - All bits used in comparison*/
+	 C1RXM0EID = 0xFFFF;
 	 
 	 C1FMSKSEL1bits.F0MSK = 0x0;	/* User MASK 0 for all filters */
-	 C1FMSKSEL1bits.F4MSK = 0x0;	/* User MASK 4 for all filters, A VERIFIER */
-	 
+	 C1FMSKSEL1bits.F4MSK = 0x0;	/* User MASK 0 for all filters */
+     C1FMSKSEL2bits.F8MSK = 0x0;
 	 C1BUFPNT1bits.F0BP = 0x1;		/* Set the destination buffers to be any thing but */
 	 C1BUFPNT2bits.F4BP = 0x1;		/* configured transmit buffers */
+     C1BUFPNT3bits.F8BP = 0x1;	
 }
 
 	
@@ -174,20 +180,20 @@ int ECAN1SendPacket(void){
 	 
 	/* If the message transmission is aborted the function will return a zero.*/
 	 
-	C1TR01CONbits.TXREQ0 = 1;// Request Message Buffer 0 Transmission , message send request bit 1=> = Requests that a message be sent. The bit automatically clears when the message is successfully sent
+	C1TR01CONbits.TXREQ0 = 1;
 	while(C1TR01CONbits.TXREQ0 == 1){
-		if(C1TR01CONbits.TXLARB0 == 1){ // Message Lost Arbitration bit , 1=> message lost arbitration while being sent, 0=> message did not lose arbritration while the message was being sent 
+		if(C1TR01CONbits.TXLARB0 == 1){
 			/* Arbitration lost. Abort the message and reset the transmit buffer
              * DMA */
 	
-			C1TR01CONbits.TXREQ0 = 0;// Clear when message is abort
-			DMA0CONbits.CHEN = 0;// Channel Enable bit disabled
-			DMA0CONbits.CHEN = 1;// Channel Enable bit enabled
-			C1TR01CONbits.TXREQ0 = 1;// request message buffer 0 Transmission
+			C1TR01CONbits.TXREQ0 = 0;
+			DMA0CONbits.CHEN = 0;
+			DMA0CONbits.CHEN = 1;
+			C1TR01CONbits.TXREQ0 = 1;
 		}
 	}
 	
-	if(C1TR01CONbits.TXABT0 == 1){ //TXABT0 Message Aborted bit, 1=> message was aborted , 0 => message completed transmission successfully
+	if(C1TR01CONbits.TXABT0 == 1){
 		return(0);
 	}
 	
@@ -197,8 +203,8 @@ int ECAN1SendPacket(void){
 
 void ECAN1SetOPMode(void){
 	/* Request the normal operational mode and wait  till it is set */
-	C1CTRL1bits.REQOP = 0;// Rquest Operation Mode bits, 000=> Set Normal Operation Mode, utile pour savoir si on est transmission/reception/les 2
-	while(C1CTRL1bits.OPMODE != 0);// Operation Mode bits is 000=> Normal Operation Mode
+	C1CTRL1bits.REQOP = 0;
+	while(C1CTRL1bits.OPMODE != 0);
 }
 
 
@@ -217,9 +223,10 @@ void ECANCreateSIDPacket(int * data, int sid,int * output){
 	 //output[5] = data[3];
 	 //output[6] = 0;
      
-     output[0] = (sid << 2) & 0x1FFC;		/* SID, SRR = 0 and IDE = 0 */
-     output[1] = 0x0;//(int)(eid >> 6) & 0x0FFF;
-	 output[2] = 0x8;
+     output[0] = (sid << 2) & 0x1FFC;		/* SID, SRR = 0  Normal message and IDE = 0 Message will transmit standard identifier
+                                              we use bitwise and to force the zero*/
+     output[1] = 0x0;//EID=0
+	 output[2] = 0x8; // 0b1000 so we are sending 8 bytes = 4 int.
 	 output[3] = data[0];
 	 output[4] = data[1];
 	 output[5] = data[2];
@@ -234,7 +241,7 @@ void ECANCreateEIDPacket(int * data,int sid,long eid,int * output){
 	 * output - points to where the packet should be stored which typically is 
      * an ECAN TX buffer */
 	 
-	 output[0] = (sid << 2) | 0x3;		
+	 output[0] = (sid << 2) | 0x3;		// SRR=1 and EID =1   we use bitwise or to force the one
 	 output[1] = (int)(eid >> 6) & 0x0FFF;
 	 output[2] = ((int)(eid & 0x3F) << 10) | 0x8;
 	 output[3] = data[0];

@@ -43,30 +43,63 @@
 #define NUM_OF_TX_NODES (NUM_OF_NODES - 1)
 
 /* Define a set of node addresses. to be used by the node. */
-#define NODE2
+#define NODE3
+
 /* Change this #define to NODE1 for node 1, NODE2 for node 2 and so on */
 
 /* The SIDx and EIDx values are the  IDs of the local node. The TXSIDx and 
  * TXEIDx value are the ID of nodes to which messages will be sent */
 #ifdef NODE1
-#define SID1 0x91			/* This is node 1 address */
+#define SID1 0x91			
 #define EID1 0x1C490
-#define SID2 0x90			/* This is node 1 address */
+#define SID2 0x90			
 #define EID2 0x1C490
-#define TXSID1 0x92			/* This is node 2 address */
-#define TXEID1 0x1C490
+#define SID3 0x81			
+#define EID3 0x1C490
 #define RANDOM_SEED	20
 #endif
 
-#ifdef NODE2
-#define SID1 0x92			/* This is node 2 address */
+#ifdef NODEIR
+#define SID1 0x92			
 #define EID1 0x1C490
-#define SID2 0x90			/* This is node 2 address */
+#define SID2 0x90			/
 #define EID2 0x1C490
-#define TXSID1 0x91			/* This is node 1 address */
+#define SID3 0x93			
+#define EID3 0x1C490
+#define TXSID2 0x90			
+#define TXEID2 0x1C490
+#define RANDOM_SEED 30
+#endif
+
+#ifdef NODEUS
+#define SID1 0x92			
+#define EID1 0x1C490
+#define SID2 0x90			
+#define EID2 0x1C490
+#define SID3 0x93			
+#define EID3 0x1C490
+#define TXSID1 0x91		
 #define TXEID1 0x1C490
 #define RANDOM_SEED 30
 #endif
 
+#ifdef NODE3
+#define SID1 0x92			
+#define EID1 0x1C490
+#define SID2 0x90			
+#define EID2 0x1C490
+#define SID3 0x92			
+#define EID3 0x1C490
+#define TXSID3 0x81			
+#define TXEID3 0x1C490
+#define RANDOM_SEED 30
 #endif
+
+
+
+
+
+
+#endif
+
 

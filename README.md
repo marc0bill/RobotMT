@@ -1,3 +1,44 @@
+# Project Robot Polytech département MT
+
+Le projet consiste à réaliser un robot automne de type "coupe de France de robotique (Eurobot)".
+Le robot MT contient une batterie, des moteurs et des capteurs. Des UCEs (Unité de commande électronique) sont mis en place pour gérer les différents périphériques du robot. Ces UCEs ou ECU(acronyme Anglais) se communiquent par le bus CAN. Le choix du protocole CAN est expliqué dans les Wikis.  
+
+## Getting Started
+Vous trouvez dans le dossier de ce projet:
+-le dossier "carte": les schémas des UCEs employées.
+-le dossier "Firmware": les firmwares des UCEs codé en C. (le principe de la compilation conditionnelle est utilisé dans le code => Un seul projet.X peut servir pour implémenter deux firmware différents sur deux UCEs différentes. Il suffit de de changer le nom du node dans le fichier node.h du projet.X )
+-Le dossier python: Les codes pythons utilisées.
+
+
+### Prerequisites
+
+Logiciel à télécharger:
+
+On utilise des contrôleurs de type dsPIC33FJ128MC804(digital signal controler) (Microchip), il faudrait donc télécharger :
+```
+MPLAPX IDE
+```
+
+```
+Compilateur XC16
+```
+
+Des schémas électriques des UCEs sont disponible en format .pdf, mais si vous souhaitez les modifier ou voir une vision plus profonde, il faudrait télécharger :
+```
+EAGLE
+```
+
+Pour visualiser les données reçus par l'UART sur votre PC, téléchargez une application terminale simple de porte série 
+```
+Termite
+```
+ou
+```
+CoolTerm
+```
+
+
+=======
 # Projet Robot Polytech département MT
 
 Le département Microélectronique et Télécommunications de Polytech Marseille développe son propre robot de A à Z. Chaque année le projet s'améliore grâce aux élèves de 4ème année. Ce robot, de type coupe de France de robotique, peut se déplacer de façon autonome dans son environnement, déplacer des objets, et ramasser des balles (tennis ou ping-pong).
@@ -52,16 +93,6 @@ Explain what these tests test and why
 Give an example
 ```
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
@@ -76,12 +107,4 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
