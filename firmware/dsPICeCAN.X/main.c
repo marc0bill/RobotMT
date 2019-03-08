@@ -61,8 +61,14 @@ _FOSC(FCKSM_CSECMD & OSCIOFNC_OFF  & POSCMD_XT);
     //POSCMD_XT     XT Oscillator Mode
 _FWDT(FWDTEN_OFF);
     // FWDTEN_OFF   Watchdog timer enabled/disabled by user software
-//Configuration pin I2C
-_FPOR(ALTI2C_ON);
+/* Configuration pin I2C
+ * !! ATTENTION !!
+ * Les cartes d'interface eCAN/I2C/UART/An fonctionnent avec les pin standards
+ * pour IC2.
+ * Le shield I2C pour Ultrason + Boussol + Centrale Inertielle utilise les pin
+ * alternative pour I2C
+ */
+//_FPOR(ALTI2C_ON); 
 
 /* Define the number of ECAN RX buffers. Only one TX buffer is used. This is 
  * explained in the readme file along with this code example. */
@@ -103,6 +109,8 @@ void RandomWait(void){
 unsigned int dataa = 0;
 unsigned char ADC_Flag_VAL=0;
 
+unsigned int waitUltraSon = 0;
+
 int main(void){
     char sizeU1Tx;
     int data[4];
@@ -115,6 +123,7 @@ int main(void){
     initUART1(57600);//9600, 19200, 57600
     #ifdef NODEUS
     config_I2C();
+    init_ultrason(0xE0);
     #endif
 	ECAN1DMAConfig(__builtin_dmaoffset(ecanTxMsgBuffer),
 					__builtin_dmaoffset(ecanRxMsgBuffer), 
@@ -128,15 +137,14 @@ int main(void){
     
     
     AD1PCFGL = 0b111111110; //port an1 en mode analogue *****************************
-    
-    
     //timler config
     T2CONbits.T32 = 0b0;//16bits
     T4CONbits.T32 = 0b0;//16 bits
     T3CONbits.TCKPS = 0b00; //prescale à 1
     T3CONbits.TCS = 0b0; //internal clock
     T3CONbits.TGATE = 0b0; //gate acccumulation desactiver
-    PR3 = 103; //104 en binaire pour comper 1/192K 0b000000001101000
+    //PR3 = 103;  // 104 pour compter à 192k 0b000000001101000 (50ns)
+    PR3 = 19999;  // 20000            à   1k 
 
     //adc config
     //bits.CH0SB0 = 0b00100; //AN4 input chan 0***************************************
@@ -170,8 +178,11 @@ int main(void){
     
 	while(1){
         #ifdef NODEUS
+        if(waitUltraSon >1000){
+            waitUltraSon=0;
         if(UltraSon.FlagU1_VAL == 0){
-            mesure_ultrason_1(0xE0);   
+            mesure_ultrason_1(0xE0);
+        }
         }
         //if(UltraSon.FlagU2_VAL == 0)
         //    mesure_ultrason_2(0xE0);
@@ -180,8 +191,8 @@ int main(void){
         
         //if(ADC_Flag_VAL==1){
         if(UltraSon.FlagU1_VAL==1){
-            //sizeU1Tx=sprintf(strU1Tx, "Tx:%d\n", UltraSon.ValU1);
-            //fctU1Tx_string(strU1Tx,sizeU1Tx);
+            sizeU1Tx=sprintf(strU1Tx, "Tx:%d:%d\n", UltraSon.ValU1, dataa);
+            fctU1Tx_string(strU1Tx,sizeU1Tx);
             
             
             if(transmitNext == 1){
@@ -191,10 +202,10 @@ int main(void){
                 data[1] = dataa;
                 data[2] = 3;
                 data[3] = 4;
-                ECANCreateEIDPacket(data,TXSID1,TXEID1,ecanTxMsgBuffer);
+                //ECANCreateEIDPacket(data,TXSID1,TXEID1,ecanTxMsgBuffer);
                 transmitNext = 0;
                 //RandomWait();
-                ECAN1SendPacket();
+                //ECAN1SendPacket();
             }
             UltraSon.FlagU1_VAL = 0;
             ADC_Flag_VAL=0;
@@ -285,9 +296,42 @@ void __attribute__((__interrupt__,no_auto_psv)) _C1Interrupt(void){
 
 
 
-void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt (void) { 
+void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt (void) {
+    long int disValues = 205050;
+    int tempADC;
+    /* Routine d'interruption de ADC
+     * Permet la convertion sur AN0 de la donnée de distance provenant du 
+     * capteur SHARP2Y0A02 pouvant effectuer des mesure de 15cm à 150cm
+     * Les donnes constructeurs donnent:
+     * Distance(mm) Tension(V) ADC1BUF0 205050/ADC1BUF0-38.713 (mm)
+     * 155          2.7506702  853          202
+     * 207          2.5227883  782          223
+     * 299          2          620          292
+     * 398          1.538874   477          390
+     * 500          1.2466488  386          491
+     * 600          1.0455765  324          594
+     * 700          0.8981233  278          696
+     * 800          0.8150134  252          772
+     * 901          0.71313673 221          889
+     * 1001         0.64343166 199          987
+     * 1100         0.58981234 183          1082
+     * 1198         0.536193   166          1197
+     * 1302         0.49597856 153          1293
+     * 1401         0.45040214 139          1426
+     * 1501         0.42091152 130          1527
+     * 
+     * Dans la pratique des testes ont monte que la conversion entre la valeur
+     * provenant de l'ADC et la distance n'allait pas ... une correction a ete
+     * apporte 716196/ADC1BUF0 valeur en mm
+     * 
+     * Il est important d'avoir en tete que la mesure peut etre perturbe par le 
+     * déplacement du robot (cf datasheet)
+     */
+    waitUltraSon ++;
   	IFS0bits.AD1IF = 0;	// Clear interrupt flag 
-  	dataa = ADC1BUF0; // Read POT value to set Reference Speed 
+    tempADC = ADC1BUF0; // Read POT value to set Reference Speed 
+    disValues = 716196/((long int) tempADC);
+  	dataa = (int) disValues; // Read POT value to set Reference Speed 
     ADC_Flag_VAL = 1;
     PORTBbits.RB15 = LATBbits.LATB15 ^ 0b1;
     }  
