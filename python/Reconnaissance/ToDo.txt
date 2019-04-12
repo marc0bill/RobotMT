@@ -1,0 +1,41 @@
+
+Tâches projet:
+
+- Communication rasp-robot
+
+- Recupérer le flux video de la camera
+
+- Reconnaissance image 
+
+    - reconnaissance PC-PC (algo python)
+
+    - implementation sur la rasp
+
+    - 
+
+- Pilotage robot
+
+  - Manuel
+
+  - a partir du programme
+
+  
+
+- Interface homme-machine
+
+  - Reprendre l'interface existante
+
+  - 
+
+
+
+Interrogations:
+
+- Quel niveau de deep learning?
+
+Ce que chacun doit faire:
+    - Suivre formation Github: https://openclassrooms.com/fr/courses/2342361-gerez-votre-code-avec-git-et-github
+    - Se remettre à jour sur python
+    - Se mettre à jour sur le projet (lire toutes les docs)
+    - Se documenter sur les raspeberry pi
+    - Installer GitHub Desktop
