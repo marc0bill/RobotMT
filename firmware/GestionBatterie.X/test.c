@@ -90,7 +90,7 @@ void ADC1_Init(void){
        //End ADC1
     }
 //-- Programme Principal ------------------------------------------------------
-int main(void){
+int mainTest(void){
     //I/O
     TRISBbits.TRISB6=0;     // led  RB6
     LATBbits.LATB6=0;
