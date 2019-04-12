@@ -38,4 +38,4 @@ Ce que chacun doit faire:
     - Se remettre à jour sur python
     - Se mettre à jour sur le projet (lire toutes les docs)
     - Se documenter sur les raspeberry pi
-    - 
+    - Installer GitHub Desktop
