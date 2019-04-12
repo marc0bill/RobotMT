@@ -1,5 +1,5 @@
 
-Chose à faire:
+Tâches:
 
 - Communication rasp-robot
 
