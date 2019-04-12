@@ -1,5 +1,6 @@
 
-Tâches projet:
+
+***Tâches projet:
 
 - Communication rasp-robot
 
@@ -11,31 +12,25 @@ Tâches projet:
 
     - implementation sur la rasp
 
-    - 
-
 - Pilotage robot
 
   - Manuel
 
   - a partir du programme
 
-  
-
-- Interface homme-machine
-
-  - Reprendre l'interface existante
-
-  - 
-
-
-
-Interrogations:
+***Interrogations:
 
 - Quel niveau de deep learning?
+- Est-ce l'on doit modifier le firmware?
 
-Ce que chacun doit faire:
+***Hypothèse:
+    - La rasp controle le micro qui controle les roues
+    - Reprendre l'interface existante
+
+***Ce que chacun doit faire:
     - Suivre formation Github: https://openclassrooms.com/fr/courses/2342361-gerez-votre-code-avec-git-et-github
     - Se remettre à jour sur python
     - Se mettre à jour sur le projet (lire toutes les docs)
     - Se documenter sur les raspeberry pi
     - Installer GitHub Desktop
+    - Installer Jupyter Notebook
