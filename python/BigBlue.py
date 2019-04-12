@@ -29,6 +29,9 @@ class IA:
         self.map=Pathfinder(x_max, y_max, nb_x, nb_y, 350., 2000.) 
     
     def obs_from_ihm(self, mapTblNode):
+        """
+        
+        """
         # Ajout de de la carte comme obstacles a la Map astar
         ObsMap=np.zeros((self.map.nb_x,self.map.nb_y))+600.
         for ix_obs, obsList in enumerate(mapTblNode):

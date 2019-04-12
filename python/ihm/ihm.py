@@ -6,6 +6,7 @@ try:
     from ihm.joystick import Joystick
 except:
     from joystick import Joystick
+    print('toto')
 
 pi = 3.14159265358979323846
 
