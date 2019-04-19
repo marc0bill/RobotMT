@@ -9,7 +9,6 @@
 - Reconnaissance image 
 
     - reconnaissance PC-PC (algo python)
-
     - implementation sur la rasp
 
 - Pilotage robot
