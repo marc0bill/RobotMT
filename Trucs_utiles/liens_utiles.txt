@@ -1,1 +1,3 @@
 Tensorflow : http://eric.univ-lyon2.fr/~ricco/tanagra/fichiers/fr_Tanagra_Tensorflow_Keras_Python.pdf
+
+Motion (utilisation du flux vidéo) : https://www.instructables.com/id/Raspberry-Pi-remote-webcam/
