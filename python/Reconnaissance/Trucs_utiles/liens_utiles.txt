@@ -1,1 +1,2 @@
 Tensorflow : http://eric.univ-lyon2.fr/~ricco/tanagra/fichiers/fr_Tanagra_Tensorflow_Keras_Python.pdf
+UART raspberry : https://electrosome.com/uart-raspberry-pi-python/
