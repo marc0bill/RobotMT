@@ -1,0 +1,37 @@
+﻿Ce fichier contient les commandes git de base ainsi que les commandes consoles
+
+COMMANDES CONSOLES:
+cd <nom_du_dossier> : se déplacer dans un dossier
+cd .. : se déplacer d'un dossier en arrière
+touch <nom_du_fichier>: créer un fichier
+mkdir <nom_du_dossier>: créer un dossier
+clear : efface le terminal
+rm <nom_du_fichier> : efface le fichier
+    -rf <nom_du_dossier> : efface le dossier
+code <nom_du_fichier>: ouvre le fichier dans Visual Studio Code
+cat <nom_du_fichier> : renvoie le contenue du fichier
+
+COMMANDES GIT (ecrire "git " avant chaque commandes suivantes):
+init : initialise le dossier courant en tant que repository git
+add <nom_du_fichier> : ajoute le fichier à l'index git
+commit : enregistre les fichier indexés en tant que commit (version du projet)
+    -a : ajoute au commit tout les fichier précédement suivit qui ont été modifié depuis
+    -m "message" : ajoute un commentaire au commit
+status : donne l'etat du repository, des fichiers modifiés, etc..
+log : donne l'historique des commit
+checkout <SHA_du_commit> : permet de se placer au commit identifié par le SHA donné
+checkout master : permet de se replacer au dernier commit
+push <remote> <branche> : enregistre le repository sur GitHub (par defaut : remote = origin et branche = master)
+pull <remote> <branche> : télécharge le repository depuis GitHub sur le PC
+clone <URL_GitHub> : crée une copie du projet identifié par l'URL dans le répertoire courant
+branch : donne la liste des branches existantes dans le repository (l'etoile indique la branche courante)
+branch <nom_de_la_branche> : crée une nouvelle branch
+checkout <nom_de_la_branche> : permet de se placer dans la branche désignée
+checkout -b <nom_de_la_branche" : crée une nouvlele branche et s'y place (regroupement des 2 commandes précédentes)
+merge <nom_de_la_branche> : fusione la branche désignée avec la branche courante
+branch -d <nom_de_la_branche> : supprime la branche
+blame <nom_du_fichier> : renvoie le contenue du fichier avec l'auteur, la date et le dernier commit de chaque ligne
+show <debut_du_SHA_du_commit> : renvoie les modifications précises effectuées dans ce commit
+stash : garde les modifications non commitées en mémoire (dans un buffer)
+stash pop : permet de se replacer à l'endroit où la commande stash a été appelée (restitue les info stockée et ecrase la mémoire temporaire, cad vide le buffer)
+stash apply : garde les modification dans le stash
