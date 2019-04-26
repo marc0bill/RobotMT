@@ -18,7 +18,7 @@ projet:      	$URL: $
 #include "pwm.h"
 #include "move.h"
 #include "trigo.h"
-#include "i2c.h"
+//#include "i2c.h"
 #include <math.h>
 
 
