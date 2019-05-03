@@ -13,5 +13,9 @@ DAY 2 : Seance 3-6
         Revoir le gant
         Completer le tuto UART
         Completer le tuto camera
+DAY 3 : Seance 7
+    Fait:
+        Configuration de l'UART (testé et approuvé en direct et avec un scipt python)
+        Compréhension de l'algorithme tensorflow        
 
     
