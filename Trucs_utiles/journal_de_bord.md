@@ -22,7 +22,8 @@ DAY 4 : Seance 8
         Tests simplistes de la camera. Celle ci fonctionne mais la video récupérée est accéléré x2
         Installation des logiciels et librairies nécessaire à la reconnaissance d'image sur la raspi
             - Exceptions relevée lors de la commande "sudo apt-get install python-tk", revenir la dessus en cas de problèmes 
-            - Bloqué à l'installation de openCV
+            - Bloqué à l'installation de openCV 
+                - Il faut mettre à jour la version de python : https://github.com/lhelontra/tensorflow-on-arm
 
 
 
