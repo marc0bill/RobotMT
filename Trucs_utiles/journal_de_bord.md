@@ -19,9 +19,10 @@ DAY 3 : Seance 7
         Compréhension de l'algorithme tensorflow
 DAY 4 : Seance 8
     Fait :
-        Tests simplistes de la camera. Celle ci fonctionne mais la video récupéré est accéléré x2
+        Tests simplistes de la camera. Celle ci fonctionne mais la video récupérée est accéléré x2
         Installation des logiciels et librairies nécessaire à la reconnaissance d'image sur la raspi
             - Exceptions relevée lors de la commande "sudo apt-get install python-tk", revenir la dessus en cas de problèmes 
+            - Bloqué à l'installation de openCV
 
 
 
