@@ -4,3 +4,5 @@ Motion (utilisation du flux vidéo) : https://www.instructables.com/id/Raspberry-
 
 UART raspberry : https://electrosome.com/uart-raspberry-pi-python/
 		https://doc.ubuntu-fr.org/minicom
+
+Tuto reconaissance image raspi : https://www.instructables.com/id/Raspberry-Pi-remote-webcam/
