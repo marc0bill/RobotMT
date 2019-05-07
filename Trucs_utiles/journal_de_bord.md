@@ -23,7 +23,12 @@ DAY 4 : Seance 8
         Installation des logiciels et librairies nécessaire à la reconnaissance d'image sur la raspi
             - Exceptions relevée lors de la commande "sudo apt-get install python-tk", revenir la dessus en cas de problèmes 
             - Bloqué à l'installation de openCV 
-                - Il faut mettre à jour la version de python : https://github.com/lhelontra/tensorflow-on-arm
+                - Il faut mettre à jour la version de python (ver 3.7) : https://github.com/lhelontra/tensorflow-on-arm
+                - En refaisant la commende make, python 3.4 est toujours présent. A voir si cela influe sur la suite (on devrais être en 3.5 minimum)
+        Prise en main de l'algorithme tensorflow
+        Etude du code C du microcontrolleur afin de comprendre l'actionnement des roues
+        Reflexion sur toute la chaine de fonctionnement et les modification à apprter au code C afin de simplifier le processus de communication entre la raspi et le µC
+DAY 5 : Seance 9
 
 
 
