@@ -32,6 +32,8 @@ DAY 5 : Seance 9
     Fait:
         Installations de logiciels raspberry
             - Bloqué à la varification de l'installation d'openCV. Je pense que cela vient du fait qu'une partie est en python 3.4 (rapport de commande make) alors que la dernière version isntallée est 3.7
+        Debat avec l'uart du µC
+            - on travail actuellement sur uartassing.c ligne 550
 
 
 
