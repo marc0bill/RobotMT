@@ -7,7 +7,6 @@ import tensorflow as tf
 import sys
 from utils import label_map_util
 
-
 # Définir la résolution (plus elle sera petite, plus le programme sera)
 IM_WIDTH = 1280
 IM_HEIGHT = 720
@@ -82,7 +81,7 @@ for frame1 in camera.capture_continuous(rawCapture, format="bgr",use_video_port=
     frame_expanded = np.expand_dims(frame, axis=0)
 
     # Perform the actual detection by running the model with the image as input
-    global (boxes, scores, classes, num) = sess.run([detection_boxes, detection_scores, detection_classes, num_detections],feed_dict={image_tensor: frame_expanded})
+    (boxes, scores, classes, num) = sess.run([detection_boxes, detection_scores, detection_classes, num_detections],feed_dict={image_tensor: frame_expanded})
 
     rawCapture.truncate(0)
 
