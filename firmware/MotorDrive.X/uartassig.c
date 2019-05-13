@@ -539,14 +539,43 @@ int assig_Asserv(int idAc,char UxRx_string[UxRx_length])
 
 int assig_VtsM(int idAc,char UxRx_string[UxRx_length])
 {
+    //------------------Config UART-----------------
+    U1STAbits.UTXISEL0 = 0;     //Interrupt after one Tx character is transmitted
+    U1STAbits.UTXISEL1 = 0;
+    IEC0bits.U1TXIE = 1;        //Enable UART Tx interrupt
+    U1MODEbits.UARTEN = 1;      //Enalbe UART
+    U1STAbits.UTXEN = 1;        //Enable UART Tx
+    int u = 0;
+    while (u < 4160)
+    {
+        u++;
+        Nop();
+    }
+    //-----------------Fin config UART----------------
+    
 	static int i=0;
+    
+    //---------Test envoie UART-----------
+        //-----Methode 1 : pas ouf----------
+//    IFS0bits.U1TXIF = 0;	// Renvoie de ce que le controleur voie dans le terminal PC
+//    U1TXREG = 'a';
+        //-----Methode 2 : ça marche pour des entiers--------
+    FlagUart.U1Tx=1;
+    U1Tx_int(7);
+        //----Methode 3 : pas ouf-------------
+//    strcpy(U1Tx_string,"test");
+//    IEC0bits.U1TXIE	= 1;
+        //----Methode 4
+//    FlagUart.U1Tx=1;
+//   U1Tx_char("test_methode_4");
 //    static int e=0;
 //    while(e <= 15)
-//    {
-//        IFS0bits.U1TXIF = 0;	// Renvoie de ce que le controleur voie dans le terminal PC
-//        U1TXREG = UxRx_string[e];
-//        e++;
-//    }
+ //   {
+
+ //       IFS0bits.U1TXIF = 0;	// Renvoie de ce que le controleur voie dans le terminal PC
+  //      U1TXREG = UxRx_string[e];
+ //       e++;
+ //   }
     ////////////////////////////////////////////////////////////////// ON EST LA
 //    static int e = 0;
 //	IFS0bits.U1TXIF = 0;	// acquittement

@@ -39,6 +39,7 @@ vérification ok :
 #include <ctype.h>
 #include <stdio.h>            /* for printf */ 
 #include <stdlib.h>           /* for atoi */
+#include <string.h>
 
 struct Struct_FlagUart FlagUart;
 int U1Tx_size=12;
@@ -163,7 +164,7 @@ void __attribute__ ((interrupt, no_auto_psv)) _U1TXInterrupt(void)
 	}
 }
 
-void U1Tx_int(int Data)
+void U1Tx_int(int Data) // Envoie un entier en UART SI FlagUart.U1Tx=1
 {
 	char str[12];
 	if(FlagUart.U1Tx==1){
@@ -174,6 +175,15 @@ void U1Tx_int(int Data)
 		IEC0bits.U1TXIE	= 1;//Enable Transmisssion Interrupts 1
 	}
 }
+
+//void U1Tx_char(char *string[UxTx_length])
+//{
+//   if(FlagUart.U1Tx==1){                    // attente libération de l'UART1
+//        U1Tx_size=sprintf(*U1Tx_string,string);  //Copie la chaine envoyé dans la variable envoyé à l'UART lors de l'interruption
+//        FlagUart.U1Tx=0;                        //envele l'aquitement d'émission
+//        IEC0bits.U1TXIE	= 1;                    //Declenche l'interruption UART
+//   }
+//}
 /*
 void  fctUartTx(char string[UxTx_length]){
 		while(FlagUart.U1Tx!=1); // attente libération de l'UART1
