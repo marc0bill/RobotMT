@@ -22,7 +22,18 @@ DAY 4 : Seance 8
         Tests simplistes de la camera. Celle ci fonctionne mais la video récupérée est accéléré x2
         Installation des logiciels et librairies nécessaire à la reconnaissance d'image sur la raspi
             - Exceptions relevée lors de la commande "sudo apt-get install python-tk", revenir la dessus en cas de problèmes 
-            - Bloqué à l'installation de openCV
+            - Bloqué à l'installation de openCV 
+                - Il faut mettre à jour la version de python (ver 3.7) : https://github.com/lhelontra/tensorflow-on-arm
+                - En refaisant la commende make, python 3.4 est toujours présent. A voir si cela influe sur la suite (on devrais être en 3.5 minimum)
+        Prise en main de l'algorithme tensorflow
+        Etude du code C du microcontrolleur afin de comprendre l'actionnement des roues
+        Reflexion sur toute la chaine de fonctionnement et les modification à apprter au code C afin de simplifier le processus de communication entre la raspi et le µC
+DAY 5 : Seance 9
+    Fait:
+        Installations de logiciels raspberry
+            - Bloqué à la varification de l'installation d'openCV. Je pense que cela vient du fait qu'une partie est en python 3.4 (rapport de commande make) alors que la dernière version isntallée est 3.7
+        Debat avec l'uart du µC
+            - on travail actuellement sur uartassing.c ligne 550
 
 
 
