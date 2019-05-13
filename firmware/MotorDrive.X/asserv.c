@@ -18,7 +18,6 @@ projet:      	$URL: $
 #include "pwm.h"
 #include "move.h"
 #include "trigo.h"
-//#include "i2c.h"
 #include <math.h>
 
 
@@ -356,7 +355,7 @@ void position_vitesse_reel_roue(void)
 	dAng=Reel.Vts_a*Coeff_a;
 	Reel.Ang=Reel.Ang+dAng;
 	Reel.AngModPi=modulo2pi(Reel.Ang);
-// Calcul des coordonnes x-y-teta
+// Calcul des coordonnes x-y-teta => Odometrie
 	dAng2=dAng/2;
 	Ang_moy=Reel.Ang-dAng2;
 	if(dAng2==0) 	K_dDis=dDis;// Pour éviter la division par zéro

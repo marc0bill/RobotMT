@@ -20,6 +20,9 @@ projet:      	$URL: $
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
+#include "timer.h"
+#include <stdio.h>            /* for printf */ 
+
 
 #include "uartTx.h"
 
@@ -537,6 +540,24 @@ int assig_Asserv(int idAc,char UxRx_string[UxRx_length])
 int assig_VtsM(int idAc,char UxRx_string[UxRx_length])
 {
 	static int i=0;
+//    static int e=0;
+//    while(e <= 15)
+//    {
+//        IFS0bits.U1TXIF = 0;	// Renvoie de ce que le controleur voie dans le terminal PC
+//        U1TXREG = UxRx_string[e];
+//        e++;
+//    }
+    ////////////////////////////////////////////////////////////////// ON EST LA
+//    static int e = 0;
+//	IFS0bits.U1TXIF = 0;	// acquittement
+//	U1TXREG = UxRx_string[e]; // Transmit one character
+//	e++;
+//	if(e>=15){
+//        IEC0bits.U1TXIE	= 0;	// // Disenable Transmisssion Interrupts 1
+//	//U1STAbits.UTXEN = 0;	// UART1 transmitter Disenable;
+//		FlagUart.U1Tx=1;		// Information envoye
+//	e=0;
+    
 	switch(i)
 	{
 		case 0:
@@ -768,24 +789,29 @@ void assig_char(char UxRx_string[UxRx_length]){
 			{
 				case 2: //UxRx_string == "PstCons"
 					idAc=2;
+                    Info_en.ComOne=1;
 					break;
 				case 3: //UxRx_string == "Asserv"
 					idAc=3;
+                    Info_en.ComOne=1;
 					break;
 				case 4: //UxRx_string == "VtsM"
 					idAc=4;
+                    Info_en.ComOne=1;
 					break;
 				case 5: //UxRx_string == "Track"
 					idAc=5;
 					break;
 				case 6: //UxRx_string == "TU1Tx"
 					idAc=6;
+                    Info_en.ComOne=1;
 					break;
 				case 7: //UxRx_string == "TuRn"
 					idAc=7;
 					break;
 				case 8: //UxRx_string == "GoTo"
 					idAc=8;
+                    Info_en.ComOne=1;
 					break;
 
 
@@ -794,9 +820,11 @@ void assig_char(char UxRx_string[UxRx_length]){
 
 				case 11: //UxRx_string == "Start"
 					FlagMove.Ordre=1;	// Met en activité le robot
+                    Info_en.ComOne=1;
 					break;
 				case 12: //UxRx_string == "Restart"
 					FlagMove.Ordre=3;	// Reinitialisation la  table de points de parcours et met en activité le robot
+                    Info_en.ComOne=1;
 					break;
 				case 13: //UxRx_string == "Stop"
 					FlagMove.Ordre=2;

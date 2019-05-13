@@ -6,7 +6,6 @@ projet:      	$URL: $
 */
 
 #include "header.h"
-//#include "i2c.h"
 
 
 
