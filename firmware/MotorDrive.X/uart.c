@@ -130,7 +130,7 @@ void __attribute__ ((interrupt, no_auto_psv)) _U1RXInterrupt(void) {
 	switch (isspace(UxRx_char))
 	{
 		case 1:
-			assig_char(UxRx_string);
+            assig_char(UxRx_string);
 			for(i=0; i<UxRx_length; i++) UxRx_string[i]=0; // nettoyage de la chaine de caractére
 			i=0;
 			break;
@@ -174,7 +174,6 @@ void U1Tx_int(int Data)
 		IEC0bits.U1TXIE	= 1;//Enable Transmisssion Interrupts 1
 	}
 }
-
 /*
 void  fctUartTx(char string[UxTx_length]){
 		while(FlagUart.U1Tx!=1); // attente libération de l'UART1

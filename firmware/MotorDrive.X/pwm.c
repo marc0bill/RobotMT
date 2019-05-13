@@ -108,6 +108,13 @@ void __attribute__ ((interrupt, no_auto_psv)) _MPWM1Interrupt(void)
 	if(passage>nb_IT_PWM-1)
 	{
 		passage=0;
+        
+        Consigne.mode=3;
+        FlagMove.Start=1;
+        /*
+        Consigne.Vts_M1=100.;
+        Consigne.Vts_M2=200.0;
+         */
 		asservisement_roue(alpha_M);
 	}
 	
