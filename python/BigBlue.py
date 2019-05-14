@@ -4,17 +4,24 @@ from ihm.ihm import *
 import time
 import serial
 import numpy as np
-from astar.astar import *
+from astar.astar import *   #algorithme A*: trouve le meilleur chemin pour aller d'un point A à un point B en évitant les obstacles
 
+
+#Définition du port COM:
 COM_MAIN_PORT='COM34'
-COM_MAIN_BAUDRATE = 9600
+COM_MAIN_BAUDRATE = 9600   
 
-MAP_X_MAX = 3000.0
+
+#Définition de la map astar:
+MAP_X_MAX = 3000.0      
 MAP_Y_MAX = 2000.0
 DXY_ASTAR = 100
 
 
 class IA:
+    #Définition de la classe IA
+
+    #Construteur:
     def __init__(self, q4Astar, q4Ihm, q4Com):
         self.q4Astar = q4Astar
         self.q4Ihm = q4Ihm
