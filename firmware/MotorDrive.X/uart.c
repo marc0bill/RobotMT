@@ -152,6 +152,7 @@ routine d'interruption transmission UART1 (buffer vide)
 */
 void __attribute__ ((interrupt, no_auto_psv)) _U1TXInterrupt(void) 
 {
+    
 	static int i = 0;
 	IFS0bits.U1TXIF = 0;	// acquittement
 	U1TXREG = U1Tx_string[i]; // Transmit one character
@@ -161,7 +162,8 @@ void __attribute__ ((interrupt, no_auto_psv)) _U1TXInterrupt(void)
 	//U1STAbits.UTXEN = 0;	// UART1 transmitter Disenable;
 		FlagUart.U1Tx=1;		// Information envoye
 		i=0;
-	}
+    }
+
 }
 
 void U1Tx_int(int Data) // Envoie un entier en UART SI FlagUart.U1Tx=1
@@ -183,15 +185,18 @@ void U1Tx_char(char carac) //Envoie un caractère en UART
         U1Tx_size = 0;
         U1Tx_string[0] = carac;
         FlagUart.U1Tx=0;                        //envele l'aquitement d'émission
-        IEC0bits.U1TXIE	= 1;                    //Declenche l'interruption UART
+        IEC0bits.U1TXIE	= 1;   
+        IFS0bits.U1TXIF = 1;    //Declenche l'interruption UART
    }
 }
 
 void U1Tx_chaine(char string[UxTx_length]) //Envoie une chaine de caractère en UART (taille max = UxTx_length = 20 )
 {
-    if(FlagUart.U1Tx==1){        
-        U1Tx_size=sprintf(U1Tx_string,string);
-        IEC0bits.U1TXIE	= 1; 
+    FlagUart.U1Tx=1;
+    if(FlagUart.U1Tx==1){    
+        IEC0bits.U1TXIE	= 1;
+        U1Tx_size=sprintf(U1Tx_string,string)+1;
+        FlagUart.U1Tx=0;
     }
     
 }

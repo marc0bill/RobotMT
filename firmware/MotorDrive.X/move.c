@@ -201,7 +201,7 @@ void aff_Consigne(void)
 			init_Pst();
 			Brake12=0;
 			FlagMove.Start=1;
-                        FlagMove.Pst=1;
+            FlagMove.Pst=1;
 			break;
 		case 2: // Stop
 			Consigne.mode=10;

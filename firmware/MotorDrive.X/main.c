@@ -120,7 +120,7 @@ int main(void) {
     }
 
     FlagMove.Start=1;
-    tempsjeux=0;
+    tempsjeux=2000;
 
 /* Secance de déplamcent */
     while(1){
