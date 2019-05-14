@@ -7,7 +7,7 @@ import tensorflow as tf
 import sys
 from utils import label_map_util
 
-def Reconnaissance():
+def Reconnaissance(x):
 
 # Définir la résolution (plus elle sera petite, plus le programme sera)
 IM_WIDTH = 1280
@@ -81,6 +81,9 @@ for frame1 in camera.capture_continuous(rawCapture, format="bgr",use_video_port=
 
     rawCapture.truncate(0)
 
-    camera.close()
+    if (x=0):
+    	break;
+ 
+camera.close()
 
 
