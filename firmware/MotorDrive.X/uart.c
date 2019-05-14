@@ -195,17 +195,6 @@ void U1Tx_chaine(char string[UxTx_length]) //Envoie une chaine de caractère en U
     }
     
 }
-/*
-void  fctUartTx(char string[UxTx_length]){
-		while(FlagUart.U1Tx!=1); // attente libération de l'UART1
-		U1Tx_size=sprintf(U1Tx_string,string);
-		FlagUart.U1Tx=0;	//envele l'aquitement d'émission
-		IEC0bits.U1TXIE	= 1;//Enable Transmisssion Interrupts 1
-		while(FlagUart.U1Tx!=1);
-}
-*/
-
-
 
 
 /********************************************************************************
