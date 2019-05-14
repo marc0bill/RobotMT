@@ -42,5 +42,6 @@ extern void initUART2(unsigned long) ;
 extern void startU1TX(void);
 void U1Tx_int(int Data);
 void U1Tx_char(char carac);
+void U1Tx_chaine(char string[UxTx_length]);
 
 #endif

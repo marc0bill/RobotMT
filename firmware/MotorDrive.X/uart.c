@@ -176,7 +176,7 @@ void U1Tx_int(int Data) // Envoie un entier en UART SI FlagUart.U1Tx=1
 	}
 }
 
-void U1Tx_char(char carac)
+void U1Tx_char(char carac) //Envoie un caractère en UART
 {
    if(FlagUart.U1Tx==1){                    // attente libération de l'UART1
         //U1Tx_size=sprintf(*U1Tx_string,string);  //Copie la chaine envoyé dans la variable envoyé à l'UART lors de l'interruption
@@ -185,6 +185,15 @@ void U1Tx_char(char carac)
         FlagUart.U1Tx=0;                        //envele l'aquitement d'émission
         IEC0bits.U1TXIE	= 1;                    //Declenche l'interruption UART
    }
+}
+
+void U1Tx_chaine(char string[UxTx_length]) //Envoie une chaine de caractère en UART (taille max = UxTx_length = 20 )
+{
+    if(FlagUart.U1Tx==1){        
+        U1Tx_size=sprintf(U1Tx_string,string);
+        IEC0bits.U1TXIE	= 1; 
+    }
+    
 }
 /*
 void  fctUartTx(char string[UxTx_length]){
