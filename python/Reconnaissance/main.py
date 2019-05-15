@@ -20,5 +20,5 @@ def main():
  		sys.exit(1)
 
  	# On lance l'algorithme de reconnaissance d'image
- 	Reconnaissance(1)
+ 	Reconnaissance()
  	
