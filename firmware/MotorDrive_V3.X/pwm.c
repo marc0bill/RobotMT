@@ -9,6 +9,7 @@
 #include "xc.h"
 #include "pwm.h"
 #include "main.h"
+#include "uart.h"
 
 void init_PWM1()
 {
