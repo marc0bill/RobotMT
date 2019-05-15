@@ -580,6 +580,7 @@ int assig_VtsM(int idAc,char UxRx_string[UxRx_length])
 		default :
 			break;
 	}
+    
 	return idAc;		
 }
 
