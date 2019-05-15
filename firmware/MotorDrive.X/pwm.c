@@ -112,8 +112,8 @@ void __attribute__ ((interrupt, no_auto_psv)) _MPWM1Interrupt(void)
         Consigne.mode=3;
         FlagMove.Start=1;
         
-        Consigne.Vts_M1=100.;
-        Consigne.Vts_M2=200.0;
+//        Consigne.Vts_M1=100.;
+//        Consigne.Vts_M2=200.0;
          
 		asservisement_roue(alpha_M);
 	}
