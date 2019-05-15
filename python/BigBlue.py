@@ -31,15 +31,13 @@ class IA:
         nb_x= int(MAP_X_MAX/DXY_ASTAR)
         nb_y= int(MAP_Y_MAX/DXY_ASTAR)
         self.exitAstar = False
-        ## Creation de la Map du pathfinding
+        ## Creation de la Map du pathfinding. Voir astar.py/class Pathfinder
         # DistanceObstacleMin=200.0, DistanceObstacleMax=2000.0
         self.map=Pathfinder(x_max, y_max, nb_x, nb_y, 350., 2000.) 
     
     def obs_from_ihm(self, mapTblNode):
-        """
         
-        """
-        # Ajout de de la carte comme obstacles a la Map astar
+        # Ajout de de la carte comme obstacle a la Map astar
         ObsMap=np.zeros((self.map.nb_x,self.map.nb_y))+600.
         for ix_obs, obsList in enumerate(mapTblNode):
             for iy_obs, obs in enumerate(obsList):
