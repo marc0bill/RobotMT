@@ -55,8 +55,8 @@ void init_PWM1()
     
     
     //Registres de duty cycle
-    P1DC1 = P1TPERVAL/2;    //Rapport cyclique 1 initialisé à 50%
-    P1DC2 = P1TPERVAL/2;    //Rapport cyclique 2 initialisé à 50%
+    P1DC1 = 20;    //Rapport cyclique 1 initialisé à 50%
+    P1DC2 = 20;    //Rapport cyclique 2 initialisé à 50%
     
     
 }

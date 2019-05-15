@@ -26,6 +26,9 @@ _FPOR(ALTI2C_ON)
 
 int main(void) {
     
+    TRISBbits.TRISB15 = 0;
+    TRISBbits.TRISB13 = 0;
+    
     init_PWM1();
     
     
