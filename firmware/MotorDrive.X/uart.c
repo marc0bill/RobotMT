@@ -109,6 +109,7 @@ void __attribute__ ((interrupt, no_auto_psv)) _U1RXInterrupt(void) {
 	static char UxRx_string[UxRx_length];
 	char UxRx_char;
 	static int i=0;
+    static int k=0;
 	IFS0bits.U1RXIF = 0;	// acquittement interruption
 
 	// get the data 
@@ -130,14 +131,14 @@ void __attribute__ ((interrupt, no_auto_psv)) _U1RXInterrupt(void) {
 //	UxRx_string[i]=UxRx_char;
 	switch (isspace(UxRx_char))
 	{
-		case 1:
-            assig_char(UxRx_string);
-			for(i=0; i<UxRx_length; i++) UxRx_string[i]=0; // nettoyage de la chaine de caractére
-			i=0;
+		case 0:
+            UxRx_string[i]=UxRx_char;
+			i++;
 			break;
 		default :
-			UxRx_string[i]=UxRx_char;
-			i++;
+            assig_char(UxRx_string);
+			for(k=0; k<UxRx_length; k++) UxRx_string[k]=0; // nettoyage de la chaine de caractére
+			i=0;
 			break;
 	} 
 }

@@ -567,17 +567,20 @@ int assig_VtsM(int idAc,char UxRx_string[UxRx_length])
     switch(i)
 	{
 		case 0:
-			Consigne.Vts_M1=atof(UxRx_string);// Bizare, j'aurai mis atoi
+//			Consigne.Vts_M1=atof(UxRx_string);// Bizare, j'aurai mis atoi
+            Consigne.Vts_M1=100.0;
 			i++;
 			break;
 		case 1:
-			Consigne.Vts_M2=atof(UxRx_string);// Bizare, j'aurai mis atoi
+//			Consigne.Vts_M2=atof(UxRx_string);// Bizare, j'aurai mis atoi
+            Consigne.Vts_M2=200.0;
 			idAc=0;
 			i=0;
 			break;
 		default :
 			break;
 	}
+    
 	return idAc;		
 }
 

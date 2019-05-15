@@ -37,16 +37,16 @@ sortie : -
 */
 void init_PWM1()              // configure PWM1
 {
-	P1TPER= P1TPERVAL; 		// période du PWM -> (FCY/(FPWM*PTCKPS))-1 (cf fichier "header.h")
-	PWM1CON1bits.PMOD1 = 1 ; // PWM I/O pin pair is in the Independent Output mode
-	PWM1CON1bits.PMOD2 = 1 ; // PWM I/O pin pair is in the Independent Output mode
-	PWM1CON1bits.PMOD3 = 1 ; // PWM I/O pin pair is in the Independent Output mode
-	PWM1CON1bits.PEN1H = 0 ;
-	PWM1CON1bits.PEN1L = 1 ; // pin is enabled for PWM2 output
-	PWM1CON1bits.PEN2H = 0 ;
-	PWM1CON1bits.PEN2L = 1 ; // pin is enabled for PWM2 output
-	PWM1CON1bits.PEN3H = 0 ;
-	PWM1CON1bits.PEN3L = 0 ;
+	P1TPER= P1TPERVAL;          // période du PWM -> (FCY/(FPWM*PTCKPS))-1 (cf fichier "header.h")
+	PWM1CON1bits.PMOD1 = 1 ;    // PWM I/O pin pair is in the Independent Output mode
+	PWM1CON1bits.PMOD2 = 1 ;    // PWM I/O pin pair is in the Independent Output mode
+	PWM1CON1bits.PMOD3 = 1 ;    // PWM I/O pin pair is in the Independent Output mode
+	PWM1CON1bits.PEN1H = 0 ;    // PWM1H1 pin disabled; I/O pin becomes GPIO
+	PWM1CON1bits.PEN1L = 1 ;    // PWM1L1 pin is enabled for PWM1 output
+	PWM1CON1bits.PEN2H = 0 ;    // PWM1H2 pin disabled; I/O pin becomes GPIO
+	PWM1CON1bits.PEN2L = 1 ;    // PWM1L2 pin is enabled for PWM1 output
+	PWM1CON1bits.PEN3H = 0 ;    // PWM1H3 pin disabled; I/O pin becomes GPIO
+	PWM1CON1bits.PEN3L = 0 ;    // PWM1L3 pin disabled; I/O pin becomes GPIO
 	
 	P1TCONbits.PTSIDL=0; //PWM time base runs in CPU Idle mode
 	P1TCONbits.PTMOD=0; //free running mode
@@ -111,10 +111,10 @@ void __attribute__ ((interrupt, no_auto_psv)) _MPWM1Interrupt(void)
         
         Consigne.mode=3;
         FlagMove.Start=1;
-        /*
-        Consigne.Vts_M1=100.;
-        Consigne.Vts_M2=200.0;
-         */
+        
+//        Consigne.Vts_M1=100.;
+//        Consigne.Vts_M2=200.0;
+         
 		asservisement_roue(alpha_M);
 	}
 	
