@@ -77,12 +77,16 @@ frame.setflags(write=1)
 #autorise l'écriture
 frame_expanded = np.expand_dims(frame, axis=0)
 
-# Réalise la détection avec en entrée l'image issue de la vidéo et stocke les résultats dans des tableaux
+    # Réalise la détection avec en entrée l'image issue de la vidéo et stocke les résultats dans des tableaux
 (boxes, scores, classes, num) = sess.run([detection_boxes, detection_scores, detection_classes, num_detections],feed_dict={image_tensor: frame_expanded})
- 
+    
 tab=np.squeeze(classes).astype(np.int32)
-
-class_name = category_index[tab[0]]['name']
+s=np.squeeze(scores)
+class_name=[]
+for i in range (0,NUM_CLASSES):
+    if s[i]==0:
+        break
+    class_name.append(category_index[tab[i]]['name'])
  
 camera.close()
 
