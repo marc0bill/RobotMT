@@ -44,7 +44,7 @@ projet:      	$URL: $
 //0.00414567/254=0,000016322
 //0.00414567/256=0.0000161940234375
 
-#define PWM_max 2000 //1800   //2*P1TPERVAL
+#define PWM_max 1000 //1998   //2*P1TPERVAL
 //#define NB_IMP_TOUR_ROUE 14400//Nbimp*rapport_reduction=500*36/1.25
 
 extern int nb_IT_PWM;

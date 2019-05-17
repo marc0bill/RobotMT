@@ -56,8 +56,8 @@ void init_PWM1()
     
     
     //Registres de duty cycle
-    P1DC1 = P1TPERVAL/2; //20   //Rapport cyclique 1 initialisé à 50%
-    P1DC2 = P1TPERVAL/2; //20   //Rapport cyclique 2 initialisé à 50%
+    P1DC1 = P1TPERVAL*2; //1000   //Rapport cyclique 1 initialisé à 50%
+    P1DC2 = P1TPERVAL*2; //1000   //Rapport cyclique 2 initialisé à 50%
     
     //Ajoutons les interruptions du code précédent pour voir si on obtient au moins un signal en sortie
     IFS3bits.PWM1IF=0;
