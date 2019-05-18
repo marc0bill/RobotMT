@@ -15,7 +15,7 @@ void assign(char UxRx_string[UxRx_length]) {
 		Consigne.Vts_M1 = 0;
 		Consigne.Vts_M2 = 0;
 	elsif (strncmp(UxRx_string, "VtsM", 3) == 0) then 
-		Consigne.Flag = 1;
+		Consigne.Flag_Vt = 1;
 	assig_Vitesse();
 		
 
@@ -27,11 +27,11 @@ int assig_Vitesse(char UxRx_string[UxRx_length]) {
 	{
 		case 1:
 			Consigne.Vts_M1 = atof(UxRx_string);
-			Consigne.Flag = 2;
+			Consigne.Flag_Vt = 2;
 			break;
 		case 2;
-			Consigne.Vts_M1 = atof(UxRx_string);
-			Consigne.Flag = 0;
+			Consigne.Vts_M2 = atof(UxRx_string);
+			Consigne.Flag_Vt = 0;
 			break;
 
 	}
