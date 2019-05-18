@@ -83,7 +83,7 @@ def Detection():
     (boxes, scores, classes, num) = sess.run([detection_boxes, detection_scores, detection_classes, num_detections],feed_dict={image_tensor: frame_expanded})
 
    
-# On retourne les objets détectées et leurs scores associés
+# On retourne les objets détectés et leurs scores associés
     classes=np.squeeze(classes).astype(np.int32)
     scores=np.squeeze(scores)
     class_name=[]
