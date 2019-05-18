@@ -23,13 +23,15 @@ _FPOR(ALTI2C_ON)
 
 #include "main.h"
 #include "pwm.h"
+#include "Assign.h"
+#include "uart.h"
 
 int main(void) {
     
     //---Configuration des I/O--- Normalement inutile car géré dans init_PWM1
 //    TRISBbits.TRISB15 = 0;
 //    TRISBbits.TRISB13 = 0;
-    
+	Initialisation();  // on initialise la structure lié à l'uart
     init_PWM1();
     
     while (1)

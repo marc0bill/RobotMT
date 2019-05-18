@@ -74,17 +74,17 @@ void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void) {
 	int i = 0;
 	static int k = 0;
 
-	IFS0bits.U1RXIF = 0;	// acquittement interruption
-	UxRx_char = U1RXREG;    // get the data 
+	IFS0bits.U1RXIF = 0;	// On dit qu'on accepte de prendre des données en interruption
+	UxRx_char = U1RXREG;    // On prend un charactère de 8 bits issue de l'uart
 
 	switch (isspace(UxRx_char))
 	{
-	case 0:
-		UxRx_string[i] = UxRx_char;
+	case 0:  // Pas d'espace
+		UxRx_string[i] = UxRx_char;  // On ajoute un à un les charactères pour former un "mot" qui peut être une valeur
 		i++;
 		break;
-	default:
-		assign(UxRx_string);
+	default:  // un espace
+		assign(UxRx_string);  // Fin d'une suite de charactère donc on peut l'envoyer afin d'appliquer l'instruction
 		for (k = 0; k<UxRx_length; k++) UxRx_string[k] = 0; // nettoyage de la chaine de caractére
 		i = 0;
 		break;

@@ -15,13 +15,20 @@ projet:      	$URL: $
 #ifndef _ASSIGN_H_
 #define _ASSIGN_H_
 
-void assign(char UxRx_string[UxRx_length]);
 
-struct Vitesse;
+
+struct Vitesse;  // Structure contenant les vitesses reçu via UART a envoyé via PWM
 {
-		double Vts_M1;
-		double Vts_M2;
-		int Flag_Vt;
+		double Vts_M1;  // Vitesse MOTOR 1
+		double Vts_M2;  // Vitesse MOTOR 
+		int Flag_Vt;    // Flag permettant de distinguer les deux vitesses écrites après VTSM en UART
+		int Flag_Stop;
 };
+
+extern struct Vitesse Consigne;
+
+extern void assign(char UxRx_string[UxRx_length]);
+extern int assig_Vitesse(char UxRx_string[UxRx_length]);
+extern void Initialisation();
 
 #endif

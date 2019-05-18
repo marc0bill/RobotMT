@@ -21,6 +21,6 @@ projet:      	$URL: $
 
 
 extern void initUART1(unsigned long);
-void U1Tx_chaine(char string[UxTx_length]);
+extern void U1Tx_chaine(char string[UxTx_length]);
 
 #endif
