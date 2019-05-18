@@ -8,7 +8,7 @@
 
 void initUART1() {
 	// Configuration of UART 
-	U1BRG = ((FCY / baudrate) / 16) - 1;	// Initialization of baud rate, baudrate = 9600
+	U1BRG = ((FCY / 9600) / 16) - 1;	// Initialization of baud rate, baudrate = 9600
 	//UxMODE: UARTx Mode Register
 	U1MODEbits.UARTEN = 1; // UARTx is enabled, UARTx pins are controlled by UARTx as defined by 
 						   // the UEN <1:0> and UTXEN control bits
@@ -67,19 +67,51 @@ void initUART1() {
 	IEC0bits.U1TXIE	= 1;	// // Enable Transmisssion Interrupts 1
 }
 
+// routine d'interruption sur reception UART1
 void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void) {
+	static char UxRx_string[UxRx_length];
 	char UxRx_char;
+	int i = 0;
+	static int k = 0;
 
-	IFS0bits.U1RXIF = 0;	
-	UxRx_char = U1RXREG;
+	IFS0bits.U1RXIF = 0;	// acquittement interruption
+	UxRx_char = U1RXREG;    // get the data 
+
+	switch (isspace(UxRx_char))
+	{
+	case 0:
+		UxRx_string[i] = UxRx_char;
+		i++;
+		break;
+	default:
+		assign(UxRx_string);
+		for (k = 0; k<UxRx_length; k++) UxRx_string[k] = 0; // nettoyage de la chaine de caractére
+		i = 0;
+		break;
+	}
 }
+
+
+
+
+
+//routine d'interruption transmission UART1 
 void __attribute__((interrupt, no_auto_psv)) _U1TXInterrupt(void)
 {
+
+
 	IFS0bits.U1TXIF = 0;	// acquittement
 	U1TXREG = U1Tx_string[i]; // Transmit one character
 	U1Tx_chaine(U1TXREG);
 
+
+
 }
+
+
+
+
+
 
 void U1Tx_chaine(char string[UxTx_length]) //Envoie une chaine de caractère en UART (taille max = UxTx_length = 20 )
 {
