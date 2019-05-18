@@ -98,14 +98,8 @@ void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void) {
 //routine d'interruption transmission UART1 
 void __attribute__((interrupt, no_auto_psv)) _U1TXInterrupt(void)
 {
-
-
-	IFS0bits.U1TXIF = 0;	// acquittement
-	U1TXREG = U1Tx_string[i]; // Transmit one character
-	U1Tx_chaine(U1TXREG);
-
-
-
+	IEC0bits.U1TXIE = 0;	// // Disenable Transmisssion Interrupts 1
+	FlagUart.U1Tx = 1;		// Information envoye
 }
 
 
