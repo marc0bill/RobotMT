@@ -7,6 +7,8 @@ import tensorflow as tf
 import sys
 from utils import label_map_util
 
+
+#Fonction permetant de charger le modèle Tensorflow dans la mémoire
 def load_model():
 
     sys.path.append('..')
@@ -64,7 +66,7 @@ def load_model():
 
     return (category_index,image_tensor,detection_boxes,detection_scores,detection_classes,num_detections,sess)
 
-
+#Fonction permettant la detection d'image
 def Detection(category_index,image_tensor,detection_boxes,detection_scores,detection_classes,num_detections,sess):
 
 # Définir la résolution (plus elle sera petite, plus le programme sera rapide)
