@@ -9,13 +9,17 @@ from utils import label_map_util
 
 def load_model():
 
-	sys.path.append('..')
+    sys.path.append('..')
+    
+#Nom du dossier contenant le module de detection d'objet
 
-    MODEL_NAME = 'ssdlite_mobilenet_v2_coco_2018_05_09' #Nom du dossier contenant le module de detection d'objet
-
-    CWD_PATH = os.getcwd()		#Copie le chemin du dossier de travail
+    MODEL_NAME = 'ssdlite_mobilenet_v2_coco_2018_05_09' 
 
 # Chemin d'accès du graph de détection
+
+#Copie le chemin du dossier de travail
+    CWD_PATH = os.getcwd()	
+
     PATH_TO_CKPT = os.path.join(CWD_PATH,MODEL_NAME,'frozen_inference_graph.pb')  
 
 # Chemin d'accès des labels
@@ -58,10 +62,10 @@ def load_model():
     num_detections = detection_graph.get_tensor_by_name('num_detections:0')
 
 
-return (detection_boxes,detection_scores,detection_classes,num_detections,sess)
+    return (category_index,image_tensor,detection_boxes,detection_scores,detection_classes,num_detections,sess)
 
 
-def Detection(detection_boxes,detection_scores,detection_classes,num_detections,sess):
+def Detection(category_index,image_tensor,detection_boxes,detection_scores,detection_classes,num_detections,sess):
 
 # Définir la résolution (plus elle sera petite, plus le programme sera rapide)
     IM_WIDTH = 640
@@ -90,7 +94,7 @@ def Detection(detection_boxes,detection_scores,detection_classes,num_detections,
     scores=np.squeeze(scores)
     class_name=[]
     c=0
-    for i in range (0,NUM_CLASSES):
+    for i in range (0,90):
         if scores[i]==0:
             break
         class_name.append(category_index[classes[i]]['name'])
