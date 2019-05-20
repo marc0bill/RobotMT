@@ -31,6 +31,8 @@ int main(void) {
     //---Configuration des I/O--- Normalement inutile car géré dans init_PWM1
 //    TRISBbits.TRISB15 = 0;
 //    TRISBbits.TRISB13 = 0;
+    
+    initUART1()        // Initialisation des bits pour "allumer" la fonction uart
 	Initialisation();  // on initialise la structure lié à l'uart
     init_PWM1();
     

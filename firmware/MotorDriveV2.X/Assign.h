@@ -17,7 +17,7 @@ projet:      	$URL: $
 
 
 
-struct Vitesse;  // Structure contenant les vitesses reçu via UART a envoyé via PWM
+struct Vitesse  // Structure contenant les vitesses reçu via UART a envoyé via PWM
 {
 		double Vts_M1;  // Vitesse MOTOR 1
 		double Vts_M2;  // Vitesse MOTOR 

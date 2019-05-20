@@ -17,6 +17,6 @@ projet:      	$URL: $
 
 
 
-extern void transmit(void)
+extern void transmit(void);
 
 #endif

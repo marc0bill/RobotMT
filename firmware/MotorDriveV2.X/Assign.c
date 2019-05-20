@@ -5,7 +5,8 @@
 #include <ctype.h>
 #include <stdio.h>            /* for printf */ 
 #include <string.h>
-struct Vitesse Consigne
+#include <stdlib.h>
+
 
 
 void Initialisation() {   // Au démarrage on doit être dans ce cas-ci 
@@ -35,17 +36,17 @@ void assign(char UxRx_string[UxRx_length]) {  // Permet d'interpréter les ordres
 
 int assig_Vitesse(char UxRx_string[UxRx_length]) {
 
-	if (Flag_Stop == 1) {
+	if (Consigne.Flag_Stop == 1) {
 		Consigne.Vts_M1 = 0;  // Si nous sommes en Stop alors rien ne doit bouger
 		Consigne.Vts_M2 = 0;
 	}
 	else {                 // On est pas en stop donc on peut bouger
 
-		if (Consigne.Flag == 1) { // Ce qui suit VtsM est Vts_M1
+		if (Consigne.Flag_Vt == 1) { // Ce qui suit VtsM est Vts_M1
 			Consigne.Vts_M1 = atof(UxRx_string); // On transforme l'ASCII en float afin d'avoir une consigne
 			Consigne.Flag_Vt = 2;    // Permet d'attendre la valeur Vts_M2
 		}
-		else if (Consigne.Flag == 2) { // Ce qui suit Vts_M1 est Vts_M2
+		else if (Consigne.Flag_Vt == 2) { // Ce qui suit Vts_M1 est Vts_M2
 			Consigne.Vts_M2 = atof(UxRx_string); // On transforme l'ASCII en float afin d'avoir une consigne
 			Consigne.Flag_Vt = 0;   // C'est fini on se place dans l'état de base
 		}
