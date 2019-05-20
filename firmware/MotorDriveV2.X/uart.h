@@ -19,8 +19,21 @@ projet:      	$URL: $
 #define UxRx_length 8
 #define UxTx_length 20
 
+struct Struct_FlagUart{
+	int U2Tx;		// indique la fin de la transmission de U2Tx_string
+	int U1Tx;		// indique la fin de la transmission de U1Tx_string
+	int U2Tx_wait;	// demande un attente avant la transmission d'un nouveau char
+	int U1Tx_wait;	// demande un attente avant la transmission d'un nouveau char
+};
+
+extern struct Struct_FlagUart FlagUart;
+
 
 extern void initUART1(unsigned long);
 extern void U1Tx_chaine(char string[UxTx_length]);
+
+
+
+
 
 #endif

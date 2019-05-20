@@ -38,8 +38,8 @@ void initUART1() {
 							// 	0 = 1 Stop bit
 
 	// configure U1STA
-	U1STAbits.UTXISEL= 10;	// Interrupt Transmission mode :
-							// Interrupt generated when a character is transferred to the Transmit Shift register and the
+	U1STAbits.UTXISEL0 = 0;	// Interrupt Transmission mode :
+	U1STAbits.UTXISEL1 = 1;	// Interrupt generated when a character is transferred to the Transmit Shift register and the
 							// transmit buffer becomes empty
 	U1STAbits.UTXINV = 0;	// Transmit Polarity Inversion bit
 							// 0 = UxTX Idle state is ‘0’
@@ -106,14 +106,15 @@ void __attribute__((interrupt, no_auto_psv)) _U1TXInterrupt(void)
 
 
 
+//--Peut etre utile mais pas utilisé pour le moment
 
-void U1Tx_chaine(char string[UxTx_length]) //Envoie une chaine de caractère en UART (taille max = UxTx_length = 20 )
-{
-	FlagUart.U1Tx = 1;
-	if (FlagUart.U1Tx == 1) {
-		IEC0bits.U1TXIE = 1;
-		U1Tx_size = sprintf(U1Tx_string, string) + 1;
-		FlagUart.U1Tx = 0;
-	}
-
-}
+//void U1Tx_chaine(char string[UxTx_length]) //Envoie une chaine de caractère en UART (taille max = UxTx_length = 20 )
+//{
+//	FlagUart.U1Tx = 1;
+//	if (FlagUart.U1Tx == 1) {
+//		IEC0bits.U1TXIE = 1;
+//		U1Tx_size = sprintf(U1Tx_string, string) + 1;
+//		FlagUart.U1Tx = 0;
+//	}
+//
+//}
