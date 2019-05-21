@@ -16,7 +16,7 @@ for j in range (len(L)):
 	if L[j][0]=='laptop':
 		data='VtsM 50 50'
 		S.write(data.encode('ascii'))
-		receive=S.readline(len(data1))
+		receive=S.readline(len(data))
 		print(receive.decode("utf-8"))
 		sleep(1)
 		data='Stop'
