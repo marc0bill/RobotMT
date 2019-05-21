@@ -1,28 +1,36 @@
 import ReconnaissanceV2 as RV2
 import serial
+import UART
+import constantes
 from time import sleep
+
+NOMBRE_DE_PASSE = 10 #Nombre de consigne à envoyer
+
+objetSuivi = 'laptop'
 
 (category_index,image_tensor,detection_boxes,detection_scores,detection_classes,num_detections,sess)=RV2.load_model()
 
-L=RV2.Detection(category_index,image_tensor,detection_boxes,detection_scores,detection_classes,num_detections,sess)
-
-
-
 #Configuration du port série :
-S = serial.Serial("/dev/ttyS0",9600)
+S = serial.Serial("/dev/ttyS0",baudrate)
 
+while(NOMBRE_DE_PASSE < 10)
+	
+	#ObjetsReconnues est un tableau de liste formattées comme suit:
+	#ObjetsReconnues[i] = (nom, probabilité, y_min, x_min, y_max, x_max)
+	ObjetsReconnues=RV2.Detection(category_index,image_tensor,detection_boxes,detection_scores,detection_classes,num_detections,sess)
 
-for j in range (len(L)):
-	if L[j][0]=='laptop':
-		data='VtsM 50 50'
-		S.write(data.encode('ascii'))
-		receive=S.readline(len(data))
-		print(receive.decode("utf-8"))
-		sleep(1)
-		data='Stop'
-		S.write(data.encode('ascii'))
-		receive=S.readline(len(data))
-		print(receive.decode("utf-8"))
+	for j in range (len(ObjetsReconnues)):
+		if ObjetsReconnues[j][0]==objetSuivi:
+			data='VtsM 50 50'
+
+			UART.write(S, data)
+			print(UART.read(S))
+
+			sleep(2)
+			data='Stop'
+
+			UART.write(S, data)
+			print(UART.read(S))
 
 
 S.close()
