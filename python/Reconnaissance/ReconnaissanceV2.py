@@ -78,13 +78,10 @@ def Detection(category_index,image_tensor,detection_boxes,detection_scores,detec
     rawCapture = PiRGBArray(camera, size=(IM_WIDTH,IM_HEIGHT))		#Produit un tableau 3D à partir de la vidéo
     rawCapture.truncate(0)											#Remplie le tableau avec des zéros
 
+# Récupére une frame et change sa dimension de telle manière à avoir un tableau à une seule colonne, où chaque valeur représente un pixel
     camera.capture(rawCapture, format="bgr",use_video_port=True)
     frame = np.copy(rawCapture.array)
-
-
-# Récupére une frame et change sa dimension de telle manière à avoir un tableau à une seule colonne, où chaque valeur représente un pixel
     frame.setflags(write=1)
-#autorise l'écriture
     frame_expanded = np.expand_dims(frame, axis=0)
 
 # Réalise la détection avec en entrée l'image issue de la vidéo et stocke les résultats dans des tableaux
@@ -93,15 +90,20 @@ def Detection(category_index,image_tensor,detection_boxes,detection_scores,detec
    
 # On retourne les objets détectés et leurs scores associés
     classes=np.squeeze(classes).astype(np.int32)
-    scores=np.squeeze(scores)
-    class_name=[]
+    scores=np.squeeze(scores).tolist()
+    boxes=np.squeeze(boxes).tolist()
+    objets=[[],[],[],[]]
     c=0
-    for i in range (0,90):
+    for i in range (0,4):
         if scores[i]==0:
             break
-        class_name.append(category_index[classes[i]]['name'])
+        objets[i].append(category_index[classes[i]]['name'])
+        objets[i].append(scores[i])
+        objets[i].append(boxes[i][0])
+        objets[i].append(boxes[i][1])
+        objets[i].append(boxes[i][2])
+        objets[i].append(boxes[i][3])
         c+=1
  
     camera.close()
-
-    return (class_name,scores[0:c])
+    return (objets[0:c])
