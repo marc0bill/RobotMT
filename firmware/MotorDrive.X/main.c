@@ -100,7 +100,7 @@ int main(void) {
             ASSERV_DR,//Distance_Roue
             ASSERV_RR,//Rapport_Reduction
             ASSERV_NB_IMP);//Nb_imp
-    initUART1(9600);//9600:ok, 19200:NON, 14400:NON
+    initUART1(57600);//9600, 19200, 57600 // CONCERNE UART
     //initUART2(9600);
     //config_I2C();
 

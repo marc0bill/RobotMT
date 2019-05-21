@@ -59,11 +59,11 @@ void initUART1(unsigned long baudrate) {
 	#endif
 
 	// Configuration of UART 
-	U1BRG =  ((FCY/baudrate)/16)-1;	// Initialization of baud rate
+	U1BRG =  ((FCY/baudrate)/4)-1;	// Initialization of baud rate
+    U1MODEbits.BRGH = 1;	// Selection du mode High speed Baud Rate
 	// configure U1MODE
 	U1MODEbits.STSEL = 0;	// One Stop Bit
 	U1MODEbits.PDSEL = 0;	// 8bit, No Parity
-	U1MODEbits.BRGH = 0;	// 16 clocks per bit period
 	U1MODEbits.ABAUD = 0;	// No Autobaud (would require sending '55')
 	U1MODEbits.RTSMD = 0;	// Simplex Mode
 	U1MODEbits.LPBACK = 0;	// No Loop Back		//cleared by hardware upon completion
