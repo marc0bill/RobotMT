@@ -99,6 +99,7 @@ void __attribute__ ((interrupt, no_auto_psv)) _MPWM1Interrupt(void)
 	IFS3bits.PWM1IF=0;		// acquittement
 	static int passage=0;
 	static double alpha_M[2];
+    
 
 	if(passage==0)
 	{
@@ -109,13 +110,10 @@ void __attribute__ ((interrupt, no_auto_psv)) _MPWM1Interrupt(void)
 	{
 		passage=0;
         
-        Consigne.mode=3;
+        Consigne.mode=0;
         FlagMove.Start=1;
-        
-        Consigne.Vts_M1=100.;
-        Consigne.Vts_M2=200.0;
          
 		asservisement_roue(alpha_M);
 	}
-	
+
 }

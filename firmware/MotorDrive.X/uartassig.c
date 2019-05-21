@@ -539,41 +539,19 @@ int assig_Asserv(int idAc,char UxRx_string[UxRx_length])
 
 int assig_VtsM(int idAc,char UxRx_string[UxRx_length])
 {
-    //strcpy(UxRx_string,"012345\n");
-    U1Tx_chaine(UxRx_string); //Voyons si ce qu'on envoie est bien reçue par le PIC
-//    U1Tx_char(UxRx_string[0]);
-    //U1Tx_chaine("on test ici");
 	static int i=0;
     int j=0;
     char UxRx_string_Vts_M1[3];
     char UxRx_string_Vts_M2[3];
-    while (j < 3)
-    {
-        UxRx_string_Vts_M1[j] = UxRx_string[j];
-        j++;
-        //U1Tx_char(UxRx_string_Vts_M1[j]);
-    }
-    while (j < 6)
-    {
-        UxRx_string_Vts_M2[j-3] = UxRx_string[j];
-        j++;
 
-    }
-
-//    U1Tx_chaine("chaine1");
-//    U1Tx_chaine(UxRx_string_Vts_M1);
-//    U1Tx_chaine("\nchaine 2:");
-//    U1Tx_chaine(UxRx_string_Vts_M2);
     switch(i)
 	{
 		case 0:
-//			Consigne.Vts_M1=atof(UxRx_string);// Bizare, j'aurai mis atoi
-            Consigne.Vts_M1=100.0;
+			Consigne.Vts_M1=atof(UxRx_string);// Bizare, j'aurai mis atoi
 			i++;
 			break;
 		case 1:
-//			Consigne.Vts_M2=atof(UxRx_string);// Bizare, j'aurai mis atoi
-            Consigne.Vts_M2=200.0;
+			Consigne.Vts_M2=atof(UxRx_string);// Bizare, j'aurai mis atoi
 			idAc=0;
 			i=0;
 			break;
