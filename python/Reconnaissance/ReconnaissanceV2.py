@@ -90,15 +90,20 @@ def Detection(category_index,image_tensor,detection_boxes,detection_scores,detec
    
 # On retourne les objets détectés et leurs scores associés
     classes=np.squeeze(classes).astype(np.int32)
-    scores=np.squeeze(scores)
-    class_name=[]
+    scores=np.squeeze(scores).tolist()
+    boxes=np.squeeze(boxes).tolist()
+    objets=[[],[],[],[]]
     c=0
-    for i in range (0,90):
+    for i in range (0,4):
         if scores[i]==0:
             break
-        class_name.append(category_index[classes[i]]['name'])
+        objets[i].append(category_index[classes[i]]['name'])
+        objets[i].append(scores[i])
+        objets[i].append(boxes[i][0])
+        objets[i].append(boxes[i][1])
+        objets[i].append(boxes[i][2])
+        objets[i].append(boxes[i][3])
         c+=1
  
     camera.close()
-
-    return (class_name,scores[0:c])
+    return (objets[0:c])
