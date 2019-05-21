@@ -94,7 +94,6 @@ def suivre(ObjetSuivi, serial):
 		else
 			#on tourne vers la gauche (a verifier)
 			(vitesse_roue_droite, vitesse_roue_gauche) = (-vitesse_correction, vitesse_correction)
-			
 		ObjetSuivi = retrouverObjet(nomObjet);
 		centreObjet = calculer_erreur_X(ObjetSuivi)
 

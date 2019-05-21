@@ -13,7 +13,7 @@ objetSuivi = 'laptop'
 #Configuration du port série :
 S = serial.Serial("/dev/ttyS0",baudrate)
 
-while(NOMBRE_DE_PASSE < 10)
+for p in range(NOMBRE_DE_PASSE)
 	
 	#ObjetsReconnues est un tableau de liste formattées comme suit:
 	#ObjetsReconnues[i] = (nom, probabilité, y_min, x_min, y_max, x_max)
