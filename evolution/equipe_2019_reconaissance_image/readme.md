@@ -28,6 +28,7 @@ Les objectifs de notre projet sont les suivants:
 ###Bonus: Ecrire un programme d'asservissement des pinces placées à l'avant du robot
 
 ##Prise en main des outils
+
 Afin de remplir nos objectifs, nous devrons dans un premier temps prendre en main tous les outils dont nous aurons besoins.
 Cela comprend :
 	- Au niveau software:
@@ -38,5 +39,7 @@ Cela comprend :
 	- Au niveau hardware:
 		- Les circuits electriques de control et de puissance du robot
 		- La raspberry Pi
+
+Une documentation détail la prise en main de ces différents outils.
 
 
