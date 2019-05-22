@@ -6,15 +6,15 @@ import Asserv_V2
 import ObjetReconnu
 from time import sleep
 
-NOMBRE_DE_PASSE = 10 #Nombre de consigne à envoyer
+NOMBRE_DE_PASSE = 20 #Nombre de consigne à envoyer
 
-nomObjetASuivre = "person"
+nomObjetASuivre = "cup"
 nomObjetAFuir = "handbag"
 
 (category_index,image_tensor,detection_boxes,detection_scores,detection_classes,num_detections,sess)=RV2.load_model()
 
 #Configuration du port série :
-portSerie = serial.Serial("/dev/ttyS0",57600)
+portSerie = serial.Serial("/dev/ttyS0",constantes.BAUDRATE)
 
 for p in range(NOMBRE_DE_PASSE):
 
@@ -43,7 +43,8 @@ for p in range(NOMBRE_DE_PASSE):
                     position = Asserv_V2.positioner_robot(Objet_Tracke, ordre, portSerie)
            
             elif constantes.Mode == 1:
-                Asserv_V2.aligner_positionner_robot(Objet_Tracke, nomObjetASuivre, portSerie)                
+                Asserv_V2.aligner_positionner_robot(Objet_Tracke, nomObjetASuivre, portSerie)  
+        sleep(constantes.DELAIS_ACQUISITION)             
 
 
 portSerie.close()

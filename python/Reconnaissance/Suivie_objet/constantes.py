@@ -1,6 +1,7 @@
 import math
 #General
 DIAGONALE_ECRAN = math.sqrt(2) #Valeur normalisé de la diagonale de l'ecran
+DELAIS_ACQUISITION = 2 #Delais en seconde entre chaque traitement d'image
 
 #UART
 BAUDRATE = 57600

@@ -22,6 +22,7 @@ import serial
 # S.close()
 
 def write(portSerie, data):
+	#print("Envoie de ", data)
 	portSerie.write(data.encode('ascii'))
 
 def read(portSerie):
