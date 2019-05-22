@@ -21,11 +21,12 @@ import serial
 
 # S.close()
 
-def write(serial, data):
-	S.write(date.encode('ascii'))
+def write(portSerie, data):
+	print("Envoie de ", data)
+	portSerie.write(data.encode('ascii'))
 
-def read(serial):
-	receive = S.readline(20)
+def read(portSerie):
+	receive = portSerie.readline(20)
 	return receive.decode("utf-8")
 
 
