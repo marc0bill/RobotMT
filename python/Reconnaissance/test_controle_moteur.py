@@ -15,7 +15,7 @@ S = serial.Serial("/dev/ttyS0",baudrate)
 
 
 for j in range (len(L)):
-	if L[j][0]=='laptop':
+	if L[j][0]=="person":
 		data='VtsM 50 50'
 		S.write(data.encode('ascii'))
 		receive=S.readline(len(data))
