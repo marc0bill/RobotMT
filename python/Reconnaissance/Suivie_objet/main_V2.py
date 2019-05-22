@@ -44,7 +44,7 @@ for p in range(NOMBRE_DE_PASSE):
            
             elif constantes.Mode == 1:
                 Asserv_V2.aligner_positionner_robot(Objet_Tracke, nomObjetASuivre, portSerie)  
-        sleep(constantes.DELAIS_ACQUISITION)             
+    sleep(constantes.DELAIS_ACQUISITION)             
 
 
 portSerie.close()
