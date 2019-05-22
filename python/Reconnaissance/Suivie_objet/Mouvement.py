@@ -2,7 +2,7 @@ import constantes
 import serial
 
 def avancer(vitesse, portSerie):
-	#commande = "VtsM %f %f" % (vitesse, vitesse)
+	commande = "VtsM %f %f" % (vitesse, vitesse)
 	UART.write(portSerie, commande)
 	#On l'envoie plusieurs fois car nous avon quelques soucis avec le baudrate à ce stade
 	UART.write(portSerie, commande)

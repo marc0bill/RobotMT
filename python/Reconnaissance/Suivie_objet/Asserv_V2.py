@@ -1,7 +1,7 @@
 import ReconnaissanceV2 as RV2
 import serial
 import UART
-import constantes
+import constantes.py
 import ObjetReconnu
 from time import sleep
 
@@ -9,16 +9,16 @@ def aligner_robot(Objet_Tracke, portSerie):
 
 	if abs(Objet_Tracke.milieu_X) > TOLERANCE_ANGLE : #On s'aligne avec l'objet
 
-		vitesse_correction = KV*Objet_Tracke.milieu_X
+		vitesse_correction = KA*Objet_Tracke.milieu_X
 
-		if Objet_Tracke.milieu_X > TOLERANCE_ANGLE	:
+		if Objet_Tracke.milieu_X > 0 :
 			#on tourne vers la droite (a verifier)
 			#(vitesse_roue_droite, vitesse_roue_gauche) = (vitesse_correction, -vitesse_correction)
 			Mouvement.tourner_sur_place(vitesse_correction, "droite")
 		else:
 			#on tourne vers la gauche (a verifier)
 			#(vitesse_roue_droite, vitesse_roue_gauche) = (-vitesse_correction, vitesse_correction)
-			Mouvement.tourner_sur_place(vitesse_correction, "droite")
+			Mouvement.tourner_sur_place(vitesse_correction, "gauche")
 		sleep(DELAIS_ALIGNEMENT) #On laisse le temps au robot de tourner
 		return 0 #le robot n'etait pas aligné à l'appel de la fonction, il a été corrigé depuis mais on ne sait pas encore si cela est suffisant
 	else:
