@@ -1,4 +1,5 @@
 import constantes
+import math
 
 class ObjetReconnu:
 
@@ -15,5 +16,5 @@ class ObjetReconnu:
 		self.milieu_X = (self.xmax+self.xmin)/2.0
 		self.taille_X = abs(self.xmax-self.xmin)
 		self.taille_Y = abs(self.ymax-self.ymin)
-		self.diagonale = SRQT(self.taille_X**2 + self.taille_Y**2)
-		self.ratio = self.diagonale/DIAGONALE_ECRAN
+		self.diagonale = math.sqrt(self.taille_X**2 + self.taille_Y**2)
+		self.ratio = self.diagonale/constantes.DIAGONALE_ECRAN
