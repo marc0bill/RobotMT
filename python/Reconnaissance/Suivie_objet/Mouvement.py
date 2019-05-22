@@ -20,7 +20,7 @@ def tourner_sur_place(vitesse, direction, portSerie):
 	if direction == "droite":
 		commande = "VtsM %f -%f" % (vitesse, vitesse)
 	elif direction == "gauche":
-		commande = "VtsM -%f +%f" % (vitesse, vitesse)
+		commande = "VtsM -%f %f" % (vitesse, vitesse)
 	else:
 		print("Erreur : direction incorrecte") #normalement on passe jamais par là
     UART.write(portSerie, commande)
