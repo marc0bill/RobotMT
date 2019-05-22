@@ -36,7 +36,7 @@ def positioner_robot(Objet_Tracke, ordre, portSerie):
 	else:
 		print("En fuite")
 		consigne = constantes.DISTANCE_FUITE
-		delta_D = Objet_Tracke.ratio - consigne
+	delta_D = Objet_Tracke.ratio - consigne
 
 	#On compare la taille de l'objet par rapport à la taille
 	#de l'ecran afin de savoir si le robot doit avance ou reculer
