@@ -30,8 +30,7 @@ for p in range(NOMBRE_DE_PASSE):
 				Liste_Objets_Reconnues[j][2],
 				Liste_Objets_Reconnues[j][3],
 				Liste_Objets_Reconnues[j][4],
-				Liste_Objets_Reconnues[j][5],
-				Liste_Objets_Reconnues[j][6]
+				Liste_Objets_Reconnues[j][5]
 				)
 			alignement = Asserv_V2.aligner_robot(Objet_Tracke, portSerie)
 			if alignement == 1: #Si le robot est correctement aligné, on corrige sa position

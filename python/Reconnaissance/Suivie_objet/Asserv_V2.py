@@ -1,7 +1,7 @@
 import ReconnaissanceV2 as RV2
 import serial
 import UART
-import constantes.py
+import constantes
 import ObjetReconnu
 from time import sleep
 

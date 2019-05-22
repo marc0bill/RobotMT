@@ -14,3 +14,6 @@ DELAIS_ALIGNEMENT = 5 #Delais en seconde laissé au robot pour corriger son alig
 DELAIS_POSITIONNEMENT = 1 #Delais en seconde laissé au robot pour corriger sa position
 DISTANCE_SUIVIE = 0.3 #consigne de ratio de taille que l'objet doit occuper sur l'ecran pour être considéré à bonne distance lors d'une poursuite
 DISTANCE_FUITE = 0.1#consigne de ratio de taille que l'objet doit occuper sur l'ecran pour être considéré à bonne distance lors d'une fuite
+
+#Mode de déplacement
+Mode = 0 #Mettre 0 si on souhaite avancer et se positionner en 2 temps. Mettre 1 si si on souhaite avancer et se positionner en même temps
