@@ -49,9 +49,8 @@ def positioner_robot(Objet_Tracke, ordre, portSerie):
 			Mouvement.avancer(vitesse_correction, portSerie)
 		else:
 			Mouvement.reculer(vitesse_correction, portSerie)
-		return 0
-
 		sleep(constantes.DELAIS_POSITIONNEMENT)
+		return 0
 	else:
 		("Robot positionne")
 		return 1
