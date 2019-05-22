@@ -39,7 +39,7 @@ for p in range(NOMBRE_DE_PASSE):
 					else : #si ce n'est pas l'objet à suivre, c'est l'objet à suivre au vu d'un if precedent
 						ordre = "fuir"
 					position = Asserv_V2.positioner_robot(Objet_Tracke, ordre, portSerie)
-           
+
 			elif constantes.Mode == 1:
 				Asserv_V2.aligner_positionner_robot(Objet_Tracke, nomObjetASuivre, portSerie)  
 	sleep(constantes.DELAIS_ACQUISITION)             
