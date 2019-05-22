@@ -19,7 +19,7 @@ for j in range (len(L)):
 		data='VtsM 50 50'
 		S.write(data.encode('ascii'))
 		receive=S.readline(len(data))
-		print(receive.decode("utf-8"))
+		sys.print(receive.decode("utf-8"))
 		sleep(1)
 		data='Stop'
 		S.write(data.encode('ascii'))
