@@ -2,6 +2,7 @@ import ReconnaissanceV2 as RV2
 import serial
 import UART
 import constantes
+import Asserv_V2
 import ObjetReconnu
 from time import sleep
 
@@ -32,16 +33,17 @@ for p in range(NOMBRE_DE_PASSE):
 				Liste_Objets_Reconnues[j][4],
 				Liste_Objets_Reconnues[j][5]
 				)
-            if constantes.Mode == 0:
-    			alignement = Asserv_V2.aligner_robot(Objet_Tracke, portSerie)
-    			if alignement == 1: #Si le robot est correctement aligné, on corrige sa position
-    				if Objet_Tracke.nom == nomObjetASuivre :
-    					ordre = "suivre"
-    				else : #si ce n'est pas l'objet à suivre, c'est l'objet à suivre au vu d'un if precedent
-    					ordre = "fuir"
-    				position = Asserv_V2.positioner_robot(Objet_Tracke, ordre, portSerie)
+            #if constantes.Mode == 0:
+			alignement = Asserv_V2.aligner_robot(Objet_Tracke, portSerie)
+			if alignement == 1: #Si le robot est correctement aligné, on corrige sa position
+				if Objet_Tracke.nom == nomObjetASuivre :
+					ordre = "suivre"
+				else : #si ce n'est pas l'objet à suivre, c'est l'objet à suivre au vu d'un if precedent
+					ordre = "fuir"
+				position = Asserv_V2.positioner_robot(Objet_Tracke, ordre, portSerie)
            
-            else if constantes.Mode == 1:
+            #elif constantes.Mode == 1:
+                
 
 
 portSerie.close()
