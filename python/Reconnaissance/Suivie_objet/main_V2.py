@@ -40,15 +40,9 @@ for p in range(NOMBRE_DE_PASSE):
 						ordre = "fuir"
 					position = Asserv_V2.positioner_robot(Objet_Tracke, ordre, portSerie)
            
-<<<<<<< HEAD
-            elif constantes.Mode == 1:
-                Asserv_V2.aligner_positionner_robot(Objet_Tracke, nomObjetASuivre, portSerie)  
-    sleep(constantes.DELAIS_ACQUISITION)             
-=======
 			elif constantes.Mode == 1:
 				Asserv_V2.aligner_positionner_robot(Objet_Tracke, nomObjetASuivre, portSerie)  
 	sleep(constantes.DELAIS_ACQUISITION)             
->>>>>>> 75676c7842a47a5b2b975d939a12fb305611edb1
 
 
 portSerie.close()
