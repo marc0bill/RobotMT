@@ -30,16 +30,16 @@ def tourner_sur_place(vitesse, direction, portSerie):
     UART.write(portSerie, commande)
     UART.write(portSerie, commande)
 
-"""
+
 def tourner_et_avancer(vitesse_alignement,vitesse_position, direction, portSerie):
 
-	if direction == "droite":
-		commande = "VtsM %f %f" % (vitesse_position + vitesse_alignement, vitesse_position - vitesse_alignement)    
-	elif direction == "gauche":
+    if direction == "droite":
+        commande = "VtsM %f %f" % (vitesse_position + vitesse_alignement, vitesse_position - vitesse_alignement)    
+    elif direction == "gauche":
         commande = "VtsM %f %f" % (vitesse_position - vitesse_alignement, vitesse_position + vitesse_alignement)  
     else:
-		print("Erreur : direction incorrecte") #normalement on passe jamais par là
+        print("Erreur : direction incorrecte") #normalement on passe jamais par là
     UART.write(portSerie, commande)
 	#On l'envoie plusieurs fois car nous avon quelques soucis avec le baudrate à ce stade
-	UART.write(portSerie, commande)
-	UART.write(portSerie, commande)"""
+    UART.write(portSerie, commande)
+    UART.write(portSerie, commande)
