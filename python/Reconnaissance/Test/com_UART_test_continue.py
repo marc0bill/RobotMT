@@ -20,17 +20,12 @@ L=RV2.Detection(category_index,image_tensor,detection_boxes,detection_scores,det
 
 for j in range (len(L)):
 	if L[j][0]==objetTracke:
-		for k in range NOMBRE_DE_PASSE:
+		while 1:
 			data="VtsM %f %f" (vitesse, vitesse)
 			print("Envoie de la commande : ", data)
 			S.write(data.encode('ascii'))
 			#receive=S.readline(len(data))
 			#print(receive.decode("utf-8"))
 			sleep(1)
-		data="VtsM 0 0"
-		print("Envoie de la commande : ", data)
-		S.write(data.encode('ascii'))
-		#receive=S.readline(len(data))
-		#print(receive.decode("utf-8"))
 
 S.close()
