@@ -49,15 +49,21 @@ def positioner_robot(Objet_Tracke, ordre, portSerie):
 		sleep(constantes.DELAIS_POSITIONNEMENT)
 
 
-"""def aligner_positionner_robot(Objet_Tracke, portSerie):
+def aligner_positionner_robot(Objet_Tracke, nomObjetASuivre, portSerie):
     
-        tourner = ""
-        
+       
         if Objet_Tracke.nom == nomObjetASuivre :
             ordre = "suivre"
         else : #si ce n'est pas l'objet à suivre, c'est l'objet à suivre au vu d'un if precedent
             ordre = "fuir"
             
+        if ordre == "suivre":
+            consigne = constantes.DISTANCE_SUIVIE
+        else:
+            consigne = constantes.DISTANCE_FUITE
+
+        delta_D = Objet_Tracke.ratio - consigne 
+        
         if abs(Objet_Tracke.milieu_X) > constantes.TOLERANCE_ANGLE : #On s'aligne avec l'objet
 
             vitesse_alignement = constantes.KA*Objet_Tracke.milieu_X
@@ -65,11 +71,11 @@ def positioner_robot(Objet_Tracke, ordre, portSerie):
             if Objet_Tracke.milieu_X > 0 :
 			#on tourne vers la droite (a verifier)
 			#(vitesse_roue_droite, vitesse_roue_gauche) = (vitesse_correction, -vitesse_correction)
-                tourner = "droite"
+                direction = "droite"
             else:
 			#on tourne vers la gauche (a verifier)
 			#(vitesse_roue_droite, vitesse_roue_gauche) = (-vitesse_correction, vitesse_correction)
-                tourner = "gauche"
+                direction = "gauche"
             
 
     	#On compare la taille de l'objet par rapport à la taille
@@ -81,7 +87,8 @@ def positioner_robot(Objet_Tracke, ordre, portSerie):
 
             if delta_D < 0: #le robot est trop loin
                 Mouvement.tourner_et_avancer(vitesse_alignement, vitesse_position, direction, portSerie)
-                Mouvement.reculer(vitesse_correction, portSerie)"""
+            else:
+                Mouvement.reculer(vitesse_position, portSerie)
 
     
     
