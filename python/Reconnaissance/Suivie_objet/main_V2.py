@@ -29,6 +29,7 @@ for p in range(NOMBRE_DE_PASSE):
 
 	for j in range(len(Liste_Objets_Reconnues)): #on scan tous les objets reconnues
 		if Liste_Objets_Reconnues[j][0] == nomObjetASuivre or Liste_Objets_Reconnues[j][0] == nomObjetAFuir :
+			print(Liste_Objets_Reconnues[j][0])
 			#On crée un objet à partir de la liste recupérée de tensorflow
 			Objet_Tracke = ObjetReconnu.ObjetReconnu(Liste_Objets_Reconnues[j][0], Liste_Objets_Reconnues[j][1], Liste_Objets_Reconnues[j][2], Liste_Objets_Reconnues[j][3], Liste_Objets_Reconnues[j][4], Liste_Objets_Reconnues[j][5])
 			if constantes.Mode == 0 :
