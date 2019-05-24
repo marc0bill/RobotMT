@@ -26,7 +26,7 @@ omxplayer video_01.h264
 Ce test est concluant. Néanmoins nous remarquons qu'à la lecture de la video, celle-ci est accélérée deux fois (en enregistrement de 10s est lue en 20s). Ce problème peut-être soit du à l'enregistrement soit à la lecture. Néanmoins pour l'utilisation que nous comptons en faire, cela ne pose pas de réel problème. Nous reviendront dessus en cas de problème de traitement vidéo ou si nous avons le temps.
 
 La prochaine étape sera de récupérer ce flux vidéo dans un script python afin de pouvoir l'echantilloner et le traiter.
-Pour cela nous auront besoins de plusieurs librairies.
+Pour cela nous auront besoins de plusieurs librairies. En particulier la librairie tensorflow qui est l'algorithme de reconnaissance d'image (dévellopé par Google) que nous utiliserons. Cette algorithme s'appuie sur un réseau de neurones au préalablement entrainé. Le fonctionnement de l'algorithme est détaillé dans la documentation correspondante.
 
 Pour réaliser la suite des objectifs de la raspberry pi nous nous sommes inspirés d'un projet déjà existant sur github: https://github.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi
 
@@ -82,3 +82,18 @@ tar -xzvf ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
 wget https://raw.githubusercontent.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi/master/Object_detection_picamera.py
 
 ```
+
+Nous téléchargeons ensuite un scripts python appliquant l'algorithme tensorflow aux flux vidéo de la camera et nous renvoyant un flux vidéo traité. 
+
+```
+wget https://raw.githubusercontent.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi/master/Object_detection_picamera.py
+```
+Comme nous pouvons le voir les objets reconnus sont encadrés d'une boit comportant le nom de l'objet reconnue ainsi que la probabilité que la reconnaissance soit correcte (ou le degré de certitude de l'algorithme dans ce cas précis).
+
+<p align="center">
+  <img src="doc/Picamera_livingroom.png">
+</p>
+
+La reconnaissance d'image fonctionne alors correctement.
+
+Dans notre documentation tensorflow, nous expliquonns comment nous avons repris ce scripts afin de pouvoir utilisé et formatter les résulats de la reconnaissance d'image dans le but d'être utilisés par le programme d'asservissement.
