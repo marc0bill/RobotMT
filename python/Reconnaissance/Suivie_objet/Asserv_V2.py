@@ -8,8 +8,6 @@ from time import sleep
 
 def aligner_robot(Objet_Tracke, portSerie):
 
-
-
 	if abs(Objet_Tracke.milieu_X) > constantes.TOLERANCE_ANGLE : #On s'aligne avec l'objet
 		print("Correction de l'alignement")
 		vitesse_correction = constantes.KA*Objet_Tracke.milieu_X
