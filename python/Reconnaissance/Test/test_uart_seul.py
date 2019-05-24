@@ -10,18 +10,17 @@ print("Configuration du port serie...")
 S = serial.Serial("/dev/ttyS0",baudrate)
 
 
-for j in range (len(L)):
-	for k in range NOMBRE_DE_PASSE:
-		data="VtsM %f %f" (vitesse, vitesse)
-		print("Envoie de la commande : ", data)
-		S.write(data.encode('ascii'))
-		#receive=S.readline(len(data))
-		#print(receive.decode("utf-8"))
-		sleep(1)
-	data="VtsM 0 0"
+for k in range(NOMBRE_DE_PASSE):
+	data="VtsM %f %f" (vitesse, vitesse)
 	print("Envoie de la commande : ", data)
 	S.write(data.encode('ascii'))
 	#receive=S.readline(len(data))
 	#print(receive.decode("utf-8"))
+	sleep(1)
+data="VtsM 0 0"
+print("Envoie de la commande : ", data)
+S.write(data.encode('ascii'))
+#receive=S.readline(len(data))
+#print(receive.decode("utf-8"))
 
 S.close()
