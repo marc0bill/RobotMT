@@ -28,6 +28,8 @@ Ce test est concluant. Néanmoins nous remarquons qu'à la lecture de la video, 
 La prochaine étape sera de récupérer ce flux vidéo dans un script python afin de pouvoir l'echantilloner et le traiter.
 Pour cela nous auront besoins de plusieurs librairies. En particulier la librairie tensorflow qui est l'algorithme de reconnaissance d'image (dévellopé par Google) que nous utiliserons. Cette algorithme s'appuie sur un réseau de neurones au préalablement entrainé. Le fonctionnement de l'algorithme est détaillé dans la documentation correspondante.
 
+## Traitement du flux vidéo
+
 Pour réaliser la suite des objectifs de la raspberry pi nous nous sommes inspirés d'un projet déjà existant sur github: https://github.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi
 
 Nous avons donc installer l'ensemble des librairies nécessaire à l'aide des commandes suivante. Chacune de ces commandes sont détaillées sur le projet original cité ci-dessus. Nous nous contenterons uniquement de les lister ici.
