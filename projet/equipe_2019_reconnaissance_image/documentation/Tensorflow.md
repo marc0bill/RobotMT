@@ -20,8 +20,9 @@ https://github.com/tensorflow/models
 Pour l'algorithme on a utilisé un script python existant sur internet et nous y avons apporté les modifications nécessaires.
 La reconnaissance d'image se fait en utilisant un modèles pré-entraîné MobileNet couplé avec SSD (Single-Shot multibox Detector), implémentés dans Tensorflow. Pour le projet nous avons utilisé le modèle :
 
+```
 ssdlite_mobilenet_v2_coco_2018_05_09
-
+``` 
 MobileNet est une classe de modèles. Les MobileNets sont basées sur une architecture qui utilise des réseaux de neurones convolutionnels efficaces pour les applications de vision mobile et intégrée.
 
 ### Réseau de neurones convolutifs (CNN)
