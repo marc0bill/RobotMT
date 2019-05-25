@@ -1,3 +1,6 @@
+# Tout les fichiers ////////////////////////////////////////////Jeremy ?
+- Remettres touts les chemins des images depuis la reorganisation des fichiers
+
 # Raspberry.ms
 ## Traitement du flux vidéo //////////////////////////////////Nathan ?
 - Ajouter une images montrant les images traités avec les boxes, ect... à la place prévue

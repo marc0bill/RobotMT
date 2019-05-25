@@ -34,7 +34,9 @@ Les objectifs de notre projet sont les suivants:
 
 - Bonus: Ecrire un programme d'asservissement des pinces placées à l'avant du robot
 
-///////////////////Insérer un schema fonctionnel
+<p align="center">
+  <img src="..\ressources\Presentation\images\schema_projet.png">
+</p> 
 
 ## Prise en main des outils
 
