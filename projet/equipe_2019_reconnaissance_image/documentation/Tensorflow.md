@@ -14,16 +14,15 @@ https://github.com/tensorflow/models
 
 
 
-## L'algorithme de reconnaissance
+## Le modèle MobileNetV2 + SSDLite
 
-
-Pour l'algorithme on a utilisé un script python existant sur internet et nous y avons apporté les modifications nécessaires.
-La reconnaissance d'image se fait en utilisant un modèles pré-entraîné MobileNet couplé avec SSD (Single-Shot multibox Detector), implémentés dans Tensorflow. Pour le projet nous avons utilisé le modèle :
+La reconnaissance d'image se fait en utilisant un modèle pré-entraîné MobileNet couplé avec SSD (Single-Shot multibox Detector), implémentés dans Tensorflow. Pour le projet nous avons utilisé le modèle :
 
 ```
 ssdlite_mobilenet_v2_coco_2018_05_09
 ``` 
-MobileNet est une classe de modèles. Les MobileNets sont basées sur une architecture qui utilise des réseaux de neurones convolutionnels efficaces pour les applications de vision mobile et intégrée.
+
+MobileNet est une classe de modèles. Les MobileNets sont basées sur une architecture qui utilise des réseaux de neurones convolutionnels. Ici on a pris un modèle SSDlite car c'est la version plus rapide. 
 
 ### Réseau de neurones convolutifs (CNN)
 C'est un système composé de neurones, généralement répartis en plusieurs couches connectées entre elles :
@@ -45,4 +44,14 @@ Elle désigne la fonction réelle non-linéaire définie par ReLU = max(0,x). El
 C'est la dernière couche du réseau de neurones. Elle prend en entrée notre image complètement modifiée par les convolutions et d'autres opérations et renvoie la prédiction, par exemple si l'image est plus un chien ou un chat. Pour calculer la probabilité, la couche multiplie le vecteur en entrée par la matrice contenant les poids. 
 
 Remarque : les features et les valeurs des poids ne sont pas pré-définies mais apprises par le réseau lors de la phase d'entraînement.
+
+
+## L'algorithme de reconnaissance d'image
+
+Pour l'algorithme on a utilisé un script python existant sur internet et nous y avons apporté les modifications nécessaires.
+Avec le modèle chargé, le robot est capable de détecter des objets appartenant à 90 classes différentes ainsi que la classe "aucun objet détecté". 
+On réalise la détection avec en entrée une image (une frame) issues du flux vidéo et en sortie on récupère les boxes, les classes et les scores associés dans un tableau.
+
+Chaque boxe représente une partie de l'image où un objet à été détecté. Les classes renvoie la nature de l'objet et les scores représente le niveau de confiance de la classe associée à l'objet détecté.
+
 
