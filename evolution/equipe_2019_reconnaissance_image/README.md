@@ -8,6 +8,13 @@ L'algorithme de reconnaissance d'image sera réalisé à l'aide d'un réeau de n
 Le RobotMT est en cours de devellopement mais déjà fonctionnel.
 Les moteurs des roues sont contrôlés par un microcontroleur dsPIC33JF128MC804. Le firmware est alors écrit en C. Tout les fichiers firmware (.C et .h) sont compris dans le dossier :"RobotMT\firmware\MotorDrive.X"
 
+Sur la carte du dsPIC et ajouté un shield comportant l'elctronique de puissance nécessaire au contrôle moteur (nottament le pont en H).
+Sur ce shield est encore rajouté une carte PCB permettant un accès facile aux pins d'alimentation et de communication du dsPIC.
+
+<p align="center">
+  <img src="..\..\Trucs_utiles\Presentation\images\PHOOOOTOOOOO.png"> /////Ajouter des images du robot
+</p> 
+
 Le robot disposes de plusieurs fonctionnalités qui peuvent lui être commandé par liaison UART. Un détail des commandes UART est disponible ici : RobotMT\firmware\DocUart.pdf
 
 Celle que nous utiliserons principalement pour notre projet sera la suivante : "VtsM vitesseRoue1 vitesseRoue2"
