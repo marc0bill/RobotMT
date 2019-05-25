@@ -18,7 +18,7 @@
 ## Objectifs du projet //Donovan
 - Faire et inserer un schema bloc fonctionnel 
 
-## Etat du RobotMT lors du début du projet
+## Etat du RobotMT lors du début du projet ////Jeremy ?
 - Ajouter DES photos des différentes cartes et de l'interieur du robot en général
 
 # Tensorflow.md ////////Nathan et Amel
