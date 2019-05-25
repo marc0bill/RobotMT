@@ -42,14 +42,14 @@ Les objectifs de notre projet sont les suivants:
 
 Afin de remplir nos objectifs, nous devrons dans un premier temps prendre en main tous les outils dont nous aurons besoins.
 Cela comprend :
-	- Au niveau software:
-		- Le firmware de control moteur et de communication UART du robot
-		- Le fonctionnement des réseaux de neurones.
-		- Les algorithmes de reconnaissance d'image, en particulier celui que nous utiliserons : tensorflow (developpé par Google)
-		- Git et GitHub afin de pouvoir travailler efficacement en groupe sur un même projet
-	- Au niveau hardware:
-		- Les circuits electriques de control et de puissance du robot
-		- La raspberry Pi
+- Au niveau software:
+	- Le firmware de control moteur et de communication UART du robot
+	- Le fonctionnement des réseaux de neurones.
+	- Les algorithmes de reconnaissance d'image, en particulier celui que nous utiliserons : tensorflow (developpé par Google)
+	- Git et GitHub afin de pouvoir travailler efficacement en groupe sur un même projet
+- Au niveau hardware:
+	- Les circuits electriques de control et de puissance du robot
+	- La raspberry Pi
 
 Une documentation détail la prise en main de ces différents outils.
 
