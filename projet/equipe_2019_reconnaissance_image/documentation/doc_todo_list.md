@@ -1,3 +1,5 @@
+/---------------------------------A FAIRE-----------------------------------/
+
 # Tout les fichiers ////////////////////////////////////////////Jeremy ?
 - Remettres touts les chemins des images depuis la reorganisation des fichiers
 
@@ -17,10 +19,6 @@
 - Inserer une image du câble USB eventré
 - Inserer une capture termite de la com rasp-pc
 
-# RAEDME.md
-## Objectifs du projet ///////////////////////////////////////Donovan
-- Faire et inserer un schema bloc fonctionnel 
-
 ## Etat du RobotMT lors du début du projet 	//////////////////////Jeremy ?
 - Ajouter DES photos des différentes cartes et de l'interieur du robot en général
 
@@ -28,5 +26,20 @@
 
 # ControlMoteur.md //////////////////////////////////////////// Pierre et Donovan
 
-# Asservissement /////////////////////////////////////////////Jeremy, Pierre, Donovan
+# Asservissement.md /////////////////////////////////////////////Jeremy, Pierre, Donovan
+- Mettre en forme
+
+
+/---------------------------------FAIT---------------------------------------/
+
+# RAEDME.md
+## Objectifs du projet ///////////////////////////////////////Donovan
+- Faire et inserer un schema bloc fonctionnel 
+
+
+
+
+
+
+
 

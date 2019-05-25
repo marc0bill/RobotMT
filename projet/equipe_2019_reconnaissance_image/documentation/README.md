@@ -32,7 +32,7 @@ Les objectifs de notre projet sont les suivants:
 
 - Realiser une communication fonctionnelle entre la Raspberry Pi et le microcontroleur dsPIC
 
-- Bonus: Ecrire un programme d'asservissement des pinces placées à l'avant du robot
+Le microcontroleur dsPIC se chargera ensuite de piloter les roues du moteurs en fonction des commande reçue et à l'aide d'une électronique de puissance. Nous pouvons donc résumer le flow de données de notre projet comme suit:
 
 <p align="center">
   <img src="..\ressources\Presentation\images\schema_projet.png">
