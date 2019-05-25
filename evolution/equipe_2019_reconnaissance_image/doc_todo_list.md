@@ -18,3 +18,9 @@
 ## Objectifs du projet //Donovan
 - Faire et inserer un schema bloc fonctionnel 
 
+# Tensorflow.md ////////Nathan et Amel
+
+# ControlMoteur.md ////////// Pierre et Donovan
+
+# Asservissement /////Jeremy, Pierre, Donovan
+
