@@ -16,7 +16,8 @@ https://github.com/tensorflow/models
 
 ## Le modèle MobileNetV2 + SSDLite
 
-La reconnaissance d'image se fait en utilisant un modèle pré-entraîné MobileNet couplé avec SSD (Single-Shot multibox Detector), implémentés dans Tensorflow. Pour le projet nous avons utilisé le modèle :
+La reconnaissance d'image se fait en utilisant un modèle pré-entraîné MobileNet couplé avec SSD (Single-Shot multibox Detector), implémentés dans Tensorflow. 
+Pour le projet nous avons utilisé le modèle :
 
 ```
 ssdlite_mobilenet_v2_coco_2018_05_09
@@ -54,4 +55,31 @@ On réalise la détection avec en entrée une image (une frame) issues du flux v
 
 Chaque boxe représente une partie de l'image où un objet à été détecté. Les classes renvoie la nature de l'objet et les scores représente le niveau de confiance de la classe associée à l'objet détecté.
 
+Nous avons rajouter ce bout de code au script initial afin de retourner une liste de liste contenant, pour chaque objet détecté sur l'image : la classe, le score ainsi que les dimension de la boxe Ymax, Xmax, Ymin, Xmin
+On se limite ici au quatre premiers objets détectés sur l'image.
 
+```
+  classes=np.squeeze(classes).astype(np.int32)
+    scores=np.squeeze(scores).tolist()
+    boxes=np.squeeze(boxes).tolist()
+    objets=[[],[],[],[]]
+    c=0
+    for i in range (0,4):
+        if scores[i]==0:
+            break
+        objets[i].append(category_index[classes[i]]['name'])
+        objets[i].append(scores[i])
+        objets[i].append(boxes[i][0])
+        objets[i].append(boxes[i][1])
+        objets[i].append(boxes[i][2])
+        objets[i].append(boxes[i][3])
+        c+=1
+ 
+    camera.close()
+    return (objets[0:c])
+```
+Le but de ce bout de code est de retourner les valeurs dans un certains ordre afin qu'elles puissent être récupérée pour le contrôle moteur.
+
+## Axes d'amélioration
+
+Il est possible de créer son propre modèle et de l'entraîner mais cela demande beaucoup de ressources en image (au moins une centaines d'image pour un objet), de temps et c'est une démarche très fastidieuse.
