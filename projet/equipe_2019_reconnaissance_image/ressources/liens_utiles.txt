@@ -1,0 +1,8 @@
+Tensorflow : http://eric.univ-lyon2.fr/~ricco/tanagra/fichiers/fr_Tanagra_Tensorflow_Keras_Python.pdf
+
+Motion (utilisation du flux vidéo) : https://www.instructables.com/id/Raspberry-Pi-remote-webcam/
+
+UART raspberry : https://electrosome.com/uart-raspberry-pi-python/
+		https://doc.ubuntu-fr.org/minicom
+
+Tuto reconaissance image raspi : https://github.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi?fbclid=IwAR0ed39jrpnRv1qyIxQ4mTzQFCXkTUHqO7CfurdJQQKz6LMln7EJcJJ_sTw
