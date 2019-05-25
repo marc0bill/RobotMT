@@ -19,13 +19,15 @@ Nous disposons également d'une Raspberry Pi 3 à laquelle est attaché un ecran
 
 Les objectifs de notre projet sont les suivants:
 
-### Implementer un algorithme de reconnaissance de certains objets à partir de la camera à l'aide de la Raspberry Pi
+- Implementer un algorithme de reconnaissance de certains objets à partir de la camera à l'aide de la Raspberry Pi
 
-### Ecrire un programme d'asservissement des roues du robot en fonction des objets reconnus
+- Ecrire un programme d'asservissement des roues du robot en fonction des objets reconnus
 
-### Realiser une communication fonctionnelle entre la Raspberry Pi et le microcontroleur dsPIC
+- Realiser une communication fonctionnelle entre la Raspberry Pi et le microcontroleur dsPIC
 
-### Bonus: Ecrire un programme d'asservissement des pinces placées à l'avant du robot
+- Bonus: Ecrire un programme d'asservissement des pinces placées à l'avant du robot
+
+///////////////////Insérer un schema fonctionnel
 
 ## Prise en main des outils
 

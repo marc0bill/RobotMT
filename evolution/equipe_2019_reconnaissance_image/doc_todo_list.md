@@ -10,7 +10,11 @@
 - Reecrir le programme de test
 	> un screen du programme est dispo dans le dossier trucs_utiles/presentation/captures
 
-## Communication Raspberry - PC
+## Communication Raspberry - PC //Peu importe qui, prendre les photo lundi
 - Inserer une image du câble USB eventré
 - Inserer une capture termite de la com rasp-pc
+
+# RAEDME.md
+## Objectifs du projet //Donovan
+- Faire et inserer un schema bloc fonctionnel 
 
