@@ -31,5 +31,7 @@ On relie les 3 composants (capteur de température, thermomètre, diode de puiss
 n'est pas très conventionnel, car cela peut influencer les mesures. On effectue les mesures plusieurs fois car
 de nombreux paramètres influent sur le résultat, comme l'environnement, la salle, les personnes autour, le scotch
 utilisé. Au final on obtient les courbes suivantes qui sont linéaires, c'est donc cohérent. 
+
+![Image1](https://user-images.githubusercontent.com/47904531/58384795-cd97e400-7fe6-11e9-8dd6-7f4db5bc69d7.png)
  
 
