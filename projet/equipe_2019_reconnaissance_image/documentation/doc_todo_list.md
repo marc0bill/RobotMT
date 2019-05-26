@@ -10,6 +10,7 @@
 # UART.md
 ## Qu'est-ce que l'UART ? ////////////////////////////////// Jeremy ?
 - Rédiger une explication du protocole UART
+- Besoin de photo pour agrémenter le code avec ce qu'on a fait (VtsM 100 100 et V1C? V2C? serait pas mal)
 
 ## Communication Raspberry - Raspberry //////////////////// Nathan /Amel ?
 - Reecrir le programme de test
