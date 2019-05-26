@@ -50,7 +50,16 @@ La communication UART côté raspberry semble alors maîtrisée et ne devrais pa
 
 ## Communication dsPIC - PC
 
-Le protocole de communicaiton UART du dsPIC était déjà écrit et configuré lors du début du projet.
+Le protocole de communication UART du dsPIC était déjà écrit et configuré lors du début du projet.
+
 ///////////////////////////////
 J'en suis là - Donovan
 //////////////////////////////
+
+## Communication Raspberry - dsPIC
+
+Après avoir vérifier les communications Raspberry - PC et dsPIC - PC nous avons pu vérifier la communication UART entre la raspberry et le dsPIC.
+
+Nous avons tout d'abord utiliser un script pyhton envoyant des ordres aux robots comme VtsM 200 200 et demander le renvoie de donnée.
+
+Le programme utilisé est disponible ici :  /////////////////////Ou est le programme???
