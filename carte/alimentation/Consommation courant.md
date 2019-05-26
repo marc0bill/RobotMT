@@ -14,6 +14,9 @@ Un amplificateur différentiel permettra d'amplifier la différence de potentiel
 afin de déterminer grace à la formule V=RI le courant allant dans la ST32. Il faut donc choisir le composant adequat. 
 L'amplificateur différentiel AD8237 ARMZ-R7 a été choisi pour ces différents paramètres comme la tension d'offset d'entrée, 
 la bande passante. On a pu établir un schéma grace à la datasheet permettant d'avoir une mesure précise du courant. 
+
+![Image4](https://user-images.githubusercontent.com/47904531/58385070-edc9a200-7fea-11e9-9907-41e94e515cef.png)
+
  
 ![Image3](https://user-images.githubusercontent.com/47904531/58384887-e86b5800-7fe8-11e9-9d78-9ab33145108c.png)
 
