@@ -7,7 +7,13 @@ Toutes ces commandes s'effectueront en UART. Il faut donc que la communication U
 
 /////////////////////////////////////////
 
-Rédiger l'explication du protocle UART, avec des images
+Le protocole UART permet de la transmission d'information entre deux systèmes différents. Celui dialogue en "ascii" et permet l'envoie et la réception d'ordre simple de manière continue.
+
+Dans notre cas il nous permet d'envoyer des vitesse tel que : VtsM 100 100
+
+//// Photo Uart avec Vtsm 100 100
+
+Mais aussi de savoir les vitesses réelles des roues par rapport à la consigne.
 
 /////////////////////////////////////////
 
@@ -44,7 +50,16 @@ La communication UART côté raspberry semble alors maîtrisée et ne devrais pa
 
 ## Communication dsPIC - PC
 
-Le protocole de communicaiton UART du dsPIC était déjà écrit et configuré lors du début du projet.
+Le protocole de communication UART du dsPIC était déjà écrit et configuré lors du début du projet.
+
 ///////////////////////////////
 J'en suis là - Donovan
 //////////////////////////////
+
+## Communication Raspberry - dsPIC
+
+Après avoir vérifier les communications Raspberry - PC et dsPIC - PC nous avons pu vérifier la communication UART entre la raspberry et le dsPIC.
+
+Nous avons tout d'abord utiliser un script pyhton envoyant des ordres aux robots comme VtsM 200 200 et demander le renvoie de donnée.
+
+Le programme utilisé est disponible ici :  /////////////////////Ou est le programme???
