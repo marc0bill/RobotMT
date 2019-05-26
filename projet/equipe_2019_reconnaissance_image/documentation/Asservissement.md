@@ -13,7 +13,11 @@ Les sorties du programme sont des chaines de caractères envoyées en UART au mi
 
 ## Mode d'asservissement en 2 temps
 
-Nous avons commencé par considérer un asservissement en 2 temps. A la reconnaissance d'un objet (à fuir ou à suivre), le robot va dans un premier temps effectuer une rotation sur place afin de se positionner en face de cet objet. Dans un second temps, il va s'approcher ou s'éloigner de ce dernier en fonction du type d'objet et de sa distance à celui-ci.
+Nous avons commencé par considérer un asservissement en 2 temps. A la reconnaissance d'un objet (à fuir ou à suivre), le robot va dans un premier temps effectuer une rotation sur place afin de se positionner en face de cet objet. Dans un second temps, il va s'approcher ou s'éloigner de ce dernier en fonction du type d'objet et de sa distance à celui-ci. Voici le logigramme de l'algorithme du programme principal étant éxécuté par le robot, en détaillant l'asservissement:
+
+<p align="center">
+  <img src="..\ressources\Presentation\images\logigramme_algo.png"> 
+</p>
 
 ### Formattage des entrées
 
