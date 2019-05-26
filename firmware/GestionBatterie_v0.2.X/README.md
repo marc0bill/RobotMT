@@ -1,1 +1,1 @@
-GestionBatterie.X	FirmwareGestionAlim v0.1
+FirmwareGestionAlim v0.1
