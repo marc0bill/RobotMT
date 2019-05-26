@@ -17,9 +17,11 @@ la température. De plus, on observe la tension en sortie du capteur. Par ailleu
 température exacte de la source de chaleura afin de tracer la caractéristique du capteur représentant la 
 température en fonction de la tension.
  
-(image)
- 
+
 # Montage permettant la caractérisation
+
+![60119981_878637939151101_6997122326483435520_n](https://user-images.githubusercontent.com/47904531/58384777-6712c600-7fe6-11e9-9be7-a3a6bd6aec0f.jpg)
+
 
 On relie donc le capteur à une tension d'alimentation stable de 3,3V, ainsi qu'à l'oscilloscope pour avoir la 
 tension de sortie. La source de chaleur est possible grâce à la diode de puissance. Elle même reliée aussi à 
@@ -30,4 +32,4 @@ n'est pas très conventionnel, car cela peut influencer les mesures. On effectue
 de nombreux paramètres influent sur le résultat, comme l'environnement, la salle, les personnes autour, le scotch
 utilisé. Au final on obtient les courbes suivantes qui sont linéaires, c'est donc cohérent. 
  
-(IMAGE)
+
