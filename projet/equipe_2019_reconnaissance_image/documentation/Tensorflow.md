@@ -31,7 +31,7 @@ Ici nous avons pris un modèle SSDlite_MobilenetV2 car il est moins volumineux e
 
 ### Réseau de neurones convolutifs (CNN)
 C'est un système composé de neurones, généralement répartis en plusieurs couches connectées entre elles :
-![40% center](mobilnet1.png)
+![100% center](mobilnet1.png)
 
 
 #### La couche de convolution
