@@ -55,12 +55,12 @@ Remarque : les features et les valeurs des poids ne sont pas pré-définies mais
 
 Pour l'algorithme on a utilisé un script python existant sur internet et nous y avons apporté les modifications nécessaires.
 Avec le modèle chargé, le robot est capable de détecter des objets appartenant à 90 classes différentes ainsi que la classe "aucun objet détecté". 
-On réalise la détection avec en entrée une image (une frame) issues du flux vidéo et en sortie on récupère les boxes, les classes et les scores associés dans un tableau.
+On réalise la détection avec en entrée une image (une frame) issue de la caméra et en sortie on récupère les boxes, les classes et les scores associés dans des tableaux.
 
 Chaque boxe représente une partie de l'image où un objet à été détecté. Les classes renvoie la nature de l'objet et les scores représente le niveau de confiance de la classe associée à l'objet détecté.
 
-Nous avons rajouter ce bout de code au script initial afin de retourner une liste de liste contenant, pour chaque objet détecté sur l'image : la classe, le score ainsi que les dimension de la boxe Ymax, Xmax, Ymin, Xmin
-On se limite ici au quatre premiers objets détectés sur l'image.
+Nous avons rajouter ce bout de code au script initial afin de retourner une liste de liste contenant, pour chaque objet détecté sur l'image : la classe, le score ainsi que ses coordonnées sur l'image (Ymax, Xmax, Ymin, Xmin)
+On se limite ici au quatre premiers objets détectés sur l'image (c'est-à-dire, ceux avec le plus grand score).
 
 ```
   classes=np.squeeze(classes).astype(np.int32)
@@ -86,4 +86,10 @@ Le but de ce bout de code est de retourner les valeurs dans un certains ordre af
 
 ## Axes d'amélioration
 
-Il est possible de créer son propre modèle et de l'entraîner mais cela demande beaucoup de ressources en image (au moins une centaines d'image pour un objet), de temps et c'est une démarche très fastidieuse.
+- Il est possible de créer son propre modèle et de l'entraîner mais cela demande beaucoup de ressources en image (au moins une centaines d'image pour un objet), de temps et c'est une démarche très fastidieuse.
+
+- On peut utiliser la librairie Tensorflowlite, qui a été crée pour les télephone portables ou tout autre appareil portable. Les modèles sont beaucoup moins volumineux et plus rapides (on réduit la taille des poids synaptiques). 
+Cependant, les modèles sont donc moins précis que les modèles classiques. De plus, le code de reconnaissance d'image pour cette libraire est différent de celui utilisé pour la libraire Tensorflow.
+
+- Utiliser Intel® Neural Compute Stick : il s'agit d'un dispositif branché sur un port USB qui permet d'accélérer la détection d'image sur RaspberryPi. On peut ainsi chargé des modèles volumineux avec la RaspberryPi sans trop dégradé les performances.
+Ce dispositif à malheureusement un coup assez élevé (environ 90e) et consomme beaucoup d'énergie (500mA).
