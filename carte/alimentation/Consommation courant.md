@@ -5,7 +5,8 @@ la carte STM32. L'objectif est de pouvoir contrôler le courant de manière inst
 pouvoir couper l'alimentation. Le problème peut-être de type dépassement de la limite de courant demandée par la STM32. Si 
 on met en place un montage par cellule, le problème sera plus rapidement trouvé et résolu. 
  
-(IMAGE)
+![schema](https://user-images.githubusercontent.com/47904531/58384878-b0fcab80-7fe8-11e9-9f08-bc525399ca31.png)
+
 
 # Solution 1 
 
