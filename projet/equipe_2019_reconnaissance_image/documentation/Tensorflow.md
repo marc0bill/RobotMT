@@ -1,4 +1,4 @@
-﻿# Deep Learning : Reconnaissance d'image 
+# Deep Learning : Reconnaissance d'image 
 
 On rappel que le but du projet est de permettre au Robot de se déplacer vers un objet de notre choix et d'éviter d'autres objets.
 Ce dernier doit donc être capable d'identifier et de reconnaitre ces objets en temps réel. Pour cela on utilise un algorithme de reconnaissance d'image en script python.
@@ -31,6 +31,7 @@ Ici nous avons pris un modèle SSDlite_MobilenetV2 car il est moins volumineux e
 
 ### Réseau de neurones convolutifs (CNN)
 C'est un système composé de neurones, généralement répartis en plusieurs couches connectées entre elles :
+![50% Center](https://machinethink.net/images/mobilenet-v2/ResidualBlock@2x.png)
 
 #### La couche de convolution
 Elle reçoit une image entrée et lorsque c'est une vidéo, on la découpe en plusieurs images. 
@@ -50,6 +51,7 @@ C'est la dernière couche du réseau de neurones. Elle prend en entrée notre im
 
 Remarque : les features et les valeurs des poids ne sont pas pré-définies mais apprises par le réseau lors de la phase d'entraînement.
 
+SSDLite  utilise des couches séparables en profondeur au lieu de convolutions régulières pour la partie de détection d'objet du réseau. Avec SSDLite, on peut facilement obtenir des résultats vraiment en temps réel.
 
 ## L'algorithme de reconnaissance d'image
 
