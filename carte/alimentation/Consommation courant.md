@@ -15,7 +15,7 @@ afin de déterminer grace à la formule V=RI le courant allant dans la ST32. Il 
 L'amplificateur différentiel AD8237 ARMZ-R7 a été choisi pour ces différents paramètres comme la tension d'offset d'entrée, 
 la bande passante. On a pu établir un schéma grace à la datasheet permettant d'avoir une mesure précise du courant. 
  
-(IMAGE)
+![Image3](https://user-images.githubusercontent.com/47904531/58384887-e86b5800-7fe8-11e9-9d78-9ab33145108c.png)
 
 Cette solution est très interresante pour controler avec précision le courant, mais elle engendre des complications car 
 le montage doit être répété 3 fois et cela à un coût. 
