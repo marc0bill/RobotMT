@@ -84,7 +84,7 @@ Notre asservissement primaire peut être amélioré de bien des façons. Voici q
 	> Que se passerait-il si le robot reconnaissait plusieurs objets en même temps? Il est (à l'heure actuelle) programmé pour reconnaitre jusqu'à 4 objets en même temps (cela est décrit dans notre documentation concernant tensorflow). Devrait-il fuir un objet plutôt que de suivre un autre? Si 2 objets sont à suivre, lequel est le plus important? Il serait intéressant de définir certains niveau de priorité entre les objets ou du moins les actions à effectuer.
 - Ajustement des constantes d'asservissement 
 	> L'asservissement ayant écrit durand les dernièes phases de notre projets (suite aux NOMBREUX problèmes rencontrés), les constantes d'asservissement ont étais définit de manière arbitraire et non à la suite de test rigoureux. Les constantes en questions sont contenues dans le fichier constantes.py et sont les suivantes:
-		- TOLERANCE_ANGLE : intervalle de tolérance d'alignement du robot autour de la consigne
+	- TOLERANCE_ANGLE : intervalle de tolérance d'alignement du robot autour de la consigne
 		- TOLERANCE_DISTANCE : intervalle de tolérance d'éloignement du robot par rapport à la consigne
 		- KA : correcteur proportionnel de vitesse de rotation
 		- KP : correcteur proportionnel de vitesse de positionnement
