@@ -24,6 +24,9 @@ En se plongeant dans le code, nous avons pu nous rendre compte que l'on pouvait 
 
 Comme il a été dit ce code permet de convertir une entrée UART issue de la raspberry en PWM. Pour cela le code va interprété l'UART charactère par charactère, en effet il y a dans "uart.c" une interruption qui permet de parcourir charactère par charactère les données envoyé via UART, ensuite ces charactère vont être regroupés en chaîne de charactère grâce aux espaces. Ces chaînes vont ensuite être traité par le code de "uartassig.c", celui ci va permettre de différiencer les ordres que nous envoyons.
 
+Le code possède plusieur mode de fonctionnement, cela permet de choisir si le robot reçoit une consigne de position, de vitesse ou d'angle et si on choisit d'appliquer l'ordre tel quelle ou s'il faut asservir le système en fonction de l'erreur par rapport à la consigne.
+
+Afin de réaliser nos tests nous sommes rester dans le mode de consigne Consigne.mode = 0 afin de toujours appliquer exactement la consigne d'entrée sans prendre en compte le retour réelle.
 
 ###Problèmes rencontrés
 

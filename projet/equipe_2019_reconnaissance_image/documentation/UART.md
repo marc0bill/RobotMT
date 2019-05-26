@@ -7,7 +7,13 @@ Toutes ces commandes s'effectueront en UART. Il faut donc que la communication U
 
 /////////////////////////////////////////
 
-Rédiger l'explication du protocle UART, avec des images
+Le protocole UART permet de la transmission d'information entre deux systèmes différents. Celui dialogue en "ascii" et permet l'envoie et la réception d'ordre simple de manière continue.
+
+Dans notre cas il nous permet d'envoyer des vitesse tel que : VtsM 100 100
+
+//// Photo Uart avec Vtsm 100 100
+
+Mais aussi de savoir les vitesses réelles des roues par rapport à la consigne.
 
 /////////////////////////////////////////
 
