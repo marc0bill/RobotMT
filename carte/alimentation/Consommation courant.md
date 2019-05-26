@@ -27,4 +27,4 @@ Pour limiter cet encombrement, on peut utiliser un capteur à effet Hall. En eff
 potentiel selon la troisième direction. Ce phénomène est connu sous le nom d'effet Hall. Ce capteur qui est donc inductif et
 permet de mesurer la variation de champ magnétique. Il permet donc aussi de mesurer le courant allant dans la carte STM32.
 
-(IMAGE)
+![hall2](https://user-images.githubusercontent.com/47904531/58384909-38e2b580-7fe9-11e9-8e1b-12b042acf95f.gif)
