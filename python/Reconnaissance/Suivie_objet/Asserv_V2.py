@@ -92,5 +92,5 @@ def aligner_positionner_robot(Objet_Tracke, nomObjetASuivre, portSerie):
 		if delta_D < 0: #le robot est trop loin
 			Mouvement.tourner_et_avancer(vitesse_alignement, vitesse_position, direction, portSerie)
 		else:
-			Mouvement.reculer(vitesse_position, portSerie)
+			Mouvement.tourner_et_reculer(vitesse_alignement, vitesse_position, direction, portSerie)
 
