@@ -1,4 +1,4 @@
-/---------------------------------A FAIRE-----------------------------------/
+﻿/---------------------------------A FAIRE-----------------------------------/
 
 # Tout les fichiers ////////////////////////////////////////////Jeremy ?
 - Remettres touts les chemins des images depuis la reorganisation des fichiers
@@ -15,10 +15,6 @@
 ## Communication Raspberry - dsPIC//////////////////////Donovan
 - Specfifier le chemin DES code de test
 - Expliquer rapidement les codes de test
-
-## Communication Raspberry - Raspberry //////////////////// Nathan /Amel ?
-- Reecrir le programme de test
-	> un screen du programme est dispo dans le dossier trucs_utiles/presentation/captures
 
 ## Communication Raspberry - PC //////////////////////////////Peu importe qui, prendre les photo lundi
 - Inserer une image du câble USB eventré
