@@ -8,7 +8,7 @@ Lorsque le niveau est trop important, une alerte devra être envoyée à l'aide 
 On a choisi un capteur LM35dz car il a une capture de température maximum de 100 degrés, ce qui est suffisant 
 pour nos batteries. 
 
-(image)
+![Capteur-de-temperature-LM35-Dapres-la-fiche-technique png](https://user-images.githubusercontent.com/47904531/58384716-4dbd4a00-7fe5-11e9-96aa-5456dee0593f.jpg)
 
 # Caractérisation du capteur de température
 
