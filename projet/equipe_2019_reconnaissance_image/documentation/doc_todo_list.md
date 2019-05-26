@@ -12,6 +12,10 @@
 - Rédiger une explication du protocole UART
 - Besoin de photo pour agrémenter le code avec ce qu'on a fait (VtsM 100 100 et V1C? V2C? serait pas mal)
 
+## Communication Raspberry - dsPIC//////////////////////Donovan
+- Specfifier le chemin DES code de test
+- Expliquer rapidement les codes de test
+
 ## Communication Raspberry - Raspberry //////////////////// Nathan /Amel ?
 - Reecrir le programme de test
 	> un screen du programme est dispo dans le dossier trucs_utiles/presentation/captures
@@ -29,6 +33,7 @@
 
 # Asservissement.md /////////////////////////////////////////////Jeremy, Pierre, Donovan
 - Mettre en forme
+- Completer
 
 
 /---------------------------------FAIT---------------------------------------/
