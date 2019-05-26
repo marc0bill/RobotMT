@@ -20,6 +20,9 @@ Cela est couplé avec un pont en H qui est un système qui va permettre de chang
 
 En se plongeant dans le code, nous avons pu nous rendre compte que l'on pouvait donner des consignes de vitesses évidemment mais aussi de positions et d'angles. Il y avait déja différents modes implantés : avance en x et y, recule en x et y, ajustement de l'angle... Il y a la possibilité de définir une vitesse de déplacement simple ou une vitesse angulaire. Il y a des fonctions qui permettent de limiter la vitesse ainsi que l'accélération, d'autres qui calculent les erreurs de positions, vitesses ou angles.
 
+### Compréhension du code
+
+Comme il a été dit ce code permet de convertir une entrée UART issue de la raspberry en PWM. Pour cela le code va interprété l'UART charactère par charactère, en effet il y a dans "uart.c" une interruption qui permet de parcourir charactère par charactère les données envoyé via UART, ensuite ces charactère vont être regroupés en chaîne de charactère grâce aux espaces. Ces chaînes vont ensuite être traité par le code de "uartassig.c", celui ci va permettre de différiencer les ordres que nous envoyons.
 
 
 ###Problèmes rencontrés
