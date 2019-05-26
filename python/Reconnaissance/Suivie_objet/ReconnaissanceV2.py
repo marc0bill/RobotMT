@@ -53,11 +53,13 @@ def load_model():
     image_tensor = detection_graph.get_tensor_by_name('image_tensor:0')
 
 # Les tensors en sorties sont les boxs, les classes les scores associés 
-# Chaques box représente une partie de l'image où un objet a été détecté
+# Chaque box représente une partie de l'image où un objet a été détecté
     detection_boxes = detection_graph.get_tensor_by_name('detection_boxes:0')
 
 # Chaque score représente le level de confience pour chaque objet détecté
     detection_scores = detection_graph.get_tensor_by_name('detection_scores:0')
+
+# Classe = Nom de l'objet détecté 
     detection_classes = detection_graph.get_tensor_by_name('detection_classes:0')
 
 # Nombres d'objets détectés
@@ -88,12 +90,14 @@ def Detection(category_index,image_tensor,detection_boxes,detection_scores,detec
     (boxes, scores, classes, num) = sess.run([detection_boxes, detection_scores, detection_classes, num_detections],feed_dict={image_tensor: frame_expanded})
 
    
-# On retourne les objets détectés et leurs scores associés
+# On retourne les objets détectés et leurs scores associés:
+	#Les résultats renvoyés par tensorflow sont des tableaux de tableaux, pour pouvoir les exploiter facilement, on réduit leurs dimensions avec np.squeeze.
     classes=np.squeeze(classes).astype(np.int32)
     scores=np.squeeze(scores).tolist()
     boxes=np.squeeze(boxes).tolist()
     objets=[[],[],[],[]]
     c=0
+    #On se limite ici au quatre premiers objets détectés sur l'image: 
     for i in range (0,4):
         if scores[i]==0:
             break
@@ -105,5 +109,6 @@ def Detection(category_index,image_tensor,detection_boxes,detection_scores,detec
         objets[i].append(boxes[i][3])
         c+=1
  
+ 	#Ne pas oublier de fermer la caméra sinon elle ne sera plus utilisable par le programme
     camera.close()
     return (objets[0:c])
