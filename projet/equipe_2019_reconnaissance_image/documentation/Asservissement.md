@@ -85,13 +85,13 @@ Notre asservissement primaire peut être amélioré de bien des façons. Voici q
 - Ajustement des constantes d'asservissement 
 	> L'asservissement ayant écrit durand les dernièes phases de notre projets (suite aux NOMBREUX problèmes rencontrés), les constantes d'asservissement ont étais définit de manière arbitraire et non à la suite de test rigoureux. Les constantes en questions sont contenues dans le fichier constantes.py et sont les suivantes:
 	- TOLERANCE_ANGLE : intervalle de tolérance d'alignement du robot autour de la consigne
-		- TOLERANCE_DISTANCE : intervalle de tolérance d'éloignement du robot par rapport à la consigne
-		- KA : correcteur proportionnel de vitesse de rotation
-		- KP : correcteur proportionnel de vitesse de positionnement
-		- DELAIS_ALIGNEMENT : délais en secondes laissé au robot pour ajuster son alignement à la suite d'une commande
-		- DELAIS_POSIITONNEMENT : délais en secondes laissé au robot pour ajuster sa position à la suite d'une commande
-		- DISTANCE_SUIVIE : consigne de taille relative que la box de l'objet doit avoir lorsque le robot poursuit l'objet reconnus
-		- DISTANCE_FUITE : consigne de taille relative que la box de l'objet doit avoir lorsque le robot fuit l'objet reconnus
+	- TOLERANCE_DISTANCE : intervalle de tolérance d'éloignement du robot par rapport à la consigne
+	- KA : correcteur proportionnel de vitesse de rotation
+	- KP : correcteur proportionnel de vitesse de positionnement
+	- DELAIS_ALIGNEMENT : délais en secondes laissé au robot pour ajuster son alignement à la suite d'une commande
+	- DELAIS_POSIITONNEMENT : délais en secondes laissé au robot pour ajuster sa position à la suite d'une commande
+	- DISTANCE_SUIVIE : consigne de taille relative que la box de l'objet doit avoir lorsque le robot poursuit l'objet reconnus
+	- DISTANCE_FUITE : consigne de taille relative que la box de l'objet doit avoir lorsque le robot fuit l'objet reconnus
 	Afin d'ajuster toutes ces constantes efficacement, il serait peut-être judicieux d'ecrire pour chacune d'entre elles un script python de test renvoyant des informations en permance sur ce que voit le robot (par éxemple dans la console de la raspberry). Ainsi en approchant, eloignant, decentrant des objets, ect... et en observant les réponses du robot, nous pourrions efficacement ajuster ces réglages.
 - Optimisation du traitement des résulats tensorflow
 	> A chaque action, une réanalyse complete du champ de vision du robot est effectuée. Nous pouvons peut-être imaginer un système de verrouillage sur les objets voulus afin de gagner en temps d'execution et donc en temps de reaction du robot.
