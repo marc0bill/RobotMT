@@ -27,9 +27,7 @@
 
 # ControlMoteur.md //////////////////////////////////////////// Pierre et Donovan
 
-# Asservissement.md /////////////////////////////////////////////Jeremy, Pierre, Donovan
-- Mettre en forme
-- Completer
+
 
 
 /---------------------------------FAIT---------------------------------------/
@@ -38,8 +36,9 @@
 ## Objectifs du projet ///////////////////////////////////////Donovan
 - Faire et inserer un schema bloc fonctionnel 
 
-
-
+# Asservissement.md /////////////////////////////////////////////Jeremy, Pierre, Donovan
+- Mettre en forme
+- Completer
 
 
 
