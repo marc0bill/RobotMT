@@ -7,7 +7,18 @@ vitesse = 200
 
 #Configuration du port série :
 print("Configuration du port serie...")
-S = serial.Serial("/dev/ttyS0",baudrate)
+S = serial.Serial("/dev/ttyS0",BAUDRATE)
+
+
+for i in range(5):
+	data="VtsM 200 200\n"
+	print("Envoie de la commande : ", data)
+	S.write(data.encode('ascii'))
+	#sleep(1)
+	#receive=S.readline(len(data))
+	#print("Reception : ", receive.decode("utf-8"))
+	sleep(1)
+data="VtsM 0 0"
 
 
 for k in range(NOMBRE_DE_PASSE):
