@@ -233,10 +233,13 @@ void DELAY(unsigned ms) {
         for (i = 0; i < 0x1F40; i++);
     }
 }
+
+
 /*Level of battery cells read function*/
 /*this function set the mux selection bits from 0 to 5 as we have 6 cells*/
 /*For each selction bits value this function send the data with a unique id to the calculator */
 /*this function control the level of the cell 1 of the battery and if it is less than 15V it will send an alert to the calculator to shutdown and it will turn off the relay after 6 secondes */
+
 void Read_Batterie_Voltage(void){
      mux_Select(sel);
      AdcValue=readADC(AN0);
