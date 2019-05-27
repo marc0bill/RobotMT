@@ -22,3 +22,11 @@ Si le robot est aligné alors il va calculer la taille de l'objet par rapport à
 Tout d'abord la fonction tourner_sur_place permet de faire tourner les roues dans le sens opposées afin faire tourner le robot.
 
 Les fonctions reculer / avancer permettent de déplacer le robot en appliquant les mêmes vitesses sur les deux roues.
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+# Scripts Python
+
+Le programme à éxécuter sur la raspberry est main_V2.py.
+__ATTENTION__ : lors de la récupération des scripts python par git dans la raspberry au chemin home\pi\Desktop\RobotMT, il faut copier TOUT les fichiers contenue dans le dossier dossier home/pi/Desktop\RobotMT\projet\equipe_2019_reconnaissance_image\python\Suivie_objet dans le dossier home\pi\tensorflow1\models\research\object_detection

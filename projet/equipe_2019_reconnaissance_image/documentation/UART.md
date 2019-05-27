@@ -38,7 +38,7 @@ La communication UART de la raspberry pi avec elle même étant fonctionnel, nou
 Pour cela nous utilisons un câble USB possédant un circuit UART ainsi que les 2 fils Rx et Tx, découpé et dénudé à une extrémité. Nous connectons les fils Rx et Tx du câble respectivement aux pins Tx et Rx de la raspberry et ouvrons un termial série sur le pc (nous avons utilisé termite).
 
 <p align="center">
-  <img src="..\ressources\Presentation\images\liaison_uart_raspberry_pc.png"> ////////Inserer une image du câble
+  <img src="..\ressources\Presentation\images\cable_usb_uart.jpg">
 </p> 
 
 Nous utilisons le même script que précédemment et vérifions alors que le pc reçois correctement les commandes UART de la raspberry.
