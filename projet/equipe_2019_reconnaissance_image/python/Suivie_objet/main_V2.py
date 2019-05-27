@@ -30,6 +30,7 @@ for p in range(NOMBRE_DE_PASSE):
 	for j in range(len(Liste_Objets_Reconnues)): #on scan tous les objets reconnues
 		if Liste_Objets_Reconnues[j][0] == nomObjetASuivre or Liste_Objets_Reconnues[j][0] == nomObjetAFuir :
 			print("Objet reconnu:",Liste_Objets_Reconnues[j][0])
+			UART.write(portSerie, " Start ")
 			#On crée un objet à partir de la liste recupérée de tensorflow
 			Objet_Tracke = ObjetReconnu.ObjetReconnu(Liste_Objets_Reconnues[j][0], Liste_Objets_Reconnues[j][1], Liste_Objets_Reconnues[j][2], Liste_Objets_Reconnues[j][3], Liste_Objets_Reconnues[j][4], Liste_Objets_Reconnues[j][5])
 			if constantes.Mode == 0 :
@@ -44,9 +45,9 @@ for p in range(NOMBRE_DE_PASSE):
 				Asserv_V2.aligner_positionner_robot(Objet_Tracke, nomObjetASuivre, portSerie) 
 		else : 
 			print("Objet non reconnu")
-			UART.write(portSerie, " VtsM 0 0 ")
-			UART.write(portSerie, " VtsM 0 0 ")
-			UART.write(portSerie, " VtsM 0 0 ")
+			UART.write(portSerie, " Stop ")
+			#UART.write(portSerie, " VtsM 0 0 ")
+			#UART.write(portSerie, " VtsM 0 0 ")
  
 	sleep(constantes.DELAIS_ACQUISITION)             
 

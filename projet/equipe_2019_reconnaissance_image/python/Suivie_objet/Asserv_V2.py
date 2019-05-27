@@ -14,6 +14,9 @@ def aligner_robot(Objet_Tracke, portSerie):
 		print("Correction de l'alignement")
 		vitesse_correction = constantes.KA*Objet_Tracke.milieu_X
 		
+		if vitesse_correction < constantes.Vitesse_min:
+		vitesse_correction = constantes.Vitesse_min
+		
 		if Objet_Tracke.milieu_X > 0 :
 			#on tourne vers la droite (a verifier)
 			#(vitesse_roue_droite, vitesse_roue_gauche) = (vitesse_correction, -vitesse_correction)
@@ -45,7 +48,10 @@ def positioner_robot(Objet_Tracke, ordre, portSerie):
 	if abs(delta_D) > constantes.TOLERANCE_DISTANCE: #On ajuste la position du robot
 		print("Correction de la position")
 		vitesse_correction = constantes.KP*abs(delta_D)
-
+		
+		if vitesse_correction < constantes.Vitesse_min:
+			vitesse_correction = constantes.Vitesse_min
+		
 		if delta_D < 0: #le robot est trop loin
 			Mouvement.avancer(vitesse_correction, portSerie)
 		else:
