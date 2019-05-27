@@ -11,8 +11,8 @@ TOLERANCE_ANGLE = 0.1 #distance du centre de l'objet par rapport au centre de l'
 TOLERANCE_DISTANCE = 0.05 #tolerance de taille à partir duquel le robot considère avoir remplie la consigne de distance à l'objet
 KA = 1000 #correcteur proportionnel de vitesse lié à l'alignement
 KP = 1000 #correcteur proportionnel de vitesse lié à la position
-DELAIS_ALIGNEMENT = 5 #Delais en seconde laissé au robot pour corriger son alignement
-DELAIS_POSITIONNEMENT = 1 #Delais en seconde laissé au robot pour corriger sa position
+DELAIS_ALIGNEMENT = 0.5 #Delais en seconde laissé au robot pour corriger son alignement
+DELAIS_POSITIONNEMENT = 0.5 #Delais en seconde laissé au robot pour corriger sa position
 DISTANCE_SUIVIE = 0.4 #consigne de ratio de taille que l'objet doit occuper sur l'ecran pour être considéré à bonne distance lors d'une poursuite
 DISTANCE_FUITE = 0.2#consigne de ratio de taille que l'objet doit occuper sur l'ecran pour être considéré à bonne distance lors d'une fuite
 

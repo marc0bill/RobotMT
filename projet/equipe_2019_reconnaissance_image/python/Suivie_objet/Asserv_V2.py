@@ -7,13 +7,13 @@ import ObjetReconnu
 from time import sleep
 
 def aligner_robot(Objet_Tracke, portSerie):
+	distance_relative = "Distance au milieu: %.2f" %Objet_Tracke.milieu_X
+	print(distance_relative)
 
 	if abs(Objet_Tracke.milieu_X) > constantes.TOLERANCE_ANGLE : #On s'aligne avec l'objet
 		print("Correction de l'alignement")
 		vitesse_correction = constantes.KA*Objet_Tracke.milieu_X
-
-		distance_relatice = "Distance au milieu: %.2f" %Objet_Tracke.milieu_X
-		print(distance_relatice)
+		
 		if Objet_Tracke.milieu_X > 0 :
 			#on tourne vers la droite (a verifier)
 			#(vitesse_roue_droite, vitesse_roue_gauche) = (vitesse_correction, -vitesse_correction)
