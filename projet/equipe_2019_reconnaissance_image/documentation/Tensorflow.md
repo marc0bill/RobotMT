@@ -32,7 +32,7 @@ Ici nous avons pris un modèle SSDlite_MobilenetV2 car il est moins volumineux e
 ### Réseau de neurones convolutifs (CNN)
 C'est un système composé de neurones, généralement répartis en plusieurs couches connectées entre elles :
 
-![40%](https://1.bp.blogspot.com/-M8UvZJWNW4E/WsKk-tbzp8I/AAAAAAAAChw/OqxBVPbDygMIQWGug4ZnHNDvuyK5FBMcQCLcBGAs/s1600/image5.png)
+![](https://1.bp.blogspot.com/-M8UvZJWNW4E/WsKk-tbzp8I/AAAAAAAAChw/OqxBVPbDygMIQWGug4ZnHNDvuyK5FBMcQCLcBGAs/s1600/image5.png)
 
 #### La couche de convolution
 Elle reçoit une image entrée et lorsque c'est une vidéo, on la découpe en plusieurs images. 
