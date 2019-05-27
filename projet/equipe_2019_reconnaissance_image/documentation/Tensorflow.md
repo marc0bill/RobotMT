@@ -32,9 +32,7 @@ Ici nous avons pris un modèle SSDlite_MobilenetV2 car il est moins volumineux e
 ### Réseau de neurones convolutifs (CNN)
 C'est un système composé de neurones, généralement répartis en plusieurs couches connectées entre elles :
 
-<p align="center">
-  <img src="..\ressources\Presentation\images\mobilnet.png"> 
-</p>
+![](https://1.bp.blogspot.com/-M8UvZJWNW4E/WsKk-tbzp8I/AAAAAAAAChw/OqxBVPbDygMIQWGug4ZnHNDvuyK5FBMcQCLcBGAs/s1600/image5.png)
 
 #### La couche de convolution
 Elle reçoit une image entrée et lorsque c'est une vidéo, on la découpe en plusieurs images. 
@@ -55,9 +53,7 @@ C'est la dernière couche du réseau de neurones. Elle prend en entrée notre im
 #### Softmax
 Une dernière étape, appelée softmax, consiste à normaliser les valeurs des sorties afin qu’elles correspondent à des probabilités (entre 0 et 1) et que leur somme soit de 1. La classe prédite correspondra alors au neurone de sortie indiquant la plus grande probabilité.
 
-<p align="center">
-  <img src="..\ressources\Presentation\images\mobilnet3.png"> 
-</p>
+![](https://machinethink.net/images/mobilenet-v2/Classifier@2x.png)
 
 Remarque : les features et les valeurs des poids ne sont pas pré-définies mais apprises par le réseau lors de la phase d'entraînement.
 
