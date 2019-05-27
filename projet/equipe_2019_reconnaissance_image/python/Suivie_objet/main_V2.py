@@ -8,7 +8,7 @@ from time import sleep
 
 NOMBRE_DE_PASSE = 50 #Nombre de consigne à envoyer
 
-nomObjetASuivre = "tv"
+nomObjetASuivre = "bottle"
 nomObjetAFuir = "handbag"
 
 print("chargement model")
@@ -19,14 +19,14 @@ print("Configuration du port serie")
 #Configuration du port série :
 portSerie = serial.Serial("/dev/serial0" ,constantes.BAUDRATE)
 print("port serie configure")
-
+UART.write(portSerie, " Start ")
+UART.write(portSerie, " Start ")
 for p in range(NOMBRE_DE_PASSE):
 	print("Passe ", p)
 	#Acquisition des objets reconnues
 	Liste_Objets_Reconnues=RV2.Detection(category_index,image_tensor,detection_boxes,detection_scores,detection_classes,num_detections,sess)
 	#Liste_Objets_Reconnues est un tableau de liste formattées comme suit:
 	#Liste_Objets_Reconnues[i] = (nom, probabilité, y_min, x_min, y_max, x_max)
-
 	for j in range(len(Liste_Objets_Reconnues)): #on scan tous les objets reconnues
 		if Liste_Objets_Reconnues[j][0] == nomObjetASuivre or Liste_Objets_Reconnues[j][0] == nomObjetAFuir :
 			print("Objet reconnu:",Liste_Objets_Reconnues[j][0])
@@ -48,8 +48,10 @@ for p in range(NOMBRE_DE_PASSE):
 			UART.write(portSerie, " Stop ")
 			#UART.write(portSerie, " VtsM 0 0 ")
 			#UART.write(portSerie, " VtsM 0 0 ")
- 
+
 	sleep(constantes.DELAIS_ACQUISITION)             
-
-
+UART.write(portSerie, " VtsM 0 0 ")
+UART.write(portSerie, " VtsM 0 0 ")
+UART.write(portSerie, " Stop ")
+UART.write(portSerie, " Stop ")
 portSerie.close()
