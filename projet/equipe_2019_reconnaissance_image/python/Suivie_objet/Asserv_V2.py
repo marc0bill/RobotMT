@@ -53,6 +53,7 @@ def positioner_robot(Objet_Tracke, ordre, portSerie):
 		sleep(constantes.DELAIS_POSITIONNEMENT)
 		return 0
 	else:
+		UART.write(portSerie, " VtsM 0 0 ")
 		print("Robot positionné")
 		return 1
 
