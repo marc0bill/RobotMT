@@ -6,10 +6,10 @@ import Asserv_V2
 import ObjetReconnu
 from time import sleep
 
-NOMBRE_DE_PASSE = 50 #Nombre de consigne à envoyer
+NOMBRE_DE_PASSE = 200 #Nombre de consigne à envoyer
 
 nomObjetASuivre = "bottle"
-nomObjetAFuir = "chair"
+nomObjetAFuir = "refrigerator"
 
 print("chargement model")
 
