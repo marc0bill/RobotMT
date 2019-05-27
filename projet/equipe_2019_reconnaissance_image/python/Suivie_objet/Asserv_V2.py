@@ -44,7 +44,7 @@ def positioner_robot(Objet_Tracke, ordre, portSerie):
 	#afin de respecter la consigne de distance (variant en fonction de l'ordre)
 	if abs(delta_D) > constantes.TOLERANCE_DISTANCE: #On ajuste la position du robot
 		print("Correction de la position")
-		vitesse_correction = constantes.KP*delta_D
+		vitesse_correction = constantes.KP*abs(delta_D)
 
 		if delta_D < 0: #le robot est trop loin
 			Mouvement.avancer(vitesse_correction, portSerie)
@@ -53,9 +53,9 @@ def positioner_robot(Objet_Tracke, ordre, portSerie):
 		sleep(constantes.DELAIS_POSITIONNEMENT)
 		return 0
 	else:
-		UART.write(portSerie, " VtsM 0 0 ")
-		UART.write(portSerie, " VtsM 0 0 ")
-		UART.write(portSerie, " VtsM 0 0 ")
+		UART.write(portSerie, "VtsM 0 0 ")
+		UART.write(portSerie, "VtsM 0 0 ")
+		UART.write(portSerie, "VtsM 0 0 ")
 		print("Robot positionné")
 		return 1
 

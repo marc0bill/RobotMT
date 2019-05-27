@@ -1,13 +1,5 @@
 ﻿/---------------------------------A FAIRE-----------------------------------/
 
-
-# UART.md
-## Qu'est-ce que l'UART ? ////////////////////////////////// Jeremy ?
-- Rédiger une explication du protocole UART
-- Besoin de photo pour agrémenter le code avec ce qu'on a fait (VtsM 100 100 et V1C? V2C? serait pas mal)
-
-
-
 ## Communication Raspberry - PC //////////////////////////////Peu importe qui, prendre les photo lundi
 - Inserer une image du câble USB eventré
 - Inserer une capture termite de la com rasp-pc
@@ -16,10 +8,6 @@
 - Ajouter DES photos des différentes cartes et de l'interieur du robot en général
 
 # Tensorflow.md /////////////////////////////////////////////////Nathan et Amel
-
-
-
-
 
 
 /---------------------------------FAIT---------------------------------------/
@@ -44,6 +32,11 @@
 - Expliquer rapidement les codes de test
 
 # ControlMoteur.md //////////////////////////////////////////// Pierre et Donovan
+
+# UART.md
+## Qu'est-ce que l'UART ? ////////////////////////////////// Jeremy ?
+- Rédiger une explication du protocole UART
+- Besoin de photo pour agrémenter le code avec ce qu'on a fait (VtsM 100 100 et V1C? V2C? serait pas mal)
 
 
 
