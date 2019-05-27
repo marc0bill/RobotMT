@@ -1,10 +1,10 @@
 /**********************************************************************
-* © 2008 Microchip Technology Inc.
+* Â© 2008 Microchip Technology Inc.
 *
 * FileName:        main.c
 * Dependencies:    Header (.h) files if applicable, see below
 * Processor:       dsPIC33Fxxxx
-* Compiler:        MPLAB® C30 v3.00 or higher
+* Compiler:        MPLABÂ® C30 v3.00 or higher
 *
 * SOFTWARE LICENSE AGREEMENT:
 * Microchip Technology Incorporated ("Microchip") retains all ownership and 
@@ -81,17 +81,18 @@ int ecanRxMsgBuffer[NUM_OF_RX_BUFFERS][8] __attribute__((space(dma)));
  * The sentPacket  variable tracks the number of packets sent.*/
 volatile int received = 0;
 volatile int transmitNext = 1;
-int sentPacket = 0;
-char sizeU1Tx;
+
+int sentPacket = 0;	
+char sizeU1Tx;	
 char sizeU2Tx;
 int data[8];
 //	int crcval;
 char strU1Tx[UxTx_length];
 char strU2Tx[UxTx_length];
-int AdcValue;
-int sel = 0;
-int channel_current = 1;
-int channel_temp = 3;
+int AdcValue;		
+int sel = 0;		//Selection input of mux
+int channel_current = 1;	//adc channel for current sensing: AN1 and AN2
+int channel_temp = 3;		//adc channel for tempreture sensing: AN3 and AN4
 
 
 /* In Register Indirect mode, the ECAN/DMA cannot differentiate between buffers.
@@ -121,7 +122,7 @@ int main(void){
     int readCurrent = 0;
     
     
-    /******* Activation du relay *******/
+    /* Relay activation */
     TRISAbits.TRISA7 =0;
     LATAbits.LATA7 = 1; 
 
@@ -129,7 +130,8 @@ int main(void){
     
 	/* Configure the dsPIC */
 	init_pic();
-    init_ADC(0);
+	
+    init_ADC(0);	// initialisation of the adc 
     initUART1(57600);//9600, 19200, 57600 // CONCERNE UART
     
 	ECAN1DMAConfig(__builtin_dmaoffset(ecanTxMsgBuffer),
@@ -143,7 +145,6 @@ int main(void){
 	ECAN1SetOPMode();
 
 	while(1){
-       //PORTBbits.RB13 != PORTBbits.RB13;
         //Read multi-channel
         /* 
         while(channel <7){
@@ -232,6 +233,10 @@ void DELAY(unsigned ms) {
         for (i = 0; i < 0x1F40; i++);
     }
 }
+/*Level of battery cells read function*/
+/*this function set the mux selection bits from 0 to 5 as we have 6 cells*/
+/*For each selction bits value this function send the data with a unique id to the calculator */
+/*this function control the level of the cell 1 of the battery and if it is less than 15V it will send an alert to the calculator to shutdown and it will turn off the relay after 6 secondes */
 void Read_Batterie_Voltage(void){
      mux_Select(sel);
      AdcValue=readADC(AN0);
@@ -273,6 +278,12 @@ void Read_Batterie_Voltage(void){
       
 }
 
+
+/*Tempreture of battery read function*/
+/*this function read data from two tempreture sensor that are connected to channel AN1 and AN2*/
+/*For each channel value (AN1 or AN2) this function send the data with a unique id to the calculator */
+/*this function control the level battery tempreture and if it is more than 50Â°C it will send an alert to the calculator to shutdown and it will turn off the relay after 6 secondes */
+
 void Read_Batterie_Tempreture(void){
  AdcValue=readADC(channel_temp);
         DELAY(10);
@@ -311,6 +322,11 @@ void Read_Batterie_Tempreture(void){
             LATAbits.LATA7 = 0;
         }
 }
+
+/*Current consumption read function*/
+/*this function read data from two hall effect sensors that are connected to channel AN3 and AN4*/
+/*For each channel value (AN3 or AN4) this function send the data with a unique id to the calculator */
+
 void Read_Current(void){
         AdcValue=readADC(channel_current);
         DELAY(10);
@@ -347,10 +363,11 @@ void Read_Current(void){
 
 /**********mux select function ************/
 // @int sel: in select channel from 0 to 8 as we have mux 8 to 1
+
 void mux_Select(int sel){
    
-    LATCbits.muxSEL1= sel && 001;
-    LATCbits.muxSEL2=(sel && 010)>>1;
-    LATCbits.muxSEL3=(sel && 100)>>2;
+    LATCbits.muxSEL1= sel && 001; 	//LATCbits.LATC8 = sel(0);
+    LATCbits.muxSEL2=(sel && 010)>>1;	//LATCbits.LATC7 = sel(1);
+    LATCbits.muxSEL3=(sel && 100)>>2;	//LATCbits.LATC6 = sel(2);
 
      }
