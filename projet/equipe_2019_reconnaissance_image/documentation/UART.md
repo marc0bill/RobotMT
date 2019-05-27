@@ -31,13 +31,13 @@ Nous ecrivons ensuite un script python envoyant une chaine de caractère en UART
   <img src="..\ressources\Presentation\captures\Communication_RASP-RASP_reduite.png">
 </p> 
 
-Le programme utilisé est disponible ici : RobotMT\python\Reconnaissance\Test\com_uart_rasp_rasp.py /////////////////////Reecrire le programme 
+Le programme utilisé est disponible ici : "..\python\Test\com_UART_Rasp_Rasp.py
 
 ## Communication Raspberry - PC
 
 La communication UART de la raspberry pi avec elle même étant fonctionnel, nous décidons maintenant de tester la communication entre la raspberry pi est un terminal PC.
 
-Pour cela nous utilisons un câble USB découpé et dénudé à une extrémité. Nous connectons les fils D+ et D- au pins Rx et Tx de la raspberry et ouvrons un termial série sur le pc (nous avons utilisé termite).
+Pour cela nous utilisons un câble USB possédant un circuit UART ainsi que les 2 fils Rx et Tx, découpé et dénudé à une extrémité. Nous connectons les fils Rx et Tx du câble respectivement aux pins Tx et Rx de la raspberry et ouvrons un termial série sur le pc (nous avons utilisé termite).
 
 <p align="center">
   <img src="..\ressources\Presentation\images\liaison_uart_raspberry_pc.png"> ////////Inserer une image du câble
@@ -60,4 +60,4 @@ Après avoir vérifier les communications Raspberry - PC et dsPIC - PC nous avon
 
 Nous avons tout d'abord utiliser un script pyhton envoyant des ordres aux robots comme VtsM 200 200 et demander le renvoie de donnée.
 
-Le programme utilisé est disponible ici :  "..\python\Test\com_UART_test_continue.py"
+Les programme utilisés sont disponible ici :  "..\python\Test"
