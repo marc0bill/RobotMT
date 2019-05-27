@@ -45,9 +45,9 @@ for p in range(NOMBRE_DE_PASSE):
 				Asserv_V2.aligner_positionner_robot(Objet_Tracke, nomObjetASuivre, portSerie) 
 		else : 
 			print("Objet non reconnu")
-			UART.write(portSerie, " Stop ")
-			#UART.write(portSerie, " VtsM 0 0 ")
-			#UART.write(portSerie, " VtsM 0 0 ")
+			UART.write(portSerie, " VtsM 0 0 ")
+			UART.write(portSerie, " VtsM 0 0 ")
+			UART.write(portSerie, " VtsM 0 0 ")
 
 	sleep(constantes.DELAIS_ACQUISITION)             
 UART.write(portSerie, " VtsM 0 0 ")
