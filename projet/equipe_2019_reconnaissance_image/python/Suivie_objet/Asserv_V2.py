@@ -11,7 +11,7 @@ def aligner_robot(Objet_Tracke, portSerie):
 	if abs(Objet_Tracke.milieu_X) > constantes.TOLERANCE_ANGLE : #On s'aligne avec l'objet
 		print("Correction de l'alignement")
 		vitesse_correction = constantes.KA*Objet_Tracke.milieu_X
-		print("Envoie de ", Objet_Tracke.milieu_X)
+		print("Constante K aligné", Objet_Tracke.milieu_X)
 		if Objet_Tracke.milieu_X > 0 :
 			#on tourne vers la droite (a verifier)
 			#(vitesse_roue_droite, vitesse_roue_gauche) = (vitesse_correction, -vitesse_correction)
@@ -35,7 +35,7 @@ def positioner_robot(Objet_Tracke, ordre, portSerie):
 		print("En fuite")
 		consigne = constantes.DISTANCE_FUITE
 	delta_D = Objet_Tracke.ratio - consigne
-	print("Envoie de ", Objet_Tracke.ratio)
+	print("Constante K taille ", Objet_Tracke.ratio)
 	#On compare la taille de l'objet par rapport à la taille
 	#de l'ecran afin de savoir si le robot doit avance ou reculer
 	#afin de respecter la consigne de distance (variant en fonction de l'ordre)
