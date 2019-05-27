@@ -8,7 +8,7 @@ Ce dernier doit donc être capable d'identifier et de reconnaitre ces objets en 
 
 L'algorithme de reconnaissance d'image utilise la libraire Tensorflow. C'est une librairie créée par Google qui propose une série de modèles pré-entraînés. Ces modèles constituent une base de données qui va permettre différencier et de classifier les différentes images extraites du flux vidéo de la caméra.
 
-Pour trouver des exemples d'utilisation dela librairie Tensorflow, il suffit de cloner le dépôt Git suivant :
+Pour trouver des exemples d'utilisation de la librairie Tensorflow, il suffit de cloner le dépôt Git suivant :
 
 https://github.com/tensorflow/models
 
@@ -32,7 +32,7 @@ Ici nous avons pris un modèle SSDlite_MobilenetV2 car il est moins volumineux e
 ### Réseau de neurones convolutifs (CNN)
 C'est un système composé de neurones, généralement répartis en plusieurs couches connectées entre elles :
 
-![](https://1.bp.blogspot.com/-M8UvZJWNW4E/WsKk-tbzp8I/AAAAAAAAChw/OqxBVPbDygMIQWGug4ZnHNDvuyK5FBMcQCLcBGAs/s1600/image5.png)
+![40%](https://1.bp.blogspot.com/-M8UvZJWNW4E/WsKk-tbzp8I/AAAAAAAAChw/OqxBVPbDygMIQWGug4ZnHNDvuyK5FBMcQCLcBGAs/s1600/image5.png)
 
 #### La couche de convolution
 Elle reçoit une image entrée et lorsque c'est une vidéo, on la découpe en plusieurs images. 
