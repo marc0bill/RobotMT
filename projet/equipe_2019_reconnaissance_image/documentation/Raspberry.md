@@ -2,8 +2,8 @@
 
 Les objectifs de la carte Raspberry Pi sont les suivants:
 	- Récupérer la flux video de la camera 
-	- Analyser ce flux video au moyen d'un algorithme de reconnaissance d'image
-	- Asservir le robot en fonction des résultats des objets reconnues à travers l'envoie de commande UART
+	- Analyser ce flux video au moyen d'un algorithme de reconnaissance d'images
+	- Asservir le robot en fonction des résultats des objets reconnus à travers l'envoie de commande UART
 
 ## Test de la camera
 
@@ -17,22 +17,22 @@ Ce test étant concluant, nous pouvons tester l'enregistrement d'une vidéo avec
 ```
 raspivid -o video_01.h264 -t 5000
 ```
-Cette commande enregistre une vidéo de d'une durée de 5s (5000 ms) portant le nom video_01.h264 (format MP4)
+Cette commande enregistre une vidéo d'une durée de 5s (5000 ms) portant le nom video_01.h264 (format MP4)
 Nous pouvons ensuite visualiser cette vidéo avec:
 ```
 omxplayer video_01.h264
 ```
 
-Ce test est concluant. Néanmoins nous remarquons qu'à la lecture de la video, celle-ci est accélérée deux fois (en enregistrement de 10s est lue en 20s). Ce problème peut-être soit du à l'enregistrement soit à la lecture. Néanmoins pour l'utilisation que nous comptons en faire, cela ne pose pas de réel problème. Nous reviendront dessus en cas de problème de traitement vidéo ou si nous avons le temps.
+Ce test est concluant. Néanmoins nous remarquons qu'à la lecture de la video, celle-ci est accélérée deux fois (un enregistrement de 20s est lu en 10s). Ce problème peut-être soit du à l'enregistrement soit à la lecture. Néanmoins pour l'utilisation que nous comptons en faire, cela ne pose pas de réels problèmes. Nous reviendront dessus en cas de problème de traitement vidéo ou si nous avons le temps.
 
 La prochaine étape sera de récupérer ce flux vidéo dans un script python afin de pouvoir l'echantilloner et le traiter.
-Pour cela nous auront besoins de plusieurs librairies. En particulier la librairie tensorflow qui est l'algorithme de reconnaissance d'image (dévellopé par Google) que nous utiliserons. Cette algorithme s'appuie sur un réseau de neurones au préalablement entrainé. Le fonctionnement de l'algorithme est détaillé dans la documentation correspondante.
+Pour cela nous auront besoin de plusieurs librairies. En particulier la librairie tensorflow qui est l'algorithme de reconnaissance d'images (dévellopé par Google) que nous utiliserons. Cette algorithme s'appuie sur un réseau de neurones au préalable entrainé. Le fonctionnement de l'algorithme est détaillé dans la documentation correspondante.
 
 ## Traitement du flux vidéo
 
-Pour réaliser la suite des objectifs de la raspberry pi nous nous sommes inspirés d'un projet déjà existant sur github: https://github.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi
+Pour réaliser la suite des objectifs de la raspberry pi, nous nous sommes inspirés d'un projet déjà existant sur github: https://github.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi
 
-Nous avons donc installer l'ensemble des librairies nécessaire à l'aide des commandes suivante. Chacune de ces commandes sont détaillées sur le projet original cité ci-dessus. Nous nous contenterons uniquement de les lister ici.
+Nous avons donc installé l'ensemble des librairies nécessaire à l'aide des commandes suivantes. Chacune de ces commandes sont détaillées sur le projet original cité ci-dessus. Nous nous contenterons uniquement de les lister ici.
 ```
 sudo apt-get update
 sudo apt-get dist-upgrade
@@ -85,17 +85,17 @@ wget https://raw.githubusercontent.com/EdjeElectronics/TensorFlow-Object-Detecti
 
 ```
 
-Nous téléchargeons ensuite un scripts python appliquant l'algorithme tensorflow aux flux vidéo de la camera et nous renvoyant un flux vidéo traité. 
+Nous téléchargeons ensuite un script python appliquant l'algorithme tensorflow au flux vidéo de la camera et nous renvoyant un flux vidéo traité. 
 
 ```
 wget https://raw.githubusercontent.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi/master/Object_detection_picamera.py
 ```
-Comme nous pouvons le voir les objets reconnus sont encadrés d'une boite comportant le nom de l'objet reconnue ainsi que la probabilité que la reconnaissance soit correcte (ou le degré de certitude de l'algorithme dans ce cas précis).
+Comme nous pouvons le voir les objets reconnus sont encadrés d'une boîte comportant le nom de l'objet reconnu ainsi que la probabilité que la reconnaissance soit correcte (ou le degré de certitude de l'algorithme dans ce cas précis).
 
 <p align="center">
   <img src="..\ressources\Presentation\images\vue_rasp.jpeg">
 </p>
 
-La reconnaissance d'image fonctionne alors correctement.
+La reconnaissance d'images fonctionne alors correctement.
 
-Dans notre documentation tensorflow, nous expliquonns comment nous avons repris ce scripts afin de pouvoir utilisé et formatter les résulats de la reconnaissance d'image dans le but d'être utilisés par le programme d'asservissement.
+Dans notre documentation tensorflow, nous expliquons comment nous avons repris ce script afin de pouvoir utiliser et formatter les résulats de la reconnaissance d'images dans le but qu'ils soient utilisés par le programme d'asservissement.
