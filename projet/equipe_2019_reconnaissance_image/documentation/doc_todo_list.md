@@ -1,11 +1,8 @@
 ﻿/---------------------------------A FAIRE-----------------------------------/
 
-# Tout les fichiers ////////////////////////////////////////////Jeremy ?
-- Remettres touts les chemins des images depuis la reorganisation des fichiers
 
-# Raspberry.ms
-## Traitement du flux vidéo //////////////////////////////////Nathan ?
-- Ajouter une images montrant les images traités avec les boxes, ect... à la place prévue
+
+
 
 # UART.md
 ## Qu'est-ce que l'UART ? ////////////////////////////////// Jeremy ?
@@ -39,6 +36,13 @@
 # Asservissement.md /////////////////////////////////////////////Jeremy, Pierre, Donovan
 - Mettre en forme
 - Completer
+
+# Tout les fichiers ////////////////////////////////////////////Donovan
+- Remettres touts les chemins des images depuis la reorganisation des fichiers
+
+# Raspberry.ms
+## Traitement du flux vidéo //////////////////////////////////Nathan et Donovan
+- Ajouter une images montrant les images traités avec les boxes, ect... à la place prévue
 
 
 
