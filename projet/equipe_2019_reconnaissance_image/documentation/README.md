@@ -12,7 +12,7 @@ Sur la carte du dsPIC et ajouté un shield comportant l'elctronique de puissance
 Sur ce shield est encore rajouté une carte PCB permettant un accès facile aux pins d'alimentation et de communication du dsPIC.
 
 <p align="center">
-  <img src="..\..\Trucs_utiles\Presentation\images\PHOOOOTOOOOO.png"> /////Ajouter des images du robot
+  <img src="..\ressoures\Presentation\images\PHOOOOTOOOOO.png"> /////Ajouter des images du robot
 </p> 
 
 Le robot disposes de plusieurs fonctionnalités qui peuvent lui être commandé par liaison UART. Un détail des commandes UART est disponible ici : RobotMT\firmware\DocUart.pdf
