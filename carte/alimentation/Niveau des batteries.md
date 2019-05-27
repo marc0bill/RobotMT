@@ -5,7 +5,7 @@ d'amener la tension de sortie de chaque cellule à une tension de 3,3V maximum.
  
 # Solution 1 
 
-Dans un premier temps l'idée est de mettre en place un pont diviseur de tension afin de réduire cette tension venant des 
+Dans un premier temps l'idée est de mettre en place le montage ci-dessous afin de réduire cette tension venant des 
 batteries. 
 
 ![Image2](https://user-images.githubusercontent.com/47904531/58384981-287f0a80-7fea-11e9-94a5-a3acdc768c4a.png)
