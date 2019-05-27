@@ -60,4 +60,4 @@ Après avoir vérifier les communications Raspberry - PC et dsPIC - PC nous avon
 
 Nous avons tout d'abord utiliser un script pyhton envoyant des ordres aux robots comme VtsM 200 200 et demander le renvoie de donnée.
 
-Le programme utilisé est disponible ici :  /////////////////////Ou est le programme???
+Le programme utilisé est disponible ici :  "..\python\Test\com_UART_test_continue.py"

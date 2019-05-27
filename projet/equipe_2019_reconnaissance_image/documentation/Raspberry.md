@@ -90,13 +90,11 @@ Nous téléchargeons ensuite un scripts python appliquant l'algorithme tensorflo
 ```
 wget https://raw.githubusercontent.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi/master/Object_detection_picamera.py
 ```
-Comme nous pouvons le voir les objets reconnus sont encadrés d'une boit comportant le nom de l'objet reconnue ainsi que la probabilité que la reconnaissance soit correcte (ou le degré de certitude de l'algorithme dans ce cas précis).
+Comme nous pouvons le voir les objets reconnus sont encadrés d'une boite comportant le nom de l'objet reconnue ainsi que la probabilité que la reconnaissance soit correcte (ou le degré de certitude de l'algorithme dans ce cas précis).
 
-/////////////////////////////////////////////////////////////////
 <p align="center">
-  <img src="..\..\Trucs_utiles\Presentation\images\NOM_DE_LIMAGE.png"> ///Mettre le nom de l'image
+  <img src="..\ressources\Presentation\images\vue_rasp.jpeg">
 </p>
-/////////////////////////////////////////////////////////////////
 
 La reconnaissance d'image fonctionne alors correctement.
 
