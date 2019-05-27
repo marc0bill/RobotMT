@@ -18,3 +18,9 @@ class ObjetReconnu:
 		self.taille_Y = abs(self.ymax-self.ymin)
 		self.diagonale = math.sqrt(self.taille_X**2 + self.taille_Y**2)
 		self.ratio = self.diagonale/constantes.DIAGONALE_ECRAN
+
+	def afficher():
+		print("classe : ", self.nom)
+		print("score : ", self.proba)
+		print("coordonnées boxe : ( ", self.ymin, ", ", self.xmin, ", ", self.ymax, "; ", self.xmax, ")")
+

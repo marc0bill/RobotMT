@@ -6,10 +6,10 @@ import Asserv_V2
 import ObjetReconnu
 from time import sleep
 
-NOMBRE_DE_PASSE = 50 #Nombre de consigne à envoyer
+NOMBRE_DE_PASSE = 200 #Nombre de consigne à envoyer
 
 nomObjetASuivre = "bottle"
-nomObjetAFuir = "handbag"
+nomObjetAFuir = "refrigerator"
 
 print("chargement model")
 
@@ -45,11 +45,14 @@ for p in range(NOMBRE_DE_PASSE):
 				Asserv_V2.aligner_positionner_robot(Objet_Tracke, nomObjetASuivre, portSerie) 
 		else : 
 			print("Objet non reconnu")
-			UART.write(portSerie, " Stop ")
+			#UART.write(portSerie, " VtsM 0 0 ")
 			#UART.write(portSerie, " VtsM 0 0 ")
 			#UART.write(portSerie, " VtsM 0 0 ")
 
-	sleep(constantes.DELAIS_ACQUISITION)             
+	sleep(constantes.DELAIS_ACQUISITION)
+	UART.write(portSerie, " Stop ")
+	UART.write(portSerie, " Stop ")
+	UART.write(portSerie, " Stop ")
 UART.write(portSerie, " VtsM 0 0 ")
 UART.write(portSerie, " VtsM 0 0 ")
 UART.write(portSerie, " Stop ")
