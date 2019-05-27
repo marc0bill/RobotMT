@@ -17,7 +17,7 @@ print("chargement model")
 
 print("Configuration du port serie")
 #Configuration du port série :
-portSerie = serial.Serial("/dev/serial1" ,constantes.BAUDRATE)
+portSerie = serial.Serial("/dev/serial0" ,constantes.BAUDRATE)
 print("port serie configure")
 
 for p in range(NOMBRE_DE_PASSE):
