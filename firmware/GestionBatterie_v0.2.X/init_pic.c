@@ -38,6 +38,7 @@ void init_pic(void) {
 	LED4 = LED_OFF;	
     
     LED5 = LED_ON;	
+/**************Initialisation des sorties de selection du multiplixeur analogique 8 vers 1****************/
     TRISCbits.muxSEL1_TRIS = 0;
     TRISCbits.muxSEL1_TRIS = 0;
     TRISCbits.muxSEL1_TRIS = 0;
