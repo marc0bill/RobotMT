@@ -1,8 +1,11 @@
-Nous avons donc créer un scrypt pyhton qui permet en fonction des éléments issues de tensorflow, c'est à dire le nom de l'objet et ces positions spatiales, de renvoyer un ordre UART compréhensible au dsPIC.
-Voici so descriptif ci-dessous:
+# Scripts Python
+
+Le programme à éxécuter sur la raspberry est main_V2.py.
+__ATTENTION__ : lors de la récupération des scripts python par git dans la raspberry au chemin home\pi\Desktop\RobotMT, il faut copier TOUT les fichiers contenue dans le dossier dossier home/pi/Desktop\RobotMT\projet\equipe_2019_reconnaissance_image\python\Suivie_objet dans le dossier home\pi\tensorflow1\models\research\object_detection
 
 ## Main_V2.py
 
+Ce fichier contient le programme principale.
 Nous prenons en entrée le tableau issue du programme tensorflow qui analyse les images frame par frame et dedans nous cherchons si l'objet désiré y est présent.
 
 S'il est présent alors nous pouvons commencer à donner les ordres d'alignement et de déplacement. Nous avons réaliser deux mode, le Mode 0 où le robot tourne et avance en deux temps et le mode 1 où celui-ci effectue les deux en même temps. Nous nous poserons dans le mode 0 pour l'explication du code.
@@ -25,8 +28,3 @@ Les fonctions reculer / avancer permettent de déplacer le robot en appliquant l
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-# Scripts Python
-
-Le programme à éxécuter sur la raspberry est main_V2.py.
-__ATTENTION__ : lors de la récupération des scripts python par git dans la raspberry au chemin home\pi\Desktop\RobotMT, il faut copier TOUT les fichiers contenue dans le dossier dossier home/pi/Desktop\RobotMT\projet\equipe_2019_reconnaissance_image\python\Suivie_objet dans le dossier home\pi\tensorflow1\models\research\object_detection
