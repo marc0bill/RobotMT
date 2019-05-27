@@ -13,7 +13,7 @@ KA = 1000 #correcteur proportionnel de vitesse lié à l'alignement
 KP = 1000 #correcteur proportionnel de vitesse lié à la position
 DELAIS_ALIGNEMENT = 5 #Delais en seconde laissé au robot pour corriger son alignement
 DELAIS_POSITIONNEMENT = 1 #Delais en seconde laissé au robot pour corriger sa position
-DISTANCE_SUIVIE = 0.6 #consigne de ratio de taille que l'objet doit occuper sur l'ecran pour être considéré à bonne distance lors d'une poursuite
+DISTANCE_SUIVIE = 0.4 #consigne de ratio de taille que l'objet doit occuper sur l'ecran pour être considéré à bonne distance lors d'une poursuite
 DISTANCE_FUITE = 0.2#consigne de ratio de taille que l'objet doit occuper sur l'ecran pour être considéré à bonne distance lors d'une fuite
 
 #Mode de déplacement
