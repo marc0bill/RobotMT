@@ -21,9 +21,9 @@ def reculer(vitesse, portSerie):
 def tourner_sur_place(vitesse, direction, portSerie):
 	print("On tourne a ", direction)
 	if direction == "droite":
-		commande = "VtsM %.0f %.0f" %(vitesse, -vitesse)
+		commande = "VtsM %.0f %.0f\n" %(vitesse, -vitesse)
 	elif direction == "gauche":
-		commande = "VtsM %.0f %.0f" %(-vitesse, vitesse)
+		commande = "VtsM %.0f %.0f\n" %(-vitesse, vitesse)
 	else:
 		print("Erreur : direction incorrecte") #normalement on passe jamais par là
 
@@ -35,9 +35,9 @@ def tourner_sur_place(vitesse, direction, portSerie):
 
 def tourner_et_avancer(vitesse_alignement,vitesse_position, direction, portSerie):
 	if direction == "droite":
-		commande = "VtsM %.0f %.0f" %(vitesse_position + vitesse_alignement, vitesse_position - vitesse_alignement)    
+		commande = "VtsM %.0f %.0f\n" %(vitesse_position + vitesse_alignement, vitesse_position - vitesse_alignement)    
 	elif direction == "gauche":
-		commande = "VtsM %.0f %.0f" %(vitesse_position - vitesse_alignement, vitesse_position + vitesse_alignement)  
+		commande = "VtsM %.0f %.0f\n" %(vitesse_position - vitesse_alignement, vitesse_position + vitesse_alignement)  
 	else:
 		print("Erreur : direction incorrecte") #normalement on passe jamais par là
 	UART.write(portSerie, commande)
