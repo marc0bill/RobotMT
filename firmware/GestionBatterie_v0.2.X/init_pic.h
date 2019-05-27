@@ -12,7 +12,7 @@
 #define LED_OFF 0
 #define FQUARTZ     4000000	// 4 MHz
 #define PLL_N1      0	// 2 	(0.8M<FQuartz/N1<8M)
-#define PLL_M       78	// 80 	(100M<FQuartz/N1*M<200M)		//  todo voir si MUL_40 définit dans .h
+#define PLL_M       78	// 80 	(100M<FQuartz/N1*M<200M)		//  todo voir si MUL_40 dÃ©finit dans .h
                         // PLL_M=38, soit FCY=20MHz
                         // PLL_M=78, soit FCY=40MHz
 #define PLL_N2      0	// 2	(12.5M<FQuartz*M/(N1*N2)<80M)
@@ -47,7 +47,7 @@
 
 //#define LED8_LAT		_LATC8
 
-/*define of muxSEL bits*/
+/****define of muxSEL bits***/
 #define muxSEL1_TRIS		TRISC8
 #define muxSEL2_TRIS		TRISC7
 #define muxSEL3_TRIS		TRISC6
