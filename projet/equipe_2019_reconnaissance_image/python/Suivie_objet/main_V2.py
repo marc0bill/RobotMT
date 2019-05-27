@@ -8,7 +8,7 @@ from time import sleep
 
 NOMBRE_DE_PASSE = 20 #Nombre de consigne à envoyer
 
-nomObjetASuivre = "person"
+nomObjetASuivre = "tv"
 nomObjetAFuir = "handbag"
 
 print("chargement model")
