@@ -5,17 +5,15 @@ Toutes ces commandes s'effectueront en UART. Il faut donc que la communication U
 
 ## Qu'est-ce que l'UART ?
 
-/////////////////////////////////////////
+Lors d'une communication UART, deux circuits UARTs communique entre eux. L'avantage est que cela ne requiert que deux câbles : le Tx (pour la transmission) de l'un vers le Rx (pour la réception) de l'autre et inversement. L'UART convertit les données parallèles qu'il a reçu par le bus de données en données séries pour les transmettre au second UART qui reconvertira les données séries en données parallèles. La transmission de données se fait de manière asynchrone. Cela signifie que ce n'est pas régie par un signal d'horloge. A la place, l'UART de transmission envoie des bits de début et de fin pour savoir quand l'UART de réception doit lire les bits envoyés. Il ajoute aussi un bit de parité qui permettra de vérifier qu'il n'y a pas eu d'erreurs lors de la transmission. En ajoutant les données devant être transmises, le tout forme un paquet qui est alors transmis.
 
-Le protocole UART permet de la transmission d'information entre deux systèmes différents. Celui dialogue en "ascii" et permet l'envoie et la réception d'ordre simple de manière continue.
+<p align="center">
+  <img src="..\ressources\Presentation\images\schemaUART.png"> 
+</p>
 
-Dans notre cas il nous permet d'envoyer des vitesse tel que : VtsM 100 100
-
-//// Photo Uart avec Vtsm 100 100
-
-Mais aussi de savoir les vitesses réelles des roues par rapport à la consigne.
-
-/////////////////////////////////////////
+<p align="center">
+  <img src="..\ressources\Presentation\images\PacketUART.png"> 
+</p>
 
 ## Communication Raspberry - Raspberry
 Nous commençons par étudier la communication UART coté raspberry.
@@ -31,13 +29,13 @@ Nous ecrivons ensuite un script python envoyant une chaine de caractère en UART
   <img src="..\ressources\Presentation\captures\Communication_RASP-RASP_reduite.png">
 </p> 
 
-Le programme utilisé est disponible ici : RobotMT\python\Reconnaissance\Test\com_uart_rasp_rasp.py /////////////////////Reecrire le programme 
+Le programme utilisé est disponible ici : "..\python\Test\com_UART_Rasp_Rasp.py
 
 ## Communication Raspberry - PC
 
 La communication UART de la raspberry pi avec elle même étant fonctionnel, nous décidons maintenant de tester la communication entre la raspberry pi est un terminal PC.
 
-Pour cela nous utilisons un câble USB découpé et dénudé à une extrémité. Nous connectons les fils D+ et D- au pins Rx et Tx de la raspberry et ouvrons un termial série sur le pc (nous avons utilisé termite).
+Pour cela nous utilisons un câble USB possédant un circuit UART ainsi que les 2 fils Rx et Tx, découpé et dénudé à une extrémité. Nous connectons les fils Rx et Tx du câble respectivement aux pins Tx et Rx de la raspberry et ouvrons un termial série sur le pc (nous avons utilisé termite).
 
 <p align="center">
   <img src="..\ressources\Presentation\images\liaison_uart_raspberry_pc.png"> ////////Inserer une image du câble
@@ -60,4 +58,4 @@ Après avoir vérifier les communications Raspberry - PC et dsPIC - PC nous avon
 
 Nous avons tout d'abord utiliser un script pyhton envoyant des ordres aux robots comme VtsM 200 200 et demander le renvoie de donnée.
 
-Le programme utilisé est disponible ici :  /////////////////////Ou est le programme???
+Les programme utilisés sont disponible ici :  "..\python\Test"
