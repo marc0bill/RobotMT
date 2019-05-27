@@ -45,6 +45,8 @@ for p in range(NOMBRE_DE_PASSE):
 		else : 
 			print("Objet non reconnu")
 			UART.write(portSerie, " VtsM 0 0 ")
+			UART.write(portSerie, " VtsM 0 0 ")
+			UART.write(portSerie, " VtsM 0 0 ")
  
 	sleep(constantes.DELAIS_ACQUISITION)             
 
