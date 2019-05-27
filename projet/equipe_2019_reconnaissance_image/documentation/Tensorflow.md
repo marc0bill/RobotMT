@@ -71,7 +71,7 @@ Nous avons rajouter ce bout de code au script initial afin de retourner une list
 On se limite ici au quatre premiers objets détectés sur l'image (c'est-à-dire, ceux avec le plus grand score).
 
 ```
-  classes=np.squeeze(classes).astype(np.int32)
+    classes=np.squeeze(classes).astype(np.int32)
     scores=np.squeeze(scores).tolist()
     boxes=np.squeeze(boxes).tolist()
     objets=[[],[],[],[]]
