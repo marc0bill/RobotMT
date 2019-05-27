@@ -4,23 +4,19 @@ import UART
 
 def avancer(vitesse, portSerie):
 	print("En marche avant")
-	commande = "VtsM  "
-	commande1 = " %.0f " %vitesse
-	commande2 = " %.0f " %vitesse
+	commande = "VtsM %.0f %.0f " %(vitesse, vitesse)
 	UART.write(portSerie, commande)
 	#On l'envoie plusieurs fois car nous avon quelques soucis avec le baudrate à ce stade
-	UART.write(portSerie, commande1)
-	UART.write(portSerie, commande2)
+	UART.write(portSerie, commande)
+	UART.write(portSerie, commande)
 
 def reculer(vitesse, portSerie):
-	print("En marche avant")
-	commande = "VtsM  "
-	commande1 = " -%.0f " %vitesse
-	commande2 = " -%.0f " %vitesse
+	print("En marche arrière")
+	commande = "VtsM %.0f %.0f " %(-vitesse, -vitesse)
 	UART.write(portSerie, commande)
 	#On l'envoie plusieurs fois car nous avon quelques soucis avec le baudrate à ce stade
-	UART.write(portSerie, commande1)
-	UART.write(portSerie, commande2)
+	UART.write(portSerie, commande)
+	UART.write(portSerie, commande)
 
 def tourner_sur_place(vitesse, direction, portSerie):
 	print("On tourne a ", direction)
