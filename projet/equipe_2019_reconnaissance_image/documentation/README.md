@@ -11,10 +11,6 @@ Les moteurs des roues sont contrôlés par un microcontrôleur dsPIC33JF128MC804
 Sur la carte du dsPIC est ajouté un shield comportant l'elctronique de puissance nécessaire au contrôle moteur (nottament le pont en H).
 Sur ce shield est encore rajouté une carte PCB permettant un accès facile aux pins d'alimentation et de communication du dsPIC.
 
-<p align="center">
-  <img src="..\ressoures\Presentation\images\PHOOOOTOOOOO.png"> /////Ajouter des images du robot
-</p> 
-
 Le robot dispose de plusieurs fonctionnalités qui peuvent lui être commandé par liaison UART. Un détail des commandes UART est disponible ici : RobotMT\firmware\DocUart.pdf
 
 Celles que nous utiliserons principalement pour notre projet sera la suivante : "VtsM vitesseRoue1 vitesseRoue2"
