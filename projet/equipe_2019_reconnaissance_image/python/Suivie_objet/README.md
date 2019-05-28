@@ -9,10 +9,9 @@ __ATTENTION__ : lors de la récupération des scripts python par git dans la ras
 Ce fichier contient le programme principale.
 Nous prenons en entrée le tableau issue du programme tensorflow qui analyse les images frame par frame et dedans nous cherchons si l'objet désiré y est présent.
 
-S'il est présent alors nous pouvons commencer à donner les ordres d'alignement et de déplacement. Nous avons réaliser deux mode, le Mode 0 où le robot tourne et avance en deux temps et le mode 1 où celui-ci effectue les deux en même temps. Nous nous poserons dans le mode 0 pour l'explication du code.
-
-Tout d'abord la fonction main va appeler des fonction afin de savoir s'il faut reculer ou avancer en fonction de la position et de la taille de l'objet.
-
+S'il est présent alors nous pouvons commencer à donner les ordres d'alignement et de déplacement. Nous avons réaliser deux mode, le Mode 0 où le robot tourne et avance en deux temps et le mode 1 où celui-ci effectue les deux en même temps.
+Tout d'abord la fonction main va vérifier que l'objet est bien aligné avec le centre du robot via la fonction aligner_robot. Si effectivement le robot est aligné alors il va appeler des fonction afin de savoir s'il faut reculer ou avancer en fonction de la position et de la taille de l'objet.
+Sinon tant que le robot n'est pas aligné le robot tournera afin d'être aligné avec sa cible.
 ## Asserv_V2.py
 
 En effet, les fonctions dans Asserv_V2.py permmettent de savoir l'action à effectuer en fonction de la position relative de l'objet par rapport au robot.
