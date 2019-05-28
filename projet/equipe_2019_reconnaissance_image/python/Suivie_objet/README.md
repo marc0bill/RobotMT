@@ -1,6 +1,7 @@
 # Scripts Python
 
 Le programme à éxécuter sur la raspberry est main_V2.py.
+
 __ATTENTION__ : lors de la récupération des scripts python par git dans la raspberry au chemin home\pi\Desktop\RobotMT, il faut copier TOUT les fichiers contenue dans le dossier dossier home/pi/Desktop\RobotMT\projet\equipe_2019_reconnaissance_image\python\Suivie_objet dans le dossier home\pi\tensorflow1\models\research\object_detection
 
 ## Main_V2.py
