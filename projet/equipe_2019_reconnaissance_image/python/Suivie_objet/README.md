@@ -32,3 +32,13 @@ Les fonctions tourner_et_avancer et tourner_et_reculer permettenet déplacer les
 ## Constantes.py
 
 Ce fichier python est celui où toutes les constantes sont situées, cela permet d'ajuster facilement toutes les constantes en fonction des résultats des tests.
+
+##Uart.py
+
+La fonction write permet d'encoder une chaine de charactère en ascii et de l'envoyer via uart, de plus elle renvoie un retour de ce qui est envoyer à la raspberry afin que nous puissions controler l'envoie des données.
+
+La fonction read permet de recevoir et de décoder l'information uart qui lui est envoyé.
+
+##ObjetReconnu
+
+La fonction _init_ permet de calculer les tailles et distances de l'objet.
