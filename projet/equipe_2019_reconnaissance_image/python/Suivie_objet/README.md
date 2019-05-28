@@ -21,9 +21,15 @@ Si le robot n'est pas aligné avec l'objet alors il va tout d'abord calculer l'e
 
 Si le robot est aligné alors il va calculer la taille de l'objet par rapport à la taille de l'image et il va reculer ou avancer afin de ne pas être trop loin ni trop près du robot en appelant les fonction avancer ou reculer de Mouvement.py .
 
+La fonction aligner_positionner est la fonction qui dans le Mode = 1 permet d'appeler les fonctions tourner_et_avancer et tourner_et_reculer en fonction des cas de  figure.
 ## Mouvement.py
 
 Tout d'abord la fonction tourner_sur_place permet de faire tourner les roues dans le sens opposées afin faire tourner le robot.
 
 Les fonctions reculer / avancer permettent de déplacer le robot en appliquant les mêmes vitesses sur les deux roues.
 
+Les fonctions tourner_et_avancer et tourner_et_reculer permettenet déplacer les roues du robot de façon à que celui puisse avancer ou reculer en même temps que tourner.
+
+## Constantes.py
+
+Ce fichier python est celui où toutes les constantes sont situées, cela permet d'ajuster facilement toutes les constantes en fonction des résultats des tests.
