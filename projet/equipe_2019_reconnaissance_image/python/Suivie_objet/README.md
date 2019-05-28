@@ -26,5 +26,3 @@ Tout d'abord la fonction tourner_sur_place permet de faire tourner les roues dan
 
 Les fonctions reculer / avancer permettent de déplacer le robot en appliquant les mêmes vitesses sur les deux roues.
 
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
