@@ -20,10 +20,10 @@
  */
 
 /* 
- * File: adc.h
- * Author: MASSOURI Abdelfattah
- * Comments: Data read from adc input channel
- * Revision history: v0.1
+ * File:   
+ * Author: 
+ * Comments:
+ * Revision history: 
  */
 
 // This is a guard condition so that contents of this file are not included
@@ -32,6 +32,12 @@
 #define	_ADC_H
 
 
+//void ADC1_Init(void);
+//void T3_init(void);
+//void __attribute__((interrupt, no_auto_psv)) _T3Interrupt( void );
+//void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void);
+
+//void init_ADC( void );
 void init_ADC( int amask);
 int readADC(int channel);
 

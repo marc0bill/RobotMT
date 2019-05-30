@@ -1,10 +1,10 @@
 /**********************************************************************
-* Â© 2008 Microchip Technology Inc.
+* © 2008 Microchip Technology Inc.
 *
 * FileName:        main.c
 * Dependencies:    Header (.h) files if applicable, see below
 * Processor:       dsPIC33Fxxxx
-* Compiler:        MPLABÂ® C30 v3.00 or higher
+* Compiler:        MPLAB® C30 v3.00 or higher
 *
 * SOFTWARE LICENSE AGREEMENT:
 * Microchip Technology Incorporated ("Microchip") retains all ownership and 
@@ -81,18 +81,17 @@ int ecanRxMsgBuffer[NUM_OF_RX_BUFFERS][8] __attribute__((space(dma)));
  * The sentPacket  variable tracks the number of packets sent.*/
 volatile int received = 0;
 volatile int transmitNext = 1;
-
-int sentPacket = 0;	
-char sizeU1Tx;	
+int sentPacket = 0;
+char sizeU1Tx;
 char sizeU2Tx;
 int data[8];
 //	int crcval;
 char strU1Tx[UxTx_length];
 char strU2Tx[UxTx_length];
-int AdcValue;		
-int sel = 0;		//Selection input of mux
-int channel_current = 1;	//adc channel for current sensing: AN1 and AN2
-int channel_temp = 3;		//adc channel for tempreture sensing: AN3 and AN4
+int AdcValue;
+int sel = 0;
+int channel_current = 1;
+int channel_temp = 3;
 
 
 /* In Register Indirect mode, the ECAN/DMA cannot differentiate between buffers.
@@ -122,7 +121,7 @@ int main(void){
     int readCurrent = 0;
     
     
-    /* Relay activation */
+    /******* Activation du relay *******/
     TRISAbits.TRISA7 =0;
     LATAbits.LATA7 = 1; 
 
@@ -130,8 +129,7 @@ int main(void){
     
 	/* Configure the dsPIC */
 	init_pic();
-	
-    init_ADC(0);	// initialisation of the adc 
+    init_ADC(0);
     initUART1(57600);//9600, 19200, 57600 // CONCERNE UART
     
 	ECAN1DMAConfig(__builtin_dmaoffset(ecanTxMsgBuffer),
@@ -145,6 +143,7 @@ int main(void){
 	ECAN1SetOPMode();
 
 	while(1){
+       //PORTBbits.RB13 != PORTBbits.RB13;
         //Read multi-channel
         /* 
         while(channel <7){
@@ -233,25 +232,24 @@ void DELAY(unsigned ms) {
         for (i = 0; i < 0x1F40; i++);
     }
 }
-
-
-/*Level of battery cells read function*/
-/*this function set the mux selection bits from 0 to 5 as we have 6 cells*/
-/*For each selction bits value this function send the data with a unique id to the calculator */
-/*this function control the level of the cell 1 of the battery and if it is less than 15V it will send an alert to the calculator to shutdown and it will turn off the relay after 6 secondes */
-
 void Read_Batterie_Voltage(void){
      mux_Select(sel);
      AdcValue=readADC(AN0);
         DELAY(10);
-        
-        data[1]=AdcValue;
-        if((((AdcValue/4095)*3300)*0.007)<15)
+         /* ADC_output has 12 bits resolution
+         * To send this data using the can bus, we need to put the higth 8 bits in data[1] and the low 4 bits in data[2]
+         * data[0] is the id of the data. if battery level is less then 15V then id = 0xAA else id =[0xFF,...,0xFA]
+         */
+        data[1]=AdcValue>>4;
+        data[2]=AdcValue && 0x00F;
+        if((((data[1]<<4 + data[2])/4095)*3300*9.28)<=1500){
             data[0]=0xAA;
+        }
         else
             data[0]=0xff - sel;
-        sizeU2Tx=sprintf(strU2Tx, "AdcValue = %d \r\n",AdcValue);
+        sizeU2Tx=sprintf(strU2Tx, "AdcValue = %d \r\n",AdcValue); //Send data through the serial port for debugging
         fctU1Tx_string(strU2Tx,sizeU2Tx);
+        // Increment the input channel
         if (sel < 5)
             sel++;
         else sel =0;
@@ -261,11 +259,11 @@ void Read_Batterie_Voltage(void){
         if(transmitNext == 1){
 			/* Send a new packet. Create the packet using
              * data structure and the SID and EID.*/ 
-			data[7] = 0;
-			data[6] = 0;
-			data[5] = 0;
-			data[4] = 0;
-			ECANCreateEIDPacket(data,TXSID1,TXEID1,ecanTxMsgBuffer);
+			data[7] = 0; // don't needed
+			data[6] = 0; // don't needed
+			data[5] = 0; // don't needed
+			data[4] = 0; // don't needed
+			ECANCreateEIDPacket(data,TXSID1,TXEID1,ecanTxMsgBuffer); // Create CAN packet
 			transmitNext = 0;
 		}
         
@@ -273,7 +271,7 @@ void Read_Batterie_Voltage(void){
          * example does not check if the message was aborted but that could be 
          * checked here. Note that if the message was aborted the TBIF flag will
          * not be set and you will not get the associated event interrupt. */
-		ECAN1SendPacket();
+		ECAN1SendPacket(); // send can packet
 	    if(data[0]==0xaa){
             DELAY(6000);
             LATAbits.LATA7 = 0;
@@ -281,22 +279,24 @@ void Read_Batterie_Voltage(void){
       
 }
 
-
-/*Tempreture of battery read function*/
-/*this function read data from two tempreture sensor that are connected to channel AN1 and AN2*/
-/*For each channel value (AN1 or AN2) this function send the data with a unique id to the calculator */
-/*this function control the level battery tempreture and if it is more than 50Â°C it will send an alert to the calculator to shutdown and it will turn off the relay after 6 secondes */
-
 void Read_Batterie_Tempreture(void){
- AdcValue=readADC(channel_temp);
+    //Read data from adc channel "channel_temp"
+    AdcValue=readADC(channel_temp);    
         DELAY(10);
-        data[1]=AdcValue;
+        /* ADC_output has 12 bits resolution
+         * To send this data using the can bus, we need to put the higth 8 bits in data[1] and the low 4 bits in data[2]
+         * data[0] is the id of the data. if tempreture is more then 50°C then id = 0xAA else id =[0xDF, 0xDE]
+         */
+        data[1]=AdcValue>>4;    
+        data[2]=AdcValue && 0x00F;
         if(((AdcValue/4095)*3300)>50)
             data[0]=0xAA;
         else
             data[0]=0xdf - (channel_temp-1);
         sizeU2Tx=sprintf(strU2Tx, "AdcValue = %d \r\n",AdcValue);
         fctU1Tx_string(strU2Tx,sizeU2Tx);
+        
+        //increment adc input channel
         if (channel_temp < 2)
             channel_temp++;
         else channel_temp =1;
@@ -306,11 +306,11 @@ void Read_Batterie_Tempreture(void){
         if(transmitNext == 1){
 			/* Send a new packet. Create the packet using
              * data structure and the SID and EID.*/ 
-			data[7] = 0;
-			data[6] = 0;
-			data[5] = 0;
-			data[4] = 0;
-			ECANCreateEIDPacket(data,TXSID1,TXEID1,ecanTxMsgBuffer);
+			data[7] = 0; // don't needed
+			data[6] = 0; // don't needed
+			data[5] = 0; // don't needed
+			data[4] = 0; // don't needed
+			ECANCreateEIDPacket(data,TXSID1,TXEID1,ecanTxMsgBuffer); // Create CAN packet
 			transmitNext = 0;
 		}
         
@@ -325,15 +325,16 @@ void Read_Batterie_Tempreture(void){
             LATAbits.LATA7 = 0;
         }
 }
-
-/*Current consumption read function*/
-/*this function read data from two hall effect sensors that are connected to channel AN3 and AN4*/
-/*For each channel value (AN3 or AN4) this function send the data with a unique id to the calculator */
-
 void Read_Current(void){
         AdcValue=readADC(channel_current);
         DELAY(10);
-        data[1]=AdcValue;
+        
+        /* ADC_output has 12 bits resolution
+         * To send this data using the can bus, we need to put the higth 8 bits in data[1] and the low 4 bits in data[2]
+         * data[0] is the id of the data. id =[0xEF, 0xEE]
+         */
+        data[1]=AdcValue>>4;
+        data[2]=AdcValue && 0x00F;
         data[0]=0xef - (channel_current-3);
         sizeU2Tx=sprintf(strU2Tx, "AdcValue = %d \r\n",AdcValue);
         fctU1Tx_string(strU2Tx,sizeU2Tx);
@@ -346,11 +347,11 @@ void Read_Current(void){
         if(transmitNext == 1){
 			/* Send a new packet. Create the packet using
              * data structure and the SID and EID.*/ 
-			data[7] = 0;
-			data[6] = 0;
-			data[5] = 0;
-			data[4] = 0;
-			ECANCreateEIDPacket(data,TXSID1,TXEID1,ecanTxMsgBuffer);
+			data[7] = 0; // don't needed
+			data[6] = 0; // don't needed
+			data[5] = 0; // don't needed
+			data[4] = 0; // don't needed
+			ECANCreateEIDPacket(data,TXSID1,TXEID1,ecanTxMsgBuffer); // Create CAN packet
 			transmitNext = 0;
 		}
         
@@ -365,12 +366,15 @@ void Read_Current(void){
 
 
 /**********mux select function ************/
-// @int sel: in select channel from 0 to 8 as we have mux 8 to 1
-
+/* @int sel: in select channel from 0 to 8 as we have mux 8 to 1
+ * LATCbits.muxSEL1 = sel(0)
+ * LATCbits.muxSEL2 = sel(1)
+ * LATCbits.muxSEL3 = sel(2)
+*/
 void mux_Select(int sel){
    
-    LATCbits.muxSEL1= sel && 001; 	//LATCbits.LATC8 = sel(0);
-    LATCbits.muxSEL2=(sel && 010)>>1;	//LATCbits.LATC7 = sel(1);
-    LATCbits.muxSEL3=(sel && 100)>>2;	//LATCbits.LATC6 = sel(2);
+    LATCbits.muxSEL1= sel && 001;  
+    LATCbits.muxSEL2=(sel && 010)>>1;
+    LATCbits.muxSEL3=(sel && 100)>>2;
 
      }
