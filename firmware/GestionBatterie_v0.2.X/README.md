@@ -1,11 +1,11 @@
 # FirmwareGestionAlim v0.2
-*********************************************************************************************************************************************************/
+/******************************************************************************/
 # RobotMT/firmware/GestionBatterie_v0.2.X/ (Power Management System)
-******************************************************************************
+/******************************************************************************/
 (C) COPYRIGHT 2019 POLYTECH.
 
   * file    : RobotMT/firmware/GestionBatterie_v0.2.X//readme.md
-  * author  : Abdelfattah MASOURI
+  * author  : Abdelfattah MASSOURI
   * version : V1.0.0
   * date    : 30-May-2019
   * brief   : Description of the project GestionBatterie_v0.2.X.
@@ -26,16 +26,16 @@ ______________________________________________________________________________
 
 ### Directory contents
 
-  - RobotMT/firmware/GestionBatterie_v0.2.X/main.c                             (Main program)
-  - RobotMT/firmware/GestionBatterie_v0.2.X/ECAN1Drv.c                        (ECAN driver)
-  - RobotMT/firmware/GestionBatterie_v0.2.X/ECAN1Drv.h                        (ECAN driver header file)
-  - RobotMT/firmware/GestionBatterie_v0.2.X/adc.c                         	  (ADC configration)
-  - RobotMT/firmware/GestionBatterie_v0.2.X/adc.h							  (ADC configration header file)
-  - RobotMT/firmware/GestionBatterie_v0.2.X/init_pic.c 						  (pic initialization function)
-  - RobotMT/firmware/GestionBatterie_v0.2.X/init_pic.h                        (pic initialization header file)
-  - RobotMT/firmware/GestionBatterie_v0.2.X/node.h                            (CAN node configuration)
-  - RobotMT/firmware/GestionBatterie_v0.2.X/uart.c							  (UART configration)
-  - RobotMT/firmware/GestionBatterie_v0.2.X/uart.h                            (UART configration header file)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/main.c                        (Main program)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/ECAN1Drv.c                    (ECAN driver)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/ECAN1Drv.h                    (ECAN driver header file)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/adc.c                         (ADC configration)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/adc.h			  (ADC configration header file)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/init_pic.c 			  (pic initialization function)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/init_pic.h                    (pic initialization header file)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/node.h                        (CAN node configuration)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/uart.c			  (UART configration)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/uart.h                        (UART configration header file)
 ______________________________________________________________________________
 
 ### Hardware and Software environment 
