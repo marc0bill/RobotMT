@@ -1,12 +1,57 @@
 # FirmwareGestionAlim v0.2
-# Presentation
+*********************************************************************************************************************************************************/
+# RobotMT/firmware/GestionBatterie_v0.2.X/ (Power Management System)
+******************************************************************************
+(C) COPYRIGHT 2019 POLYTECH.
 
-The software proposed here allows to:
-* Monitor the voltage of the 6 cells of the LiPo batteries
-* Monitor the temperature of the two LiPo batteries
-* Monitor power consumption for different power levels
-* Communicate with the main calculator (Raspberry pi) through the CAN bus
+  * file    : RobotMT/firmware/GestionBatterie_v0.2.X//readme.md
+  * author  : Abdelfattah MASOURI
+  * version : V1.0.0
+  * date    : 30-May-2019
+  * brief   : Description of the project GestionBatterie_v0.2.X.
 
+******************************************************************************
+
+### Project Description
+
+This project allows to:
+  - 1) Monitor the voltage of the 6 cells of the LiPo batteries
+  - 2) Monitor the temperature of the two LiPo batteries
+  - 3) Monitor power consumption for different power levels
+  - 4) Communicate with the main calculator (Raspberry pi) through the CAN bus
+
+______________________________________________________________________________
+
+______________________________________________________________________________
+
+### Directory contents
+
+  - RobotMT/firmware/GestionBatterie_v0.2.X/main.c                             (Main program)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/ECAN1Drv.c                        (ECAN driver)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/ECAN1Drv.h                        (ECAN driver header file)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/adc.c                         	  (ADC configration)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/adc.h							  (ADC configration header file)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/init_pic.c 						  (pic initialization function)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/init_pic.h                        (pic initialization header file)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/node.h                            (CAN node configuration)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/uart.c							  (UART configration)
+  - RobotMT/firmware/GestionBatterie_v0.2.X/uart.h                            (UART configration header file)
+______________________________________________________________________________
+
+### Hardware and Software environment 
+
+  - This project has been used with a dsPIC33FJ128MC804.
+
+  - dsPIC33FJ128MC804 Set-up
+    - Use ADC input channel (AN0) to read batteries level.
+	- Use RC6, RC7, RC8 to set mux input channel to select battery cell.
+    - Use ADC input channel (AN1) to read battery 1 tempreture.
+	- Use ADC input channel (AN2) to read battery 2 tempreture.
+    - Use ADC input channel (AN3) to read the output voltage of the first hall effect sensor.
+    - Use ADC input channel (AN4) to read the output voltage of the seconde hall effect sensor.
+    - Use the eCAN module to communicate with other device such as calculator(raspberry pi)
+    - Use RA7 pin to turn on/off the relay.
+    
 firmware dsPIC
 ==============
 
