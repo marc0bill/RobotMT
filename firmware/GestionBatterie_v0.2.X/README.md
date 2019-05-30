@@ -2,7 +2,7 @@
 /******************************************************************************/
 # RobotMT/firmware/GestionBatterie_v0.2.X/ (Power Management System)
 /******************************************************************************/
-(C) COPYRIGHT 2019 POLYTECH.
+* (C) COPYRIGHT 2019 POLYTECH.
 
   * file    : RobotMT/firmware/GestionBatterie_v0.2.X//readme.md
   * author  : Abdelfattah MASSOURI
