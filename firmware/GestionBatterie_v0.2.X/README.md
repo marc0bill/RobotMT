@@ -1,6 +1,7 @@
 # FirmwareGestionAlim v0.2
 /******************************************************************************/
-# RobotMT/firmware/GestionBatterie_v0.2.X/ (Power Management System)
+# Power Management System
+# RobotMT/firmware/GestionBatterie_v0.2.X/
 /******************************************************************************/
 * (C) COPYRIGHT 2019 POLYTECH.
 
