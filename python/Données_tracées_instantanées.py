@@ -2,10 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-#La partie graphique a été étudié avec Najlaa. Ce code ici prend comme fonction un sinus et le trace
-#de façon instantanée. Il évolue donc avec le temps. 
-#Le but est de faire de même avec les données de la consommation de courant venant 
-#de la carte d'alimentation, afin de voir en temps réel son évolution. 
+#Application graphique
 
 
 
