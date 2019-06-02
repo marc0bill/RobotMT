@@ -5,11 +5,7 @@ Created on Sun May 26 12:40:14 2019
 @author: ADMIN
 """
 
-#L'application graphique a été réalisé avec Najlaa. Le but est comme dit dans le code 
-#précédent, tracer de façon instantanée les données venant du montage, telles 
-#que la consommation du courant. 
-# Ici on a créé un excel dans lequel on a sauvegardé des données du code pour 
-#ensuite les tracer. 
+#Création d'un excel
 
 
 import tkinter as tk         # Bibliothèque graphique
